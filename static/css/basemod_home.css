@@ -1,0 +1,54 @@
+@charset "ISO-8859-1";
+/* CSS Document */
+
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) Variation of screen layout (basemod.css) for layout example "3col_fullheight"
+ * (de) Variation des Screenlayouts (basemod.css) für Layoutbeispiel "3col_fullheight"
+ *
+ * @copyright       Copyright 2005-2010, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3
+ * @revision        $Revision: 466 $
+ * @lastmodified    $Date: 2010-09-14 21:19:30 +0200 (Di, 14 Sep 2010) $
+ */
+
+@media screen, projection
+{
+#main {background:#ddd1b7; color:#000; padding-bottom:50px;}	
+#col3 {overflow:hidden; margin:0;}
+#col3_content {padding:0;}
+.coda-slider-wrapper-border {overflow:visible;}
+.boxen {clear:both; padding:50px 75px; position:absolute; bottom:30px; left:0; }
+.start_picture {margin-bottom:30px;}
+.boxen p {margin:10px 0;}
+.boxen .textContainer {height:120px;}
+.box {float:left; margin: 20px 10px; box-shadow:0 0 15px rgba(0,0,0,0.2); border-radius:5px; padding:30px 25px; min-height: 155px; width:200px; }
+.shop {background: url(../img/bg.home.box.png) no-repeat top center; }
+.box.first {background: url(../img/bg.home.box.png) no-repeat top left;}
+.box.last {background: url(../img/bg.home.box.png) no-repeat top right; float:right;}
+.boxen h3 {margin:0 -5px 5px; color:#fff; font-size:14px; font-weight:700; font-family:'Roboto Condensed', Arial, Helvetica, sans-serif; text-transform:uppercase; text-align:center;}
+.boxen .yform {background: none; border:none; padding:0; margin:0; border-radius: 0 !important;}
+.boxen .yform input {width:100%; background: rgba(255,255,255,0.8); border-radius:3px; height:30px;}
+.yform div.type-text {padding:0; margin:10px 0; height:35px;}
+.buttonsContainer {width:100%;}
+.buttonsContainer .formButton, .buttonsContainer .formButton span {background-image: none !important; line-height:normal; height:15px;  transition: all 0.5s ease-out 0s;}
+.buttonsContainer .formButton span {display:block; width:100%; text-align:center; float:none; padding:0;}
+.buttonsContainer .formButton {display:block; background:#941912 !important; padding:10px; margin:0; color:#fff; text-transform:uppercase; text-shadow:none; text-align:center;  }
+.buttonsContainer .formButton b {color:#fff; line-height:normal; float:none; text-shadow:none; font-weight:700 !important; }
+.buttonsContainer a.formButton:active, .buttonsContainer a.formButton:focus, .buttonsContainer a.formButton:active, .buttonsContainer a.formButton:focus {background:#941912 !important; }
+.buttonsContainer a.formButton:hover b, .buttonsContainer a.formButton:active b, .buttonsContainer a.formButton:focus b {color:#000; }
+ 
+.first .buttonsContainer .formButton, .last .buttonsContainer .formButton, .first .buttonsContainer a.formButton:active, 
+.first .buttonsContainer a.formButton:focus, .first .buttonsContainer a.formButton:active, .first .buttonsContainer a.formButton:focus, 
+.last .buttonsContainer a.formButton:focus, .last .buttonsContainer a.formButton:active, .last .buttonsContainer a.formButton:focus  {background:#fff !important;}
+.first .buttonsContainer .formButton b, .last .buttonsContainer .formButton b {color:#000;}
+.first .buttonsContainer a.formButton:hover b, .first .buttonsContainer a.formButton:active b, .first .buttonsContainer a.formButton:focus b, 
+.last .buttonsContainer a.formButton:hover b, .last .buttonsContainer a.formButton:active b, .last .buttonsContainer a.formButton:focus b {color:#941912; }
+.first h3, .last h3  {color:#000;}
+
+}

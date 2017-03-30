@@ -1,0 +1,476 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta property="og:image" content="{% static 'img/logo.png' %}">
+
+    <title>
+        Sturm MIL-TEC® Online-Shop
+
+
+        (www.sturm-miltec.de)
+
+    </title>
+
+    <meta name="publisher" content="Sturm Handels GmbH">
+
+
+    <!-- ICONS -->
+    <!-- speed-dial-icon -->
+    <link rel="icon" href="{% static 'img/appletouch.ipad-retina.png' %}" type="image/png" media="(view-mode:minimized)">
+
+    <meta http-equiv="preview-refresh" content="3600">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{% static 'img/icon.ico' %}">
+    <link rel="icon" href="{% static 'img/icon.ico' %}" type="image/ico">
+
+    <!-- apple-touch-icon -->
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'img/appletouch.ipad-retina.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'img/appletouch.iphone4.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'img/appletouch.ipad.png' %}">
+    <link rel="apple-touch-icon"  href="{% static 'img/appletouch.iphone.png' %}">
+
+    <link href="{% static 'css/3col_fullheight.css' %}" rel="stylesheet" type="text/css">
+
+    <!-- Custom Design -->
+
+    <link href="{% static 'css/01.css' %}" rel="stylesheet" type="text/css">
+
+
+    <!--[if IE]>
+	<link href="/shop/images/img002/style/css/yaml/iehacks.css" rel="stylesheet" type="text/css" />
+	<![endif]-->
+
+    <!--[if lte IE 7]>
+	<link href="/shop/images/img002/style/css/patches/patch_3col_fullheight.css" rel="stylesheet" type="text/css" />
+	<![endif]-->
+
+    <!--[if IE 7]>
+	<link href="/shop/images/img002/style/css/screen/content_eidamo_ie7.css" rel="stylesheet" type="text/css" />
+	<![endif]-->
+
+    <!--[if lte IE 6]>
+	<link href="/shop/images/img002/style/css/patches/patch_3col_fullheight.css" rel="stylesheet" type="text/css" />
+	<link href="/shop/images/img002/style/css/screen/content_eidamo_ie6.css" rel="stylesheet" type="text/css" />
+	<![endif]-->
+
+
+
+    <!--[if lte IE 9]>
+		<link href="/shop/images/img002/main/custom_design/01_ie9.css" rel="stylesheet" type="text/css" />
+		<![endif]-->
+
+    <!--[if lte IE 8]>
+		<link href="/shop/images/img002/main/custom_design/01_ie8.css" rel="stylesheet" type="text/css" />
+		<![endif]-->
+
+    <!--[if lte IE 7]>
+		<link href="/shop/images/img002/main/custom_design/01_ie7.css" rel="stylesheet" type="text/css" />
+		<![endif]-->
+
+    <!--[if lte IE 6]>
+		<link href="/shop/images/img002/main/custom_design/01_ie6.css" rel="stylesheet" type="text/css" />
+		<![endif]-->
+
+    <!-- CSS fuer JavaScript-Test einfuegen -->
+    <script type="text/javascript">
+        <!--
+        document.write("<link href='static/css/js.css' rel='stylesheet' type='text/css' ");
+        document.write("/>");
+        //-->
+    </script>
+
+    <link href="{% static 'css/js.css' %}" rel="stylesheet" type="text/css">
+
+    <!-- (en) Tie-in for jQuery and the used plugins -->
+    <!-- (de) Einbindung von jQuery und verwendete plugins -->
+    <script type="text/javascript" src="{% static 'js/jquery.library.min.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'js/jquery.eidamo.pack.js' %}"></script>
+
+    <link type="text/css" href="{% static 'css/prettyPhoto.css' %}" rel="stylesheet" media="all">
+
+    <link type="text/css" href="{% static 'css/prettyPhoto(1).css' %}" rel="stylesheet" media="print">
+
+    <script type="text/javascript" src="{% static 'js/jquery.eidamo.min.js' %}"></script>
+
+    <script src="{% static 'js/01.js' %}" type="text/javascript"></script>
+
+
+    <!-- By default the min. IE ver is set to 6. Change as desired. -->
+    <!--[if lt IE 6]>
+	<script type="text/javascript">
+		window.location="/shop/images/img002/main/notSupported_IE5_0.html"; //URL to redirect to.
+	</script>
+	<![endif]-->
+
+    <!-- (en) DO NOT REMOVE: passes shopping cart amounts -->
+    <!-- (de) BITTE NICHT ENTFERNEN: übermittelt Warenkorb Beträge -->
+    <script type="text/javascript">
+        <!--
+        var scartamount=0 ;
+        var SEND=0 ;
+        // -->
+    </script>
+
+    <!-- Achtung: JavaScript Datei ist länderspezifisch -->
+    <script src="{% static 'js/shop_0.js' %}" type="text/javascript"></script>
+
+    <!-- Blocked context menu -->
+    {#    <script type="text/javascript">#}
+    {#        <!--#}
+    {#        window.oncontextmenu = function(){return false;}#}
+    {#        // -->#}
+    {#    </script>#}
+
+    <link href="{% static 'css/home.css' %}" rel="stylesheet" type="text/css">
+
+    <!-- begin: custom jquery adusments for this page only -->
+    <script type="text/javascript">
+        $(document).ready( function() {
+
+            // Activate the current link
+            $('#id_nav_top_startseite').addClass('selected');
+
+        });
+    </script>
+
+</head>
+
+<body id="shop_main">
+
+<div class="page_margins">
+    <div class="page"><div class="pagePadding">
+
+        <div id="header" role="banner"><span class="headerInner">
+
+	<div id="topnav" role="contentinfo">
+
+		<span>
+
+			<!-- LOG IN / EINLOGGEN -->
+			<!-- EIDAMO_CUSTOMERLOGIN_START -->
+
+			<a href="http://www.miltec-sturm.de/cgi-bin/shop/front/eidamo.cgi?func=customer&amp;action=loginshow&amp;wkid=52454114152474515&amp;nocache=1490856288" title="Anmelden / Einloggen">Anmelden / Einloggen</a>
+
+			<!-- EIDAMO_CUSTOMERLOGIN_STOP -->
+
+			<!-- MY ACCOUNT / MEIN KUNDENKONTO -->
+
+
+			<!-- MY CART / WARENKORB -->
+			<a class="cart_url" href="http://www.miltec-sturm.de/cgi-bin/shop/front/eidamo.cgi?func=scartshow&amp;wkid=52454114152474515&amp;nocache=1490856288" title="Warenkorb">Warenkorb: <b>0,00&nbsp;EUR*</b></a>
+            <!--
+			-->
+
+			<!-- HELP / HILFE -->
+
+
+			<!-- IMPRINT / IMPRESSUM -->
+			<!--
+			<a href="http://www.miltec-sturm.de/cgi-bin/shop/front/eidamo.cgi?func=htmlserv&wkid=52454114152474515&tmpl=shop_text_win.html&in=std_impressum_0" title="Impressum">Impressum</a>
+				-->
+
+			<!-- LOG OUT -->
+
+		</span>
+
+    </div>
+
+
+		<h1>
+            <a href="#" title="Sturm MIL-TEC® Online-Shop : Startseite">
+                <img src="{% static 'img/logo.png' %}" alt="Sturm MIL-TEC® Online-Shop">
+            </a>
+        </h1>
+
+
+		<div class="print align_right">
+            <b>Sturm Handels GmbH</b><br>
+
+            Graf-Bentzel-Str. 85<br>
+            DE-72108 Rottenburg<br>
+        </div>
+
+		<div class="partnerLogos"> <!-- Partner Logos load in reversed order: first image aligns all the way right -->
+
+        </div>
+
+		<div class="edge edge-tl"></div>
+		<div class="edge edge-tr"></div>
+	</span></div>
+
+        <!-- end: /subtmpl/#header_?.html.html -->
+        <!-- end include: top header: #header_.html -->
+
+        <!-- begin include: top nav: #nav_?.html -->
+        <!-- begin: /subtmpl/#nav_?.html.html -->
+        <div id="nav" role="navigation"><span class="navInner">
+
+	  <div class="hlist">
+          <ul>
+
+              <!-- PRODUCTS / PRODUKTE -->
+              <li id="id_nav_top_products" style="background-color:#961400;" class="first">
+                  <a href="#" title="Shop">
+                      <span style="color:#fff;">
+                          <img src="{% static 'img/icon_shop.gif' %}">SHOP
+                      </span>
+                  </a>
+              </li>
+
+              <!-- STARTPAGE / STARTSEITE -->
+              <li id="id_nav_top_startseite" class="selected">
+                  <a href="#" title="HOME">
+                      <span>HOME</span>
+                  </a>
+              </li>
+
+              <!-- ABOUT US / ÜBER UNS -->
+
+              <li id="id_nav_top_darstellung">
+                  <a href="#" title="Das Unternehmen" target="_blank">
+                      <span>UNTERNEHMEN</span>
+                  </a>
+              </li>
+
+              <!-- NEWS / AKTUELLES -->
+
+              <!-- CONTACT / KONTAKT -->
+              <li id="id_nav_top_contact">
+                  <a href="#" title="Kontakt" target="_blank">
+                      <span>Kontakt</span>
+                  </a>
+              </li>
+
+              <!-- Seller / Verkäufer -->
+
+
+              <!-- Katalog -->
+
+          </ul>
+      </div>
+
+    <!-- begin: main search form: form_search_?.html -->
+    <!-- begin: eidamo search -->
+<form method="post" class="searchForm" id="searchForm" action="#" onsubmit="fieldemp(this);">
+    <input type="hidden" name="wkid" value="52454114152474515">
+    <input type="hidden" name="rub1_search" value="all">
+    <input type="hidden" name="sfield" value="1">
+
+    <div class="searchInput">
+        <span>
+      <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-search">
+
+	  <input class="searchInput" type="text" name="sbeg" value="Suchbegriff ..." onfocus="if( this.value==&#39;Suchbegriff ...&#39;)this.value=&#39;&#39;" onblur="if( this.value==&#39;&#39;)this.value=&#39;Suchbegriff ...&#39;" tabindex="0">
+
+      <input class="searchButton" type="image" border="0" name="submit" title="Suchen" alt="Suchen" src="{% static 'img/gfx.spacer.gif' %}">
+
+    </span>
+    </div>
+</form>
+<!-- end: eidamo search -->
+    <!-- end: main search form: form_search_?.html -->
+
+    </span></div>
+
+
+
+        {% block content %}
+
+
+            <div id="main"><span class="main">
+
+            <!-- begin: #col3 static center column -->
+            <div id="col3" role="main">
+            <div id="col3_content" class="clearfix">
+
+            <!--- START: JavaScript Check --->
+            <div id="js_check" class="box-exclamation">
+                <em>
+                    <img class="icon icon-lg-exclamation" src="{% static 'img/gfx.spacer.gif' %}">
+                    JavaScript® sollte in Ihrem Browser aktiviert werden!
+                </em>
+            </div>
+
+            <img class="start_picture" src="{% static 'img/grafik_mitte.jpg' %}" alt="Sturm MIL-TEC® Online-Shop" title="Sturm MIL-TEC® Online-Shop">
+
+            <div class="homepage_articles">
+                <!-- begin: products standard view -->
+
+                <!-- end: listings standard view -->
+            </div>
+
+            <!-- end: Home Page specific content -->
+
+            <!-- EIDAMO_CUSTOMERLOGIN_START -->
+            <div class="boxen">
+            <div class="first box">
+                <div class="textContainer">
+                    <h3>Hinweis</h3>
+                    <p>Bitte beachten Sie, daß wir ein Großhandelsunternehmen sind und nur an den autorisierten Fachhandel liefern</p>
+                </div>
+                <div class="buttonsContainer"><a href="http://www.miltec.de/fachhaendler/" target="_blank" title="Fachhändler" class="formButton"><b>Fachhändler finden</b></a></div>
+            </div>
+            <div class="last box">
+                <div class="textContainer">
+                    <h3>ALS FACHHÄNDLER REGISTRIEREN</h3>
+                    <p>Sie sind noch kein Mil-Tec<sup>®</sup><br>Fachhändler?</p>
+                    <p>So können Sie einer werden...</p>
+                </div>
+                <div class="buttonsContainer"><a href="http://www.miltec-sturm.de/shop/images/img002/main/pdf/Anmeldeformular.pdf" target="_blank" title="Kontakt" class="formButton"><b>Kontakt</b></a></div>
+            </div>
+
+            <div class="shop box">
+            <h3>Online-Shop</h3>
+
+            <div class="forms"><form class="yform" method="post" action="http://www.miltec-sturm.de/cgi-bin/shop/front/eidamo.cgi?func=customer&amp;action=login&amp;wkid=52454114152474515">
+
+            <div class="type-text">
+                <input type="text" name="userid" id="userid" value="E-Mail" onfocus="if( this.value==&#39;E-Mail&#39;)this.value=&#39;&#39;" onblur="if( this.value==&#39;&#39;)this.value=&#39;E-Mail&#39;" tabindex="2">
+            </div>
+
+            <div class="type-text">
+                <input type="password" name="pw" id="pw" value="Passwort" onfocus="if( this.value==&#39;Passwort&#39;)this.value=&#39;&#39;" onblur="if( this.value==&#39;&#39;)this.value=&#39;Passwort&#39;" tabindex="3">
+            </div>
+
+            <div class="buttonsContainer"><span class="buttonsContainer">
+
+            <input type="submit" class="submit-IEFix" tabindex="3" style="position:absolute;top:inherit;left:-99999px;">
+            <a class="formButton formButtonSubmit formButtonBlue" href="http://www.miltec-sturm.de/cgi-bin/shop/front/eidamo.cgi?func=start&amp;wkid=52454114152474515&amp;page=&amp;first=1&amp;nocache=1490856286#13" title="Anmelden"><span><!--img class="icon icon-lg-door-open-in" src="/shop/images/gfx.spacer.gif"--><b>Anmelden</b></span></a>
+
+
+        {% endblock %}
+
+
+
+        <div class="clear"></div></span></div>
+
+
+        </form></div>
+        <!-- EIDAMO_CUSTOMERLOGIN_STOP -->
+        <!-- end: small login form: subtmpl/form_login_small_?.html -->
+        </div>
+
+        </div>
+        <!-- EIDAMO_CUSTOMERLOGIN_STOP -->
+
+
+        <!-- begin: column center: #col3 - close -->
+        <!-- begin: /subtmpl/#col3_close_?.html -->
+
+        </div>
+        <div id="ie_clearing">&nbsp;</div>
+        <!-- End: IE Column Clearing -->
+        </div>
+        <!-- end: #col3 static center column -->
+
+        <!-- end: /subtmpl/#col3_close_?.html -->
+        <!-- end: column center: #col3 - close -->
+
+        <!-- begin include: open main: #main_close_?.html -->
+        <!-- begin: /subtmpl/#main_close_?.html.html -->
+        </span></div>
+        <!-- begin: /subtmpl/#main_end_?.html.html -->
+        <!-- end include: open main: #main_close_?.html -->
+
+        <!-- begin include: _site_close_?.html  -->
+        <!-- begin: /subtmpl/_site_close_?.html.html -->
+        <div class="clear"></div></div></div><!-- end: .page -->
+</div><!-- end: .page_margins -->
+<!-- end: /subtmpl/_site_close_?.html.html -->
+<!-- end include: _site_close_?.html  -->
+
+<!-- begin include: #footer_?.html  -->
+<!-- begin: /subtmpl/#footer_?.html.html -->
+
+<div id="footer" role="contentinfo">
+    <div id="footer_content">
+
+        <div class="c16l">
+            <ul>
+                <li><a href="http://www.miltec-sturm.de/cgi-bin/shop/front/eidamo.cgi?func=main&amp;wkid=52454114152474515&amp;nocache=1490856288">Startseite</a></li>
+                <li><a href="http://www.miltec-sturm.de/cgi-bin/shop/front/eidamo.cgi?func=searchform&amp;wkid=52454114152474515&amp;nocache=1490856288">Detailsuche</a></li>
+                <li><a href="http://www.miltec-sturm.de/cgi-bin/shop/front/eidamo.cgi?func=start&amp;wkid=52454114152474515&amp;page=&amp;first=1&amp;nocache=1490856286#top">nach Oben</a></li>
+
+            </ul>
+        </div>
+
+
+
+        <!--div class="c16l">
+            <ul>
+
+
+
+            </ul>
+        </div-->
+
+        <div class="c16l">
+            <ul>
+                <li><a href="http://www.miltec.de/de/kontakt/" title="Kontakt" target="_blank">Kontakt</a></li>
+                <li><a href="http://www.miltec-sturm.de/shop/images/img002/main/pdf/Reklamation.pdf" target="_blank">Reklamationsformular</a></li>
+
+            </ul>
+        </div>
+
+        <div class="c16l">
+            <ul>
+
+                <li><a href="http://www.miltec-sturm.de/cgi-bin/shop/front/eidamo.cgi?func=htmlserv&amp;wkid=52454114152474515&amp;tmpl=shop_text_win.html&amp;in=std_impressum_0">Impressum</a></li>
+
+
+
+                <li><a href="http://www.miltec-sturm.de/cgi-bin/shop/front/eidamo.cgi?func=htmlserv&amp;wkid=52454114152474515&amp;tmpl=shop_text_win.html&amp;in=std_sicherheit_0">Datenschutz</a></li>
+
+
+                <li><a href="http://www.miltec-sturm.de/cgi-bin/shop/front/eidamo.cgi?func=htmlserv&amp;wkid=52454114152474515&amp;tmpl=shop_text_win.html&amp;in=std_agb_0">AGB</a></li>
+
+            </ul>
+        </div>
+
+        <div class="c16r">
+            <ul>
+                <!--li><a href="http://www.sturm-costumes.de/" target="_blank">Sturm Costumes</a></li-->
+
+
+
+
+
+
+
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="footerCopyrights">
+
+        <div class="float_left">
+
+            * Preise zzgl. der gesetzlichen MwSt. und zzgl. Versandkosten, sofern nicht anders ausgewiesen.
+
+            <br>
+
+            <!--[*EIDAMO_WORDS:COPYRIGHT_DATE*]-->© 2004-2015 Sturm Handels GmbH Alle Rechte vorbehalten.
+        </div>
+
+    </div>
+
+    <div class="edge edge-bl"></div>
+    <div class="edge edge-br"></div>
+</div>
+<!-- end: #footer -->
+
+<!-- JavaScript Einbettungen (z.B. Popups) -->
+
+
+<!-- (en) Workaround for IE8 und Webkit browsers to fix focus problems when using skiplinks -->
+<!-- (de) Workaround für IE8 und Webkit browser, um den Focus zu korrigieren, bei Verwendung von Skiplinks -->
+<script type="text/javascript" src="{% static 'js/yaml-focusfix.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,340 @@
+@charset "ISO-8859-1";
+/* CSS Document */
+
+/**
+* ------------------------------------------------------------------------------------------------- #
+*
+* Icons
+*
+* (en) Icon graphics by Yusuke Kamiyamane p.yusukekamiyamane.com under Creative Commons Attribution 3.0 license.
+* (de) Icon Grafiken designed von Yusuke Kamiyamane p.yusukekamiyamane.com unter Creative Commons Attribution 3.0 license.
+*
+* @section	content-icons
+* 
+*/
+
+.icon-lg-home {
+  background-image: url(../img/home.png); display: inline !important;
+}
+
+.icon-lg-search {
+  background-image: url(../img/magnifier.png); display: inline !important;
+}
+
+.icon-lg-magnifier {
+  background-image: url(../img/magnifier.png); display: inline !important;
+}
+
+.icon-lg-magnifier--arrow {
+  background-image: url(../img/magnifier--arrow.png); display: inline !important;
+}
+
+.icon-lg-user {
+  background-image: url(../img/user.png); display: inline !important;
+}
+
+.icon-lg-user-silhouette {
+  background-image: url(../img/user-silhouette.png); display: inline !important;
+}
+
+.icon-lg-user--plus {
+  background-image: url(../img/user--plus.png); display: inline !important;
+}
+
+.icon-lg-shopping-basket {
+  /*background-image: url(../img/shopping-basket.png); display: inline !important;*/
+  width: 0 !important;
+}
+
+.icon-lg-shopping-basket--plus {
+  /*background-image: url(../img/shopping-basket--plus.png); display: inline !important;*/
+}
+
+.icon-lg-shopping-basket--arrow {
+  /*background-image: url(../img/shopping-basket--arrow.png); display: inline !important;*/
+}
+
+.icon-lg-shopping-basket--pencil {
+  background-image: url(../img/shopping-basket--pencil.png); display: inline !important;
+}
+
+.icon-lg-shopping-basket--exclamation {
+  /*background-image: url(../img/shopping-basket--exclamation.png); display: inline !important;*/
+}
+
+.icon-lg-hand-share {
+  background-image: url(../img/hand-share.png); display: inline !important;
+}
+
+.icon-lg-bank {
+  background-image: url(../img/bank.png); display: inline !important;
+}
+
+.icon-lg-money-coin {
+  background-image: url(../img/money-coin.png); display: inline !important;
+}
+
+.icon-lg-money--pencil {
+  background-image: url(../img/money--pencil.png); display: inline !important;
+}
+
+.icon-lg-money--arrow {
+  background-image: url(../img/money--arrow.png); display: inline !important;
+}
+
+.icon-lg-newspaper {
+  background-image: url(../img/newspaper.png); display: inline !important;
+}
+
+.icon-lg-toggle {
+  background-image: url(../../images/eidamo/default/icon.toggle.expand.png); display: inline !important;
+}
+
+.selected .icon-lg-toggle {
+  background-image: url(../../images/eidamo/default/icon.toggle.png); display: inline !important;
+}
+
+.icon-lg-status {
+  background-image: url(../../images/iconsFugue/icons/status.png); display: inline !important;
+}
+
+.icon-lg-status-away {
+  background-image: url(../../images/iconsFugue/icons/status-away.png); display: inline !important;
+}
+
+.icon-lg-status-busy {
+  background-image: url(../../images/iconsFugue/icons/status-busy.png); display: inline !important;
+}
+
+.icon-lg-status-offline {
+  background-image: url(../../images/iconsFugue/icons/status-offline.png); display: inline !important;
+}
+
+.icon-lg-arrow,
+.jcarousel-skin-eidamo .jcarousel-next-horizontal,
+.jcarousel-skin-eidamo .jcarousel-direction-rtl .jcarousel-prev-horizontal {
+  background-image: url(../img/arrow.png); display: inline !important;
+}
+
+.icon-lg-arrow-180,
+.jcarousel-skin-eidamo .jcarousel-prev-horizontal,
+.jcarousel-skin-eidamo .jcarousel-direction-rtl .jcarousel-next-horizontal {
+  background-image: url(../img/arrow-180.png); display: inline !important;
+}
+
+.icon-lg-arrow-270,
+.jcarousel-skin-eidamo .jcarousel-next-vertical {
+  background-image: url(../img/arrow-270.png); display: inline !important;
+}
+
+.icon-lg-arrow-090,
+.jcarousel-skin-eidamo .jcarousel-prev-vertical {
+  background-image: url(../img/arrow-090.png); display: inline !important;
+}
+
+.icon-lg-arrow-circle-225 {
+  background-image: url(../img/arrow-circle-225.png); display: inline !important;
+}
+
+.icon-lg-sort-alphabet {
+  background-image: url(../img/sort-alphabet.png); display: inline !important;
+}
+
+.icon-lg-sort-alphabet-descending {
+  background-image: url(../img/sort-alphabet-descending.png); display: inline !important;
+}
+
+.icon-lg-sort-number {
+  background-image: url(../img/sort-number.png); display: inline !important;
+}
+
+.icon-lg-sort-number-descending {
+  background-image: url(../img/sort-number-descending.png); display: inline !important;
+}
+
+.icon-lg-grid {
+  background-image: url(../img/grid.png); display: inline !important;
+}
+
+.icon-lg-edit-list {
+  background-image: url(../img/edit-list.png); display: inline !important;
+}
+
+.icon-lg-heart--plus {
+  /*background-image: url(../img/heart--plus.png); display: inline !important;*/
+}
+
+.icon-lg-bin-metal-full {
+  /*background-image: url(../img/bin-metal-full.png); display: inline !important;*/
+}
+
+.icon-lg-door-open-in {
+  background-image: url(../img/door-open-in.png); display: inline !important;
+}
+
+.icon-lg-door-open-out {
+  /*background-image: url(../img/door-open-out.png); display: inline !important;*/
+}
+
+.icon-lg-printer {
+  /*background-image: url(../img/printer.png); display: inline !important;*/
+}
+
+.icon-lg-telephone-fax {
+  background-image: url(../img/telephone-fax.png); display: inline !important;
+}
+
+.icon-lg-exclamation {
+  background-image: url(../img/exclamation.png); display: inline !important;
+}
+
+.box-exclamation span.fehlermeldung, .box-attention span.fehlermeldung, .box-notification span.fehlermeldung {
+    background-image: url(../img/exclamation.png);
+}
+
+.icon-lg-information {
+  background-image: url(../img/information.png); display: inline !important;
+}
+
+.icon-lg-question {
+  /*background-image: url(../img/question.png); display: inline !important;*/
+}
+
+.icon-lg-share {
+  background-image: url(../img/share.png); display: inline !important;
+}
+
+.icon-lg-disk-black, .downloads .icon-lg-disk-black {
+  background-image: url(../img/disk-black.png); display: inline !important;
+}
+
+.icon-lg-disks-black {
+  background-image: url(../img/disks-black.png); display: inline !important;
+}
+
+.icon-lg-cross {
+  background-image: url(../img/cross.png); display: inline !important;
+}
+
+.icon-lg-mail {
+  background-image: url(../img/mail.png); display: inline !important;
+}
+
+.icon-lg-money-coin {
+  background-image: url(../img/money-coin.png); display: inline !important;
+}
+
+.icon-lg-block {
+  background-image: url(../img/block.png); display: inline !important;
+}
+
+.icon-lg-lock {
+  background-image: url(../img/lock.png); display: inline !important;
+}
+
+.icon-lg-card-address {
+  /*background-image: url(../img/card-address.png); display: inline !important;*/
+    width: 0 !important;
+}
+
+.icon-lg-shield--exclamation {
+  /*background-image: url(../img/shield--exclamation.png); display: inline !important;*/
+    width: 0 !important;
+}
+
+.icon-lg-key--exclamation {
+  background-image: url(../img/key--exclamation.png); display: inline !important;
+}
+
+.icon-lg-tick {
+  background-image: url(../img/tick.png); display: inline !important;
+}
+
+.icon-lg-drive-download, .downloads .icon {
+  background-image: url(../img/drive-download.png); display: inline !important;
+}
+
+.icon-lg-drive-upload, .uploads .icon {
+  background-image: url(../img/drive-upload.png); display: inline !important;
+}
+
+.icon-lg-document, .downloads .icon-lg-document {
+  background-image: url(../img/document.png); display: inline !important;
+}
+
+.icon-lg-document--exclamation {
+  background-image: url(../img/document--exclamation.png); display: inline !important;
+}
+
+.icon-lg-document-pdf, .downloads .icon-lg-document-pdf {
+  background-image: url(../img/document-pdf.png); display: inline !important;
+}
+
+.icon-lg-document-flash-movie, .downloads .icon-lg-document-flash-movie {
+  background-image: url(../img/document-flash-movie.png); display: inline !important;
+}
+
+.icon-lg-pictures, .downloads .icon-lg-pictures {
+  background-image: url(../img/pictures.png); display: inline !important;
+}
+
+.icon-lg-film, .downloads .icon-lg-film {
+  background-image: url(../img/film.png); display: inline !important;
+}
+
+.icon-lg-vise-drawer, .downloads .icon-lg-vise-drawer {
+  background-image: url(../img/vise-drawer.png); display: inline !important;
+}
+
+.icon-lg-pencil {
+  background-image: url(../img/pencil.png); display: inline !important;
+}
+
+.icon-lg-card--pencil {
+  background-image: url(../img/card--pencil.png); display: inline !important;
+}
+
+.icon-lg-box-label {
+  background-image: url(../img/box-label.png); display: inline !important;
+}
+
+.icon-lg-question {
+  /*background-image: url(../img/question.png); display: inline !important;*/
+}
+
+.icon-lg-map--exclamation {
+  background-image: url(../img/map--exclamation.png); display: inline !important;
+}
+
+.icon-lg-box--exclamation {
+  background-image: url(../img/box--exclamation.png); display: inline !important;
+}
+.delivery_error {
+  background-image: url(../img/box--exclamation.png);
+}
+
+.icon-lg-sofortueberweisung {
+  background-image: url(../../images/eidamo/default/icon.sofort.png); display: inline !important;
+}
+
+.icon-lg-saferpay {
+  background-image: url(../../images/eidamo/default/icon.saferpay.lg.png); display: inline !important;
+}
+
+.icon-lg-credit-cards {
+  background-image: url(../img/credit-cards.png); display: inline !important;
+}
+
+.icon-lg-control-power {
+  background-image: url(../img/control-power.png); display: inline !important;
+}
+
+.icon-lg-eraser {
+  background-image: url(../img/eraser.png); display: inline !important;
+}
+
+.icon-lg-cutlery {
+  background-image: url(../img/cutlery.png); display: inline !important;
+}
+
+
