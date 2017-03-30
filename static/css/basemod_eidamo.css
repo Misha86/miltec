@@ -78,7 +78,7 @@
   /* (de) um popup DIV einbauen zu k�nnen, m�ssen wir #main nach hinten verschieben */
   #header, #nav, #main, #footer, .clear { z-index: 1;}
   
-  #main { background-color: #fff; min-height:530px; padding-bottom:75px;}
+  #main.content { background-color: #fff; min-height:530px; padding-bottom:75px;}
 	
 
 

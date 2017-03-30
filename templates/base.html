@@ -215,7 +215,7 @@
 
               <!-- PRODUCTS / PRODUKTE -->
               <li id="id_nav_top_products" style="background-color:#961400;" class="first">
-                  <a href="#" title="Shop">
+                  <a href="{% url 'goods:shop' %}" title="Shop">
                       <span style="color:#fff;">
                           <img src="{% static 'img/icon_shop.gif' %}">SHOP
                       </span>
@@ -276,7 +276,6 @@
     <!-- end: main search form: form_search_?.html -->
 
     </span></div>
-
 
 
         {% block content %}

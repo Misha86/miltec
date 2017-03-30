@@ -87,27 +87,27 @@
 }
 
 .icon-lg-toggle {
-  background-image: url(../../images/eidamo/default/icon.toggle.expand.png); display: inline !important;
+  background-image: url(../img/icon.toggle.expand.png); display: inline !important;
 }
 
 .selected .icon-lg-toggle {
-  background-image: url(../../images/eidamo/default/icon.toggle.png); display: inline !important;
+  background-image: url(../img/icon.toggle.png); display: inline !important;
 }
 
 .icon-lg-status {
-  background-image: url(../../images/iconsFugue/icons/status.png); display: inline !important;
+  background-image: url(../img/status.png); display: inline !important;
 }
 
 .icon-lg-status-away {
-  background-image: url(../../images/iconsFugue/icons/status-away.png); display: inline !important;
+  background-image: url(../img/status-away.png); display: inline !important;
 }
 
 .icon-lg-status-busy {
-  background-image: url(../../images/iconsFugue/icons/status-busy.png); display: inline !important;
+  background-image: url(../img/status-busy.png); display: inline !important;
 }
 
 .icon-lg-status-offline {
-  background-image: url(../../images/iconsFugue/icons/status-offline.png); display: inline !important;
+  background-image: url(../img/status-offline.png); display: inline !important;
 }
 
 .icon-lg-arrow,
@@ -314,11 +314,11 @@
 }
 
 .icon-lg-sofortueberweisung {
-  background-image: url(../../images/eidamo/default/icon.sofort.png); display: inline !important;
+  background-image: url(../img/icon.sofort.png); display: inline !important;
 }
 
 .icon-lg-saferpay {
-  background-image: url(../../images/eidamo/default/icon.saferpay.lg.png); display: inline !important;
+  background-image: url(../img/icon.saferpay.lg.png); display: inline !important;
 }
 
 .icon-lg-credit-cards {
