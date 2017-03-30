@@ -1,3 +1,10 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def homepage(requests):
+    return render(requests, "base.html")
+
+
+def shop(requests):
+    return render(requests, "shop.html")
+

@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.views.generic import TemplateView
+from goods import views
 
 
 urlpatterns = [
-    url(r'^$', TemplateView.as_view(template_name="base.html"), name='start-page'),
-    url(r'^shop/$', TemplateView.as_view(template_name="shop.html"), name='shop'),
+    url(r'^$', views.homepage, name='homepage'),
+    url(r'^shop/$', views.shop, name='shop'),
 ]
