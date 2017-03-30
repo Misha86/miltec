@@ -6,6 +6,7 @@ from __future__ import unicode_literals
 from django.core.urlresolvers import resolve
 from django.test import (TestCase, Client)
 from django.template.loader import render_to_string
+from django.utils.text import slugify
 
 from ..views import (homepage, shop)
 from ..models import Category
@@ -69,10 +70,11 @@ class GoodsTests(TestCase):
         Check category model and
         Category`s string representation
         """
-        category = Category(title='Одежда', state=True)
+        category = Category(title='Одежда', used=True)
 
-        self.assertEqual(category.id, 1)
         self.assertEqual(category.title, 'Одежда')
-        self.assertTrue(category.state)
-
+        self.assertTrue(category.used)
         self.assertEqual(str(category), category.title)
+
+        category.save()
+        self.assertEqual(category.slug, slugify(category.title, allow_unicode=True))
