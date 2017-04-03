@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'menu.apps.MenuConfig'
+    'menu.apps.MenuConfig',
+    'product.apps.ProductConfig'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -58,7 +59,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates'),
-                 os.path.join(BASE_DIR, 'menu', 'templates', 'menu')],
+                 os.path.join(BASE_DIR, 'menu', 'templates', 'menu'),
+                 os.path.join(BASE_DIR, 'product', 'templates', 'product')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -126,6 +128,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'menu', 'static', 'menu'),
+    os.path.join(BASE_DIR, 'product', 'static', 'product'),
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
