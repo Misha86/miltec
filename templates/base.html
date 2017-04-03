@@ -16,7 +16,6 @@
 
     <meta name="publisher" content="Sturm Handels GmbH">
 
-
     <!-- ICONS -->
     <!-- speed-dial-icon -->
     <link rel="icon" href="{% static 'img/appletouch.ipad-retina.png' %}" type="image/png" media="(view-mode:minimized)">
@@ -32,6 +31,8 @@
     <link rel="apple-touch-icon" sizes="114x114" href="{% static 'img/appletouch.iphone4.png' %}">
     <link rel="apple-touch-icon" sizes="72x72" href="{% static 'img/appletouch.ipad.png' %}">
     <link rel="apple-touch-icon"  href="{% static 'img/appletouch.iphone.png' %}">
+
+    <link href="{% static 'css/my_css.css' %}" rel="stylesheet" type="text/css">
 
     <link href="{% static 'css/3col_fullheight.css' %}" rel="stylesheet" type="text/css">
 
@@ -78,7 +79,7 @@
     <!-- CSS fuer JavaScript-Test einfuegen -->
     <script type="text/javascript">
         <!--
-        document.write("<link href='static/css/js.css' rel='stylesheet' type='text/css' ");
+        document.write("<link href='/static/css/js.css' rel='stylesheet' type='text/css' ");
         document.write("/>");
         //-->
     </script>
@@ -87,6 +88,7 @@
 
     <!-- (en) Tie-in for jQuery and the used plugins -->
     <!-- (de) Einbindung von jQuery und verwendete plugins -->
+
     <script type="text/javascript" src="{% static 'js/jquery.library.min.js' %}"></script>
 
     <script type="text/javascript" src="{% static 'js/jquery.eidamo.pack.js' %}"></script>
@@ -99,9 +101,17 @@
 
     <script src="{% static 'js/01.js' %}" type="text/javascript"></script>
 
+    <!-- my js -->
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+
+    <script src="{% static 'js/jquery-ui.js' %}"></script>
+
+    {#    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>#}
+
     <script src="{% static 'js/my_js.js' %}" type="text/javascript"></script>
 
-
+    {% block script %}{% endblock %}
     <!-- By default the min. IE ver is set to 6. Change as desired. -->
     <!--[if lt IE 6]>
 	<script type="text/javascript">
@@ -122,7 +132,7 @@
     <div class="page">
         <div class="pagePadding">
 
-        <div id="header" role="banner">
+            <div id="header" role="banner">
             <span class="headerInner">
 
 	<div id="topnav" role="contentinfo">
@@ -181,18 +191,18 @@
 		<div class="edge edge-tl"></div>
 		<div class="edge edge-tr"></div>
 	</span>
-        </div>
+            </div>
 
 
 
-        {% include "navbar.html" %}
+            {% include "navbar.html" %}
 
 
 
-        {% block content %}
+            {% block content %}
 
 
-            <div id="main"><span class="main">
+                <div id="main"><span class="main">
 
             <!-- begin: #col3 static center column -->
             <div id="col3" role="main">
@@ -279,16 +289,16 @@
             </div>
 
         </span>
-            </div>
+                </div>
 
 
-        {% endblock %}
+            {% endblock %}
 
 
-        <div class="clear"></div>
-            </div>
-            </div>
-            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
 
 
 {% include "footer.html" %}

@@ -87,11 +87,11 @@
 }
 
 .icon-lg-toggle {
-  background-image: url(../img/icon.toggle.expand.png); display: inline !important;
+  background-image: url(../img/icon.toggle.png); display: inline !important;
 }
 
 .selected .icon-lg-toggle {
-  background-image: url(../img/icon.toggle.png); display: inline !important;
+  background-image: url(../img/icon.toggle.expand.png); display: inline !important;
 }
 
 .icon-lg-status {

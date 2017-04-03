@@ -20,5 +20,5 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('goods.urls', namespace='goods')),
+    url(r'^', include('menu.urls', namespace='menu')),
 ]
