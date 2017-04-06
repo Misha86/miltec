@@ -1,0 +1,615 @@
+{% load staticfiles %}
+
+
+<div id="col3_content" class="clearfix">
+
+    <!-- Start des Formulars (anscheinend nur in shop_list nötig)-->
+    <form name="os_list_view" method="post" action="#">
+
+
+        <div class="breadcrumbBar clearfix">
+
+            {% if not search %}
+
+                <!-- begin: breadcrumbs: nav_breadcrumb_?.html -->
+                <ul class="breadcrumbs">
+
+                    <li class="firstCrumb">
+                        <a href="{% url 'menu:shop' %}">Shop</a>:
+                    </li>
+                    {#                    <li>#}
+                    {#                        <a href="#">Clothing</a>#}
+                    {#                    </li>#}
+                    {#                    <li class="activeCrumb"> » <a href="{{ item.get_absolute_url }}">{{ item.title|title }}</a></li>#}
+
+                </ul>
+
+            {% else %}
+
+                <!-- Category: Title Only -->
+
+                <div class="category-current">
+                    <div class="rubImg-container noRubImg"></div>
+
+                    <h2>
+                        {{ item.title|upper }}
+                        <br/>
+                        <br/>
+                        {{ item.returned_title }}
+                    </h2>
+
+                </div>
+
+            {% endif %}
+
+
+            {% if products.has_other_pages %}
+
+                <div class="tools pagination">
+
+                    {% if products.has_previous %}
+
+                        <a href="{% if search %}
+
+                        {% url 'product:search' %}?page={{ products.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
+
+                        {% else %}
+
+                           {% url 'product:product_list' item.slug %}?page={{ products.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
+
+                        {% endif %}"
+
+                           title="Return" class="prevPage">
+                            <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-arrow-180">
+                        </a>
+
+                    {% endif %}
+
+                    {% if products.has_next %}
+
+                        <a href="{% if search %}
+
+                        {% url 'product:search' %}?page={{ products.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
+
+                        {% else %}
+
+                        {% url 'product:product_list' item.slug %}?page={{ products.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
+
+                        {% endif %}"
+                           title="Continue" class="nextPage">
+                            <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-arrow">
+                        </a>
+
+                    {% endif %}
+
+                </div>
+
+
+            {% endif %}
+            <!-- end: breadcrumbs: nav_list_top_?.html -->
+
+        </div>
+
+
+        {% if not search %}
+
+            <div class="categories">
+
+                <!-- Category: Title Only -->
+
+                <div class="category-current">
+                    <div class="rubImg-container noRubImg"></div>
+
+                    <h2>
+
+                        {{ item.title }}
+
+                    </h2>
+
+                </div>
+
+            </div>
+
+        {% endif %}
+
+
+        <div class="toolBar clearfix">
+            <div class="tools sortOptions-viewStandard">
+                <span><b>Sort:</b> </span>
+
+                {% if request.session.ordering != '-title' %}
+
+                    <a href="{% if search %}
+
+                    {% url 'product:search' %}?page={{ products.number }}&ordering=-title{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
+
+                    {% else %}
+
+                    {% url 'product:product_list' item.slug %}?page={{ products.number }}&ordering=-title
+
+                        {% endif %}"
+
+                       class="sortTitleDesc {% if request.session.ordering == 'title' %}active{% endif %}">
+                        <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-sort-alphabet">
+                        <u>Title</u>
+                    </a>
+
+                {% elif request.session.ordering != 'title' %}
+
+                    <a href="{% if search %}
+
+                    {% url 'product:search' %}?page={{ products.number }}&ordering=title{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
+
+                    {% else %}
+
+                    {% url 'product:product_list' item.slug %}?page={{ products.number }}&ordering=title
+
+                    {% endif %}"
+
+                       class="sortTitleAsc {% if request.session.ordering == '-title' %}active{% endif %}">
+                        <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-sort-alphabet-descending">
+                        <u>Title</u>
+                    </a>
+
+                {% endif %}
+
+
+                {% if request.session.ordering != '-price' %}
+
+                    <a href="{% if search %}
+
+                    {% url 'product:search' %}?page={{ products.number }}&ordering=-price{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
+
+                    {% else %}
+
+                    {% url 'product:product_list' item.slug %}?page={{ products.number }}&ordering=-price
+
+                    {% endif %}"
+
+                       class="sortPriceAsc {% if request.session.ordering == 'price' %}active{% endif %}">
+                        <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-sort-number">
+                        <u>Price</u>
+                    </a>
+
+                {% elif request.session.ordering != 'price' %}
+
+                    <a href="{% if search %}
+
+                   {% url 'product:search' %}?page={{ products.number }}&ordering=price{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
+
+                    {% else %}
+
+                    {% url 'product:product_list' item.slug %}?page={{ products.number }}&ordering=price
+
+                    {% endif %}"
+
+                       class="sortPriceDesc {% if request.session.ordering == '-price' %}active{% endif %}">
+                        <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-sort-number-descending">
+                        <u>Price</u>
+                    </a>
+
+                {% endif %}
+
+
+            </div>
+
+
+            <div class="tools float_right">
+
+                <a href="{% if search %}
+
+                {% url 'product:search' %}?page={{ products.number }}&view=standard{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
+
+                {% else %}
+
+                {% url 'product:product_list' item.slug %}?page={{ products.number }}&view=standard
+
+                {% endif %}"
+
+                   title="List View" class="display-viewStandard {% if request.session.view != 'grid' %}display-viewStandard-active{% endif %}">
+                    <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-edit-list">
+                </a>
+
+                <a href="{% if search %}
+
+                {% url 'product:search' %}?page={{ products.number }}&view=grid{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
+
+                {% else %}
+
+                {% url 'product:product_list' item.slug %}?page={{ products.number }}&view=grid
+
+                {% endif %}"
+                   title="Grid View" class="display-viewGrid {% if request.session.view == 'grid' %}display-viewGrid-active{% endif %}">
+                    <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-grid">
+                </a>
+            </div>
+
+        </div>
+
+
+        <!-- begin: products standard view -->
+
+        {% if request.session.view != 'grid' %}
+
+            <div class="products viewStandard"> <!-- will be switched using jQuery -->
+
+
+                <div class="subcolumns"><!-- 2 Column with 50/50 split -->
+
+                    <div class="c50l">
+                        <div class="subcl">
+
+
+
+                            <!-- begin: /subtmpl/product-row_list_?.html -->
+
+                            {% for product in products %}
+
+                                <div class="product-row hproduct " title="{{ product.title }}" price="{{ product.price }}" itemscope="" itemtype="">
+
+
+                                    <a href="#" title=" GERMAN OD PARKA WITH LINER" price="{{ product.price }}" rel="nofollow">
+                                        <dl>
+                                            <dt title="GERMAN OD PARKA WITH LINER">
+
+        <span class="title name fn" itemprop="name">
+            {{ product.title }}
+        </span>
+
+                                            </dt>
+
+                                            <dd id="thumb_1" class="image">
+
+                                                <img itemprop="image" class="photo" src="{{ product.image.url }}" alt="{{ product.title }}">
+
+                                            </dd>
+
+                                            <dd class="subtitle"></dd>
+
+                                            <dd class="articleNr"><label>Article No.:</label>
+                                                <div itemprop="productID">
+                                                    {{ product.article }}
+                                                </div>
+                                            </dd>
+
+                                            <dd class="description">
+
+                                                <p itemprop="description">
+                                                    {{ product.description|truncatechars:200 }}
+                                                </p>
+
+                                            </dd>
+
+                                            <!-- Ratings -->
+
+                                            <!-- EIDAMO_LIST_INQUIRY_START:1 -->
+
+
+                                            <dd class="price" id="price_1" style="">
+
+
+                <span class="current_price" itemprop="offers" itemscope="" itemtype="">
+            <span class="price" itemprop="price">
+
+                {{ product.price }}
+
+            </span>
+            <span class="currency">EUR</span>
+            <span class="unit">/ ST</span>
+
+			</span>
+
+                                                <span class="tax_percent">packing unit 1 ST</span>
+                                            </dd>
+
+
+                                        </dl>
+                                    </a>
+
+                                    <div class="buttonsContainer">
+
+                                        <div id="buttons_1" style="">
+
+
+                                            <!-- Amount to Add - by default off -->
+                                            <div class="amount-to-add" style="">
+                                                <input type="" name="menge_1" value="1">
+                                                <input type="hidden" name="rub1_1" value="Clothing">
+                                                <font><b>/</b> ST</font>
+                                            </div>
+
+                                            <!-- begin: Amout Image gets replaced by jquery function -->
+                                            <script type="text/javascript">
+                                                $(document).ready( function() {
+                                                    $('.buttonsContainer img[border~="0"]').replaceListAmountImg('/static/img/gfx.spacer.gif', 'select trim');
+                                                });
+                                            </script>
+
+                                            <!-- end: Amout Image gets replaced by jquery function -->
+
+                                            <a href="#">
+                                            <span>
+                                                <img src="{% static 'img/gfx.spacer.gif' %}" alt="select trim" title="select trim" class="icon icon-lg-shopping-basket--arrow">
+                                        <b>select trim</b>
+                                    </span>
+                                            </a>
+
+
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+                            {% endfor %}
+
+                            <!-- end: /subtmpl/product-row_list_?.html -->
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+            <!-- end: listings standard view -->
+
+        {% else %}
+
+            <div class="products viewGrid"> <!-- will be switched using jQuery -->
+
+
+                <div class="subcolumns"><!-- 2 Column with 50/50 split -->
+
+                    {% for product in products %}
+
+                        <div class="{% cycle 'c50l' 'c50r' %}">
+
+                            <div class="subcl">
+
+
+                                <!-- begin: /subtmpl/product-row_list_?.html -->
+
+
+                                <div class="product-row hproduct " title="{{ product.title }}" price="{{ product.price }}">
+
+
+                                    <a href="#" title="{{ product.title }}" price="{{ product.price }}" rel="nofollow">
+                                        <dl>
+                                            <dt title="{{ product.title|upper }}">
+
+        <span class="title name fn" itemprop="name">
+            {{ product.title|upper }}
+        </span>
+
+                                            </dt>
+
+                                            <dd id="thumb_168" class="image">
+
+                                                <img itemprop="image" class="photo" src="{{ product.image.url }}" alt="{{ product.title|upper }}">
+
+                                            </dd>
+
+
+                                            <dd class="subtitle"></dd>
+
+                                            <dd class="articleNr"><label>Article No.:
+                                            </label>
+                                                <div itemprop="productID">
+                                                    {{ product.article }}
+                                                </div>
+                                            </dd>
+
+                                            <dd class="description">
+
+                                                <p itemprop="description">
+
+                                                    {{ product.discription|truncatechars:200 }}
+
+                                                </p>
+
+                                            </dd>
+
+                                            <!-- EIDAMO_LIST_INQUIRY_START:1 -->
+
+
+                                            <dd class="price" id="price_168" style="">
+
+
+			<span class="current_price" itemprop="offers" itemscope="" itemtype="">
+
+            <span class="price" itemprop="price">
+                {{ product.price }}
+            </span>
+
+            <span class="currency">EUR</span>
+            <span class="unit">/ ST</span>
+
+			</span>
+
+
+                                                <span class="tax_percent">packing unit 1 ST</span>
+                                            </dd>
+
+                                        </dl>
+                                    </a>
+
+
+
+                                    <div class="buttonsContainer">
+
+
+                                        <div id="buttons_{{ product.id }}" style="">
+
+
+                                            <!-- Amount to Add - by default off -->
+                                            <div class="amount-to-add" style="display: block">
+                                                <input type="" name="menge_1" placeholder="1">
+                                                <input type="hidden" name="rub1_1" value="Clothing">
+                                                <font><b>/</b> ST</font>
+                                            </div>
+
+                                            <!-- begin: Amout Image gets replaced by jquery function -->
+                                            <script type="text/javascript">
+                                                $(document).ready( function() {
+                                                    $('.buttonsContainer img[border~="0"]').replaceListAmountImg('/static/img/gfx.spacer.gif', 'select trim');
+                                                });
+                                            </script>
+
+                                            <!-- end: Amout Image gets replaced by jquery function -->
+
+                                            <a href="#" class="add-to-cart">
+                                    <span>
+                                        <img src="{% static 'img/gfx.spacer.gif' %}" alt="select trim" title="select trim" class="icon icon-lg-shopping-basket--arrow">
+                                        <b>select trim</b>
+                                    </span>
+                                            </a>
+
+
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                                <!-- end: /subtmpl/product-row_list_?.html -->
+                            </div>
+
+                        </div>
+
+                    {% endfor %}
+
+                </div><!-- end: 2 Column with 50/50 split -->
+
+            </div>
+
+        {% endif %}
+
+    </form>
+
+
+    {% if products.has_other_pages %}
+
+        <div class="bottomToolBar clearfix" style="border-bottom: 1px solid #d6d6d6;">
+        <!-- begin: breadcrumbs: nav_list_top_?.html -->
+        <div class="tools pagination">
+
+            {% if products.has_previous %}
+
+                <a href="{% if search %}
+
+                        {% url 'product:search' %}?page={{ products.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
+
+                        {% else %}
+
+                           {% url 'product:product_list' item.slug %}?page={{ products.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
+
+                        {% endif %}"
+
+                   title="Return" class="prevPage">
+                    <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-arrow-180">
+                </a>
+
+            {% endif %}
+
+            {% if products.has_next %}
+
+                <a href="{% if search %}
+
+                        {% url 'product:search' %}?page={{ products.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
+
+                        {% else %}
+
+                        {% url 'product:product_list' item.slug %}?page={{ products.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
+
+                        {% endif %}"
+                   title="Continue" class="nextPage">
+                    <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-arrow">
+                </a>
+
+            {% endif %}
+
+        </div>
+
+        <!-- begin: nav_list_bottom_?.html -->
+
+
+        <div class="bottomToolBar clearfix pagination">
+            <span class="product-list-status">page:
+
+                {% for page in products.paginator.page_range %}
+                    {% if page == products.number %}
+                        <a class="os_pages active" href="{% if search %}
+
+                        {% url 'product:search' %}?page={{ page }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
+
+                        {% else %}
+
+                        {% url 'product:product_list' item.slug %}?page={{ page }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
+
+                        {% endif %}">
+
+                            {{ page }}
+                        </a> |
+                    {% else %}
+                        <a class="os_pages" href="{% if search %}
+
+                        {% url 'product:search' %}?page={{ page }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
+
+                        {% else %}
+
+                        {% url 'product:product_list' item.slug %}?page={{ page }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
+
+                        {% endif %}">
+
+                            {{ page }}
+                        </a> |
+                    {% endif%}
+
+                {% endfor %}
+
+                ...&nbsp;</span>
+            <span class="product-list-status float_right">{{ products.number }}-{{ products.paginator.num_pages }}| {{ products.paginator.count }} Article</span>
+        </div>
+
+    {% endif %}
+
+    </div>
+    <div id="ie_clearing">&nbsp;</div>
+    <!-- End: IE Column Clearing -->
+
+
+    <script>
+
+        $(function () {
+            // ajax pagination
+            var pagination = function (event) {
+                event.preventDefault();
+                var page = $(this);
+                console.log(page);
+                $.ajax({
+                    async: true,
+                    url: page.attr("href"),
+                    type: 'get',
+                    dataType: 'json',
+
+                    success: function (data) {
+
+                        $("#col3").html(data.html_items);
+
+                        breadcrumb()
+                    },
+
+                    error: error
+                });
+            };
+
+            $("#col3_content").on('click', ".pagination a", pagination);
+            $(".toolBar.clearfix").on('click', "a", pagination);
+
+        })
+
+    </script>

@@ -1,0 +1,18 @@
+.widget div ul li.indentLevel_1 {
+    display: none;
+}
+
+/*#col3_content table tbody a {*/
+/*display: block;*/
+/*}*/
+
+.product-list-status a.os_pages.active {
+    background-color: #787360;
+    color: white;
+}
+
+.my-autocomplete {
+    z-index: 100;
+    visibility: visible;
+    display: block;
+}

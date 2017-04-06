@@ -1,0 +1,48 @@
+{% load staticfiles %}
+
+<div id="col3_content" class="clearfix">
+
+    <h1 class="uppercase">{{ category_title|upper }}</h1>
+
+    <table border="0" align="left" class="full content">
+        <tbody>
+
+        {% for index in menu_list %}
+
+            <tr>
+
+                {% for cat in index %}
+
+                    <td>
+                        {#                    <a href="{{ cat.get_absolute_url }}">#}
+                        <img src="{% if cat.items %}
+                        {{ cat.items.all.first.get_all_products.0.image.url }}
+                        {% else %}
+                        {{ cat.get_all_products.0.image.url }}
+                        {% endif %}
+                        ">
+                        {#                    </a>#}
+                        <h2 class="uppercase">
+                            <a href="{{ cat.get_absolute_url }}">
+
+                                {{ cat.title }}
+
+                            </a>
+                        </h2>
+                    </td>
+
+                {% endfor %}
+
+                {% empty %}
+
+                <h4>List empty</h4>
+
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+    <!-- end: Text Page specific content -->
+</div>

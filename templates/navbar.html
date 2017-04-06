@@ -1,0 +1,68 @@
+{% load staticfiles %}
+
+<div id="nav" role="navigation">
+     <span class="navInner">
+
+	  <div class="hlist">
+          <ul>
+              <!-- PRODUCTS / PRODUKTE -->
+              <li id="id_nav_top_products" style="background-color:#961400;" class="first">
+                  <a href="{% url 'menu:shop' %}" title="Shop">
+                      <span style="color:#fff;">
+                          <img src="{% static 'img/icon_shop.gif' %}">
+                          SHOP
+                      </span>
+                  </a>
+              </li>
+
+              <!-- STARTPAGE / STARTSEITE -->
+              <li id="id_nav_top_startseite">
+                  <a href="{% url 'menu:homepage' %}" title="HOME">
+                      <span>HOME</span>
+                  </a>
+              </li>
+
+              <!-- ABOUT US / ÜBER UNS -->
+
+              <li id="id_nav_top_darstellung" cla>
+                  <a href="#" title="Das Unternehmen" target="_blank">
+                      <span>UNTERNEHMEN</span>
+                  </a>
+              </li>
+
+              <!-- NEWS / AKTUELLES -->
+
+              <!-- CONTACT / KONTAKT -->
+              <li id="id_nav_top_contact">
+                  <a href="#" title="Kontakt" target="_blank">
+                      <span>Kontakt</span>
+                  </a>
+              </li>
+
+              <!-- Seller / Verkäufer -->
+
+
+              <!-- Katalog -->
+
+          </ul>
+      </div>
+
+    <!-- begin: main search form: form_search_?.html -->
+    <!-- begin: eidamo search -->
+        <form method="get" class="searchForm" id="searchForm" action="{% url 'product:search' %}" >
+
+            <div class="searchInput">
+                <span>
+              <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-search">
+
+              <input id="query" class="searchInput" value="{{ request.GET.q }}" type="text" name="q"  placeholder="Искать ...">
+
+              <input class="searchButton" type="image" border="0" name="submit" title="Поиск" alt="Поиск" src="{% static 'img/gfx.spacer.gif' %}">
+
+            </span>
+            </div>
+
+        </form>
+
+    </span>
+</div>

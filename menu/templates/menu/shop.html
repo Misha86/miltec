@@ -1,0 +1,168 @@
+{% extends "base.html" %}{% load staticfiles %}
+
+{% block title %}{% endblock %}
+
+
+{% block script %}
+
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+    <div id="main" class="content"><span class="main">
+
+<div id="col1" role="complementary">
+    <div id="col1_content" class="clearfix">
+
+        <!-- begin: widget box -->
+        <div class="widget accordion">
+
+            <h2>Products</h2>
+
+            {% for category in categories %}
+
+                <h5 id="mainCatID_{{ category.id }}" class="category">
+                    <a href="{{ category.get_absolute_url }}" title="{{ category.title }}">
+                        <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-toggle">
+                        {{ category.title }}
+                    </a>
+                </h5>
+
+                <div>
+
+                    <ul>
+
+                        {% for item in category.items.all %}
+
+                            <li id="subCatID_{{ item.id }}" class="indentLevel_0">
+                                <a href="{{ item.get_absolute_url }}" title="{{ item.title }}">{{ item.title }}</a>
+                            </li>
+
+                            {% if item.children %}
+
+                                {% for item in item.children %}
+
+                                    <li id="subCatID_{{ item.id }}" class="indentLevel_1">
+                                        <a href="{{ item.get_absolute_url }}" title="{{ item.title }}">{{ item.title }}</a>
+                                    </li>
+
+                                {% endfor %}
+
+
+                            {% endif %}
+
+                        {% endfor %}
+
+                    </ul>
+
+                </div>
+
+            {% endfor %}
+
+            <div class="widgetBottom"></div></div>
+        <!-- end: widget box -->
+
+        <div class="widget" role="actions">
+
+            <h2>Promotions</h2>
+
+            <div>
+                <ul>
+
+                    {% for promotion in promotions %}
+
+                        <li id="actionURL-NewItems" class="withDivider">
+                            <a href="#" onclick="$.cookie('actionURL', 'newItems');" title="{{ promotion.title }}" rel="nofollow">
+                                {{ promotion.title }}
+                            </a>
+                        </li>
+
+                    {% endfor %}
+
+                </ul>
+            </div>
+
+            <div class="widgetBottom"></div>
+        </div>
+
+    </div>
+
+</div>
+
+
+    <div id="col2" role="complementary">
+        <div id="col2_content" class="clearfix">
+
+            <!-- begin: widget box -->
+            <div class="widget" role="Account Management">
+
+                <h4 class="selected">
+                    <a href="#13" title="My Account" alt="My Account">
+
+                        <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-toggle">
+                        My Account
+                    </a>
+                </h4>
+
+
+                <!-- EIDAMO_CUSTOMERLOGIN_START -->
+                <div class="forms">
+                    <form class="yform" method="post" action="#">
+
+                        <div class="type-text">
+                            <input type="text" name="userid" id="userid" value="E-Mail" onfocus="if( this.value=='E-Mail')this.value=''" onblur="if( this.value=='')this.value='E-Mail'" tabindex="2">
+                        </div>
+
+                        <div class="type-text">
+                            <input type="password" name="pw" id="pw" value="Passwort" onfocus="if( this.value=='Passwort')this.value=''" onblur="if( this.value=='')this.value='Passwort'" tabindex="3">
+                        </div>
+
+                        <div class="buttonsContainer">
+                        <span class="buttonsContainer">
+                            <input type="submit" class="submit-IEFix" tabindex="3" style="position:absolute;top:inherit;left:-99999px;">
+                            <a class="formButton formButtonSubmit formButtonBlue" href="#13" title="log in">
+                                <span>
+                                    <b>log in</b>
+                                </span>
+                            </a>
+                            <div class="clear"></div>
+                        </span>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="widgetBottom"></div>
+            </div>
+
+            <br>
+            <a class="smallButton blueButton longButton" href="#" target="_blank">
+                <span>Size Charts</span>
+            </a>
+            <br>
+            <br>
+
+        </div>
+    </div>
+
+
+    <!-- begin: #col3 static center column -->
+    <div id="col3" role="main">
+
+
+           {% include 'partial_shop_main.html' %}
+
+
+
+        <div id="ie_clearing">&nbsp;</div>
+
+        <!-- End: IE Column Clearing -->
+    </div>
+
+    </span></div>
+
+
+{% endblock %}
