@@ -22,22 +22,22 @@ $(document).ready( function() {
 	// Display Funktion
 	//		 
 	// (en) for the selected view to stay active we use cookies by Klaus Hartl (stilbuero.de)
-	// (de) damit die ausgewählte Ansicht auf folgenden seiten bestehen bleibt nutzen wir cookies von Klaus Hartl (stilbuero.de)	
+	// (de) damit die ausgewï¿½hlte Ansicht auf folgenden seiten bestehen bleibt nutzen wir cookies von Klaus Hartl (stilbuero.de)	
 	
 	// (en) switching the view from list to grid and visa versa - only within the current search results
 	// (de) schaltung zwischen der Raster- und Listendarstellung und umgekehrt - nur innerhalb einer seite
 		
 	// (en) set the desired on-load view mode
-	// (de) die gewünschte Ansicht voreinstellen, die mit der seite geladen wird
+	// (de) die gewï¿½nschte Ansicht voreinstellen, die mit der seite geladen wird
 	
-	var currentView = $.cookie('currentView');
-	if (currentView == null) {
-		$(".display-viewStandard").addClass('display-viewStandard-active');
-		$(".viewGrid").addClass('viewStandard'); 
-		$(".viewGrid").removeClass('viewGrid');
-		$(".display-viewGrid-active").removeClass('display-viewGrid-active');
-		//$(".viewGrid, .sortOptions-viewGrid").hide(); 
-	};
+	//var currentView = $.cookie('currentView');
+	//if (currentView == null) {
+	//	$(".display-viewStandard").addClass('display-viewStandard-active');
+	//	$(".viewGrid").addClass('viewStandard');
+	//	$(".viewGrid").removeClass('viewGrid');
+	//	$(".display-viewGrid-active").removeClass('display-viewGrid-active');
+	//	//$(".viewGrid, .sortOptions-viewGrid").hide();
+	//};
 	
 	
 	
@@ -63,8 +63,8 @@ $(document).ready( function() {
 			
 				
 	var jqZoomOptions = {
-		zoomWidth: 500,
-		zoomHeight: 450,
+		zoomWidth: 450,
+		zoomHeight: 400,
 		showEffect:'fadein',
 		hideEffect:'fadeout',
 		fadeoutSpeed: 'slow',
@@ -73,8 +73,7 @@ $(document).ready( function() {
 		showPreload: true,
 		preloadText: 'Zoombild laden',
 		title: true
-	}
-	$("#col3_content div.imageContainer .jqzoom").jqzoom(jqZoomOptions);
-
+	};
+	$("#main div.imageContainer .jqzoom").jqzoom(jqZoomOptions);
 
 });

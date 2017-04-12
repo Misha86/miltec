@@ -64,6 +64,14 @@ class Item(models.Model):
         instance = self
         return Item.objects.filter(parent=instance)
 
+    def category(self):
+        if self.content_type.model_class() == Category:
+            return self.content_object
+        elif self.parent.content_type.model_class() == Category:
+            return self.parent.content_object
+        else:
+            return None
+
     def has_parent_children(self):
         instance = self
         return hasattr(instance.parent, 'children')

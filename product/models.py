@@ -21,12 +21,23 @@ def upload_location(instance, filename):
     return os.path.join(path, str(dir), str(instance.title), str(filename))
 
 
+def upload_location2(instance, filename):
+    path = 'upload/products'
+    if instance.category:
+        dir = instance.category.title
+    else:
+        dir = instance.item.title
+    filename = "{}-large.{}".format(*filename.split('.'))
+    return os.path.join(path, str(dir), str(instance.title), str(filename))
+
+
 class Product(models.Model):
     """
     Stores a product.
     """
     title = models.CharField(max_length=50, verbose_name="Назва категорії")
     description = models.TextField(max_length=5000, verbose_name="Опис товару")
+    details = models.TextField(max_length=5000, verbose_name="Деталі товару", default='')
     article = models.PositiveIntegerField(verbose_name="Артикль товару", default=00000000)
 
     sold = models.BooleanField(verbose_name="Проданий", default=False)
@@ -37,9 +48,12 @@ class Product(models.Model):
     price_for_users = models.DecimalField(verbose_name="Ціна для зареєстрованих відвідувачів",
                                           max_digits=10, decimal_places=2)
 
-    image = models.ImageField(verbose_name="Картинки", upload_to=upload_location, width_field="width_field",
+    image = models.ImageField(verbose_name="Картинка", upload_to=upload_location, width_field="width_field",
                               height_field="height_field", blank=True, null=True,
                               help_text="Зображення товару")
+    image_large = models.ImageField(verbose_name="Велика картинка", upload_to=upload_location2, width_field="width_field",
+                                    height_field="height_field", blank=True, null=True,
+                                    help_text="Зображення товару для детального перегляду")
     width_field = models.IntegerField(default=0, verbose_name="Ширина картинки в пікселях")
     height_field = models.IntegerField(default=0, verbose_name="Висота картинки в пікселях")
 
@@ -75,6 +89,6 @@ class Product(models.Model):
 
         super(Product, self).save(*args, **kwargs)
 
-    # def get_absolute_url(self):
-    #     return reverse('product:product', kwargs={
-    #         'slug': self.slug})
+    def get_absolute_url(self):
+        return reverse('product:product', kwargs={
+            'slug': self.slug})

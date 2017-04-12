@@ -34,11 +34,11 @@ def ordering_too(request, products_all, default_ordering='price'):
     # ordering products
     ordering_type = request.GET.get('ordering', '')
 
-    if ordering_type != '' and ordering_type != request.session['ordering']:
+    if ordering_type != '' and ordering_type != request.session.get('ordering'):
         request.session['ordering'] = ordering_type
         products = products_all.order_by(ordering_type)
-    elif request.session['ordering']:
-        products = products_all.order_by(request.session['ordering'])
+    elif request.session.get('ordering'):
+        products = products_all.order_by(request.session.get('ordering'))
     else:
         products = products_all.order_by(default_ordering)
 
@@ -60,38 +60,64 @@ def product_list(request, slug=None):
 
         # ordering products
         ordering = request.GET.get('ordering', '')
-        if ordering != '' and ordering != request.session['ordering']:
+        if ordering != '' and ordering != request.session.get('ordering'):
             request.session['ordering'] = ordering
             list_product = item.get_all_products(order_by=ordering)
-        elif request.session['ordering']:
-            list_product = item.get_all_products(order_by=request.session['ordering'])
+        elif request.session.get('ordering'):
+            list_product = item.get_all_products(order_by=request.session.get('ordering'))
         else:
             list_product = item.get_all_products(order_by='price')
 
+        # view products
         view_page(request)
 
-        if list_product:
+        # pagination products
+        products = pagination_products(request, list_product, 2)
 
-            products = pagination_products(request, list_product, 2)
+        context = {
+            'products': products,
+            'item': item
+        }
 
-            context = {
-                'products': products,
-                'item': item
-            }
-
-            data['html_items'] = render_to_string('product_list.html',
-                                                  context,
-                                                  request=request)
-            data['is_data'] = True
-
-        else:
-
-            data['ia_data'] = False
+        data['html_items'] = render_to_string('product_list.html',
+                                              context,
+                                              request=request)
+        data['is_data'] = True
 
         return JsonResponse(data)
 
     else:
         return redirect(reverse('menu:shop'))
+
+
+def product_details(request, slug=None):
+
+    if request.is_ajax():
+        data = dict()
+        product = get_object_or_404(Product, slug=slug)
+
+        products = pagination_products(request, product.item.products.all(), 1)
+
+        context = {
+            'products': products,
+            'product': product,
+            'item': product.item
+        }
+
+        if products.has_next():
+            context['next_slug'] = products.paginator.page(products.next_page_number()).object_list[0].slug
+
+        if products.has_previous():
+            context['previous_slug'] = products.paginator.page(products.previous_page_number()).object_list[0].slug
+
+        data['html_items'] = render_to_string('partial_product.html',
+                                              context,
+                                              request=request)
+        data['is_data'] = True
+
+        return JsonResponse(data)
+
+    return redirect(reverse('menu:shop'))
 
 
 def search(request):
@@ -150,3 +176,5 @@ def search(request):
     else:
 
         return redirect(reverse('menu:shop'))
+
+

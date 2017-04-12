@@ -40,33 +40,14 @@ var error = function(xhr, errmsg, err) {
 
 
 $(function () {
-    $('.hlist li').each(function () {
+     $('.hlist li').each(function () {
         var location = window.location.pathname;
         var link = $(this).find('a').attr('href');
         if(location == link) {
             $(this).addClass('selected');
         }
     });
-});
 
-
-
-var breadcrumb = function(){
-    var breadcrumbs = $('#col3_content > form > div.breadcrumbBar.clearfix > ul')
-    var acordionSel = $(".ui-accordion-header-active");
-    var itemOne = $(".indentLevel_0.selected");
-    var itemTwo = $(".indentLevel_1.selected");
-    var crumb = [acordionSel, itemOne, itemTwo];
-    for(var i=0; i < crumb.length; i++){
-        if(crumb[i].text() != ''){
-            breadcrumbs.append("<li> » <a href='#'>" + crumb[i].text() +"</a></li>")
-        }
-    }
-    console.log($(breadcrumbs));
-};
-
-
-$(function () {
     $( ".accordion" ).accordion({
         beforeActivate:function(event, ui){
             $(ui.oldPanel).find('li.selected').removeClass('selected');
@@ -115,38 +96,74 @@ $(function () {
     });
 
 
-    var items =  function (event) {
-        event.preventDefault();
-        var category = $(event.target);
-        console.log(category.attr('href'));
+    var ajaxForProducts =  function (urlDjango) {
+
         $.ajax({
-            url: category.attr('href'),
+            url: urlDjango,
             type: 'get',
+            dataType: 'json',
 
             success: function (data) {
 
-                var content = $("#col3_content");
+                var content = $("#col3");
 
                 if (data.is_data) {
 
                     content.html(data.html_items);
-                    breadcrumb()
 
                 } else {
-                    content.html('');
-                    console.log(data.is_data);
+
+                    console.log('false');
                 }
             },
             error : error
         });
+
     };
 
-    $(".full.content").on('click', 'a', items);
-    $(".category").on('click', items);
 
-    $("#main").on('click', '#col3_content h2.uppercase a', items);
+    var items =  function (event) {
+        event.preventDefault();
+        var category = $(event.currentTarget);
+        var urlDjango = category.attr('href');
+        console.log(category.attr('href'));
+
+        ajaxForProducts(urlDjango);
+
+        window.history.pushState({href: urlDjango}, category.attr('id'), urlDjango);
+
+    };
+
+
+    window.addEventListener('popstate', function(event){
+        if(event.state){
+             ajaxForProducts(event.state.href);
+        }
+    });
+
+
+    var mainContent = $("#main");
+
+    $(".full.content").on('click', 'a', items);
+    $(".category").on('click', 'a', items);
+
+    // show items in category from accordion
+    mainContent.on('click', '#col3_content tr td a', items);
 
     $(".indentLevel_0").on('click', 'a', items);
     $(".indentLevel_1").on('click', 'a', items);
+
+    // url for details product
+    $("#col3").on('click', 'form div.products div.product-row.hproduct a', items);
+
+    // ajax pagination
+    mainContent.on('click', "#col3_content .pagination a", items);
+    mainContent.on('click', ".toolBar.clearfix a", items);
+
+    // breadcrumb
+    mainContent.on('click', "#col3_content .breadcrumbBar .breadcrumbs li a", items);
+
+    //// product details 'next' and 'back'
+    mainContent.on('click', ".bottomToolBar .tools.float_right a", items);
 
 });

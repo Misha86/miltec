@@ -1,388 +1,333 @@
-<div id="col3" role="main">
-	<div id="col3_content" class="clearfix">
+{% load staticfiles %}
 
-<!-- end: /subtmpl/#col3_open_?.html -->
-            <!-- end: column center: #col3 - open -->
-            
-            	<!-- begin: article detail specific content -->
-                <div itemscope="" itemtype="http://schema.org/Product" class="hproduct">
-        
-                  <div class="breadcrumbBar clearfix">
+{#<link rel="stylesheet" href="{% static 'css/jquery.jqzoom.css' %}" type="text/css">#}
+{#<link rel="stylesheet" href="{% static 'css/content_eidamo.css.css' %}" type="text/css">#}
 
-					<!-- begin: breadcrumbs: nav_breadcrumb_?.html -->
-					<ul class="breadcrumbs">
+<script type="text/javascript" src="{% static 'js/jquery.library.min.js' %}"></script>
 
-    <li class="firstCrumb"><a href="/cgi-bin/shop/front/eidamo.cgi?func=showcatlevel&amp;level=1&amp;wkid=25029223150101115&amp;nocache=1491312890">Shop</a></li>
 
-	
-    <li>: <a href="/cgi-bin/shop/front/eidamo.cgi?func=rubrik&amp;wkid=25029223150101115&amp;rub1=Clothing">Clothing</a></li>
-    
-    <li>: <a href="eidamo.cgi?func=rubrik&amp;wkid=25029223150101115&amp;rub1=Clothing&amp;rub2=Jackets&amp;pn=0">Jackets</a></li>
-    
-    <li class="activeCrumb">» <a href="eidamo.cgi?func=anzeige&amp;wkid=25029223150101115&amp;rub1=Clothing&amp;rub2=Jackets,Parkas%20%26%20Overcoats&amp;pn=0">Parkas &amp; Overcoats</a></li>
-    
-    
-</ul>
-					<!-- end: breadcrumbs: nav_breadcrumb_?.html -->
-                      
-                      <!-- begin: nav_detail_top_?.html -->
-                      <div class="tools">
+<script type="text/javascript" src="{% static 'js/jquery.eidamo.pack.js' %}"></script>
+{#<script type="text/javascript" src="{% static 'js/yaml-focusfix.js' %}"></script>#}
 
-	
-    	<a href="/cgi-bin/shop/front/eidamo.cgi?func=det&amp;artnr=153&amp;wkid=25029223150101115&amp;rub1=Clothing&amp;rub2=Jackets%2CParkas%20%26%20Overcoats&amp;pn=0&amp;partnr=10625202" title="Return" class="prevPage">
-        	<img src="/shop/images/gfx.spacer.gif" class="icon icon-lg-arrow-180">
+{#<script type="text/javascript" src="{% static 'js/jquery.jqzoom-core.js' %}"></script>#}
+{#<script type="text/javascript" src="{% static 'js/jquery.jqzoom-core-pack.js' %}"></script>#}
+
+{#<script type="text/javascript" src="{% static 'js/jquery.eidamo.min.js' %}"></script>#}
+
+{#<script type="text/javascript" src="{% static 'js/addthis.js' %}"></script>#}
+{#<script type="text/javascript" src="{% static 'js/01.js' %}"></script>#}
+
+<script type="text/javascript">
+
+    $(function () {
+
+        $("#col3 div.jquery_tabs")[0] && ($("#col3 div.jquery_tabs").accessibleTabs({
+            tabhead: "h4",
+            tabbody: ".tabs-content",
+            currentInfoText: "",
+            fx: "fadeIn",
+            autoAnchor: !0,
+            saveState: !0
+        }),
+                $(".jquery_tabs ul.tabs-list li").first().addClass("firstTab"),
+                $(".jquery_tabs ul.tabs-list li").last().addClass("lastTab"));
+
+        $("a[rel^='prettyPhoto']").prettyPhoto({
+            theme: 'pp_default',	/* pp_default / light_rounded / dark_rounded / light_square / dark_square / facebook */
+            hideflash: false, /* Hides all the flash object on a page, set to TRUE if flash appears over prettyPhoto */
+            social_tools: false, /* html or false to disable */
+            deeplinking: false, /* Allow prettyPhoto to update the url to enable deeplinking. */
+            ie6_fallback: true,
+            overlay_gallery: false /* If set to true, a gallery will overlay the fullscreen image on mouse over */,
+            iframe_markup:'<div class="iOSscroll" style="width:{width}px;height:{height}px;"><iframe src ="{path}" width="{width}" height="{height}" frameborder="no"></iframe></div>' /* Bugfix for iOS Touch devices to be able to scroll */
+        })
+    })
+
+</script>
+
+
+<div id="col3_content" class="clearfix">
+
+    <div class="breadcrumbBar clearfix">
+
+        {% include 'breadcrum.html' %}
+
+
+        {% include 'tools_pagination.html' %}
+
+    </div>
+
+    <!-- begin: product-row_detail_?.html -->
+    <form name="detail_view" method="post" action="">
+        <div class="product-details">
+            <dl>
+                <dt title="{{ product.title|upper }}">
+                    <a itemprop="url" class="url" href="" style="display: none">{{ product.title|upper }}</a>
+                <div itemprop="brand" style="display: none" class="brand"></div>
+                <h1>
+
+                    <span itemprop="name">{{ product.title|upper }}</span>
+
+                </h1>
+
+                </dt>
+
+
+                <!-- begin include: pic_detail_?.html -->
+                <dd class="image" note="has_large">
+                    <div class="imageContainer" style="position: relative;">
+                        <a href="#{# {% if product.image_large %}{{ product.image_large.url }}{% endif %} #}" class="jqzoom" style="outline-style: none; text-decoration: none; cursor: crosshair; display: block; position: relative; height: 200px; width: 160px;">
+                            <img itemprop="image" class="thumb photo" src="{{ product.image.url }}" alt="{{ product.title|upper }}" style="opacity: 1;">
+                        </a>
+                    </div>
+
+                    <a href="{% if product.image_large %}{{ product.image_large.url }}{% endif %}" class="tagEnlarge" title="{{ product.title|upper }}" rel="prettyPhoto[gal]">
+                        <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-magnifier">
+                        <u>Enlarge Photo</u>
+                    </a>
+                </dd>
+
+                <script type="text/javascript">//
+                // Scaling for product-details image
+
+
+                $('div.imageContainer img.thumb').load( function() {
+                    $('div.imageContainer img.thumb').each(function() {
+                        var containerHeight = $('div.imageContainer').height(); // Current height of container
+                        var containerWidth = $('div.imageContainer').width(); // Current width of container
+                        var imageWidth = $(this).width();  // Current image height
+                        var imageHeight = $(this).height();  // Current image height
+
+                        if(containerHeight>imageHeight)
+                        {
+                            var newTop = imageHeight + 10;
+                            $('head').append('<style type=\"text/css\">' +
+                                    'div.imageContainer img.thumb { width: '+containerWidth+'px !important; }' +
+                                    'div.product-details dd.image a.tagEnlarge { top: '+newTop+'px  !important;}' +
+                                    '</style>'
+                            );
+                        }
+                        else if(imageHeight>containerHeight)
+                        {
+                            var newTop = imageHeight + 10;
+                            var newHeight = imageHeight + 35;
+                            $('head').append('<style type=\"text/css\">' +
+                                    'div.imageContainer img.thumb,' +
+                                    'div.imageContainer .jqZoomPup img,' +
+                                    '.product-details .image div.imageContainer { width: '+containerWidth+'px !important; text-align: left; }' +
+                                    '.product-details .image div.imageContainer { height: '+imageHeight+'px !important;}' +
+                                    '.product-details .image div.imageContainer a.jqzoom { height: '+imageHeight+'px !important; width: '+containerWidth+'px !important;}' +
+                                        '.product-details .image div.imageContainer a.jqzoom div.jqZoomPup img { height: '+imageHeight+'px !important; width: '+imageWidth+'px !important;}' +
+                                    'div.product-details dd.image a.tagEnlarge { top: '+newTop+'px  !important;}' +
+                                    'div.product-details dd.image { height: '+newHeight+'px  !important;}' +
+                                    '</style>'
+                            );
+                        }
+                    });
+                });
+
+
+                </script>
+
+
+                <dd class="articleNr">
+                    <label>Article No.:</label>
+                    <div itemprop="productID">
+                        {{ product.article }}
+                    </div>
+                </dd>
+
+
+
+                <!-- EIDAMO_LIST_INQUIRY_START:1 -->
+
+
+                <dd class="price" id="price_1" style="">
+
+
+                <span class="current_price" itemprop="offers" itemscope="" itemtype="">
+            <span class="price" itemprop="price">
+
+                {{ product.price }}
+
+            </span>
+            <span class="currency">EUR</span>
+            <span class="unit">/ ST</span>
+
+			</span>
+
+                    <span class="tax_percent">packing unit 1 ST</span>
+                </dd>
+
+
+            </dl>
+            </a>
+
+            <div class="buttonsContainer">
+
+                <div id="buttons_1" style="">
+
+
+                    <!-- Amount to Add - by default off -->
+                    <div class="amount-to-add" style="">
+                        <input class="count" type="text" name="menge_1" value="1">
+                        <input type="hidden" name="rub1_1" value="Clothing">
+                        <font style="float: none;"><b>/</b> ST</font>
+                        <a style="float: right; text-align: center;" href="#">
+                                            <span>
+                                                <img src="{% static 'img/gfx.spacer.gif' %}" alt="select trim" title="select trim" class="icon icon-lg-shopping-basket--arrow">
+                                        <b>select trim</b>
+                                    </span>
+                        </a>
+
+                    </div>
+
+                    <!-- begin: Amout Image gets replaced by jquery function -->
+                    <script type="text/javascript">
+                        $(document).ready( function() {
+                            $('.buttonsContainer img[border~="0"]').replaceListAmountImg('/static/img/gfx.spacer.gif', 'select trim');
+                        });
+                    </script>
+
+                    <!-- end: Amout Image gets replaced by jquery function -->
+
+                </div>
+
+
+            </div>
+
+            <dd class="fb-like" data-send="false" data-width="480" data-show-faces="false" data-font="lucida grande" data-action="recommend"></dd>
+
+
+            </dl>
+
+        </div>
+    </form>
+    <!-- end: product-row_detail_?.html -->
+
+
+
+    <!-- Bezeichnung 2 einblenden -->
+
+    <!-- begin: jquery tabs -->
+    <div class="jquery_tabs">
+
+        <!-- begin: product-description_?.html -->
+        <h4 id="accessibletabscontent0-0" class="tabhead" tabindex="-1">Description</h4>
+
+        <div class="tabs-content description" itemprop="description" style="">
+
+            <!-- Artikelbeschreibung -->
+            <p>
+                {{ product.description|linebreaks }}
+            </p>
+
+            <p id="zusatx_text"></p>
+
+        </div>
+        <!-- end: product-description_?.html -->
+
+        <!-- begin: product-specifications_?.html -->
+        <h4 id="accessibletabscontent0-1" class="tabhead" tabindex="-1">Details</h4>
+        <div class="tabs-content" style="display: none;">
+
+            <dl class="specifications">
+                <dt>Details</dt>
+
+                <dd class="alt">
+                    <label>EAN-Code</label>
+                    <span>4046872353727</span>
+                    <div class="clear"></div></dd>
+
+                <dd>
+                    <label>goods code</label>
+                    <span>39262000</span>
+                    <div class="clear"></div></dd>
+            </dl>
+        </div>
+    </div>
+    <!-- end: jquery tabs -->
+
+
+
+    <!-- begin: products also purchased by other customers: product-cfilter_?.html -->
+    <!-- begin include: Kunden, die dieses Produkt gekauft haben, haben auch folgende Produkte gekauft: -->
+    &nbsp;
+    <!-- end: products also purchased by other customers: product-cfilter_?.html -->
+
+
+
+    <div class="bottomToolBar clearfix">
+
+        <div class="buttonsContainer" style="float:left;">
+            <a href="#" onclick="history.go(-1)" class="formButton">
+                <span><b>back</b></span>
+            </a>
+        </div>
+
+        <!-- begin: nav_detail_bottom_?.html -->
+{#        <div class="tools float_right" style="padding-top:5px;">#}
+{##}
+{#            {% if  product.item.products.all|length > 1 %}#}
+{##}
+{#                {% if  product.item.products.all|length > 1 %}#}
+{##}
+{#                    <a href="{{ product.get_previous_by_create.get_absolute_url }}" title="Return" class="prevPage">#}
+{#                        <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-arrow-180">#}
+{#                    </a>#}
+{##}
+{#                {% endif %}#}
+{##}
+{#                {% if product.get_next_by_create %}#}
+{##}
+{#                    <a href="{{ product.get_next_by_create.get_absolute_url }}" title="Continue" class="nextPage">#}
+{#                        <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-arrow">#}
+{#                    </a>#}
+{##}
+{#                {% endif %}#}
+{#            {% endif %}#}
+{##}
+{##}
+{#        </div>#}
+
+
+{% if products.has_other_pages %}
+
+<div class="tools pagination float_right" style="padding-top:5px;">
+
+    {% if products.has_previous %}
+
+        <a href="{% url 'product:product' previous_slug %}?page={{ products.previous_page_number }}"
+           title="Return" class="prevPage">
+            <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-arrow-180">
         </a>
-    
 
-	
-    	<a href="/cgi-bin/shop/front/eidamo.cgi?func=det&amp;artnr=155&amp;wkid=25029223150101115&amp;rub1=Clothing&amp;rub2=Jackets%2CParkas%20%26%20Overcoats&amp;pn=0&amp;partnr=10625202" title="Continue" class="nextPage">
-        	<img src="/shop/images/gfx.spacer.gif" class="icon icon-lg-arrow">
+    {% endif %}
+
+    {% if products.has_next %}
+
+        <a href="{% url 'product:product' next_slug %}?page={{ products.next_page_number }}"
+           title="Continue" class="nextPage">
+            <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-arrow">
         </a>
-    
-    
+
+    {% endif %}
+
 </div>
-                      <!-- end: nav_detail_top_?.html -->
-                      
-                  </div>
-        
-                  <div class="toolBar clearfix">              
-                      <div class="tools">
-                      
-                        <!-- Merkliste (nur für eingeloggte Kunden) -->
-                        
-                        
-                        <a href="Javascript:window.print();" title="print"><img src="/shop/images/gfx.spacer.gif" class="icon icon-lg-printer"><u>print</u></a>
-                        
-                        <a href="http://www.miltec-sturm.de/cgi-bin/shop/front/eidamo.cgi?func=htmlserv&amp;wkid=25029223150101115&amp;tmpl=shop_text_win.html&amp;in=mailer_form_0&amp;frage=Frage zu Artikel »BLACK%20WET%20WEATHER%20COAT (Artnr. 10625202)«"><img src="/shop/images/gfx.spacer.gif" class="icon icon-lg-question"><u>Question?</u></a>
-						
-						<!--
-							<a href="#23"><img src="/shop/images/gfx.spacer.gif" class="icon icon-lg-share" /><u>share</u></a>
-						-->
-						
-						
-						
-						</div>
-						
-						<!-- begin: nav_socialnetworks_?.html -->
-						<div class="tools tools_addthis">
-<!-- AddThis Button BEGIN -->
-	<div class="addthis_toolbox addthis_default_style">
-		<!--a class="addthis_button_google_plusone" addthis:url="http://www.miltec-sturm.de/cgi-bin/shop/front/eidamo.cgi?func=direkt&artnr=10625202"></a-->
-		<a class="addthis_button_email at300b" addthis:url="http://www.miltec-sturm.de/cgi-bin/shop/front/eidamo.cgi?func=direkt&amp;artnr=10625202" title="Email" href="#"><span class="at300bs at15nc at15t_email"></span></a>
-		<!--a class="addthis_button_facebook" addthis:url="http://www.miltec-sturm.de/cgi-bin/shop/front/eidamo.cgi?func=direkt&artnr=10625202"></a>
-		<a class="addthis_button_google" addthis:url="http://www.miltec-sturm.de/cgi-bin/shop/front/eidamo.cgi?func=direkt&artnr=10625202"></a>
-		<a class="addthis_button_twitter" addthis:url="http://www.miltec-sturm.de/cgi-bin/shop/front/eidamo.cgi?func=direkt&artnr=10625202"></a>
-		<a class="addthis_button_xing" addthis:url="http://www.miltec-sturm.de/cgi-bin/shop/front/eidamo.cgi?func=direkt&artnr=10625202"></a>
-		<a class="addthis_button_compact" addthis:url="http://www.miltec-sturm.de/cgi-bin/shop/front/eidamo.cgi?func=direkt&artnr=10625202"></a>
-		<a class="addthis_counter addthis_bubble_style" style="cursor:default;"></a-->
-	<div class="atclear"></div></div>
-	<script type="text/javascript" src="/shop/images/img002/style/js/addthis.js"></script>
-	<script type="text/javascript">
-		var addthis_config = {
-			ui_language: "en"
-		}
-	</script>
-<!-- AddThis Button END -->
+
+ {% endif %}
+
+        <!-- end: nav_detail_bottom_?.html -->
+    </div>
+
 </div>
-						<!-- end: nav_socialnetworks_?.html -->
-					  
-                        
-                  </div>
-                  
-				  
-                  <!-- begin: product-row_detail_?.html -->
-<form name="detail_view" method="post" action="/cgi-bin/shop/front/eidamo.cgi?plugin=nvariant&amp;wkid=25029223150101115&amp;artnr=154&amp;pn=0&amp;status=1&amp;rub1=Clothing&amp;rub2=Jackets%2CParkas%20%26%20Overcoats">
-<div class="product-details">          
-    <dl>
-        <dt title=" BLACK WET WEATHER COAT">
-			<a itemprop="url" class="url" href="http://www.miltec-sturm.de/cgi-bin/shop/front/eidamo.cgi?func=direkt&amp;artnr=10625202" style="display:none;"> BLACK WET WEATHER COAT</a>
-			<div itemprop="brand" style="display:none;" class="brand"></div>
-        <h1>            
-          
-          	
-            
-            
-		
-			
-            
-            <span itemprop="name">BLACK WET WEATHER COAT</span>
-        </h1>
-		
-        <h3>
-        
-        
-        </h3> 
-		 
-        </dt>
-        
-		
-		<!-- begin include: pic_detail_?.html -->
-		
+<!-- end: article detail specific content -->
 
 
 
+<div id="ie_clearing">&nbsp;</div>
+<!-- End: IE Column Clearing -->
 
+<script type="text/javascript">
 
-
-
-
-<dd class="image" note="has_large"><div class="imageContainer" style="position: relative;">
-	<a href="/shop/images/artikel/10625202.jpg" class="jqzoom" style="outline-style: none; text-decoration: none; cursor: crosshair; display: block; position: relative; height: 200px; width: 160px;">
-		<img itemprop="image" class="thumb photo" src="http://www.miltec-sturm.de/shop/images/artikel/detail/10625202.jpg" alt="BLACK WET WEATHER COAT" style="opacity: 1;">
-	</a></div>
-	<a href="/shop/images/artikel/10625202.jpg" class="tagEnlarge" title="BLACK WET WEATHER COAT" rel="prettyPhoto[gal]">
-		<img src="/shop/images/gfx.spacer.gif" class="icon icon-lg-magnifier"><u>Enlarge Photo</u>
-	</a>				
-</dd>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		<!-- end include: pic_detail_?.html  -->
-		
-
-		
-		<script type="text/javascript">//
-			// Scaling for product-details image
-			//
-			// (en) Rescaling the height of the detail thumb image proportional to the fixed width of the .imageContainer set in the css file
-			// (de) Die Höhe des Detailthumb proportional der Breite des .imageContainer die im CSS gesetzt anpassen
-			//
-			
-			$('div.imageContainer img.thumb').load( function() {
-				$('div.imageContainer img.thumb').each(function() {
-					var containerHeight = $('div.imageContainer').height(); // Current height of container
-					var containerWidth = $('div.imageContainer').width(); // Current width of container
-					var imageWidth = $(this).width();  // Current image height
-					var imageHeight = $(this).height();  // Current image height
-					
-					if(containerHeight>imageHeight)
-					{
-						var newTop = imageHeight + 10;
-						$('head').append('<style type=\"text/css\">' +
-							'div.imageContainer img.thumb { width: '+containerWidth+'px !important; }' +
-							'div.product-details dd.image a.tagEnlarge { top: '+newTop+'px  !important;}' +
-							'</style>'
-						);
-					}
-					else if(imageHeight>containerHeight)
-					{
-						var newTop = imageHeight + 10;
-						var newHeight = imageHeight + 35;
-						$('head').append('<style type=\"text/css\">' +
-							'div.imageContainer img.thumb,' +
-							'div.imageContainer .jqZoomPup img,' +
-							'.product-details .image div.imageContainer { width: '+containerWidth+'px !important; text-align: left; }' +
-							'.product-details .image div.imageContainer { height: '+imageHeight+'px !important;}' + 
-							'.product-details .image div.imageContainer a.jqzoom { height: '+imageHeight+'px !important; width: '+containerWidth+'px !important;}' + 
-							'.product-details .image div.imageContainer a.jqzoom div.jqZoomPup img { height: '+imageHeight+'px !important; width: '+imageWidth+'px !important;}' + 
-							'div.product-details dd.image a.tagEnlarge { top: '+newTop+'px  !important;}' +
-							'div.product-details dd.image { height: '+newHeight+'px  !important;}' +
-							'</style>'
-						);
-					}
-				});
-			});
-			
-				
-  		</script>
-		
-		
-		
-		<dd class="articleNr"><label>Article No.:</label><div itemprop="productID">10625202</div></dd>
-		
-        
-        
-		<!-- Aktueller Preis (Anzeigepreis): wird nicht ausgegeben, wenn Preis auf Anfrage gesetzt ist -->
-			
-        
-		<dd class="shipping shipping_optTree" style="display:none"><span class="term"><label></label></span></dd>
-		
-        	<!-- Verfuegbarkeit -->
-				
-
-        
-            
-            <dd class="add-to-cart-container" style="display:none;">
-            
-                <div class="buttonsContainer"><span class="buttonsContainer">
-                    
-                    
-                    <!-- Button Preis auf Anfrage -->
-                    
-                    
-                  	<a class="formButton" id="amount-to-add_1541" href="http://www.miltec-sturm.de/cgi-bin/shop/front/eidamo.cgi?func=htmlserv&amp;wkid=25029223150101115&amp;tmpl=shop_text_win.html&amp;in=mailer_form_1&amp;artnr=10625202" title="ask for price" rel="nofollow"><span><img class="icon icon-lg-question" src="/shop/images/gfx.spacer.gif"><b>ask for price</b></span></a>
-                    
-                       
-         	
-        
-                
-					<!-- Aktueller Preis (Anzeigepreis): wird nicht ausgegeben, wenn Preis auf Anfrage gesetzt ist -->
-					             
-                    
-                <div class="clear"></div></span></div>
-            </dd>
-			
-			
-			
-			<!-- Ratings -->
-			
-			 
-            
-            <!-- Download Artikel -->
-            
-            <dd style="display:none;">
-                      	
-            	<a href="" alt="Download" title="Download" rel="nofollow"><img class="icon icon-lg-drive-download" src="/shop/images/gfx.spacer.gif"> download</a>
-            </dd>  
-            
-			
-        	<dd class="fb-like" data-send="false" data-width="480" data-show-faces="false" data-font="lucida grande" data-action="recommend"></dd>
-			
-			
-    </dl>
-  
-</div></form>
-<!-- end: product-row_detail_?.html -->
-
-			
-		
-			<!-- Bezeichnung 2 einblenden -->
-            
-            <!-- begin: jquery tabs -->
-			<div class="jquery_tabs"><ul class="clearfix tabs-list tabamount2"><li class="current firstTab"><a href="#accessibletabscontent0-0"><span class="current-info"></span>Description</a></li><li class="lastTab"><a href="#accessibletabscontent0-1">Details</a></li></ul><div class="content">
-            
-            	
-                <!-- begin: product-description_?.html -->
-                
-	<h4 id="accessibletabscontent0-0" class="tabhead" tabindex="-1">Description</h4>
-	<div class="tabs-content description" itemprop="description" style="display: block;">
-		
-		<!-- Artikelbeschreibung -->
-		<p>100% Polyester, Polyvinylchlorid coated<br>Weight: 200 g/qm<br><br>- 2 big pockets on the front with flap<br>- integrated hood in the collar<br></p>
-		
-		<p id="zusatx_text"></p>		
-			
-	</div>
-
-
-<!-- Individueller kundenspezifischer Zusatztext -->
-
-                <!-- end: product-description_?.html -->				
-				
-                <!-- begin: product-specifications_?.html -->
-                <h4 id="accessibletabscontent0-1" class="tabhead" tabindex="-1">Details</h4>
-<div class="tabs-content" style="display: none;">
-    
-    <dl class="specifications">
-        <dt>Details</dt>
-        
-       <dd class="alt">
-            <label>EAN-Code</label>
-            <span>4046872353727</span>
-        <div class="clear"></div></dd>
-        
-        <dd>
-            <label>goods code</label>
-            <span>39262000</span>
-        <div class="clear"></div></dd>        
-        
-        	
-        <!--dd class="[*EIDAMO_DETAIL_ATTRIB_TITLE*]">
-            <label>[*EIDAMO_DETAIL_ATTRIB_TITLE*]</label>
-            <span>[*EIDAMO_DETAIL_ATTRIB_VALUE*]</span>
-        <div class="clear"></div></dd-->
-   
-		
-        
-        
-        
-        
-        
-    </dl>
-        
-</div>
-                <!-- end: product-specifications_?.html -->	
-				
-                <!-- begin: product youtube video: product-youtube.html -->
-                <!-- begin: youtube video -->
-
-<!-- end: youtube video -->
-				<!-- end: product youtube video: product-youtube.html -->		
-				
-				<!-- begin: product-downloads_?.html -->
-				<!-- begin: /subtmpl/product-downloads_?.html -->
-
-<!-- end: /subtmpl/product-downloads_?.html -->       
-				<!-- end: product-downloads_?.html -->	
-				
-                <!-- begin: product cross selling: product-xselling_?.html -->
-                <!-- begin include: Artikelliste (mit den Artikeln auf der Startseite) einbinden -->
-<!-- begin: products standard view -->
-
-<!-- end: listings standard view -->
-				<!-- end: product cross selling: product-xselling_?.html -->
-                	
-            
-            
-            </div></div>
-            <!-- end: jquery tabs -->
-				
-                <!-- begin: products also purchased by other customers: product-cfilter_?.html -->
-                <!-- begin include: Kunden, die dieses Produkt gekauft haben, haben auch folgende Produkte gekauft: -->
-&nbsp;
-				<!-- end: products also purchased by other customers: product-cfilter_?.html -->
-
-	
-
-				        
-				<div class="bottomToolBar clearfix">          
-				  <div class="buttonsContainer" style="float:left;"><a href="#" onclick="history.go(-1)" class="formButton"><span><b>back</b></span></a></div>
-				  <!-- begin: nav_detail_bottom_?.html -->
-				  <div class="tools float_right" style="padding-top:5px;">
-
-	
-    	<a href="/cgi-bin/shop/front/eidamo.cgi?func=det&amp;artnr=153&amp;wkid=25029223150101115&amp;rub1=Clothing&amp;rub2=Jackets%2CParkas%20%26%20Overcoats&amp;pn=0&amp;partnr=10625202" title="Return" class="prevPage">
-        	<img src="/shop/images/gfx.spacer.gif" class="icon icon-lg-arrow-180">
-        </a>
-    
-
-	
-    	<a href="/cgi-bin/shop/front/eidamo.cgi?func=det&amp;artnr=155&amp;wkid=25029223150101115&amp;rub1=Clothing&amp;rub2=Jackets%2CParkas%20%26%20Overcoats&amp;pn=0&amp;partnr=10625202" title="Continue" class="nextPage">
-        	<img src="/shop/images/gfx.spacer.gif" class="icon icon-lg-arrow">
-        </a>
-    
-    
-</div>
-				  <!-- end: nav_detail_bottom_?.html -->
-				</div>							
-				
-					
-
-
-
-				</div>
-				<!-- end: article detail specific content -->
-            
-            
-            <!-- begin: column center: #col3 - close -->
-            <!-- begin: /subtmpl/#col3_close_?.html -->
-
-	</div>
-	<div id="ie_clearing">&nbsp;</div>
-	<!-- End: IE Column Clearing -->
-	</div>
+</script>

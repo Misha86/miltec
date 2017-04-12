@@ -14,21 +14,17 @@
                 {% for cat in index %}
 
                     <td>
-                        {#                    <a href="{{ cat.get_absolute_url }}">#}
-                        <img src="{% if cat.items %}
+                        <a href="{{ cat.get_absolute_url }}">
+                            <img src="{% if cat.items %}
                         {{ cat.items.all.first.get_all_products.0.image.url }}
                         {% else %}
                         {{ cat.get_all_products.0.image.url }}
                         {% endif %}
                         ">
-                        {#                    </a>#}
-                        <h2 class="uppercase">
-                            <a href="{{ cat.get_absolute_url }}">
-
+                            <h2 class="uppercase">
                                 {{ cat.title }}
-
-                            </a>
-                        </h2>
+                            </h2>
+                        </a>
                     </td>
 
                 {% endfor %}

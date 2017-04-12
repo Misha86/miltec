@@ -89,4 +89,12 @@ $(function () {
         });
     });
 
+    //$('#main a.jqzoom').jqzoom({
+    //    title: false,
+    //    zoomType: 'reverse',
+    //    lens:true,
+    //    preloadImages: false,
+    //    alwaysOn:false
+    //});
+
 });

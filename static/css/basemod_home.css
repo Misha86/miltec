@@ -28,9 +28,9 @@
 .boxen p {margin:10px 0;}
 .boxen .textContainer {height:120px;}
 .box {float:left; margin: 20px 10px; box-shadow:0 0 15px rgba(0,0,0,0.2); border-radius:5px; padding:30px 25px; min-height: 155px; width:200px; }
-.shop {background: url(../img/bg.home.box.png) no-repeat top center; }
-.box.first {background: url(../img/bg.home.box.png) no-repeat top left;}
-.box.last {background: url(../img/bg.home.box.png) no-repeat top right; float:right;}
+.shop {background: url(/static/img/bg.home.box.png) no-repeat top center; }
+.box.first {background: url(/static/img/bg.home.box.png) no-repeat top left;}
+.box.last {background: url(/static/img/bg.home.box.png) no-repeat top right; float:right;}
 .boxen h3 {margin:0 -5px 5px; color:#fff; font-size:14px; font-weight:700; font-family:'Roboto Condensed', Arial, Helvetica, sans-serif; text-transform:uppercase; text-align:center;}
 .boxen .yform {background: none; border:none; padding:0; margin:0; border-radius: 0 !important;}
 .boxen .yform input {width:100%; background: rgba(255,255,255,0.8); border-radius:3px; height:30px;}

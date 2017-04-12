@@ -104,7 +104,7 @@
 	line-height: 1.1;
   }
   .uppercase {text-transform:uppercase; font-family: "Roboto",Arial,Helvetica,sans-serif; }	
-  h1.uppercase {  font-size:1.7em; margin: 15px 0 10px 15px;}
+  h1.uppercase {  font-size:1.7em; margin: 0 0 10px 15px;}
   h2.uppercase { font-size:1.3em; }
   
   h1 { font-size:1.8em; } 
@@ -274,7 +274,7 @@
     overflow:hidden;
     font-size:0;
     background-repeat: no-repeat;
-    background-image: url(../img/border.rounded.site.png);
+    background-image: url(/static/img/border.rounded.site.png);
 	}
   
    .edge-tl {
@@ -347,7 +347,7 @@
         padding: 0;
         padding-left: 3px;
         margin: 0 0 0 5px;
-        background-image: url(../img/btn.formButton.default.gif) !important; /* important is a firefux 4 bug fix */
+        background-image: url(/static/img/btn.formButton.default.gif) !important; /* important is a firefux 4 bug fix */
         background-repeat: no-repeat;
         background-position: left top;
     }
@@ -517,9 +517,9 @@
     
     
     
-    .smallButton.blueButton, .smallButton.blueButton span { background-image: url(../img/btn.small.blue.gif) !important; }
+    .smallButton.blueButton, .smallButton.blueButton span { background-image: url(/static/img/btn.small.blue.gif) !important; }
     
-    .smallButton.darkButton, .smallButton.darkButton span { background-image: url(../img/btn.small.gif) !important; }
+    .smallButton.darkButton, .smallButton.darkButton span { background-image: url(/static/img/btn.small.gif) !important; }
 
  /**
   * ------------------------------------------------------------------------------------------------- #
@@ -570,7 +570,7 @@
   */
   
   .paypalImg { 
-  	background: url(../img/icon.paypal.gif) center center no-repeat;
+  	background: url(/static/img/icon.paypal.gif) center center no-repeat;
 	width: 70px;
 	height: 18px !important;
 	border: none;
@@ -578,7 +578,7 @@
   }
   
  .sofortueberweisungImg_, .sofortueberweisungImg_0, .sofortueberweisungImg_1 { 
-  	background: url(../img/pymt.sofort.png) center center no-repeat;
+  	background: url(/static/img/pymt.sofort.png) center center no-repeat;
 	width: 90px;
 	height: 29px !important;
 	border: none;
@@ -586,11 +586,11 @@
 	margin-bottom: -8px;
   }
   .sofortueberweisungImg_1 {
-      background-image: url(../img/pymt.sofort.banking.png);
+      background-image: url(/static/img/pymt.sofort.banking.png);
   }
   
  .saferpayImg { 
-  	background: url(../img/icon.saferpay.gif) center center no-repeat;
+  	background: url(/static/img/icon.saferpay.gif) center center no-repeat;
 	width: 70px;
 	height: 18px !important;
 	border: none;
@@ -750,7 +750,7 @@
       margin: 4px 0 0 3px;
       padding: 0;
       border-style: none;
-      background: url(../img/btn.search.gif) top left no-repeat;
+      background: url(/static/img/btn.search.gif) top left no-repeat;
       float: left;
   }
   div.searchInput input:hover.searchButton {
@@ -821,7 +821,7 @@
   }
 
 #footer:before {
-	content: url(../img/soldiers_home.png);
+	content: url(/static/img/soldiers_home.png);
 	position:absolute;
 	right: 85px;
 	top: -75px;
@@ -1112,7 +1112,7 @@
   .widget div.widgetBottom {
       display: block;
       height: 8px;
-      background: url(../img/bg.nav.side.gif) bottom left repeat-x;
+      background: url(/static/img/bg.nav.side.gif) bottom left repeat-x;
       margin: 0;
       padding: 0 9px;
       -webkit-border-bottom-right-radius: 5px;
@@ -1609,7 +1609,7 @@
   .toolBar .tools a.display-viewGrid {
       height: 22px; width: 22px;
       margin-top: 3px;
-      background-image: url(../img/bg.toolBar.icon.active.png);
+      background-image: url(/static/img/bg.toolBar.icon.active.png);
   }
   
   .toolBar .tools a:link.display-viewStandard,
@@ -1637,7 +1637,7 @@
   .toolBar .tools a:hover.display-viewGrid-active, 
   .toolBar .tools a:active.display-viewGrid-active, 
   .toolBar .tools a:focus.display-viewGrid-active {
-      background: url(../img/bg.toolBar.icon.active.png) center center no-repeat;
+      background: url(/static/img/bg.toolBar.icon.active.png) center center no-repeat;
   }
   
   .toolBar .tools .prevPage,
@@ -2306,7 +2306,7 @@
         height: 27px;
         float: left;
         background-repeat: no-repeat;
-        background-image: url(../img/bg.input.default.gif);
+        background-image: url(/static/img/bg.input.default.gif);
         background-position: top left;
         padding: 0 0 0 3px;
         margin: -5px 5px 0 0;
@@ -2337,7 +2337,7 @@
         border-collapse: collapse;
         outline: none;
         background: transparent;
-        background-image: url(../img/bg.input.default.gif);
+        background-image: url(/static/img/bg.input.default.gif);
         background-position: -50% -3px;
     }
     
@@ -2385,7 +2385,7 @@
         height: 27px;
         float: left;
         background-repeat: no-repeat;
-        background-image: url(../img/bg.input.default.gif);
+        background-image: url(/static/img/bg.input.default.gif);
         background-position: top left;
         padding: 0 0 0 3px;
         margin: -5px 5px 0 0;
@@ -2415,7 +2415,7 @@
         border-collapse: collapse;
         outline: none;
         background: transparent;
-        background-image: url(../img/bg.input.default.gif);
+        background-image: url(/static/img/bg.input.default.gif);
         background-position: -50% -3px;
     }
     
@@ -2561,7 +2561,7 @@
         float: left;
         width: 258px;
 		padding: 3.5px 0 0 22px;
-        background:url(../img/box--exclamation.png) left 3.5px no-repeat;
+        background:url(/static/img/box--exclamation.png) left 3.5px no-repeat;
         line-height: 20px !important;
     }
   
@@ -2710,7 +2710,7 @@
       height: 18px;
       padding-left: 2px;
       margin-right: 3px;
-      background: url(../img/tags.gif) top left no-repeat;
+      background: url(/static/img/tags.gif) top left no-repeat;
       color: #fff;
       text-shadow: 0 -1px 0 rgba(0,0,0,.2);
       font-weight: bold;
@@ -3303,8 +3303,8 @@
   }
   
   /* Grid Item height */
-  #col3 .viewGrid .c50l, #col3 .viewGrid .c50r { height: 205px;}
-  #col3 .viewGrid .c50l .subcl, #col3 .viewGrid .c50r .subcr { height: 195px; }  
+  #col3 .viewGrid .c50l, #col3 .viewGrid .c50r { height: 220px;}
+  #col3 .viewGrid .c50l .subcl, #col3 .viewGrid .c50r .subcr { height: 210px; }
   
   
   #col3 .viewGrid .c50l {
@@ -3326,7 +3326,7 @@
       padding: 0; margin: 0 !important;
       overflow: hidden;
       border-style: none;
-      height: 195px;
+      height: 210px;
   }
   
 	/* product title / subtitle */
@@ -3383,7 +3383,7 @@
 	/* add to cart button */
         #col3 .viewGrid .product-row .buttonsContainer { 
             padding: 8px 0 0 3px !important; 
-            margin: 0 !important; 
+            margin-top: 14px !important;
             text-align: left; 
             width: auto !important; 
             position: absolute;
@@ -3599,7 +3599,7 @@
       padding-left: 2px;
       margin-top: 3px;
       margin-right: 3px;
-      background: url(../img/tags.gif) top left no-repeat;
+      background: url(/static/img/tags.gif) top left no-repeat;
       color: #fff;
       text-shadow: 0 -1px 0 rgba(0,0,0,.2);
       font-weight: bold;
@@ -3654,12 +3654,12 @@
   .product-details .image div.imageContainer {
     width: 190px;
     height: 190px;
-    overflow: hidden;
+    /*overflow: hidden;*/
     text-align: center;
     margin-right: 10px;
   }
   
-  .product-details .image div.seo_detail_image { background: url(../../../nopic_list.gif) top center no-repeat; }
+  .product-details .image div.seo_detail_image { background: url(/static/img/nopic_list.gif) top center no-repeat; }
   
   .product-details .image div.imageContainer img {
     border-style: none;
@@ -3668,7 +3668,8 @@
     margin: 0 auto;
     max-width: 190px !important; width: auto !important; width: 190px;
   }
-  .product-details .image div.jqZoomPup img { 
+
+  .product-details .image div.ZoomPup img {
     width: 190px !important;
     height: auto !important;
   }
@@ -3948,7 +3949,7 @@
       height: 27px;
       float: left;
       background-repeat: no-repeat;
-      background-image: url(../img/bg.input.default.gif);
+      background-image: url(/static/img/bg.input.default.gif);
       background-position: top left;
 	  background-color:#fff;
       padding: 0 0 0 3px;
@@ -3982,7 +3983,7 @@
       border-collapse: collapse;
       outline: none;
       background: transparent;
-      background-image: url(../img/bg.input.default.gif);
+      background-image: url(/static/img/bg.input.default.gif);
       background-position: -50% -3px;
   }
   
@@ -3998,7 +3999,7 @@
   /* rating */
   
   .product-details .rating {
-      background: url(../img/star--pencil.png) 0 8px no-repeat;
+      background: url(/static/img/star--pencil.png) 0 8px no-repeat;
       font-size: 1em;
       color: #000;
       padding-top: 5px;
@@ -4188,7 +4189,7 @@
   *
   */
   
-    div.jqZoomTitle {
+    div.ZoomTitle {
       z-index:5000;
       text-align:center;
       font-size:11px;
@@ -4203,7 +4204,7 @@
       background: #999;   
     }
     
-    .jqZoomPup {
+    .ZoomPup {
       overflow:hidden;
       background-color: #FFF;
       -moz-opacity:0.6;
@@ -4214,11 +4215,11 @@
       cursor: crosshair;
     }
     
-    .jqZoomPup img {
+    .ZoomPup img {
     	border: 0px;
     }
     
-    .jqzoom .preload {
+    .zoom .preload {
       -moz-opacity:0.8;
       opacity: 0.8;
       filter: alpha(opacity = 80);
@@ -4230,7 +4231,7 @@
       background-color: white;
       padding: 8px;
       text-align:center;
-      background-image: url(../img/gfx.loading.gif);
+      background-image: url(/static/img/gfx.loading.gif);
       background-repeat: no-repeat;
       background-position: 43px 30px;
       width:90px;
@@ -4247,7 +4248,7 @@
       -o-border-radius: 5px;
     }
     
-    .jqZoomWindow {
+    .ZoomWindow {
       border: 1px solid #999;
       background-color: #FFF;
       -moz-box-shadow: 0px 2px 4px rgba(0,0,0,.4); /* FF3.5+ */
@@ -4660,8 +4661,8 @@
         padding: 0; margin: 0;
 		width: 960px !important;
     }
-    .coda-nav-left {position:absolute; left:20px; top:50%; margin-top:-16px; z-index:99999; background: url(../img/prev.png) no-repeat; width: 20px; height:32px; }
-    .coda-nav-right {position:absolute; right:20px; top:50%; margin-top:-16px; z-index:99999; background: url(../img/next.png) no-repeat; width: 20px; height:32px;}
+    .coda-nav-left {position:absolute; left:20px; top:50%; margin-top:-16px; z-index:99999; background: url(/static/img/prev.png) no-repeat; width: 20px; height:32px; }
+    .coda-nav-right {position:absolute; right:20px; top:50%; margin-top:-16px; z-index:99999; background: url(/static/img/next.png) no-repeat; width: 20px; height:32px;}
 	.coda-nav-left a, .coda-nav-right a {color:transparent;}
 	
     .coda-slider,
@@ -4703,7 +4704,7 @@
     .icon.coda-slider-icon {
         width: 13px; height: 13px;
         margin: 5px 0 5px 5px;
-        background: url(../img/btn.coda-slider.png) top center no-repeat;
+        background: url(/static/img/btn.coda-slider.png) top center no-repeat;
     }
     
     a.current .icon.coda-slider-icon {
@@ -4857,7 +4858,7 @@
         overflow: hidden;
         position: absolute; z-index: 11000;
         top: 50%; left: 50%;
-        background: url(../../images/prettyPopin/popinLeft.gif) bottom left no-repeat;
+        background: url(/static/img/popinLeft.gif) bottom left no-repeat;
     }
     
     .prettyPopin a#b_close {
@@ -4866,14 +4867,14 @@
         top: 10px; right: 13px;
         width: 41px; height: 9px;
         text-indent: -10000px;
-        background: url(../../images/prettyPopin/b_close.gif) bottom left no-repeat;
+        background: url(/static/img/b_close.gif) bottom left no-repeat;
     }
     
     .prettyPopin .prettyContent {
         position: relative;
         width: 100%; height: 100%;
         font-size: 1.2em;
-        background: url(../../images/prettyPopin/popinRight.gif) bottom right no-repeat;
+        background: url(/static/img/popinRight.gif) bottom right no-repeat;
     }
     
     .prettyPopin .prettyContent .prettyContent-container {
@@ -4886,7 +4887,7 @@
         top: 50%; left: 50%;
         margin: -14px 0 0 -14px;
         height: 28px; width: 28px;
-        background:url(../img/loader.gif) center center no-repeat
+        background:url(/static/img/loader.gif) center center no-repeat
     }
     
     * html div#pp_full_res .pp_inline { 

@@ -11,8 +11,23 @@
     color: white;
 }
 
-.my-autocomplete {
-    z-index: 100;
-    visibility: visible;
-    display: block;
-}
+#col3_content .amount-to-add input.count {
+         width: 30px;
+         text-align: center;
+         font-size: 1em;
+         margin: 3px 0 0;
+         padding: 0;
+         -webkit-box-shadow: rgba(0, 0, 0, 0.0976562) 0px 2px 5px inset;
+         -webkit-box-sizing: border-box;
+         border: 1px solid #D4D4D4;
+         border-bottom-left-radius: 3px 3px;
+         border-bottom-left-radius: 3px 3px;
+         border-bottom-right-radius: 3px 3px;
+         border-bottom-right-radius: 3px 3px;
+         border-top-left-radius: 3px 3px;
+         border-top-left-radius: 3px 3px;
+         border-top-right-radius: 3px 3px;
+         border-top-right-radius: 3px 3px;
+         color: #7A7A7A;
+    }
+

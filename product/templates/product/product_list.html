@@ -6,87 +6,12 @@
     <!-- Start des Formulars (anscheinend nur in shop_list nötig)-->
     <form name="os_list_view" method="post" action="#">
 
-
         <div class="breadcrumbBar clearfix">
 
-            {% if not search %}
-
-                <!-- begin: breadcrumbs: nav_breadcrumb_?.html -->
-                <ul class="breadcrumbs">
-
-                    <li class="firstCrumb">
-                        <a href="{% url 'menu:shop' %}">Shop</a>:
-                    </li>
-                    {#                    <li>#}
-                    {#                        <a href="#">Clothing</a>#}
-                    {#                    </li>#}
-                    {#                    <li class="activeCrumb"> » <a href="{{ item.get_absolute_url }}">{{ item.title|title }}</a></li>#}
-
-                </ul>
-
-            {% else %}
-
-                <!-- Category: Title Only -->
-
-                <div class="category-current">
-                    <div class="rubImg-container noRubImg"></div>
-
-                    <h2>
-                        {{ item.title|upper }}
-                        <br/>
-                        <br/>
-                        {{ item.returned_title }}
-                    </h2>
-
-                </div>
-
-            {% endif %}
+            {% include 'breadcrum.html' %}
 
 
-            {% if products.has_other_pages %}
-
-                <div class="tools pagination">
-
-                    {% if products.has_previous %}
-
-                        <a href="{% if search %}
-
-                        {% url 'product:search' %}?page={{ products.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
-
-                        {% else %}
-
-                           {% url 'product:product_list' item.slug %}?page={{ products.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
-
-                        {% endif %}"
-
-                           title="Return" class="prevPage">
-                            <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-arrow-180">
-                        </a>
-
-                    {% endif %}
-
-                    {% if products.has_next %}
-
-                        <a href="{% if search %}
-
-                        {% url 'product:search' %}?page={{ products.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
-
-                        {% else %}
-
-                        {% url 'product:product_list' item.slug %}?page={{ products.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
-
-                        {% endif %}"
-                           title="Continue" class="nextPage">
-                            <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-arrow">
-                        </a>
-
-                    {% endif %}
-
-                </div>
-
-
-            {% endif %}
-            <!-- end: breadcrumbs: nav_list_top_?.html -->
+            {% include 'tools_pagination.html' %}
 
         </div>
 
@@ -248,12 +173,12 @@
                                 <div class="product-row hproduct " title="{{ product.title }}" price="{{ product.price }}" itemscope="" itemtype="">
 
 
-                                    <a href="#" title=" GERMAN OD PARKA WITH LINER" price="{{ product.price }}" rel="nofollow">
+                                    <a href="{{ product.get_absolute_url }}" title="{{ product.title|upper }}" price="{{ product.price }}" rel="nofollow">
                                         <dl>
-                                            <dt title="GERMAN OD PARKA WITH LINER">
+                                            <dt title="{{ product.title|upper }}">
 
         <span class="title name fn" itemprop="name">
-            {{ product.title }}
+            {{ product.title|upper }}
         </span>
 
                                             </dt>
@@ -342,6 +267,10 @@
 
                                 </div>
 
+                            {% empty %}
+
+                                <h1>List is empty!</h1>
+
                             {% endfor %}
 
                             <!-- end: /subtmpl/product-row_list_?.html -->
@@ -377,7 +306,7 @@
                                 <div class="product-row hproduct " title="{{ product.title }}" price="{{ product.price }}">
 
 
-                                    <a href="#" title="{{ product.title }}" price="{{ product.price }}" rel="nofollow">
+                                    <a href="{{ product.get_absolute_url }}" title="{{ product.title }}" price="{{ product.price }}" rel="nofollow">
                                         <dl>
                                             <dt title="{{ product.title|upper }}">
 
@@ -494,45 +423,10 @@
     {% if products.has_other_pages %}
 
         <div class="bottomToolBar clearfix" style="border-bottom: 1px solid #d6d6d6;">
+
         <!-- begin: breadcrumbs: nav_list_top_?.html -->
-        <div class="tools pagination">
 
-            {% if products.has_previous %}
-
-                <a href="{% if search %}
-
-                        {% url 'product:search' %}?page={{ products.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
-
-                        {% else %}
-
-                           {% url 'product:product_list' item.slug %}?page={{ products.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
-
-                        {% endif %}"
-
-                   title="Return" class="prevPage">
-                    <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-arrow-180">
-                </a>
-
-            {% endif %}
-
-            {% if products.has_next %}
-
-                <a href="{% if search %}
-
-                        {% url 'product:search' %}?page={{ products.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
-
-                        {% else %}
-
-                        {% url 'product:product_list' item.slug %}?page={{ products.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
-
-                        {% endif %}"
-                   title="Continue" class="nextPage">
-                    <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-arrow">
-                </a>
-
-            {% endif %}
-
-        </div>
+        {% include 'tools_pagination.html' %}
 
         <!-- begin: nav_list_bottom_?.html -->
 
@@ -581,35 +475,4 @@
     <div id="ie_clearing">&nbsp;</div>
     <!-- End: IE Column Clearing -->
 
-
-    <script>
-
-        $(function () {
-            // ajax pagination
-            var pagination = function (event) {
-                event.preventDefault();
-                var page = $(this);
-                console.log(page);
-                $.ajax({
-                    async: true,
-                    url: page.attr("href"),
-                    type: 'get',
-                    dataType: 'json',
-
-                    success: function (data) {
-
-                        $("#col3").html(data.html_items);
-
-                        breadcrumb()
-                    },
-
-                    error: error
-                });
-            };
-
-            $("#col3_content").on('click', ".pagination a", pagination);
-            $(".toolBar.clearfix").on('click', "a", pagination);
-
-        })
-
-    </script>
+</div>
