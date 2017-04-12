@@ -25,3 +25,4 @@ static3==0.7.0
 whitenoise==3.3.0
 wrapt==1.10.10
 psycopg2==2.6.1
+requests==2.13.0
