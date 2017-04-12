@@ -1,36 +1,9 @@
 {% load staticfiles %}
 
 
-{#<link rel="stylesheet" href="{% static 'css/content_eidamo.css.css' %}" type="text/css">#}
+{#<script src="{% static 'js/jquery.min.js' %}"></script>#}
+{#<script src="{% static 'js/jquery.tabs.js' %}" type="text/javascript" charset="utf-8"></script>#}
 
-{#<script type="text/javascript" src="{% static 'js/jquery.library.min.js' %}"></script>#}
-{#<script type="text/javascript" src="{% static 'js/jquery.eidamo.pack.js' %}"></script>#}
-
-{#<script type="text/javascript" src="{% static 'js/yaml-focusfix.js' %}"></script>#}
-
-
-{#<script type="text/javascript" src="{% static 'js/jquery.eidamo.min.js' %}"></script>#}
-
-{#<script type="text/javascript" src="{% static 'js/addthis.js' %}"></script>#}
-{#<script type="text/javascript" src="{% static 'js/01.js' %}"></script>#}
-
-<script type="text/javascript">
-
-    $(function () {
-
-        $("#col3 div.jquery_tabs")[0] && ($("#col3 div.jquery_tabs").accessibleTabs({
-            tabhead: "h4",
-            tabbody: ".tabs-content",
-            currentInfoText: "",
-            fx: "fadeIn",
-            autoAnchor: !0,
-            saveState: !0
-        }),
-                $(".jquery_tabs ul.tabs-list li").first().addClass("firstTab"),
-                $(".jquery_tabs ul.tabs-list li").last().addClass("lastTab"));
-    })
-
-</script>
 
 
 <div id="col3_content" class="clearfix">
@@ -76,6 +49,7 @@
                 </dd>
 
                 <script type="text/javascript">//
+
                 // Scaling for product-details image
 
                 $('#col3_content > form > div > dl > dd.image > div > a[data-spzoom]').spzoom({
@@ -92,6 +66,25 @@
                     overlay_gallery: false /* If set to true, a gallery will overlay the fullscreen image on mouse over */,
                     iframe_markup:'<div class="iOSscroll" style="width:{width}px;height:{height}px;"><iframe src ="{path}" width="{width}" height="{height}" frameborder="no"></iframe></div>' /* Bugfix for iOS Touch devices to be able to scroll */
                 });
+
+                 $("#col3 div.jquery_tabs")[0] && ($("#col3 div.jquery_tabs").accessibleTabs({
+                    tabhead: "h4",
+                    tabbody: ".tabs-content",
+                    currentInfoText: "",
+                    fx: "fadeIn",
+                    autoAnchor: !0,
+                    saveState: !0
+                }),
+                        $(".jquery_tabs ul.tabs-list li").first().addClass("firstTab"),
+                        $(".jquery_tabs ul.tabs-list li").last().addClass("lastTab"));
+                {#                    $("#col3 div#col3_content.clearfix div.jquery_tabs").accessibleTabs({#}
+                {#                        tabhead: "h4",#}
+                {#                        tabbody: ".tabs-content",#}
+                {#                        currentInfoText: "",#}
+                {#                        fx: "fadeIn",#}
+                {#                        autoAnchor: !0,#}
+                {#                        saveState: !0#}
+                {#                    });#}
 
 
                 $('div.imageContainer img.thumb').load( function() {
@@ -209,30 +202,26 @@
     <!-- end: product-row_detail_?.html -->
 
 
-
-    <!-- Bezeichnung 2 einblenden -->
-
     <!-- begin: jquery tabs -->
     <div class="jquery_tabs">
 
         <!-- begin: product-description_?.html -->
-        <h4 id="accessibletabscontent0-0" class="tabhead" tabindex="-1">Description</h4>
+        <h4>Description</h4>
 
-        <div class="tabs-content description" itemprop="description" style="">
+        <div class="tabs-content">
 
             <!-- Artikelbeschreibung -->
             <p>
                 {{ product.description|linebreaks }}
             </p>
 
-            <p id="zusatx_text"></p>
-
         </div>
         <!-- end: product-description_?.html -->
 
         <!-- begin: product-specifications_?.html -->
-        <h4 id="accessibletabscontent0-1" class="tabhead" tabindex="-1">Details</h4>
-        <div class="tabs-content" style="display: none;">
+        <h4>Details</h4>
+
+        <div class="tabs-content">
 
             <dl class="specifications">
                 <dt>Details</dt>

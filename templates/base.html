@@ -122,11 +122,14 @@
     <!-- SpZoom -->
     <link type="text/css" href="{% static 'css/jquery.spzoom.css' %}" rel="stylesheet">
     <script src="{% static 'js/jquery.spzoom.js' %}"></script>
-    {#    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>#}
+
 
     <!-- prettyPhoto -->
     <link rel="stylesheet" href="{% static 'css/prettyPhoto.css' %}" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
     <script src="{% static 'js/jquery.prettyPhoto.js' %}" type="text/javascript" charset="utf-8"></script>
+
+    <!-- Accessible Tabs -->
+    <script src="{% static 'js/jquery.tabs.js' %}" type="text/javascript" charset="utf-8"></script>
 
     {% block script %}{% endblock %}
     <!-- By default the min. IE ver is set to 6. Change as desired. -->
@@ -135,7 +138,6 @@
     <![endif]-->
 
     <script src="{% static 'js/shop_0.js' %}" type="text/javascript"></script>
-
 
 </head>
 
@@ -217,14 +219,6 @@
             <!-- begin: #col3 static center column -->
             <div id="col3" role="main">
                 <div id="col3_content" class="clearfix">
-
-                    <!--- START: JavaScript Check --->
-                    <div id="js_check" class="box-exclamation">
-                        <em>
-                            <img class="icon icon-lg-exclamation" src="{% static 'img/gfx.spacer.gif' %}">
-                            JavaScript® sollte in Ihrem Browser aktiviert werden!
-                        </em>
-                    </div>
 
                     <img class="start_picture" src="{% static 'img/grafik_mitte.jpg' %}" alt="Sturm MIL-TEC® Online-Shop" title="Sturm MIL-TEC® Online-Shop">
 

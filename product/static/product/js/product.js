@@ -88,15 +88,4 @@ $(function () {
             error : error
         });
     });
-
-    $("#col3_content > form > div > dl > dd.image > a[rel^='prettyPhoto']").prettyPhoto({
-        theme: 'pp_default',	/* pp_default / light_rounded / dark_rounded / light_square / dark_square / facebook */
-        hideflash: false, /* Hides all the flash object on a page, set to TRUE if flash appears over prettyPhoto */
-        social_tools: false, /* html or false to disable */
-        deeplinking: false, /* Allow prettyPhoto to update the url to enable deeplinking. */
-        ie6_fallback: true,
-        overlay_gallery: false /* If set to true, a gallery will overlay the fullscreen image on mouse over */,
-        iframe_markup:'<div class="iOSscroll" style="width:{width}px;height:{height}px;"><iframe src ="{path}" width="{width}" height="{height}" frameborder="no"></iframe></div>' /* Bugfix for iOS Touch devices to be able to scroll */
-    });
-
 });
