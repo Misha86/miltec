@@ -1,16 +1,13 @@
 {% load staticfiles %}
 
-{#<link rel="stylesheet" href="{% static 'css/jquery.jqzoom.css' %}" type="text/css">#}
+
 {#<link rel="stylesheet" href="{% static 'css/content_eidamo.css.css' %}" type="text/css">#}
 
-<script type="text/javascript" src="{% static 'js/jquery.library.min.js' %}"></script>
+{#<script type="text/javascript" src="{% static 'js/jquery.library.min.js' %}"></script>#}
+{#<script type="text/javascript" src="{% static 'js/jquery.eidamo.pack.js' %}"></script>#}
 
-
-<script type="text/javascript" src="{% static 'js/jquery.eidamo.pack.js' %}"></script>
 {#<script type="text/javascript" src="{% static 'js/yaml-focusfix.js' %}"></script>#}
 
-{#<script type="text/javascript" src="{% static 'js/jquery.jqzoom-core.js' %}"></script>#}
-{#<script type="text/javascript" src="{% static 'js/jquery.jqzoom-core-pack.js' %}"></script>#}
 
 {#<script type="text/javascript" src="{% static 'js/jquery.eidamo.min.js' %}"></script>#}
 
@@ -31,16 +28,6 @@
         }),
                 $(".jquery_tabs ul.tabs-list li").first().addClass("firstTab"),
                 $(".jquery_tabs ul.tabs-list li").last().addClass("lastTab"));
-
-        $("a[rel^='prettyPhoto']").prettyPhoto({
-            theme: 'pp_default',	/* pp_default / light_rounded / dark_rounded / light_square / dark_square / facebook */
-            hideflash: false, /* Hides all the flash object on a page, set to TRUE if flash appears over prettyPhoto */
-            social_tools: false, /* html or false to disable */
-            deeplinking: false, /* Allow prettyPhoto to update the url to enable deeplinking. */
-            ie6_fallback: true,
-            overlay_gallery: false /* If set to true, a gallery will overlay the fullscreen image on mouse over */,
-            iframe_markup:'<div class="iOSscroll" style="width:{width}px;height:{height}px;"><iframe src ="{path}" width="{width}" height="{height}" frameborder="no"></iframe></div>' /* Bugfix for iOS Touch devices to be able to scroll */
-        })
     })
 
 </script>
@@ -76,7 +63,7 @@
                 <!-- begin include: pic_detail_?.html -->
                 <dd class="image" note="has_large">
                     <div class="imageContainer" style="position: relative;">
-                        <a href="#{# {% if product.image_large %}{{ product.image_large.url }}{% endif %} #}" class="jqzoom" style="outline-style: none; text-decoration: none; cursor: crosshair; display: block; position: relative; height: 200px; width: 160px;">
+                        <a href="{% if product.image_large %}{{ product.image_large.url }}{% endif %}" data-spzoom style="outline-style: none; text-decoration: none; cursor: crosshair; display: block; position: relative; height: 200px; width: 160px;" title="{{ product.title|upper }}">
                             <img itemprop="image" class="thumb photo" src="{{ product.image.url }}" alt="{{ product.title|upper }}" style="opacity: 1;">
                         </a>
                     </div>
@@ -85,10 +72,26 @@
                         <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-magnifier">
                         <u>Enlarge Photo</u>
                     </a>
+
                 </dd>
 
                 <script type="text/javascript">//
                 // Scaling for product-details image
+
+                $('#col3_content > form > div > dl > dd.image > div > a[data-spzoom]').spzoom({
+                    width: 450,
+                    height: 500
+                });
+
+                $("#col3_content > form > div > dl > dd.image > a[rel^='prettyPhoto']").prettyPhoto({
+                    theme: 'pp_default',	/* pp_default / light_rounded / dark_rounded / light_square / dark_square / facebook */
+                    hideflash: false, /* Hides all the flash object on a page, set to TRUE if flash appears over prettyPhoto */
+                    social_tools: false, /* html or false to disable */
+                    deeplinking: false, /* Allow prettyPhoto to update the url to enable deeplinking. */
+                    ie6_fallback: true,
+                    overlay_gallery: false /* If set to true, a gallery will overlay the fullscreen image on mouse over */,
+                    iframe_markup:'<div class="iOSscroll" style="width:{width}px;height:{height}px;"><iframe src ="{path}" width="{width}" height="{height}" frameborder="no"></iframe></div>' /* Bugfix for iOS Touch devices to be able to scroll */
+                });
 
 
                 $('div.imageContainer img.thumb').load( function() {
@@ -114,10 +117,10 @@
                             $('head').append('<style type=\"text/css\">' +
                                     'div.imageContainer img.thumb,' +
                                     'div.imageContainer .jqZoomPup img,' +
-                                    '.product-details .image div.imageContainer { width: '+containerWidth+'px !important; text-align: left; }' +
+                                    '.product-details .image div.imageContainer { text-align: left; }' +
                                     '.product-details .image div.imageContainer { height: '+imageHeight+'px !important;}' +
                                     '.product-details .image div.imageContainer a.jqzoom { height: '+imageHeight+'px !important; width: '+containerWidth+'px !important;}' +
-                                        '.product-details .image div.imageContainer a.jqzoom div.jqZoomPup img { height: '+imageHeight+'px !important; width: '+imageWidth+'px !important;}' +
+                                    '.product-details .image div.imageContainer a.jqzoom div.jqZoomPup img { height: '+imageHeight+'px !important; width: '+imageWidth+'px !important;}' +
                                     'div.product-details dd.image a.tagEnlarge { top: '+newTop+'px  !important;}' +
                                     'div.product-details dd.image { height: '+newHeight+'px  !important;}' +
                                     '</style>'
@@ -266,56 +269,56 @@
         </div>
 
         <!-- begin: nav_detail_bottom_?.html -->
-{#        <div class="tools float_right" style="padding-top:5px;">#}
-{##}
-{#            {% if  product.item.products.all|length > 1 %}#}
-{##}
-{#                {% if  product.item.products.all|length > 1 %}#}
-{##}
-{#                    <a href="{{ product.get_previous_by_create.get_absolute_url }}" title="Return" class="prevPage">#}
-{#                        <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-arrow-180">#}
-{#                    </a>#}
-{##}
-{#                {% endif %}#}
-{##}
-{#                {% if product.get_next_by_create %}#}
-{##}
-{#                    <a href="{{ product.get_next_by_create.get_absolute_url }}" title="Continue" class="nextPage">#}
-{#                        <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-arrow">#}
-{#                    </a>#}
-{##}
-{#                {% endif %}#}
-{#            {% endif %}#}
-{##}
-{##}
-{#        </div>#}
+        {#        <div class="tools float_right" style="padding-top:5px;">#}
+        {##}
+        {#            {% if  product.item.products.all|length > 1 %}#}
+        {##}
+        {#                {% if  product.item.products.all|length > 1 %}#}
+        {##}
+        {#                    <a href="{{ product.get_previous_by_create.get_absolute_url }}" title="Return" class="prevPage">#}
+        {#                        <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-arrow-180">#}
+        {#                    </a>#}
+        {##}
+        {#                {% endif %}#}
+        {##}
+        {#                {% if product.get_next_by_create %}#}
+        {##}
+        {#                    <a href="{{ product.get_next_by_create.get_absolute_url }}" title="Continue" class="nextPage">#}
+        {#                        <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-arrow">#}
+        {#                    </a>#}
+        {##}
+        {#                {% endif %}#}
+        {#            {% endif %}#}
+        {##}
+        {##}
+        {#        </div>#}
 
 
-{% if products.has_other_pages %}
+        {% if products.has_other_pages %}
 
-<div class="tools pagination float_right" style="padding-top:5px;">
+            <div class="tools pagination float_right" style="padding-top:5px;">
 
-    {% if products.has_previous %}
+                {% if products.has_previous %}
 
-        <a href="{% url 'product:product' previous_slug %}?page={{ products.previous_page_number }}"
-           title="Return" class="prevPage">
-            <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-arrow-180">
-        </a>
+                    <a href="{% url 'product:product' previous_slug %}?page={{ products.previous_page_number }}"
+                       title="Return" class="prevPage">
+                        <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-arrow-180">
+                    </a>
 
-    {% endif %}
+                {% endif %}
 
-    {% if products.has_next %}
+                {% if products.has_next %}
 
-        <a href="{% url 'product:product' next_slug %}?page={{ products.next_page_number }}"
-           title="Continue" class="nextPage">
-            <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-arrow">
-        </a>
+                    <a href="{% url 'product:product' next_slug %}?page={{ products.next_page_number }}"
+                       title="Continue" class="nextPage">
+                        <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-arrow">
+                    </a>
 
-    {% endif %}
+                {% endif %}
 
-</div>
+            </div>
 
- {% endif %}
+        {% endif %}
 
         <!-- end: nav_detail_bottom_?.html -->
     </div>
