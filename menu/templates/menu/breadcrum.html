@@ -1,0 +1,60 @@
+{% load staticfiles %}
+
+
+{% if not search %}
+
+    <!-- begin: breadcrumbs: nav_breadcrumb_?.html -->
+    <ul class="breadcrumbs">
+
+        <li class="firstCrumb">
+            <a href="{% url 'menu:shop' %}">Shop</a>:
+        </li>
+
+        {% if item.category %}
+
+            <li>
+                <a href="{{ item.category.get_absolute_url }}">{{ item.category.title }}</a>
+            </li>
+
+        {% endif %}
+
+        {% if item.parent %}
+
+            <li>
+                » <a href="{{ item.parent.get_absolute_url }}">{{ item.parent.title }}</a>
+            </li>
+
+        {% endif %}
+
+        <li>
+            » <a href="{{ item.get_absolute_url }}">{{ item.title }}</a>
+        </li>
+
+        {% if product %}
+
+            <li>
+                » <a href="{{ product.get_absolute_url }}">{{ product.title }}</a>
+            </li>
+
+        {% endif %}
+
+    </ul>
+
+
+{% else %}
+
+    <!-- Category: Title Only -->
+
+    <div class="category-current">
+        <div class="rubImg-container noRubImg"></div>
+
+        <h2>
+            {{ item.title|upper }}
+            <br/>
+            <br/>
+            {{ item.returned_title }}
+        </h2>
+
+    </div>
+
+{% endif %}

@@ -1,0 +1,28 @@
+{% load staticfiles %}
+
+
+{% if products.has_other_pages %}
+
+    <div class="tools pagination float_right" style="padding-top:5px;">
+
+        {% if products.has_previous %}
+
+            <a href="{% url 'product:product' previous_slug %}?page={{ products.previous_page_number }}"
+               title="Return" class="prevPage">
+                <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-arrow-180">
+            </a>
+
+        {% endif %}
+
+        {% if products.has_next %}
+
+            <a href="{% url 'product:product' next_slug %}?page={{ products.next_page_number }}"
+               title="Continue" class="nextPage">
+                <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-arrow">
+            </a>
+
+        {% endif %}
+
+    </div>
+
+{% endif %}
