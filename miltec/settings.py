@@ -14,7 +14,6 @@ import os
 from django.contrib.messages import constants as message_constants
 from decouple import config, Csv
 import dj_database_url
-from .amason_media import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -65,12 +64,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # third part
-    'storages',
+
     # my apps
     'menu.apps.MenuConfig',
     'product.apps.ProductConfig'
 ]
+
+
+if not DEBUG:
+    from .amason_media import *
+    INSTALLED_APPS.append('storages')
+
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
