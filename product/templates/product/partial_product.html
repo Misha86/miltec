@@ -1,10 +1,6 @@
 {% load staticfiles %}
 
 
-{#<script src="{% static 'js/jquery.min.js' %}"></script>#}
-{#<script src="{% static 'js/jquery.tabs.js' %}" type="text/javascript" charset="utf-8"></script>#}
-
-
 
 <div id="col3_content" class="clearfix">
 
@@ -13,7 +9,7 @@
         {% include 'breadcrum.html' %}
 
 
-        {% include 'tools_pagination.html' %}
+        {% include 'product_pagination.html' %}
 
     </div>
 
@@ -36,7 +32,7 @@
                 <!-- begin include: pic_detail_?.html -->
                 <dd class="image" note="has_large">
                     <div class="imageContainer" style="position: relative;">
-                        <a href="{% if product.image_large %}{{ product.image_large.url }}{% endif %}" data-spzoom style="outline-style: none; text-decoration: none; cursor: crosshair; display: block; position: relative; height: 200px; width: 160px;" title="{{ product.title|upper }}">
+                        <a href="{% if product.image_large %}{{ product.image_large.url }}{% endif %}" onclick="return false" data-spzoom style="outline-style: none; text-decoration: none; cursor: crosshair; display: block; position: relative; height: 200px; width: 160px;" title="{{ product.title|upper }}">
                             <img itemprop="image" class="thumb photo" src="{{ product.image.url }}" alt="{{ product.title|upper }}" style="opacity: 1;">
                         </a>
                     </div>
@@ -48,79 +44,73 @@
 
                 </dd>
 
-                <script type="text/javascript">//
+                <script type="text/javascript">
 
-                // Scaling for product-details image
+                    // Scaling for product-details image
 
-                $('#col3_content > form > div > dl > dd.image > div > a[data-spzoom]').spzoom({
-                    width: 450,
-                    height: 500
-                });
+                    $('#col3_content > form > div > dl > dd.image > div > a[data-spzoom]').spzoom({
+                        width: 450,
+                        height: 500,
+                        titlePosition: 'top'
 
-                $("#col3_content > form > div > dl > dd.image > a[rel^='prettyPhoto']").prettyPhoto({
-                    theme: 'pp_default',	/* pp_default / light_rounded / dark_rounded / light_square / dark_square / facebook */
-                    hideflash: false, /* Hides all the flash object on a page, set to TRUE if flash appears over prettyPhoto */
-                    social_tools: false, /* html or false to disable */
-                    deeplinking: false, /* Allow prettyPhoto to update the url to enable deeplinking. */
-                    ie6_fallback: true,
-                    overlay_gallery: false /* If set to true, a gallery will overlay the fullscreen image on mouse over */,
-                    iframe_markup:'<div class="iOSscroll" style="width:{width}px;height:{height}px;"><iframe src ="{path}" width="{width}" height="{height}" frameborder="no"></iframe></div>' /* Bugfix for iOS Touch devices to be able to scroll */
-                });
-
-                 $("#col3 div.jquery_tabs")[0] && ($("#col3 div.jquery_tabs").accessibleTabs({
-                    tabhead: "h4",
-                    tabbody: ".tabs-content",
-                    currentInfoText: "",
-                    fx: "fadeIn",
-                    autoAnchor: !0,
-                    saveState: !0
-                }),
-                        $(".jquery_tabs ul.tabs-list li").first().addClass("firstTab"),
-                        $(".jquery_tabs ul.tabs-list li").last().addClass("lastTab"));
-                {#                    $("#col3 div#col3_content.clearfix div.jquery_tabs").accessibleTabs({#}
-                {#                        tabhead: "h4",#}
-                {#                        tabbody: ".tabs-content",#}
-                {#                        currentInfoText: "",#}
-                {#                        fx: "fadeIn",#}
-                {#                        autoAnchor: !0,#}
-                {#                        saveState: !0#}
-                {#                    });#}
-
-
-                $('div.imageContainer img.thumb').load( function() {
-                    $('div.imageContainer img.thumb').each(function() {
-                        var containerHeight = $('div.imageContainer').height(); // Current height of container
-                        var containerWidth = $('div.imageContainer').width(); // Current width of container
-                        var imageWidth = $(this).width();  // Current image height
-                        var imageHeight = $(this).height();  // Current image height
-
-                        if(containerHeight>imageHeight)
-                        {
-                            var newTop = imageHeight + 10;
-                            $('head').append('<style type=\"text/css\">' +
-                                    'div.imageContainer img.thumb { width: '+containerWidth+'px !important; }' +
-                                    'div.product-details dd.image a.tagEnlarge { top: '+newTop+'px  !important;}' +
-                                    '</style>'
-                            );
-                        }
-                        else if(imageHeight>containerHeight)
-                        {
-                            var newTop = imageHeight + 10;
-                            var newHeight = imageHeight + 35;
-                            $('head').append('<style type=\"text/css\">' +
-                                    'div.imageContainer img.thumb,' +
-                                    'div.imageContainer .jqZoomPup img,' +
-                                    '.product-details .image div.imageContainer { text-align: left; }' +
-                                    '.product-details .image div.imageContainer { height: '+imageHeight+'px !important;}' +
-                                    '.product-details .image div.imageContainer a.jqzoom { height: '+imageHeight+'px !important; width: '+containerWidth+'px !important;}' +
-                                    '.product-details .image div.imageContainer a.jqzoom div.jqZoomPup img { height: '+imageHeight+'px !important; width: '+imageWidth+'px !important;}' +
-                                    'div.product-details dd.image a.tagEnlarge { top: '+newTop+'px  !important;}' +
-                                    'div.product-details dd.image { height: '+newHeight+'px  !important;}' +
-                                    '</style>'
-                            );
-                        }
                     });
-                });
+
+                    $("#col3_content > form > div > dl > dd.image > a[rel^='prettyPhoto']").prettyPhoto({
+                        theme: 'pp_default',	/* pp_default / light_rounded / dark_rounded / light_square / dark_square / facebook */
+                        hideflash: false, /* Hides all the flash object on a page, set to TRUE if flash appears over prettyPhoto */
+                        social_tools: false, /* html or false to disable */
+                        deeplinking: false, /* Allow prettyPhoto to update the url to enable deeplinking. */
+                        ie6_fallback: true,
+                        overlay_gallery: false /* If set to true, a gallery will overlay the fullscreen image on mouse over */,
+                        iframe_markup:'<div class="iOSscroll" style="width:{width}px;height:{height}px;"><iframe src ="{path}" width="{width}" height="{height}" frameborder="no"></iframe></div>' /* Bugfix for iOS Touch devices to be able to scroll */
+                    });
+
+                    $("#col3 div.jquery_tabs")[0] && ($("#col3 div.jquery_tabs").accessibleTabs({
+                        tabhead: "h4",
+                        tabbody: ".tabs-content",
+                        currentInfoText: "",
+                        fx: "fadeIn",
+                        autoAnchor: !0,
+                        saveState: !0
+                    }),
+                            $(".jquery_tabs ul.tabs-list li").first().addClass("firstTab"),
+                            $(".jquery_tabs ul.tabs-list li").last().addClass("lastTab"));
+
+
+                    $('div.imageContainer img.thumb').load( function() {
+                        $('div.imageContainer img.thumb').each(function() {
+                            var containerHeight = $('div.imageContainer').height(); // Current height of container
+                            var containerWidth = $('div.imageContainer').width(); // Current width of container
+                            var imageWidth = $(this).width();  // Current image height
+                            var imageHeight = $(this).height();  // Current image height
+
+                            if(containerHeight>imageHeight)
+                            {
+                                var newTop = imageHeight + 10;
+                                $('head').append('<style type=\"text/css\">' +
+                                        'div.imageContainer img.thumb { width: '+containerWidth+'px !important; }' +
+                                        'div.product-details dd.image a.tagEnlarge { top: '+newTop+'px  !important;}' +
+                                        '</style>'
+                                );
+                            }
+                            else if(imageHeight>containerHeight)
+                            {
+                                var newTop = imageHeight + 10;
+                                var newHeight = imageHeight + 35;
+                                $('head').append('<style type=\"text/css\">' +
+                                        'div.imageContainer img.thumb,' +
+                                        'div.imageContainer .jqZoomPup img,' +
+                                        '.product-details .image div.imageContainer { text-align: left; }' +
+                                        '.product-details .image div.imageContainer { height: '+imageHeight+'px !important;}' +
+                                        '.product-details .image div.imageContainer a.jqzoom { height: '+imageHeight+'px !important; width: '+containerWidth+'px !important;}' +
+                                        '.product-details .image div.imageContainer a.jqzoom div.jqZoomPup img { height: '+imageHeight+'px !important; width: '+imageWidth+'px !important;}' +
+                                        'div.product-details dd.image a.tagEnlarge { top: '+newTop+'px  !important;}' +
+                                        'div.product-details dd.image { height: '+newHeight+'px  !important;}' +
+                                        '</style>'
+                                );
+                            }
+                        });
+                    });
 
 
                 </script>
@@ -167,15 +157,9 @@
                     <!-- Amount to Add - by default off -->
                     <div class="amount-to-add" style="">
                         <input class="count" type="text" name="menge_1" value="1">
-                        <input type="hidden" name="rub1_1" value="Clothing">
+                        <input type="hidden" name="rub1_1" value="{{ product.slug }}">
                         <font style="float: none;"><b>/</b> ST</font>
-                        <a style="float: right; text-align: center;" href="#">
-                                            <span>
-                                                <img src="{% static 'img/gfx.spacer.gif' %}" alt="select trim" title="select trim" class="icon icon-lg-shopping-basket--arrow">
-                                        <b>select trim</b>
-                                    </span>
-                        </a>
-
+                        <input class="submitButton dark_grey" type="button" value="купити">
                     </div>
 
                     <!-- begin: Amout Image gets replaced by jquery function -->
@@ -258,58 +242,11 @@
         </div>
 
         <!-- begin: nav_detail_bottom_?.html -->
-        {#        <div class="tools float_right" style="padding-top:5px;">#}
-        {##}
-        {#            {% if  product.item.products.all|length > 1 %}#}
-        {##}
-        {#                {% if  product.item.products.all|length > 1 %}#}
-        {##}
-        {#                    <a href="{{ product.get_previous_by_create.get_absolute_url }}" title="Return" class="prevPage">#}
-        {#                        <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-arrow-180">#}
-        {#                    </a>#}
-        {##}
-        {#                {% endif %}#}
-        {##}
-        {#                {% if product.get_next_by_create %}#}
-        {##}
-        {#                    <a href="{{ product.get_next_by_create.get_absolute_url }}" title="Continue" class="nextPage">#}
-        {#                        <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-arrow">#}
-        {#                    </a>#}
-        {##}
-        {#                {% endif %}#}
-        {#            {% endif %}#}
-        {##}
-        {##}
-        {#        </div>#}
 
-
-        {% if products.has_other_pages %}
-
-            <div class="tools pagination float_right" style="padding-top:5px;">
-
-                {% if products.has_previous %}
-
-                    <a href="{% url 'product:product' previous_slug %}?page={{ products.previous_page_number }}"
-                       title="Return" class="prevPage">
-                        <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-arrow-180">
-                    </a>
-
-                {% endif %}
-
-                {% if products.has_next %}
-
-                    <a href="{% url 'product:product' next_slug %}?page={{ products.next_page_number }}"
-                       title="Continue" class="nextPage">
-                        <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-arrow">
-                    </a>
-
-                {% endif %}
-
-            </div>
-
-        {% endif %}
+        {% include 'product_pagination.html' %}
 
         <!-- end: nav_detail_bottom_?.html -->
+
     </div>
 
 </div>
@@ -319,7 +256,3 @@
 
 <div id="ie_clearing">&nbsp;</div>
 <!-- End: IE Column Clearing -->
-
-<script type="text/javascript">
-
-</script>

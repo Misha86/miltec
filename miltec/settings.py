@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+from django.contrib.messages import constants as message_constants
+from decouple import config, Csv
+import dj_database_url
+from .amason_media import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,13 +24,37 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'k=f$w6tw6+unfu(^ifr-+1410lj+8h!4yr#**gg#$0rb96#d(r'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
+SITE_ID = 1
+
+# SMTP backend(default) for send email
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'smtp.gmail.com'                    # Имя хоста используемое для отправки электронных писем. По умолчанию 'localhost'
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')     # Имя пользователя используемое при подключении к SMTP серверу указанному в EMAIL_HOST
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')                 # Пароль для подключения к SMTP сервера, который указан в EMAIL_HOST
+EMAIL_SUBJECT_PREFIX = '[Django]'              # Префикс добавляемый к теме электронного письма
+EMAIL_PORT = 587                               # Порт, используемый при подключении к SMTP серверу указанному в EMAIL_HOST 2525.
+EMAIL_USE_TLS = True                         # Указывает использовать ли TLS (защищенное) соединение с SMTP сервером. По умолчанию использует 587 порт .
+#EMAIL_USE_SSL = True                          # Указывает использовать ли TLS (защищенное) соединение с SMTP сервером. По умолчанию использует 465 порт.
+
+DEFAULT_FROM_EMAIL = 'mishaelitzem2@rambler.ru'
+
+# Настройка предусматривает отправку разработчикам сайта
+#  сообщений обо всех необработанных исключениях по электронной почте
+ADMINS = [
+    ("Михайло Поліщук", "mishaelitzem2@rambler.ru"),
+    ]
+
+# Кортеж по формату аналогичен ADMINS, который определяет кто получает оповещение о “сломанных” ссылках
+MANAGERS = ADMINS
 
 # Application definition
 
@@ -37,7 +65,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    # third part
+    'storages',
+    # my apps
     'menu.apps.MenuConfig',
     'product.apps.ProductConfig'
 ]
@@ -80,12 +110,17 @@ WSGI_APPLICATION = 'miltec.wsgi.application'
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
+    'default': {}
 }
 
+db_from_env = dj_database_url.config(conn_max_age=500)
+if db_from_env:
+    DATABASES['default'].update(db_from_env)
+else:
+    DATABASES['default'].update({
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        })
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
@@ -111,7 +146,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'uk'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Kiev'
 
 USE_I18N = True
 
@@ -122,6 +157,57 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
+
+MESSAGE_LEVEL = message_constants.DEBUG
+
+# Support for X-Request-ID
+
+LOG_REQUEST_ID_HEADER = 'HTTP_X_REQUEST_ID'
+
+LOG_REQUESTS = True
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'request_id': {
+            '()': 'log_request_id.filters.RequestIDFilter'
+        }
+    },
+    'formatters': {
+        'standard': {
+            'format': '%(levelname)-8s [%(asctime)s] [%(request_id)s] %(name)s: %(message)s'
+        },
+        },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'filters': ['request_id'],
+            'formatter': 'standard',
+            },
+        },
+    'loggers': {
+        'log_request_id.middleware': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': False,
+            },
+        }
+}
+
+# отключить отчёты о 404 ошибке URL страницы заканчивается
+import re
+IGNORABLE_404_URLS = (
+    re.compile(r'^/apple-touch-icon.*\.png$'),
+    re.compile(r'^/favicon\.ico$'),
+    re.compile(r'^/robots\.txt$'),
+)
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.8/howto/static-files/
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 STATIC_URL = '/static/'
 
