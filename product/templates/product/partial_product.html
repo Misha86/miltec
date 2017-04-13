@@ -39,7 +39,7 @@
 
                     <a href="{% if product.image_large %}{{ product.image_large.url }}{% endif %}" class="tagEnlarge" title="{{ product.title|upper }}" rel="prettyPhoto[gal]">
                         <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-magnifier">
-                        <u>Enlarge Photo</u>
+                        <u>Увеличить фото</u>
                     </a>
 
                 </dd>
@@ -159,7 +159,7 @@
                         <input class="count" type="text" name="menge_1" value="1">
                         <input type="hidden" name="rub1_1" value="{{ product.slug }}">
                         <font style="float: none;"><b>/</b> ST</font>
-                        <input class="submitButton dark_grey" type="button" value="купити">
+                        <input class="submitButton dark_grey" type="button" value="Купить">
                     </div>
 
                     <!-- begin: Amout Image gets replaced by jquery function -->
@@ -190,7 +190,7 @@
     <div class="jquery_tabs">
 
         <!-- begin: product-description_?.html -->
-        <h4>Description</h4>
+        <h4>Описание</h4>
 
         <div class="tabs-content">
 
@@ -203,12 +203,13 @@
         <!-- end: product-description_?.html -->
 
         <!-- begin: product-specifications_?.html -->
-        <h4>Details</h4>
+        <h4>Детали</h4>
 
         <div class="tabs-content">
 
             <dl class="specifications">
-                <dt>Details</dt>
+
+                <dt>Детали</dt>
 
                 <dd class="alt">
                     <label>EAN-Code</label>

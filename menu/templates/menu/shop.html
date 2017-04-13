@@ -21,7 +21,7 @@
         <!-- begin: widget box -->
         <div class="widget accordion">
 
-            <h2>Products</h2>
+            <h2>Товары</h2>
 
             {% for category in categories %}
 
@@ -101,10 +101,10 @@
             <div class="widget" role="Account Management">
 
                 <h4 class="selected">
-                    <a href="#13" title="My Account" alt="My Account">
+                    <a href="#" title="Мой аккаунт" alt="Мой аккаунт">
 
-                        <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-toggle">
-                        My Account
+{#                        <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-toggle">#}
+                       Мой аккаунт
                     </a>
                 </h4>
 
@@ -118,7 +118,7 @@
                         </div>
 
                         <div class="type-text">
-                            <input type="password" name="pw" id="pw" value="Passwort" onfocus="if( this.value=='Passwort')this.value=''" onblur="if( this.value=='')this.value='Passwort'" tabindex="3">
+                            <input type="password" name="pw" id="pw" value="Passwort" onfocus="if( this.value=='Password')this.value=''" onblur="if( this.value=='')this.value='Passwort'" tabindex="3">
                         </div>
 
                         <div class="buttonsContainer">
@@ -126,7 +126,7 @@
                             <input type="submit" class="submit-IEFix" tabindex="3" style="position:absolute;top:inherit;left:-99999px;">
                             <a class="formButton formButtonSubmit formButtonBlue" href="#13" title="log in">
                                 <span>
-                                    <b>log in</b>
+                                    <b>Войти</b>
                                 </span>
                             </a>
                             <div class="clear"></div>

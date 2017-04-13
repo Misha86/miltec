@@ -28,7 +28,7 @@ def shop(request):
     categories = categories_all.filter(promotions=False)
     categories_list = bootstrap_query(categories, 2)
     context = {
-        'category_title': 'products',
+        'category_title': 'ТОВАРЫ',
         'menu_list': categories_list,
         'categories': categories,
         'promotions': categories_all.filter(promotions=True)
