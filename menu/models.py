@@ -30,7 +30,7 @@ class Item(models.Model):
     title = models.CharField(max_length=50, verbose_name="Назва категорії")
     used = models.BooleanField(verbose_name="Вживані", default=False)
     promotions = models.BooleanField(verbose_name="Знижені ціни", default=False)
-    slug = models.SlugField(verbose_name="Ім`я категорії транслітом", unique=True)
+    slug = models.SlugField(verbose_name="Ім`я категорії транслітом", unique=True, max_length=100)
     create = models.DateTimeField(auto_now_add=True, verbose_name="Дата створення")
     update = models.DateTimeField(auto_now=True, verbose_name="Дата оновлення")
 
