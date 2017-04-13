@@ -122,14 +122,17 @@ def product_details(request, slug=None):
 
 def search(request):
 
-    # search products
-    query = request.GET.get('q')
     if request.is_ajax():
+
+        # search products
+        query = request.GET.get('q')
         data = dict()
         context = {
             'search': True
         }
-        if query:
+
+        if query and query.isspace() is False:
+
             products_search = Product.objects.filter(
                 Q(title__icontains=query) |
                 Q(description__icontains=query)).distinct()
@@ -138,11 +141,11 @@ def search(request):
 
             view_page(request)
 
-            products_ordering = ordering_too(request, products_search)
+            if products_search:
 
-            products = pagination_products(request, products_ordering, 2)
+                products_ordering = ordering_too(request, products_search)
 
-            if products:
+                products = pagination_products(request, products_ordering, 2)
 
                 context.update({
                     'products': products,

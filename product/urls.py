@@ -18,7 +18,8 @@ from . import views
 
 
 urlpatterns = [
+    url(r'^search-products/$', views.search, name='search'),
     url(r'^product-list/(?P<slug>.*)/$', views.product_list, name='product_list'),
     url(r'^(?P<slug>.*)/$', views.product_details, name='product'),
-    url(r'^search/$', views.search, name='search'),
+
 ]
