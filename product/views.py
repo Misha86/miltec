@@ -121,17 +121,16 @@ def product_details(request, slug=None):
 
 
 def search(request):
-    data = dict()
-    products_list = Product.objects.all()
 
     # search products
     query = request.GET.get('q')
     if request.is_ajax():
+        data = dict()
         context = {
             'search': True
         }
         if query:
-            products_search = products_list.filter(
+            products_search = Product.objects.filter(
                 Q(title__icontains=query) |
                 Q(description__icontains=query)).distinct()
 
