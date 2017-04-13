@@ -33,11 +33,12 @@ class ItemInLine(GenericStackedInline):
 
 class ItemsInLine(GenericTabularInline):
     model = Item
-    extra = 1
+    extra = 2
     verbose_name = 'Підпункт'
     verbose_name_plural = "Підпункти"
+    readonly_fields = ['slug']
 
-    readonly_fields = ['slug', ]
+    radio_fields = {'parent': admin.VERTICAL, }
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -58,6 +59,9 @@ class ItemAdmin(admin.ModelAdmin):
     list_display = ['title', 'used', 'promotions', 'content_object',  'parent', 'id']
     readonly_fields = ['slug', 'create', 'update', 'pk']
     list_select_related = ('parent', )
+
+    search_fields = ['title', ]
+    list_per_page = 10
 
     inlines = [ItemsInLine, ProductInLine]
 

@@ -57,7 +57,8 @@ class Item(models.Model):
         if self.parent:
             self.object_id = self.parent.id
             self.content_type = ContentType.objects.get_for_model(self.parent.__class__)
-        self.slug = "{}-{}".format(slugify(self.title, allow_unicode=True), self.object_id)
+        self.slug = slugify("{} {} {}".format(self.title, self.content_object.title, self.object_id),
+                            allow_unicode=True)
         super(Item, self).save(*args, **kwargs)
 
     def children(self):
@@ -140,3 +141,6 @@ class Category(models.Model):
     def get_absolute_url(self):
         return reverse('menu:items_list', kwargs={
             'slug': self.slug})
+
+    def natural_key(self):
+        return self.slug

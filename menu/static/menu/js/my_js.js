@@ -161,7 +161,7 @@ $(function () {
     mainContent.on('click', ".toolBar.clearfix a", items);
 
     // breadcrumb
-    mainContent.on('click', "#col3_content .breadcrumbBar .breadcrumbs li .elseCrumb a", items);
+    mainContent.on('click', "#col3_content .breadcrumbBar .breadcrumbs li.elseCrumb a", items);
 
     //// product details 'next' and 'back'
     mainContent.on('click', ".bottomToolBar .tools.float_right a", items);
