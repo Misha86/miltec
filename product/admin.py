@@ -5,7 +5,7 @@ from .models import Product
 class ProductAdmin(admin.ModelAdmin):
     model = Product
     fieldsets = [
-        (None, {'fields': ['title',  'description', 'article', 'sold',
+        (None, {'fields': ['title',  'description', 'details', 'article', 'sold',
                            'price', 'price_for_users', 'image', 'image_large', 'height_field', 'width_field', 'category', 'item']})
     ]
     list_display = ['title', 'category', 'item', 'id']

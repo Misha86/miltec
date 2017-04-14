@@ -196,7 +196,7 @@
 
             <!-- Artikelbeschreibung -->
             <p>
-                {{ product.description|linebreaks }}
+                {{ product.description|safe }}
             </p>
 
         </div>
@@ -207,30 +207,24 @@
 
         <div class="tabs-content">
 
-            <dl class="specifications">
-
-                <dt>Детали</dt>
-
-                <dd class="alt">
-                    <label>EAN-Code</label>
-                    <span>4046872353727</span>
-                    <div class="clear"></div></dd>
-
-                <dd>
-                    <label>goods code</label>
-                    <span>39262000</span>
-                    <div class="clear"></div></dd>
-            </dl>
+{#            <dl class="specifications">#}
+{##}
+{#                <dt>Детали</dt>#}
+{##}
+{#                <dd class="alt">#}
+{#                    <label>EAN-Code</label>#}
+{#                    <span>4046872353727</span>#}
+{#                    <div class="clear"></div></dd>#}
+{##}
+{#                <dd>#}
+{#                    <label>goods code</label>#}
+{#                    <span>39262000</span>#}
+{#                    <div class="clear"></div></dd>#}
+{#            </dl>#}
+            {{ product.details|safe }}
         </div>
     </div>
     <!-- end: jquery tabs -->
-
-
-
-    <!-- begin: products also purchased by other customers: product-cfilter_?.html -->
-    <!-- begin include: Kunden, die dieses Produkt gekauft haben, haben auch folgende Produkte gekauft: -->
-    &nbsp;
-    <!-- end: products also purchased by other customers: product-cfilter_?.html -->
 
 
 

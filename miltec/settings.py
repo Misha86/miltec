@@ -223,9 +223,10 @@ STATICFILES_DIRS = (
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MEDIA_URL = '/media/'
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
+# MEDIA_URL = '/media/'
+MEDIA_URL = 'http://www.miltec-sturm.de'
+#
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
 
 FIXTURE_DIRS = [
     os.path.join(BASE_DIR, 'menu', 'fixtures', 'menu'),
