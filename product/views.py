@@ -72,7 +72,7 @@ def product_list(request, slug=None):
         view_page(request)
 
         # pagination products
-        products = pagination_products(request, list_product, 2)
+        products = pagination_products(request, list_product, 10)
 
         context = {
             'products': products,
@@ -145,7 +145,7 @@ def search(request):
 
                 products_ordering = ordering_too(request, products_search)
 
-                products = pagination_products(request, products_ordering, 2)
+                products = pagination_products(request, products_ordering, 10)
 
                 context.update({
                     'products': products,

@@ -197,11 +197,11 @@
                                                     {{ product.article }}
                                                 </div>
                                             </dd>
-
+                                            <br/>
                                             <dd class="description">
 
                                                 <p itemprop="description">
-                                                    {{ product.description|truncatechars:200 }}
+                                                    {{ product.description|safe|truncatechars:200 }}
                                                 </p>
 
                                             </dd>

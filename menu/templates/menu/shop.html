@@ -39,7 +39,7 @@
                         {% for item in category.items.all %}
 
                             <li id="subCatID_{{ item.id }}" class="indentLevel_0">
-                                <a href="{{ item.get_absolute_url }}" title="{{ item.title }}">{{ item.title }}</a>
+                                <a href="{{ item.get_absolute_url }}" title="{{ item.title }}">{{ item.title }} {# <b>{{ item.id }}</b> #}</a>
                             </li>
 
                             {% if item.children %}
@@ -47,7 +47,7 @@
                                 {% for item in item.children %}
 
                                     <li id="subCatID_{{ item.id }}" class="indentLevel_1">
-                                        <a href="{{ item.get_absolute_url }}" title="{{ item.title }}">{{ item.title }}</a>
+                                        <a href="{{ item.get_absolute_url }}" title="{{ item.title }}">{{ item.title }} {# <b>{{ item.id }}</b> #}</a>
                                     </li>
 
                                 {% endfor %}
@@ -103,8 +103,8 @@
                 <h4 class="selected">
                     <a href="#" title="Мой аккаунт" alt="Мой аккаунт">
 
-{#                        <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-toggle">#}
-                       Мой аккаунт
+                        {#                        <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-toggle">#}
+                        Мой аккаунт
                     </a>
                 </h4>
 
@@ -134,9 +134,28 @@
                         </div>
                     </form>
                 </div>
-
                 <div class="widgetBottom"></div>
+
+                {#                <!-- курс долара -->#}
+                {#                <a href="//finance.i.ua/" target="_blank" style="float: right;">#}
+                {#                    <img src="//f.i.ua/fp5_b15_c0_l0.png" border="0" alt="Курс доллара">#}
+                {#                </a>#}
+
             </div>
+
+            <!--Kurs.com.ua main-ukraine 210x130 blue-->
+            <div id='kurs-com-ua-informer-main-ukraine-210x130-blue-container'>
+                <a href="//old.kurs.com.ua/informer" id="kurs-com-ua-informer-main-ukraine-210x130-blue" title="Курс валют информер Украина" rel="nofollow" target="_blank">
+                    Информер курса валют
+                </a>
+            </div>
+            <script type='text/javascript'>
+                (function() {var iframe = '<ifr'+'ame src="//old.kurs.com.ua/informer/inf2?color=blue" width="210" height="130" frameborder="0" vspace="0" scrolling="no" hspace="0"></ifr'+'ame>';console.log(iframe);var container = document.getElementById('kurs-com-ua-informer-main-ukraine-210x130-blue');container.parentNode.innerHTML = iframe;})();
+            </script>
+            <noscript>
+                <img src='//old.kurs.com.ua/static/images/informer/kurs.png' width='52' height='26' alt='kurs.com.ua: курс валют в Украине!' title='Курс валют' border='0' />
+            </noscript>
+            <!--//Kurs.com.ua main-ukraine 210x130 blue-->
 
         </div>
     </div>
@@ -146,7 +165,7 @@
     <div id="col3" role="main">
 
 
-           {% include 'partial_shop_main.html' %}
+        {% include 'partial_shop_main.html' %}
 
 
         <div id="ie_clearing">&nbsp;</div>
@@ -155,6 +174,14 @@
     </div>
 
     </span></div>
+
+    <script type="text/javascript">
+{#    $(function(){#}
+{#        console.log($('iframe').location = 'http://localhost:8000')#}
+{#        $('#topnav > span > a.exchange').text($('td div.with-arrows.arrow_down').text())#}
+{#    })#}
+
+    </script>
 
 
 {% endblock %}
