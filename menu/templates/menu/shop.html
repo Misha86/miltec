@@ -157,6 +157,17 @@
             </noscript>
             <!--//Kurs.com.ua main-ukraine 210x130 blue-->
 
+
+            <!-- fdlx.com widget -->
+            <div id="fdlx-currency-table-widget-112" class="fdlx-widget fdlx-currency-table-widget" style="text-align:left !important;display: block;">
+                <table cellspacing="0" cellpadding="0" border="0" style="background:#f0f0f0;width:210px;height:115px;">
+                    <tr>
+                        <td>Загружаем <a href="http://fdlx.com/" target="_blank">курсы&nbsp;валют</a> от fdlx.com</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="http://fdlx.com/" title="Бизнес портал fdlx.com" target="_blank">Бизнес-портал <span>fdlx.com</span></a></td></tr></table></div><script type="text/javascript">(function (settings, undefined) {'use strict';var _sid = 'fdlx-widget-embed-style';if (!document.getElementById(_sid)) {var style = document.createElement('link');style.setAttribute('id', _sid);style.setAttribute('rel', 'stylesheet');style.setAttribute('href', 'http://fdlx.com/widget/assets/embed.css');document.head.appendChild(style);}var iframe = '<ifra' + 'me width="100%" height="115" frameborder="0" src="http://fdlx.com/widget/currency-table"'+'vspace="0" scrolling="no" hspace="0" allowtransparency="true"'+'></ifr'+'ame>';try {document.querySelector('#'+settings.id+' td').innerHTML = iframe;} catch (e) {}})({id: 'fdlx-currency-table-widget-112', width: 210, height: 115});</script><noscript>К сожалению, у вас отключён JavaScript, но вы всегда сможете узнать свежие финансовые сводки на бизнес-портале <a href="http://fdlx.com/" title="Бизнес-портал fdlx.com">fdlx.com</a></noscript><!-- /fdlx.com widget -->
+
         </div>
     </div>
 
@@ -176,10 +187,75 @@
     </span></div>
 
     <script type="text/javascript">
-{#    $(function(){#}
-{#        console.log($('iframe').location = 'http://localhost:8000')#}
-{#        $('#topnav > span > a.exchange').text($('td div.with-arrows.arrow_down').text())#}
-{#    })#}
+        $(function(){
+            {#            //old.kurs.com.ua/informer/inf2?color=blue#}
+            {#            var headers = {#}
+            {#                'cookie': 'ips4_IPSSessionFront=o4mlv3navn32h5asmcjtv0pra3; _ym_uid=1490484920653451506; ips4_ipsTimezone=Europe/Kiev; __gads=ID=3c7ddb16e542e033:T=1490484922:S=ALNI_MYsiVFV6A2SpTxsJzggmxOu-Tmhqg; news_for_header=%7B%22closed%22%3Afalse%7D; weather_popup=1492357136; _ym_isad=2; ci_session=vdclZHftpcKF82C2yW63oW%2BiqwHnO0RVpZsO3B5GMuu12gIZQrE9aX7kkiMpT38e%2Bko9XbMofMNdCIIMmr17D0%2B%2BY3yW1fVeELqQ0rV9qRJ1%2BjWV7P3oJqNebuDHYJzyR6l%2BdBeIr6BMClsyKnQDdnJb3MtmaJ8slZdRKgiOF1127AJ%2BpX4kEeKRQUgCKG24qXx7jZv4jiYPVODGjz61APQ2jIpeTERP1rMdT%2BxBWNlYeD8GvQxYMp8O2iosCOBQnU0cHCbpfOzRwx3CV0hdcqTOk9JU%2F8I2YTo%2B5x9hUBa5JS0r9e1%2B%2B0nok12bHwxbaa9fl33YE6wpArDffnB6OkQYW3QtPT0onlDNupHf9aUzTUdFf%2FIT65TQ0BQM7n0dVoDLuDWdJS12maeYwSmA5BQfImQmuPSd0Y81SMYQfCi32mmSTZkNcgpXPZFeHMBzsNB2GMf0Sw%2F0cUmoNupyPQ%3D%3D; __auc=254cfcd115b727b55fc442d4b08; _ga=GA1.3.1376600679.1490484920; crtg_rta_5485=; crtg_rta_6250=; crtg_rta_6281=',#}
+            {#                'upgrade-insecure-requests': 1#}
+            {#        };#}
+            {##}
+            {#        function a (url, headers){#}
+            {#            console.log(url);#}
+            {#            $.ajax({#}
+            {#                url: url,       // указываем URL для запроса#}
+            {#                dataType : "json",#}
+            {#                headers: headers,#}
+            {#                crossDomain: true,#}
+            {#                                    data: {color: 'blue'},#}
+            {#                    jsonpCallback: 'myCallbacFunc'#}
+            {#                success: function (data) {#}
+            {#                    console.log(data.body)#}
+            {#                },#}
+            {#                error: error#}
+            {#            });#}
+            {#        }#}
+            {##}
+            {#        a('https://old.kurs.com.ua/informer/inf2?color=blue', headers);#}
+{#            var contentType ="application/x-www-form-urlencoded; charset=utf-8";#}
+{##}
+{#            if(window.XDomainRequest)#}
+{#                contentType = "text/plain";#}
+
+            {#            $("#postdata").click(function()#}
+            {#            {#}
+            {#                $.ajax({#}
+            {#                    url:"http://hayageektest.appspot.com/cross-domain-cors/post.php",#}
+            {#                    data:"name=Ravi&age=12",#}
+            {#                    type:"POST",#}
+            {#                    dataType:"json",#}
+            {#                    contentType:contentType,#}
+            {#                    success:function(data)#}
+            {#                    {#}
+            {#                        alert("Data from Server"+JSON.stringify(data));#}
+            {#                    },#}
+            {#                    error:function(jqXHR,textStatus,errorThrown)#}
+            {#                    {#}
+            {#                        alert("You can not send Cross Domain AJAX requests: "+errorThrown);#}
+            {#                    }#}
+            {#                });#}
+            {##}
+            {#            });#}
+
+{#            function k () {#}
+{#                $.ajax({#}
+{#                    url: "https://old.kurs.com.ua/informer/inf2?color=blue",#}
+{#                    dataType: "json",#}
+{#                    contentType: contentType,#}
+{#                    headers: {origin: 'http://127.0.0.1:8000'},#}
+{#                    success: function (data) {#}
+{#                        alert("Data from Server" + JSON.stringify(data));#}
+{#                    },#}
+{#                    error: function (jqXHR, textStatus, errorThrown) {#}
+{#                        alert("You can not send Cross Domain AJAX requests : " + errorThrown);#}
+{#                    }#}
+{#                });#}
+{#            }#}
+{#            k()#}
+{#            $('#q').load('http://127.0.0.1:8000/https://old.kurs.com.ua/informer/inf2?color=blue');#}
+{#            $('#q').load('http://fdlx.com/widget/currency-table');#}
+{#            $('#kurs').load('https://old.kurs.com.ua/informer/inf2?color=blue');#}
+        })
+{#    $('#q').load('https://old.kurs.com.ua/informer/inf2?color=blue');#}
 
     </script>
 

@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('menu.urls', namespace='menu')),
     url(r'^product/', include('product.urls', namespace='product')),
+    url(r'^buyer/', include('buyer.urls', namespace='buyer')),
 ]
 
 

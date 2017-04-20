@@ -65,9 +65,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # other apps
+    'django_phonenumbers',
+    'address',
+
     # my apps
     'menu.apps.MenuConfig',
-    'product.apps.ProductConfig'
+    'product.apps.ProductConfig',
+    'buyer.apps.BuyerConfig'
 ]
 
 
@@ -94,7 +99,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates'),
                  os.path.join(BASE_DIR, 'menu', 'templates', 'menu'),
-                 os.path.join(BASE_DIR, 'product', 'templates', 'product')],
+                 os.path.join(BASE_DIR, 'product', 'templates', 'product'),
+                 os.path.join(BASE_DIR, 'buyer', 'templates', 'buyer')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -219,6 +225,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'menu', 'static', 'menu'),
     os.path.join(BASE_DIR, 'product', 'static', 'product'),
+    os.path.join(BASE_DIR, 'buyer', 'static', 'buyer'),
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -231,5 +238,19 @@ MEDIA_URL = 'http://www.miltec-sturm.de/'
 FIXTURE_DIRS = [
     os.path.join(BASE_DIR, 'menu', 'fixtures', 'menu'),
     os.path.join(BASE_DIR, 'product', 'fixtures', 'product'),
+    os.path.join(BASE_DIR, 'buyer', 'fixtures', 'buyer'),
     os.path.join(BASE_DIR, 'fixtures', 'auth')
     ]
+
+AUTH_USER_MODEL = 'buyer.BuyerUser'
+
+
+PHONE_NUMBER_REGION = 'UK'
+PHONE_NUMBERS_FORMATS_BY_REGION = {
+    'UK': {
+        'pattern': '(\\d{12})', 'format': '\\12', 'prefix_format': '+%s (%s)'
+    },
+    'US': {
+        'pattern': '(\\d{3})(\\d{3})(\\d{4})', 'format': '\\1 \\2-\\3', 'prefix_format': '+%s (%s)'
+    },
+}
