@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404
 from django.core.urlresolvers import reverse
 from django.template.loader import render_to_string
 from django.http import JsonResponse
+from buyer.forms import BuyerLoginForm
 
 
 def bootstrap_query(array, num):

@@ -7,11 +7,14 @@
     <meta property="og:image" content="{% static 'img/logo.png' %}">
 
     <title>
-        Sturm MIL-TEC® Online-Shop
+        {% block title %}
+
+            Sturm MIL-TEC® Online-Shop
 
 
-        (www.sturm-miltec.de)
+            (www.sturm-miltec.de)
 
+        {% endblock %}
     </title>
 
     <meta name="publisher" content="Sturm Handels GmbH">
@@ -143,18 +146,21 @@
 
 <body id="shop_main">
 
-<div class="page_margins">
-    <div class="page">
-        <div class="pagePadding">
+{% block register %}
 
-            <div id="header" role="banner">
+    <div class="page_margins">
+
+        <div class="page">
+
+            <div class="pagePadding">
+
+                <div id="header" role="banner">
             <span class="headerInner">
 
 	<div id="topnav" role="contentinfo">
 
 		<span>
 			<!-- LOG IN / EINLOGGEN -->
-			<!-- EIDAMO_CUSTOMERLOGIN_START -->
             {% if request.user.is_authenticated %}
 
                 <a class="exchange" href="{% url 'buyer:logout' %}?next={{ request.path }}" title="{{ request.user.get_full_name }}">
@@ -163,37 +169,21 @@
 
             {% else %}
 
-                <a href="#" title="Регистрация / Войти">
+                <a href="{% url 'buyer:register' %}" title="Регистрация / Войти">
                     Регистрация / Войти
                 </a>
 
             {% endif %}
 
-            <!-- EIDAMO_CUSTOMERLOGIN_STOP -->
-
-			<!-- MY ACCOUNT / MEIN KUNDENKONTO -->
-
-			<!-- MY CART / WARENKORB -->
+            <!-- MY CART / WARENKORB -->
 			<a class="cart_url" href="#" title="Корзина">
-                Корзина: <b>0,00&nbsp;EUR*</b>
+                Корзина: <b>0,00&nbsp;USD*</b>
             </a>
 
             <a class="exchange" href="#" title="Курс">
-                Курс EUR: <b>27.5</b>
+                Курс USD: <b>{{ exchange }}</b>
             </a>
 
-            <!--
-			-->
-
-			<!-- HELP / HILFE -->
-
-
-			<!-- IMPRINT / IMPRESSUM -->
-			<!--
-			<a href="http://www.miltec-sturm.de/cgi-bin/shop/front/eidamo.cgi?func=htmlserv&wkid=52454114152474515&tmpl=shop_text_win.html&in=std_impressum_0" title="Impressum">Impressum</a>
-				-->
-
-			<!-- LOG OUT -->
 		</span>
 
     </div>
@@ -213,22 +203,21 @@
             DE-72108 Rottenburg<br>
         </div>
 
-		<div class="partnerLogos"> <!-- Partner Logos load in reversed order: first image aligns all the way right -->
+		<div class="partnerLogos">
 
         </div>
 
 		<div class="edge edge-tl"></div>
 		<div class="edge edge-tr"></div>
 	</span>
-            </div>
+                </div>
+
+                {% include "navbar.html" %}
+
+                {% block content %}
 
 
-            {% include "navbar.html" %}
-
-            {% block content %}
-
-
-                <div id="main"><span class="main">
+                    <div id="main"><span class="main">
 
             <!-- begin: #col3 static center column -->
             <div id="col3" role="main">
@@ -241,8 +230,6 @@
 
                         <!-- end: listings standard view -->
                     </div>
-
-                    <!-- end: Home Page specific content -->
 
                     <!-- EIDAMO_CUSTOMERLOGIN_START -->
                     <div class="boxen">
@@ -294,22 +281,21 @@
             </div>
 
         </span>
-                </div>
+                    </div>
 
+                {% endblock %}
 
-            {% endblock %}
+                <div class="clear"></div>
 
+            </div>
 
-            <div class="clear"></div>
         </div>
+
     </div>
-</div>
 
+    {% include "footer.html" %}
 
-{% include "footer.html" %}
-
-
-<!-- JavaScript Einbettungen (z.B. Popups) -->
+{% endblock %}
 
 <!-- (en) Workaround for IE8 und Webkit browsers to fix focus problems when using skiplinks -->
 <!-- (de) Workaround für IE8 und Webkit browser, um den Focus zu korrigieren, bei Verwendung von Skiplinks -->

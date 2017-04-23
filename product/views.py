@@ -123,7 +123,6 @@ def product_details(request, slug=None):
 def search(request):
 
     if request.is_ajax():
-
         # search products
         query = request.GET.get('q')
         data = dict()
@@ -151,15 +150,15 @@ def search(request):
                     'products': products,
                     'item': {
                         'title': 'Searchresult',
-                        'returned_title': 'Your Searchrequest » {} « has returned the following.'.format(query)
+                        'returned_title': 'Ваш запрос о поиске » {} « вернул следующее.'.format(query)
                     }
                 })
 
             else:
                 context.update({
                     'item': {
-                        'title': 'Searchresult',
-                        'returned_title': 'No results of searching...'
+                        'title': 'Результат поиска',
+                        'returned_title': 'Нет результатов поиска ...'
                     }
                 })
 
@@ -168,7 +167,6 @@ def search(request):
             data['html_items'] = render_to_string('product_list.html',
                                                   context,
                                                   request=request)
-
         else:
 
             data['is_data'] = False

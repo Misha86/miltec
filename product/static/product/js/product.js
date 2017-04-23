@@ -19,6 +19,7 @@ $(function () {
     $('#searchForm').keyup(function (event) {
         event.preventDefault();
         var form = $(this);
+        var locHref = location.href;
         $.ajax({
             async: true,
             url: form.attr("action"),
@@ -32,6 +33,8 @@ $(function () {
             success: successSearch,
             error: error
         });
+
+        window.history.pushState({href: locHref}, form.attr("action"), locHref);
     });
 
 //$('#query').autocomplete({
@@ -73,7 +76,7 @@ $(function () {
     $("#searchForm").on('submit', function(event){
         event.preventDefault();
         var form = $(this);
-        console.log('wef')
+        var locHref = location.href;
         $.ajax({
             async: true,
             url: form.attr("action"),
@@ -87,5 +90,8 @@ $(function () {
 
             error : error
         });
+
+        window.history.pushState({href: locHref}, form.attr("action"), locHref);
+
     });
 });

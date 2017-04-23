@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load staticfiles %}{% load product_tags %}
 
 
 
@@ -132,13 +132,8 @@
 
 
                 <span class="current_price" itemprop="offers" itemscope="" itemtype="">
-            <span class="price" itemprop="price">
 
-                {{ product.price }}
-
-            </span>
-            <span class="currency">EUR</span>
-            <span class="unit">/ ST</span>
+                     {% include "product_prices.html" %}
 
 			</span>
 
@@ -207,21 +202,8 @@
 
         <div class="tabs-content">
 
-{#            <dl class="specifications">#}
-{##}
-{#                <dt>Детали</dt>#}
-{##}
-{#                <dd class="alt">#}
-{#                    <label>EAN-Code</label>#}
-{#                    <span>4046872353727</span>#}
-{#                    <div class="clear"></div></dd>#}
-{##}
-{#                <dd>#}
-{#                    <label>goods code</label>#}
-{#                    <span>39262000</span>#}
-{#                    <div class="clear"></div></dd>#}
-{#            </dl>#}
             {{ product.details|safe }}
+
         </div>
     </div>
     <!-- end: jquery tabs -->

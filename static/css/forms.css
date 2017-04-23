@@ -38,10 +38,10 @@
     margin:0 0 1em 0;
     padding:0.5em;
   }
-  
+
   .yform legend {
-    font-size:125%; 
-    font-weight:normal; 
+    font-size:125%;
+    font-weight:normal;
     color:#000;
   }
 
@@ -51,7 +51,7 @@
 
   .yform input,
   .yform textarea,
-  .yform select, 
+  .yform select,
   .yform optgroup {
     font-family:Arial, Helvetica, sans-serif; /* proportional fonts for all form elements */
   }
@@ -103,7 +103,7 @@
     border-right:1px #ddd solid;
     border-bottom:1px #ddd solid;
     color:#fff;
-    background:#555; 
+    background:#555;
   }
 
   .yform div.type-button input.reset:focus,
@@ -172,15 +172,15 @@
   .yform div.type-button {
 	display:block;
     margin:0.5em 0;
-    padding:0 0.5em;  
+    padding:0 0.5em;
     position:relative;
-	zoom:1; 
+	zoom:1;
   }
-  
+
   .yform div.type-button {
-    padding:3px 0em;  
+    padding:3px 0em;
   }
-  
+
   /* styling standard form elements with 'almost' equal flexible width | Gestaltung der einzelnen Formularelemente mit annÃ¤hend gleicher Breite */
   .yform .type-text input,
   .yform .type-text textarea {
@@ -234,7 +234,7 @@
   .full div.type-text input,
   .full div.type-text textarea { width:95.5%; margin-right: -3px; }
   .full div.type-select select { width:97.0%; margin-right: -3px; }
-  
+
   /* width adjustments for IE 5.x & IE6 | Breitenanpassung fÃ¼r Internet Explorer 5.x und 6.0 */
   * html .full div.type-text input,
   * html .full div.type-text textarea { width:95.5%; }
@@ -279,12 +279,12 @@
   .columnar div.type-text input,
   .columnar div.type-text textarea { float:left; width:67.8%; margin-right: -3px; }
   .columnar div.type-select select { float:left; width:69.4%; margin-right: -3px; }
-  
+
   /* width adjustments for IE 5.x & IE6 | Breitenanpassung fÃ¼r Internet Explorer 5.x und 6.0 */
   * html .columnar div.type-text input,
   * html .columnar div.type-text textarea { width:67.2%; }
   * html .columnar div.type-select select { width:68.8%; }
-  
+
  /*------------------------------------------------------------------------------------------------------*/
 
  /**
@@ -296,7 +296,7 @@
   * @valid no
   */
 
-  .yform, 
+  .yform,
   .yform div,
   .yform div * { zoom:1; }
 
@@ -309,7 +309,7 @@
   * @css-for IE 5.x/Win, IE6, IE7, IE8
   * @valid no
   */
-  
+
   /* all IE */
   .yform { padding-top:0\9; }
   .yform fieldset { padding:0 5px\9; padding-top:1em\9; }
@@ -319,7 +319,7 @@
   /* IE5.x, IE6 & IE7 */
   .yform legend { *padding:0 5px; }
   .yform fieldset { *padding-top:1.5em; }
-  
+
   /* IE5.x & IE6 */
   * html .yform { padding-top:10px; }
 }

@@ -19,7 +19,7 @@
 
 @media screen, projection
 {
-#main {background:#ddd1b7; color:#000; padding-bottom:50px;}	
+#main {background:#ddd1b7; color:#000; padding-bottom:50px;}
 #col3 {overflow:hidden; margin:0;}
 #col3_content {padding:0;}
 .coda-slider-wrapper-border {overflow:visible;}
@@ -42,12 +42,12 @@
 .buttonsContainer .formButton b {color:#fff; line-height:normal; float:none; text-shadow:none; font-weight:700 !important; }
 .buttonsContainer a.formButton:active, .buttonsContainer a.formButton:focus, .buttonsContainer a.formButton:active, .buttonsContainer a.formButton:focus {background:#941912 !important; }
 .buttonsContainer a.formButton:hover b, .buttonsContainer a.formButton:active b, .buttonsContainer a.formButton:focus b {color:#000; }
- 
-.first .buttonsContainer .formButton, .last .buttonsContainer .formButton, .first .buttonsContainer a.formButton:active, 
-.first .buttonsContainer a.formButton:focus, .first .buttonsContainer a.formButton:active, .first .buttonsContainer a.formButton:focus, 
+
+.first .buttonsContainer .formButton, .last .buttonsContainer .formButton, .first .buttonsContainer a.formButton:active,
+.first .buttonsContainer a.formButton:focus, .first .buttonsContainer a.formButton:active, .first .buttonsContainer a.formButton:focus,
 .last .buttonsContainer a.formButton:focus, .last .buttonsContainer a.formButton:active, .last .buttonsContainer a.formButton:focus  {background:#fff !important;}
 .first .buttonsContainer .formButton b, .last .buttonsContainer .formButton b {color:#000;}
-.first .buttonsContainer a.formButton:hover b, .first .buttonsContainer a.formButton:active b, .first .buttonsContainer a.formButton:focus b, 
+.first .buttonsContainer a.formButton:hover b, .first .buttonsContainer a.formButton:active b, .first .buttonsContainer a.formButton:focus b,
 .last .buttonsContainer a.formButton:hover b, .last .buttonsContainer a.formButton:active b, .last .buttonsContainer a.formButton:focus b {color:#941912; }
 .first h3, .last h3  {color:#000;}
 

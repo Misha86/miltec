@@ -214,14 +214,10 @@
                                             <dd class="price" id="price_1" style="">
 
 
-                <span class="current_price" itemprop="offers" itemscope="" itemtype="">
-            <span class="price" itemprop="price">
+                <span class="current_price" itemprop="offers">
 
-                {{ product.price }}
+                {% include "product_prices.html" %}
 
-            </span>
-            <span class="currency">EUR</span>
-            <span class="unit">/ ST</span>
 
 			</span>
 
@@ -352,12 +348,7 @@
 
 			<span class="current_price" itemprop="offers" itemscope="" itemtype="">
 
-            <span class="price" itemprop="price">
-                {{ product.price }}
-            </span>
-
-            <span class="currency">EUR</span>
-            <span class="unit">/ ST</span>
+                 {% include "product_prices.html" %}
 
 			</span>
 
