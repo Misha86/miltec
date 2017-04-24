@@ -15,6 +15,7 @@ if sys.version > '3':
 
 __all__ = ['AddressWidget', 'AddressField']
 
+
 class AddressWidget(forms.TextInput):
     components = [('country', 'country'), ('country_code', 'country_short'),
                   ('locality', 'locality'), ('postal_code', 'postal_code'),
@@ -73,6 +74,7 @@ class AddressWidget(forms.TextInput):
         ad = dict([(c[0], data.get(name + '_' + c[0], '')) for c in self.components])
         ad['raw'] = raw
         return ad
+
 
 class AddressField(forms.ModelChoiceField):
     widget = AddressWidget
