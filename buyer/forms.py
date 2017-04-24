@@ -76,6 +76,8 @@ class BuyerRegisterForm(BuyerCreationForm):
                                                           'id': 'id_date_of_birth',
                                                           'placeholder': 'дата рождения',
                                                           'autocomplete': 'off'}),
+                   'phone_number': forms.TextInput(attrs={'class': 'form-control', 'rows': 4,
+                                                          'placeholder': "введите номер телефона"}),
                    # 'sex': RadioSelectWidget(attrs={'class': 'option-input radio'})
         }
 
@@ -85,3 +87,5 @@ class BuyerRegisterForm(BuyerCreationForm):
                   'date_of_birth': "Дата рождения",
                   # 'sex': "Пол",
                   'phone_number': "Номер телефона"}
+
+        help_texts = {'phone_number': 'формат ввода номера телефона +380967578910'}
