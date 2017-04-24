@@ -240,7 +240,8 @@ MEDIA_URL = 'http://www.miltec-sturm.de/'
 FIXTURE_DIRS = [
     os.path.join(BASE_DIR, 'menu', 'fixtures', 'menu'),
     os.path.join(BASE_DIR, 'product', 'fixtures', 'product'),
-    os.path.join(BASE_DIR, 'buyer', 'fixtures', 'buyer')
+    os.path.join(BASE_DIR, 'buyer', 'fixtures', 'buyer'),
+    os.path.join(BASE_DIR, 'address', 'fixtures', 'address')
     ]
 
 
