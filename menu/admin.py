@@ -8,7 +8,7 @@ class ProductInLine(admin.StackedInline):
     model = Product
     fieldsets = [
         (None, {
-            'fields': ['title', 'description', 'image', 'article', 'sold', 'slug']}),
+            'fields': ['title', 'description', 'image', 'image_large', 'article', 'sold', 'slug']}),
         ('Ціна', {
             'fields': ['price', 'price_for_users']}),
         ('Категорії', {
@@ -38,7 +38,7 @@ class ItemsInLine(GenericTabularInline):
     verbose_name_plural = "Підпункти"
     readonly_fields = ['slug']
 
-    radio_fields = {'parent': admin.VERTICAL, }
+    # radio_fields = {'parent': admin.VERTICAL, }
 
 
 class CategoryAdmin(admin.ModelAdmin):

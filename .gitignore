@@ -110,3 +110,4 @@ ENV/
 .ropeproject
 /fabfile.py
 scrap_data/
+/media_root/
