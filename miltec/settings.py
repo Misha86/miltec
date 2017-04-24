@@ -67,17 +67,12 @@ INSTALLED_APPS = [
     # other apps
     'phonenumber_field',
     'address',
+    'storages',
     # my apps
     'menu.apps.MenuConfig',
     'product.apps.ProductConfig',
     'buyer.apps.BuyerConfig'
 ]
-
-
-if not DEBUG:
-    from .amason_media import *
-    INSTALLED_APPS.append('storages')
-
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -217,6 +212,9 @@ IGNORABLE_404_URLS = (
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
+if not DEBUG:
+    from .amason_media import *
+    INSTALLED_APPS.append('storages')
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
