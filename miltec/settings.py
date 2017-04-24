@@ -69,7 +69,6 @@ INSTALLED_APPS = [
     # 'django_phonenumbers',
     'phonenumber_field',
     'address',
-
     # my apps
     'menu.apps.MenuConfig',
     'product.apps.ProductConfig',
@@ -248,11 +247,6 @@ FIXTURE_DIRS = [
 
 
 AUTH_USER_MODEL = 'buyer.BuyerUser'
-
-AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',
-    # 'allauth.account.auth_backends.AuthenticationBackend',
-)
 
 
 PHONE_NUMBER_REGION = 'UK'
