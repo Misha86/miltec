@@ -67,7 +67,6 @@ INSTALLED_APPS = [
     # other apps
     'phonenumber_field',
     'address',
-    'storages',
     # my apps
     'menu.apps.MenuConfig',
     'product.apps.ProductConfig',
