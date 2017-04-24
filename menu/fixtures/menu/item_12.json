@@ -1,0 +1,47 @@
+[
+    {
+    "model": "menu.item",
+    "pk": 135,
+    "fields": {
+      "title": "\u041f\u043e\u0434 \u0440\u0443\u0431\u0430\u0448\u043a\u0438",
+      "used": false,
+      "promotions": false,
+      "slug": "\u043f\u043e\u0434-\u0440\u0443\u0431\u0430\u0448\u043a\u0438-\u043d\u0438\u0436\u043d\u0435\u0435-\u0431\u0435\u043b\u044c\u0435-23",
+      "create": "2017-04-13T18:50:04.105Z",
+      "update": "2017-04-13T18:50:04.106Z",
+      "parent": 12,
+      "content_type": 7,
+      "object_id": 12
+    }
+  },
+  {
+    "model": "menu.item",
+    "pk": 136,
+    "fields": {
+      "title": "\u041b\u043e\u043d\u0433\u0434\u0436\u043e\u043d\u0441 \u0438 \u0448\u043e\u0440\u0442\u044b",
+      "used": false,
+      "promotions": false,
+      "slug": "\u043b\u043e\u043d\u0433\u0434\u0436\u043e\u043d\u0441-\u0438-\u0448\u043e\u0440\u0442\u044b-\u043d\u0438\u0436\u043d\u0435\u0435-\u0431\u0435\u043b\u044c\u0435-23",
+      "create": "2017-04-13T18:50:04.108Z",
+      "update": "2017-04-13T18:50:04.108Z",
+      "parent": 12,
+      "content_type": 7,
+      "object_id": 12
+    }
+  },
+  {
+    "model": "menu.item",
+    "pk": 137,
+    "fields": {
+      "title": "\u041a\u043e\u043c\u043f\u043b\u0435\u043a\u0442\u044b",
+      "used": false,
+      "promotions": false,
+      "slug": "\u043a\u043e\u043c\u043f\u043b\u0435\u043a\u0442\u044b-\u043d\u0438\u0436\u043d\u0435\u0435-\u0431\u0435\u043b\u044c\u0435-23",
+      "create": "2017-04-13T18:50:04.110Z",
+      "update": "2017-04-13T18:50:04.110Z",
+      "parent": 12,
+      "content_type": 7,
+      "object_id": 12
+    }
+  }
+]

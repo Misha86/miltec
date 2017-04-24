@@ -1,0 +1,47 @@
+[
+  {
+    "model": "menu.item",
+    "pk": 118,
+    "fields": {
+      "title": "\u041b\u0435\u0442\u043d\u0438\u0435 \u043a\u043e\u043c\u0431\u0438\u043d\u0435\u0437\u043e\u043d\u044b",
+      "used": false,
+      "promotions": false,
+      "slug": "\u043b\u0435\u0442\u043d\u0438\u0435-\u043a\u043e\u043c\u0431\u0438\u043d\u0435\u0437\u043e\u043d\u044b-\u043a\u043e\u043c\u0431\u0438\u043d\u0435\u0437\u043e\u043d\u044b-19",
+      "create": "2017-04-13T18:40:18.041Z",
+      "update": "2017-04-13T18:40:18.041Z",
+      "parent": 8,
+      "content_type": 7,
+      "object_id": 8
+    }
+  },
+  {
+    "model": "menu.item",
+    "pk": 119,
+    "fields": {
+      "title": "\u041a\u043e\u043c\u0431\u0438\u043d\u0435\u0437\u043e\u043d \u0434\u043b\u044f \u0442\u0430\u043d\u043a\u0430",
+      "used": false,
+      "promotions": false,
+      "slug": "\u043a\u043e\u043c\u0431\u0438\u043d\u0435\u0437\u043e\u043d-\u0434\u043b\u044f-\u0442\u0430\u043d\u043a\u0430-\u043a\u043e\u043c\u0431\u0438\u043d\u0435\u0437\u043e\u043d\u044b-19",
+      "create": "2017-04-13T18:40:18.044Z",
+      "update": "2017-04-13T18:40:18.044Z",
+      "parent": 8,
+      "content_type": 7,
+      "object_id": 8
+    }
+  },
+  {
+    "model": "menu.item",
+    "pk": 120,
+    "fields": {
+      "title": "\u0414\u0440\u0443\u0433\u0438\u0435 \u043a\u043e\u043c\u0431\u0438\u043d\u0435\u0437\u043e\u043d\u044b",
+      "used": false,
+      "promotions": false,
+      "slug": "\u0434\u0440\u0443\u0433\u0438\u0435-\u043a\u043e\u043c\u0431\u0438\u043d\u0435\u0437\u043e\u043d\u044b-\u043a\u043e\u043c\u0431\u0438\u043d\u0435\u0437\u043e\u043d\u044b-19",
+      "create": "2017-04-13T18:40:18.046Z",
+      "update": "2017-04-13T18:40:18.046Z",
+      "parent": 8,
+      "content_type": 7,
+      "object_id": 8
+    }
+  }
+]

@@ -1,0 +1,94 @@
+{% extends "base.html" %}{% load staticfiles %}
+
+
+{% block title %}Регистрация{% endblock %}
+
+
+{% block script %}
+
+    {{ form.media }}
+
+        <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}"/>
+        <script src="{% static 'js/jquery-ui.js' %}"></script>
+        <script src="{% static 'js/buyer.js' %}"></script>
+        <script src="{% static 'js/datepicker-uk.js' %}"></script>
+        <script src="{% static 'js/datepicker-ru.js' %}"></script>
+
+
+    <link href="{% static 'css/register.css' %}" rel="stylesheet" type="text/css">
+
+{% endblock %}
+
+
+{% block register %}
+
+    <div class="page_margins">
+        <div class="page">
+            <div class="pagePadding">
+                <div id="col3" role="main">
+                    <div id="col3_content" class="clearfix">
+                        <div class="boxen">
+                            <div class="shop box">
+
+                                <div class="form-title">
+                                    <h3>Форма для регистрации</h3>
+                                </div>
+
+                                <div class="forms">
+
+                                    <form class="register yform" method="post" action="">
+
+                                        {% csrf_token %}
+
+                                        {% for field in form %}
+
+                                            {% if field.errors %}
+                                                <div class="form-group has-error">
+
+                                                    {% for error in field.errors %}
+
+                                                        <label class="control-label errorlist"><em>{{ error }}</em></label>
+
+                                                    {% endfor %}
+
+                                                </div>
+                                            {% endif %}
+
+                                            <div class="type-text">
+
+                                                {{ field.label_tag }}
+
+                                                {{ field }}
+
+                                                {% if field.help_text %}
+                                                    <p class="help">{{ field.help_text|safe }}</p>
+                                                {% endif %}
+
+                                            </div>
+
+                                        {% endfor %}
+
+                                        <div class="buttonsContainer">
+        <span>
+
+            <button class="formButtonSubmit formButtonBlue" type="submit" style="height: 35px;margin: auto">
+                <b>АВТОРИЗОВАТЬСЯ</b>
+            </button>
+
+            <div class="clear"></div>
+         </span>
+                                        </div>
+
+                                    </form>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

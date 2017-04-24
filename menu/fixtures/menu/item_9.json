@@ -1,0 +1,77 @@
+[
+  {
+    "model": "menu.item",
+    "pk": 121,
+    "fields": {
+      "title": "\u0410\u043c\u0435\u0440\u0438\u043a\u0430\u043d\u0441\u043a\u0438\u0435 BDU",
+      "used": false,
+      "promotions": false,
+      "slug": "\u0430\u043c\u0435\u0440\u0438\u043a\u0430\u043d\u0441\u043a\u0438\u0435-bdu-\u043f\u043e\u043b\u0435\u0432\u044b\u0435-\u043a\u043e\u0441\u0442\u044e\u043c\u044b-20",
+      "create": "2017-04-13T18:42:12.820Z",
+      "update": "2017-04-13T18:43:53.789Z",
+      "parent": 9,
+      "content_type": 7,
+      "object_id": 9
+    }
+  },
+  {
+    "model": "menu.item",
+    "pk": 122,
+    "fields": {
+      "title": "\u0410\u043c\u0435\u0440\u0438\u043a\u0430\u043d\u0441\u043a\u0438\u0435 ACU",
+      "used": false,
+      "promotions": false,
+      "slug": "\u0430\u043c\u0435\u0440\u0438\u043a\u0430\u043d\u0441\u043a\u0438\u0435-acu-\u043f\u043e\u043b\u0435\u0432\u044b\u0435-\u043a\u043e\u0441\u0442\u044e\u043c\u044b-20",
+      "create": "2017-04-13T18:42:12.822Z",
+      "update": "2017-04-13T18:43:53.793Z",
+      "parent": 9,
+      "content_type": 7,
+      "object_id": 9
+    }
+  },
+  {
+    "model": "menu.item",
+    "pk": 123,
+    "fields": {
+      "title": "\u041d\u0435\u043c\u0435\u0446\u043a\u0438\u0435 \u043a\u043e\u0441\u0442\u044e\u043c\u044b",
+      "used": false,
+      "promotions": false,
+      "slug": "\u043d\u0435\u043c\u0435\u0446\u043a\u0438\u0435-\u043a\u043e\u0441\u0442\u044e\u043c\u044b-\u043f\u043e\u043b\u0435\u0432\u044b\u0435-\u043a\u043e\u0441\u0442\u044e\u043c\u044b-20",
+      "create": "2017-04-13T18:42:12.827Z",
+      "update": "2017-04-13T18:42:12.827Z",
+      "parent": 9,
+      "content_type": 7,
+      "object_id": 9
+    }
+  },
+  {
+    "model": "menu.item",
+    "pk": 124,
+    "fields": {
+      "title": "\u041a\u043e\u0441\u0442\u044e\u043c\u044b MIL-TEC",
+      "used": false,
+      "promotions": false,
+      "slug": "\u043a\u043e\u0441\u0442\u044e\u043c\u044b-mil-tec-\u043f\u043e\u043b\u0435\u0432\u044b\u0435-\u043a\u043e\u0441\u0442\u044e\u043c\u044b-20",
+      "create": "2017-04-13T18:42:12.845Z",
+      "update": "2017-04-13T18:42:12.845Z",
+      "parent": 9,
+      "content_type": 7,
+      "object_id": 9
+    }
+  },
+  {
+    "model": "menu.item",
+    "pk": 125,
+    "fields": {
+      "title": "\u0414\u0440\u0443\u0433\u0438\u0435 \u043a\u043e\u0441\u0442\u044e\u043c\u044b",
+      "used": false,
+      "promotions": false,
+      "slug": "\u0434\u0440\u0443\u0433\u0438\u0435-\u043a\u043e\u0441\u0442\u044e\u043c\u044b-\u043f\u043e\u043b\u0435\u0432\u044b\u0435-\u043a\u043e\u0441\u0442\u044e\u043c\u044b-20",
+      "create": "2017-04-13T18:42:12.847Z",
+      "update": "2017-04-13T18:42:12.847Z",
+      "parent": 9,
+      "content_type": 7,
+      "object_id": 9
+    }
+  }
+]

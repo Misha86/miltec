@@ -1,0 +1,242 @@
+[
+  {
+    "model": "menu.item",
+    "pk": 71,
+    "fields": {
+      "title": "\u041e\u0434\u0435\u0436\u0434\u0430 \u0413\u0435\u0440\u043c\u0430\u043d\u0438\u044f WWI Repro",
+      "used": false,
+      "promotions": false,
+      "slug": "\u043e\u0434\u0435\u0436\u0434\u0430-\u0433\u0435\u0440\u043c\u0430\u043d\u0438\u044f-wwi-repro-6",
+      "create": "2017-04-04T12:10:35.620Z",
+      "update": "2017-04-13T17:11:31.624Z",
+      "parent": null,
+      "content_type": 8,
+      "object_id": 6
+    }
+  },
+  {
+    "model": "menu.item",
+    "pk": 72,
+    "fields": {
+      "title": "\u041e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u0435 \u0413\u0435\u0440\u043c\u0430\u043d\u0438\u044f WWI Repro",
+      "used": false,
+      "promotions": false,
+      "slug": "\u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u0435-\u0433\u0435\u0440\u043c\u0430\u043d\u0438\u044f-wwi-repro-6",
+      "create": "2017-04-13T17:11:31.627Z",
+      "update": "2017-04-13T17:11:31.627Z",
+      "parent": null,
+      "content_type": 8,
+      "object_id": 6
+    }
+  },
+  {
+    "model": "menu.item",
+    "pk": 73,
+    "fields": {
+      "title": "\u041e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u0435 \u0424\u0440\u0430\u043d\u0446\u0443\u0437\u0441\u043a\u043e\u0433\u043e WWI Repro",
+      "used": false,
+      "promotions": false,
+      "slug": "\u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u0435-\u0444\u0440\u0430\u043d\u0446\u0443\u0437\u0441\u043a\u043e\u0433\u043e-wwi-repro-6",
+      "create": "2017-04-13T17:11:31.627Z",
+      "update": "2017-04-13T17:11:31.628Z",
+      "parent": null,
+      "content_type": 8,
+      "object_id": 6
+    }
+  },
+  {
+    "model": "menu.item",
+    "pk": 74,
+    "fields": {
+      "title": "\u041e\u0434\u0435\u0436\u0434\u0430 \u0413\u0435\u0440\u043c\u0430\u043d\u0438\u044f WWII Repro",
+      "used": false,
+      "promotions": false,
+      "slug": "\u043e\u0434\u0435\u0436\u0434\u0430-\u0433\u0435\u0440\u043c\u0430\u043d\u0438\u044f-wwii-repro-6",
+      "create": "2017-04-13T17:11:31.628Z",
+      "update": "2017-04-13T17:11:31.628Z",
+      "parent": null,
+      "content_type": 8,
+      "object_id": 6
+    }
+  },
+  {
+    "model": "menu.item",
+    "pk": 75,
+    "fields": {
+      "title": "\u041e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u0435 \u0413\u0435\u0440\u043c\u0430\u043d\u0438\u044f WWII Repro",
+      "used": false,
+      "promotions": false,
+      "slug": "\u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u0435-\u0433\u0435\u0440\u043c\u0430\u043d\u0438\u044f-wwii-repro-6",
+      "create": "2017-04-13T17:11:31.629Z",
+      "update": "2017-04-13T17:11:31.629Z",
+      "parent": null,
+      "content_type": 8,
+      "object_id": 6
+    }
+  },
+  {
+    "model": "menu.item",
+    "pk": 76,
+    "fields": {
+      "title": "\u0417\u043d\u0430\u043a\u0438 \u0440\u0430\u0437\u043b\u0438\u0447\u0438\u044f \u0413\u0435\u0440\u043c\u0430\u043d\u0438\u044f WWII Repro",
+      "used": false,
+      "promotions": false,
+      "slug": "\u0437\u043d\u0430\u043a\u0438-\u0440\u0430\u0437\u043b\u0438\u0447\u0438\u044f-\u0433\u0435\u0440\u043c\u0430\u043d\u0438\u044f-wwii-repro-6",
+      "create": "2017-04-13T17:11:31.630Z",
+      "update": "2017-04-13T17:11:31.630Z",
+      "parent": null,
+      "content_type": 8,
+      "object_id": 6
+    }
+  },
+  {
+    "model": "menu.item",
+    "pk": 77,
+    "fields": {
+      "title": "\u0413\u0435\u0440\u043c\u0430\u043d\u0438\u044f WWII Originals",
+      "used": false,
+      "promotions": false,
+      "slug": "\u0433\u0435\u0440\u043c\u0430\u043d\u0438\u044f-wwii-originals-6",
+      "create": "2017-04-13T17:11:31.630Z",
+      "update": "2017-04-13T17:11:31.630Z",
+      "parent": null,
+      "content_type": 8,
+      "object_id": 6
+    }
+  },
+  {
+    "model": "menu.item",
+    "pk": 78,
+    "fields": {
+      "title": "\u041e\u0434\u0435\u0436\u0434\u0430 \u0421\u0428\u0410 WWII Repro",
+      "used": false,
+      "promotions": false,
+      "slug": "\u043e\u0434\u0435\u0436\u0434\u0430-\u0441\u0448\u0430-wwii-repro-6",
+      "create": "2017-04-13T17:11:31.631Z",
+      "update": "2017-04-13T17:11:31.631Z",
+      "parent": null,
+      "content_type": 8,
+      "object_id": 6
+    }
+  },
+  {
+    "model": "menu.item",
+    "pk": 79,
+    "fields": {
+      "title": "\u041e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u0435 \u0421\u0428\u0410 Rep Repro",
+      "used": false,
+      "promotions": false,
+      "slug": "\u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u0435-\u0441\u0448\u0430-rep-repro-6",
+      "create": "2017-04-13T17:11:31.632Z",
+      "update": "2017-04-13T17:11:31.632Z",
+      "parent": null,
+      "content_type": 8,
+      "object_id": 6
+    }
+  },
+  {
+    "model": "menu.item",
+    "pk": 80,
+    "fields": {
+      "title": "\u0417\u043d\u0430\u043a\u0438 \u0440\u0430\u0437\u043b\u0438\u0447\u0438\u044f \u0421\u0428\u0410 WWII Repro",
+      "used": false,
+      "promotions": false,
+      "slug": "\u0437\u043d\u0430\u043a\u0438-\u0440\u0430\u0437\u043b\u0438\u0447\u0438\u044f-\u0441\u0448\u0430-wwii-repro-6",
+      "create": "2017-04-13T17:11:31.632Z",
+      "update": "2017-04-13T17:11:31.633Z",
+      "parent": null,
+      "content_type": 8,
+      "object_id": 6
+    }
+  },
+  {
+    "model": "menu.item",
+    "pk": 81,
+    "fields": {
+      "title": "\u0421\u0428\u0410 Originals",
+      "used": false,
+      "promotions": false,
+      "slug": "\u0441\u0448\u0430-originals-6",
+      "create": "2017-04-13T17:11:31.633Z",
+      "update": "2017-04-13T17:11:31.633Z",
+      "parent": null,
+      "content_type": 8,
+      "object_id": 6
+    }
+  },
+  {
+    "model": "menu.item",
+    "pk": 82,
+    "fields": {
+      "title": "\u0411\u0440\u0438\u0442\u0430\u043d\u0438\u044f WWII Originals",
+      "used": false,
+      "promotions": false,
+      "slug": "\u0431\u0440\u0438\u0442\u0430\u043d\u0438\u044f-wwii-originals-6",
+      "create": "2017-04-13T17:11:31.634Z",
+      "update": "2017-04-13T17:11:31.634Z",
+      "parent": null,
+      "content_type": 8,
+      "object_id": 6
+    }
+  },
+  {
+    "model": "menu.item",
+    "pk": 83,
+    "fields": {
+      "title": "\u041e\u0440\u0438\u0433\u0438\u043d\u0430\u043b\u044b NVA",
+      "used": false,
+      "promotions": false,
+      "slug": "\u043e\u0440\u0438\u0433\u0438\u043d\u0430\u043b\u044b-nva-6",
+      "create": "2017-04-13T17:11:31.635Z",
+      "update": "2017-04-13T17:11:31.635Z",
+      "parent": null,
+      "content_type": 8,
+      "object_id": 6
+    }
+  },
+  {
+    "model": "menu.item",
+    "pk": 84,
+    "fields": {
+      "title": "\u0420\u043e\u0441\u0441\u0438\u044f Originals",
+      "used": false,
+      "promotions": false,
+      "slug": "\u0440\u043e\u0441\u0441\u0438\u044f-originals-6",
+      "create": "2017-04-13T17:11:31.635Z",
+      "update": "2017-04-13T17:11:31.635Z",
+      "parent": null,
+      "content_type": 8,
+      "object_id": 6
+    }
+  },
+  {
+    "model": "menu.item",
+    "pk": 85,
+    "fields": {
+      "title": "\u041a\u043e\u043b\u043b\u0435\u043a\u0446\u0438\u043e\u043d\u043d\u044b\u0435 \u043f\u0440\u0435\u0434\u043c\u0435\u0442\u044b \u043a\u043e\u043b\u043b\u0435\u043a\u0446\u0438\u043e\u043d\u0435\u0440\u0430",
+      "used": false,
+      "promotions": false,
+      "slug": "\u043a\u043e\u043b\u043b\u0435\u043a\u0446\u0438\u043e\u043d\u043d\u044b\u0435-\u043f\u0440\u0435\u0434\u043c\u0435\u0442\u044b-\u043a\u043e\u043b\u043b\u0435\u043a\u0446\u0438\u043e\u043d\u0435\u0440\u0430-6",
+      "create": "2017-04-13T17:11:31.636Z",
+      "update": "2017-04-13T17:11:31.636Z",
+      "parent": null,
+      "content_type": 8,
+      "object_id": 6
+    }
+  },
+  {
+    "model": "menu.item",
+    "pk": 86,
+    "fields": {
+      "title": "\u041e\u0440\u0443\u0436\u0438\u0435",
+      "used": false,
+      "promotions": false,
+      "slug": "\u043e\u0440\u0443\u0436\u0438\u0435-6",
+      "create": "2017-04-13T17:11:31.637Z",
+      "update": "2017-04-13T17:11:31.637Z",
+      "parent": null,
+      "content_type": 8,
+      "object_id": 6
+    }
+  }
+]

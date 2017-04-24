@@ -1,0 +1,62 @@
+[
+  {
+    "model": "menu.item",
+    "pk": 103,
+    "fields": {
+      "title": "\u0421\u0432\u0438\u0442\u0435\u0440\u044b",
+      "used": false,
+      "promotions": false,
+      "slug": "\u0441\u0432\u0438\u0442\u0435\u0440\u044b-\u0441\u0432\u0438\u0442\u0435\u0440\u0430-\u0438-\u043a\u0430\u0440\u0434\u0438\u0433\u0430\u043d\u044b-4",
+      "create": "2017-04-13T18:24:58.083Z",
+      "update": "2017-04-13T18:28:22.759Z",
+      "parent": 4,
+      "content_type": 6,
+      "object_id": 4
+    }
+  },
+  {
+    "model": "menu.item",
+    "pk": 104,
+    "fields": {
+      "title": "\u0422\u0440\u043e\u044f",
+      "used": false,
+      "promotions": false,
+      "slug": "\u0442\u0440\u043e\u044f-\u0441\u0432\u0438\u0442\u0435\u0440\u0430-\u0438-\u043a\u0430\u0440\u0434\u0438\u0433\u0430\u043d\u044b-4",
+      "create": "2017-04-13T18:26:11.842Z",
+      "update": "2017-04-13T18:26:11.842Z",
+      "parent": 4,
+      "content_type": 6,
+      "object_id": 4
+    }
+  },
+  {
+    "model": "menu.item",
+    "pk": 105,
+    "fields": {
+      "title": "\u041a\u0430\u0440\u0434\u0438\u0433\u0430\u043d\u044b",
+      "used": false,
+      "promotions": false,
+      "slug": "\u043a\u0430\u0440\u0434\u0438\u0433\u0430\u043d\u044b-\u0441\u0432\u0438\u0442\u0435\u0440\u0430-\u0438-\u043a\u0430\u0440\u0434\u0438\u0433\u0430\u043d\u044b-4",
+      "create": "2017-04-13T18:26:11.845Z",
+      "update": "2017-04-13T18:26:11.845Z",
+      "parent": 4,
+      "content_type": 6,
+      "object_id": 4
+    }
+  },
+  {
+    "model": "menu.item",
+    "pk": 106,
+    "fields": {
+      "title": "\u0424\u043b\u0438\u0441\u043e\u0432\u044b\u0435 \u043a\u0443\u0440\u0442\u043a\u0438",
+      "used": false,
+      "promotions": false,
+      "slug": "\u0444\u043b\u0438\u0441\u043e\u0432\u044b\u0435-\u043a\u0443\u0440\u0442\u043a\u0438-\u0441\u0432\u0438\u0442\u0435\u0440\u0430-\u0438-\u043a\u0430\u0440\u0434\u0438\u0433\u0430\u043d\u044b-4",
+      "create": "2017-04-13T18:26:11.847Z",
+      "update": "2017-04-13T18:26:11.847Z",
+      "parent": 4,
+      "content_type": 6,
+      "object_id": 4
+    }
+  }
+]
