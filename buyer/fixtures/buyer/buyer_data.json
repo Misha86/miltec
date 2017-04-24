@@ -1,0 +1,24 @@
+[
+{
+  "model": "buyer.buyeruser",
+  "pk": 12,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$4S8dA1MSkRum$0aAvtrg9xH1UVxbTsQRYN/CMK9wMRBJvce4eZXuwAF0=",
+    "last_login": "2017-04-24T10:42:22.932Z",
+    "is_superuser": true,
+    "email": "m@rambler.ru",
+    "first_name": "\u041c\u0438\u0445\u0430\u0439\u043b\u043e",
+    "last_name": "\u041f\u043e\u043b\u0456\u0449\u0443\u043a",
+    "date_of_birth": null,
+    "sex": "Man",
+    "address": 15,
+    "phone_number": "+380967478910",
+    "profile_create": "2017-04-23T13:23:37.403Z",
+    "profile_update": "2017-04-23T15:38:03.413Z",
+    "is_active": true,
+    "is_admin": true,
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]

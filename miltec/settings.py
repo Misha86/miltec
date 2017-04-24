@@ -227,6 +227,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'menu', 'static', 'menu'),
     os.path.join(BASE_DIR, 'product', 'static', 'product'),
     os.path.join(BASE_DIR, 'buyer', 'static', 'buyer'),
+    os.path.join(BASE_DIR, 'address', 'static', 'address', 'js', 'address.js'),
+    os.path.join(BASE_DIR, 'address', 'static', 'js', 'jquery.geocomplete.min.js'),
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -239,8 +241,7 @@ MEDIA_URL = 'http://www.miltec-sturm.de/'
 FIXTURE_DIRS = [
     os.path.join(BASE_DIR, 'menu', 'fixtures', 'menu'),
     os.path.join(BASE_DIR, 'product', 'fixtures', 'product'),
-    os.path.join(BASE_DIR, 'buyer', 'fixtures', 'buyer'),
-    os.path.join(BASE_DIR, 'fixtures', 'auth')
+    os.path.join(BASE_DIR, 'buyer', 'fixtures', 'buyer')
     ]
 
 
