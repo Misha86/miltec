@@ -28,7 +28,7 @@ class AddressWidget(forms.TextInput):
         js = (
               'https://maps.googleapis.com/maps/api/js?libraries=places&sensor=false',
               'js/jquery.geocomplete.min.js',
-              'address/js/address.js')
+              'js/address.js')
 
     def __init__(self, *args, **kwargs):
         attrs = kwargs.get('attrs', {})
