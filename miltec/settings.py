@@ -227,8 +227,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'menu', 'static', 'menu'),
     os.path.join(BASE_DIR, 'product', 'static', 'product'),
     os.path.join(BASE_DIR, 'buyer', 'static', 'buyer'),
-    os.path.join(BASE_DIR, 'address', 'static', 'address', 'js', 'address.js'),
-    os.path.join(BASE_DIR, 'address', 'static', 'js', '../address/static/address/js/jquery.geocomplete.min.js'),
+    os.path.join(BASE_DIR, 'address', 'static', 'address'),
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
