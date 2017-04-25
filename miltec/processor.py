@@ -14,12 +14,16 @@ def login_form(request):
 def exchange_rates(request):
 
     url = 'https://old.kurs.com.ua/informer/inf2'
-    url_requests = requests.get(url).content
 
-    soup_data = BeautifulSoup(url_requests, "html.parser")
+    try:
+        url_requests = requests.get(url).content
 
-    exchange_soup = soup_data.find_all('div', attrs={'class': 'td with-arrows arrow_down'}, limit=3)[-1]
+        soup_data = BeautifulSoup(url_requests, "html.parser")
 
-    exchange = Decimal(exchange_soup.next_element).quantize(Decimal("0.00"))
+        exchange_soup = soup_data.find_all('div', attrs={'class': 'td with-arrows arrow_down'}, limit=3)[-1]
+
+        exchange = Decimal(exchange_soup.next_element).quantize(Decimal("0.00"))
+    except Exception as ex:
+        exchange = False
 
     return {'exchange': exchange}
