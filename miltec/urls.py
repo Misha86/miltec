@@ -18,6 +18,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.generic import TemplateView
 
 
 urlpatterns = [
@@ -25,6 +26,8 @@ urlpatterns = [
     url(r'^', include('menu.urls', namespace='menu')),
     url(r'^product/', include('product.urls', namespace='product')),
     url(r'^buyer/', include('buyer.urls', namespace='buyer')),
+
+    url(r'^googleb88342bc4dea5d18.html/$', TemplateView.as_view(template_name="googleb88342bc4dea5d18.html")),
 ]
 
 
