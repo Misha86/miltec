@@ -8,13 +8,12 @@
                     {{ product.price_for_users }}
 
                     </span>
-    <span class="currency" style="color: green">USD</span>
-{#    <span class="unit" style="color: green">/ ST</span>#}
+    <span class="currency" style="color: green">EUR</span>
 
      <div>
                     <span class="new-price">
 
-                    <em><b>{{ product.price_for_users|price_exchange:exchange }} UAH {# / ST#}</b></em>
+                    <em><b>{{ product.price_for_users|price_exchange:exchange }} UAH </b></em>
 
                     </span>
     </div>
@@ -27,13 +26,12 @@
 
                     </span>
 
-    <span class="currency">USD</span>
-{#    <span class="unit">/ ST</span>#}
+    <span class="currency">EUR</span>
 
     <div>
                     <span class="new-price">
 
-                    <em><b>{{ product.price|price_exchange:exchange }} UAH {# / ST#}</b></em>
+                    <em><b>{{ product.price|price_exchange:exchange }} UAH </b></em>
 
                     </span>
     </div>

@@ -53,11 +53,13 @@
           </ul>
       </div>
 
-    <!-- begin: main search form: form_search_?.html -->
-    <!-- begin: eidamo search -->
-        <form method="get" class="searchForm" id="searchForm" action="{% url 'product:search' %}" >
+         {% if request.path != "/" %}
 
-            <div class="searchInput">
+             <!-- begin: main search form: form_search_?.html -->
+             <!-- begin: eidamo search -->
+             <form method="get" class="searchForm" id="searchForm" action="{% url 'product:search' %}" >
+
+                 <div class="searchInput">
                 <span>
               <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-search">
 
@@ -66,9 +68,11 @@
               <input class="searchButton" type="image" border="0" name="submit" title="Поиск" alt="Поиск" src="{% static 'img/gfx.spacer.gif' %}">
 
             </span>
-            </div>
+                 </div>
 
-        </form>
+             </form>
+
+         {% endif %}
 
     </span>
 </div>
