@@ -8,11 +8,11 @@
 
     {{ form.media }}
 
-        <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}"/>
-        <script src="{% static 'js/jquery-ui.js' %}"></script>
-        <script src="{% static 'js/buyer.js' %}"></script>
-        <script src="{% static 'js/datepicker-uk.js' %}"></script>
-        <script src="{% static 'js/datepicker-ru.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}"/>
+    <script src="{% static 'js/jquery-ui.js' %}"></script>
+    <script src="{% static 'js/buyer.js' %}"></script>
+    <script src="{% static 'js/datepicker-uk.js' %}"></script>
+    <script src="{% static 'js/datepicker-ru.js' %}"></script>
 
 
     <link href="{% static 'css/register.css' %}" rel="stylesheet" type="text/css">
@@ -68,16 +68,19 @@
 
                                         {% endfor %}
 
-                                        <div class="buttonsContainer">
-        <span>
+                                         <div class="clearfix cart-total">
+                                             <span class="cart-return-link">
+                                                 <span class="btn-link btn-link-gray">
+                                                     <a href="/" class="btn-link-i" name="close">ВЕРНУТЬСЯ НАЗАД</a>
+                                                 </span>
+                                             </span>
+                                             <span class="cart-submit">
+                                                 <span class="btn-link-green btn-link">
+                                                     <button class="btn-link-i" id="popup-checkout" type="submit">РЕГИСТРИРОВАТЬСЯ</button>
+                                                 </span>
+                                             </span>
+                                         </div>
 
-            <button class="formButtonSubmit formButtonBlue" type="submit" style="height: 35px;margin: auto">
-                <b>АВТОРИЗОВАТЬСЯ</b>
-            </button>
-
-            <div class="clear"></div>
-         </span>
-                                        </div>
 
                                     </form>
 
