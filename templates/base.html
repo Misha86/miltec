@@ -38,7 +38,6 @@
     <link href="{% static 'css/my_css.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'css/buyer.css' %}" rel="stylesheet" type="text/css">
 
-
     <!-- Custom Design -->
 
     <link type="text/css" href="{% static 'css/3col_fullheight.css' %}" rel="stylesheet">
@@ -147,7 +146,9 @@
 
             <div class="pagePadding">
 
-                <div id="header" role="banner">
+                {% block cart %}
+
+                    <div id="header" role="banner">
             <span class="headerInner">
 
 	<div id="topnav" role="contentinfo">
@@ -169,7 +170,7 @@
             {% endif %}
 
             <!-- MY CART / WARENKORB -->
-			<a class="cart_url" href="#" title="Корзина">
+			<a class="cart_url" href="{% url 'cart:detail' %}" title="Корзина">
                 Корзина: <b>0,00&nbsp;EUR*</b>
             </a>
 
@@ -203,14 +204,14 @@
 		<div class="edge edge-tl"></div>
 		<div class="edge edge-tr"></div>
 	</span>
-                </div>
+                    </div>
 
-                {% include "navbar.html" %}
+                    {% include "navbar.html" %}
 
-                {% block content %}
+                    {% block content %}
 
 
-                    <div id="main"><span class="main">
+                        <div id="main"><span class="main">
 
             <!-- begin: #col3 static center column -->
             <div id="col3" role="main">
@@ -274,11 +275,13 @@
             </div>
 
         </span>
-                    </div>
+                        </div>
 
-                {% endblock %}
+                    {% endblock %}
 
-                <div class="clear"></div>
+                    <div class="clear"></div>
+
+                {% endblock cart %}
 
             </div>
 

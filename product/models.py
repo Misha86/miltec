@@ -30,6 +30,13 @@ def upload_location2(instance, filename):
     return os.path.join(path, str(dir), str(instance.title), str(filename))
 
 
+# class ProductManager(models.Manager):
+#
+#     def sizes(self):
+#         instance_sizes = Size.objects.fiter(size_count__product=self)
+#         return instance_sizes
+
+
 class Product(models.Model):
     """
     Stores a product.
@@ -65,6 +72,8 @@ class Product(models.Model):
     item = models.ForeignKey(Item, related_name="products",
                              verbose_name="Підкатегорія товару", blank=True, null=True)
 
+    # objects = ProductManager()
+
     class Meta:
         """
         Change db_table name, verbose_name, verbose_name_plural
@@ -91,3 +100,44 @@ class Product(models.Model):
     def get_absolute_url(self):
         return reverse('product:product', kwargs={
             'slug': self.slug})
+
+    def get_sizes(self):
+        instance_sizes = Size.objects.filter(size_count__product=self)
+        if not instance_sizes.exists():
+            return None
+        else:
+            return instance_sizes
+
+
+class Size(models.Model):
+    title = models.CharField(verbose_name="Размер", max_length=10)
+    items = models.ManyToManyField(Item, related_name="sizes",
+                                   verbose_name="Категория размера")
+
+    class Meta:
+        """
+        Size products for item
+        """
+        ordering = ['title']
+        db_table = "sizes"
+        verbose_name = "Размер"
+        verbose_name_plural = "Размеры"
+
+    def __str__(self):
+        return self.title
+
+
+class SizeCount(models.Model):
+    size = models.ForeignKey(Size, related_name='size_count')
+    product = models.ForeignKey(Product, related_name='size_count')
+    count = models.IntegerField(verbose_name="Количество", default=0)
+
+    class Meta:
+        """
+        Count sizes of products for item
+        """
+        verbose_name = "Количество размеров"
+        verbose_name_plural = "Количества размеров"
+
+    def __str__(self):
+        return "Количество размера - {}: {}".format(self.size.title, self.count)

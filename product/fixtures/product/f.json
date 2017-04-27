@@ -1,0 +1,24 @@
+[
+  {
+    "pk": 0,
+    "model": "product.product",
+    "fields": {
+      "image_large": "shop/images/artikel/10625201.jpg",
+      "width_field": 799,
+      "height_field": 999,
+      "category": 1,
+      "update": "2017-04-07T11:53:41.478Z",
+      "slug": "popezbq",
+      "item": 87,
+      "price_for_users": "9.50",
+      "details": "<dl class='specifications'>\n<dt>Spezifikationen </dt>\n<dd>\n<label>EAN-Code</label>\n<span>4046872353659</span>\n<div class='clear'></div></dd>\n<dd>\n<label>Warennummer</label>\n<span>39262000</span>\n<div class='clear'></div></dd>\n<!--dd class='[*EIDAMO_DETAIL_ATTRIB_TITLE*]'>\n            <label>[*EIDAMO_DETAIL_ATTRIB_TITLE*]</label>\n            <span>[*EIDAMO_DETAIL_ATTRIB_VALUE*]</span>\n        <div class='clear'></div></dd-->\n</dl>",
+      "price": "10.50",
+      "image": "shop/images/artikel/detail/10625201.jpg",
+      "sold": false,
+      "description": "<p>100% Polyester, Polyvinylchlorid beschichtet<br>Gewicht: 200 g/qm<br><br>- 2 gro\u00dfe Taschen vorne mit Patte<br>- Kapuze im Kragen integriert</br></br></br></br></p>",
+      "create": "2017-04-04T06:27:20.596Z",
+      "article": 10625201,
+      "title": "REGENMANTEL PES/PVC OLIV"
+    }
+  }
+]

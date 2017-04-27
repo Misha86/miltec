@@ -87,7 +87,9 @@ class Item(models.Model):
         children = self.children()
 
         if products_self.exists():
+
             products += products_self
+
         if children:
             for child in children:
                 if order_by is not None:

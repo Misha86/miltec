@@ -94,4 +94,19 @@ $(function () {
         window.history.pushState({href: locHref}, form.attr("action"), locHref);
 
     });
+
+    //// size active
+    //$('#col3_content').on('click', 'li', function(event){
+    //    alert('hello')
+    //    event.preventDefault();
+    //    var targetData = $(event.currentTarget);
+    //
+    //    $('li.pp-variants-i').each(function () {
+    //        if ($(this).hasClass("active")){
+    //            $(this).removeClass("active");
+    //        }
+    //    });
+    //    console.log($(this) != targetData)
+    //    targetData.addClass("active");
+    //});
 });

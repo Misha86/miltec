@@ -70,7 +70,8 @@ INSTALLED_APPS = [
     # my apps
     'menu.apps.MenuConfig',
     'product.apps.ProductConfig',
-    'buyer.apps.BuyerConfig'
+    'buyer.apps.BuyerConfig',
+    'cart.apps.CartConfig'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -92,7 +93,8 @@ TEMPLATES = [
         'DIRS': [os.path.join(BASE_DIR, 'templates'),
                  os.path.join(BASE_DIR, 'menu', 'templates', 'menu'),
                  os.path.join(BASE_DIR, 'product', 'templates', 'product'),
-                 os.path.join(BASE_DIR, 'buyer', 'templates', 'buyer')],
+                 os.path.join(BASE_DIR, 'buyer', 'templates', 'buyer'),
+                 os.path.join(BASE_DIR, 'cart', 'templates', 'cart')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -102,6 +104,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 # my processors
                 'miltec.processor.login_form',
+                'miltec.processor.cart_form',
                 'miltec.processor.exchange_rates'
                 ],
             },
@@ -230,7 +233,8 @@ STATICFILES_DIRS = (
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # MEDIA_URL = config('MEDIA_URL', default='/media/')
-MEDIA_URL = 'http://www.miltec-sturm.de/'
+# MEDIA_URL = 'http://www.miltec-sturm.de/'
+MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
 
@@ -254,3 +258,8 @@ PHONE_NUMBERS_FORMATS_BY_REGION = {
         'pattern': '(\\d{3})(\\d{3})(\\d{4})', 'format': '\\1 \\2-\\3', 'prefix_format': '+%s (%s)'
     },
 }
+
+
+# cart
+
+CART_SESSION_ID = 'cart'
