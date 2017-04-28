@@ -12,6 +12,7 @@ from django.contrib.auth import get_user_model
 from django.http import JsonResponse
 from django.template.loader import render_to_string
 from django.core.urlresolvers import reverse
+from django.conf import settings
 
 from .forms import (BuyerLoginForm, BuyerRegisterForm)
 
@@ -123,10 +124,9 @@ def login(request):
             user = auth.authenticate(username=email, password=password)
 
             if user is not None and user.is_active:
+                del request.session[settings.CART_SESSION_ID]
                 auth.login(request, user)
-
                 data['form_valid'] = True
-
                 path = request.GET.get('next')
 
                 if path != reverse('buyer:login'):

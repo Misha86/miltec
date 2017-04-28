@@ -171,7 +171,7 @@
 
             <!-- MY CART / WARENKORB -->
 			<a class="cart_url" href="{% url 'cart:detail' %}" title="Корзина">
-                Корзина: <b>0,00&nbsp;EUR*</b>
+                Корзина: <b>{% if total_price %}{{ total_price }}{% else %}0.00{% endif %}&nbsp;EUR*</b>
             </a>
 
             <a class="exchange" href="#" title="Курс">

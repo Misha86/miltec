@@ -104,7 +104,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 # my processors
                 'miltec.processor.login_form',
-                'miltec.processor.cart_form',
+                'miltec.processor.cart',
                 'miltec.processor.exchange_rates'
                 ],
             },
@@ -228,6 +228,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'product', 'static', 'product'),
     os.path.join(BASE_DIR, 'buyer', 'static', 'buyer'),
     os.path.join(BASE_DIR, 'address', 'static', 'address'),
+    os.path.join(BASE_DIR, 'cart', 'static', 'cart'),
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

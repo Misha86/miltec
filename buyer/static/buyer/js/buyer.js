@@ -34,40 +34,7 @@ $.ajaxSetup({
 
 //Submit post on submit
 $(function () {
-    //$('div.forms').on('submit', 'form#login', function(event){
-    //    event.preventDefault();
-    //    var form = $(this);
-    //    console.log("form submitted!")
-    //
-    //
-    //    $.ajax({
-    //        type :  form.attr('method'),
-    //        async: true,
-    //        url : form.attr('action'),
-    //        data : {
-    //            email : $('#userid').val(),  // data sent with the post request
-    //            password : $('#pw').val()
-    //        },
-    //        dataType: 'json',
-    //
-    //        success : function(data) {
-    //            console.log('success');            //console.log({{ request.session.color }});
-    //            console.log(data);            //console.log({{ request.session.color }});
-    //
-    //            if(data.form_valid) {
-    //                location.href = '/';
-    //            } else {
-    //                $('.forms').html(data.form_html);
-    //                $('div.form-group.has-error').fadeOut(4000);
-    //            }
-    //            //$('#' + errorId).html("<label id=" + errorId + " class='control-label errorlist'><em>" +
-    //            //invalidMessage + "</em></label>");
-    //            //console.log(invalidMessage);
-    //            //}
-    //        },
-    //        error: error
-    //    });
-    //})
+
     $('div.forms').on('submit', 'form#login', function(event){
         event.preventDefault();
         var form = $(this);
@@ -88,10 +55,6 @@ $(function () {
                     $('.forms').html(data.form_html);
                     $('div.form-group.has-error').fadeOut(4000);
                 }
-                //$('#' + errorId).html("<label id=" + errorId + " class='control-label errorlist'><em>" +
-                //invalidMessage + "</em></label>");
-                //console.log(invalidMessage);
-                //}
             },
             error: error
         });

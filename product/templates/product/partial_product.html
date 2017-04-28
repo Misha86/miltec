@@ -18,8 +18,8 @@
         <div class="product-details">
             <dl>
                 <dt title="{{ product.title|upper }}">
-                    <a itemprop="url" class="url" href="" style="display: none">{{ product.title|upper }}</a>
-                <div itemprop="brand" style="display: none" class="brand"></div>
+{#                    <a itemprop="url" class="url" href="" style="display: none">{{ product.title|upper }}</a>#}
+{#                <div itemprop="brand" style="display: none" class="brand"></div>#}
                 <h1>
 
                     <span itemprop="name">{{ product.title|upper }}</span>
@@ -118,17 +118,14 @@
 
                 <dd class="articleNr">
                     <label>Article No.:</label>
-                    <div itemprop="productID">
+                    <div itemprop="{{ product.id }}">
 
                         {{ product.article }}
 
                     </div>
                 </dd>
 
-
-
                 <!-- EIDAMO_LIST_INQUIRY_START:1 -->
-
 
                 <dd class="price" id="price_1" style="">
 
@@ -137,13 +134,14 @@
 
                      {% include "product_prices.html" %}
 
-                <p class="price">{{ product.price }} руб.</p>
-                    <form action="{% url "cart:add" product.id %}" method="post">
+                    <form class="cart-form" action="{% url "cart:add" product.id %}" method="post">
                         {% csrf_token %}
-                        {{ cart_form }}
-                        <input type="submit" value="Добавить в корзину">
-                    </form>
 
+                        {{ cart_form }}
+
+                        <input type="submit" value="Добавить в корзину">
+
+                    </form>
 
                     <div class="pp-variants-wrap" id="pp_variants_wrap">
                         <div class="pp-variants">
@@ -155,19 +153,19 @@
                                 {#                                        <span class="btn-link-i">35.5</span>#}
                                 {#                                    </span>#}
                                 {#                                </li>#}
-                                {% for size in product.item.sizes.all %}
-
-                                    <li class="pp-variants-i">
-                                        <span class="btn-link btn-link-gray">
-                                            <a class="btn-link-i" name="variant" data-id="{{ size.id }}" data-position="1">
-
-                                                {{ size.title }}
-
-                                            </a>
-                                        </span>
-                                    </li>
-
-                                {% endfor %}
+{#                                {% for size in product.item.sizes.all %}#}
+{##}
+{#                                    <li class="pp-variants-i">#}
+{#                                        <span class="btn-link btn-link-gray">#}
+{#                                            <a class="btn-link-i" name="variant" data-id="{{ size.id }}" data-position="1">#}
+{##}
+{#                                                {{ size.title }}#}
+{##}
+{#                                            </a>#}
+{#                                        </span>#}
+{#                                    </li>#}
+{##}
+{#                                {% endfor %}#}
 
                             </ul>
                         </div>

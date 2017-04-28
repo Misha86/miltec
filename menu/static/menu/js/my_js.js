@@ -166,7 +166,4 @@ $(function () {
     //// product details 'next' and 'back'
     mainContent.on('click', ".bottomToolBar .tools.float_right a", items);
 
-    //// load kurs
-    //$('#kurs').load('https://old.kurs.com.ua/informer/inf2?color=blue');
-
 });
