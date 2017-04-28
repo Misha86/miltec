@@ -154,7 +154,8 @@ $(function () {
     $(".indentLevel_1").on('click', 'a', items);
 
     // url for details product
-    $("#col3").on('click', 'form div.products div.product-row.hproduct a', items);
+    //$("#col3").on('click', 'div#col3_content div.products div.product-row.hproduct a', items);
+    mainContent.on('click', '#col3_content .products .subcl div.product-row.hproduct a', items);
 
     // ajax pagination
     mainContent.on('click', "#col3_content .pagination a", items);

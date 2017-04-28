@@ -23,5 +23,6 @@ $(function () {
         });
     };
 
-    $('#main').on('submit', 'form.cart-form', cartAdd)
+    $('#main').on('submit', 'form.cart-form', cartAdd);
+
 });

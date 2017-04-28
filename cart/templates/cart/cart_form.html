@@ -1,0 +1,15 @@
+
+
+<form class="cart-form" action="{% url "cart:add" product.id %}" method="post">
+    {% csrf_token %}
+
+    {{ cart_form }}
+
+     <div class="clearfix cart-total">
+         <span class="cart-submit">
+             <span class="btn-link-green btn-link">
+                 <button class="btn-link-i" id="popup-checkout" type="submit">Добавить в корзину</button>
+             </span>
+         </span>
+     </div>
+</form>

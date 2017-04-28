@@ -29,7 +29,7 @@
 .spzoom-loader {
     width: 24px;
     height: 24px;
-    background: url(/static/product/img/spzoom-loader.gif) 50% 50% no-repeat scroll #fff;
+    background: url(/product/static/product/img/spzoom-loader.gif) 50% 50% no-repeat scroll #fff;
     border: 1px solid #ccc;
 }
 

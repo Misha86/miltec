@@ -10,66 +10,81 @@
 {% endblock %}
 
 {% block cart %}
+
     <div class="my-shop" style="margin-bottom: 15em;">
-        <div class="form-title">
-            <h3>Ваша корзина товаров</h3>
-        </div>
 
-        <table class="cart">
-            <thead>
-            <tr>
-                <th>Изображение</th>
-                <th>Продукт</th>
-                <th>Количество</th>
-                <th>Размер</th>
-                <th>Удалить</th>
-                <th>Полная цена</th>
-                <th>Цена</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for item in cart %}
-                {% with product=item.product %}
-                    <tr>
-                        <td>
-                            <a href="{{ product.get_absolute_url }}">
-                                <img src="{{ product.image.url }}" alt="" style="max-height: 5rem"/>
-                            </a>
-                        </td>
-                        <td>{{ product.title }}</td>
-                        <td>{{ item.quantity }}</td>
-                        <td>{{ item.size }}</td>
-                        <td><a href="{% url "cart:remove" product.id item.size %}">Удалить</a></td>
-                        <td class="num">{{ item.price }} EUR*</td>
-                        <td class="num">{{ item.total_price }} EUR*</td>
-                    </tr>
-                {% endwith %}
-            {% endfor %}
-            <tr class="total">
-                <td>Total</td>
-                <td colspan="5"></td>
-                <td class="num">{{ cart.get_total_price }} EUR*</td>
-            </tr>
-            </tbody>
-        </table>
-{#        <p class="text-right">#}
-{#            <a href="{% url "menu:shop"%}" class="btn">Продолжить Шопинг</a>#}
-{#            <a href="#">Оформить заказ</a>#}
-{#        </p>#}
+        {% if cart %}
 
-        <div class="clearfix cart-total">
-             <span class="cart-return-link">
+            <div class="form-title">
+                <h3>Ваша корзина товаров</h3>
+            </div>
+
+            <table class="cart">
+                <thead>
+                <tr>
+                    <th>Изображение</th>
+                    <th>Продукт</th>
+                    <th>Количество</th>
+                    <th>Размер</th>
+                    <th>Удалить</th>
+                    <th>Полная цена</th>
+                    <th>Цена</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in cart %}
+                    {% with product=item.product %}
+                        <tr>
+                            <td>
+                                <a href="{{ product.get_absolute_url }}">
+                                    <img src="{{ product.image.url }}" alt="" style="max-height: 5rem"/>
+                                </a>
+                            </td>
+                            <td>{{ product.title }}</td>
+                            <td>{{ item.quantity }}</td>
+                            <td>{{ item.size }}</td>
+                            <td><a href="{% url "cart:remove" product.id item.size %}">Удалить</a></td>
+                            <td class="num">{{ item.price }} EUR*</td>
+                            <td class="num">{{ item.total_price }} EUR*</td>
+                        </tr>
+                    {% endwith %}
+                {% endfor %}
+                <tr class="total">
+                    <td>Всего</td>
+                    <td colspan="5"></td>
+                    <td class="num">{{ cart.get_total_price }} EUR*</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="clearfix cart-total">
+                 <span class="cart-return-link">
+                     <span class="btn-link btn-link-gray">
+                         <a href="{% url "menu:shop"%}" class="btn-link-i" name="close">ПРОДОЛЖИТЬ ШОПИНГ</a>
+                     </span>
+                 </span>
+                 <span class="cart-submit">
+                     <span class="btn-link-green btn-link">
+                          <a href="#" class="btn-link-i" name="close">ОФОРМИТЬ ЗАКАЗ</a>
+                     </span>
+                 </span>
+            </div>
+
+        {% else %}
+
+            <div class="form-title">
+                <h3>Ваша корзина товаров пуста!</h3>
+            </div>
+
+            <div class="clearfix cart-total">
+            <span class="cart-return-link">
                  <span class="btn-link btn-link-gray">
-                     <a href="{% url "menu:shop"%}" class="btn-link-i" name="close">ПРОДОЛЖИТЬ ШОПИНГ</a>
+                     <a href="{% url "menu:shop"%}" class="btn-link-i" name="close">ВЕРНУТЬСЯ В МАГАЗИН</a>
                  </span>
-             </span>
-             <span class="cart-submit">
-                 <span class="btn-link-green btn-link">
-{#                     <button class="btn-link-i" id="popup-checkout" type="submit">РЕГИСТРИРОВАТЬСЯ</button>#}
-                      <a href="#" class="btn-link-i" name="close">ОФОРМИТЬ ЗАКАЗ</a>
-                 </span>
-             </span>
-        </div>
+            </span>
+            </div>
+
+        {% endif %}
 
     </div>
 

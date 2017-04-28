@@ -4,8 +4,8 @@
 <div id="col3_content" class="clearfix">
 
     <!-- Start des Formulars (anscheinend nur in shop_list nötig)-->
-    <form name="os_list_view" method="post" action="#">
-
+{#    <form name="os_list_view" method="post">#}
+ <div>
         <div class="breadcrumbBar clearfix">
 
             {% include 'breadcrum.html' %}
@@ -163,9 +163,8 @@
                 <div class="subcolumns"><!-- 2 Column with 50/50 split -->
 
                     <div class="c50l">
+
                         <div class="subcl">
-
-
 
                             <!-- begin: /subtmpl/product-row_list_?.html -->
 
@@ -178,9 +177,9 @@
                                         <dl>
                                             <dt title="{{ product.title|upper }}">
 
-        <span class="title name fn" itemprop="name">
-            {{ product.title|upper }}
-        </span>
+                                                <span class="title name fn" itemprop="name">
+                                                    {{ product.title|upper }}
+                                                </span>
 
                                             </dt>
 
@@ -212,55 +211,55 @@
 
 
                                             <dd class="price" id="price_1" style="">
+                                                <span class="current_price" itemprop="offers">
 
+                                                      {% include "product_prices.html" %}
 
-                <span class="current_price" itemprop="offers">
-
-                {% include "product_prices.html" %}
-
-
-			</span>
-
-                                                <span class="tax_percent">packing unit 1 ST</span>
+                                                </span>
+{#                                                <span class="tax_percent">packing unit 1 ST</span>#}
                                             </dd>
-
-
                                         </dl>
                                     </a>
 
-                                    <div class="buttonsContainer">
+                                    <div>
 
-                                        <div id="buttons_1" style="">
-
-
-                                            <!-- Amount to Add - by default off -->
-                                            <div class="amount-to-add" style="">
-                                                <input type="" name="menge_1" value="1">
-                                                <input type="hidden" name="rub1_1" value="Clothing">
-                                                <font><b>/</b> ST</font>
-                                            </div>
-
-                                            <!-- begin: Amout Image gets replaced by jquery function -->
-                                            <script type="text/javascript">
-                                                $(document).ready( function() {
-                                                    $('.buttonsContainer img[border~="0"]').replaceListAmountImg('/static/img/gfx.spacer.gif', 'select trim');
-                                                });
-                                            </script>
-
-                                            <!-- end: Amout Image gets replaced by jquery function -->
-
-                                            <a href="#">
-                                            <span>
-                                                <img src="{% static 'img/gfx.spacer.gif' %}" alt="select trim" title="select trim" class="icon icon-lg-shopping-basket--arrow">
-                                        <b>select trim</b>
-                                    </span>
-                                            </a>
-
-
-                                        </div>
-
+                                        {% include "cart_form.html" %}
 
                                     </div>
+
+{#                                    <div class="buttonsContainer">#}
+{##}
+{#                                        <div id="buttons_1" style="">#}
+{##}
+{##}
+{#                                            <!-- Amount to Add - by default off -->#}
+{#                                            <div class="amount-to-add" style="">#}
+{#                                                <input type="" name="menge_1" value="1">#}
+{#                                                <input type="hidden" name="rub1_1" value="Clothing">#}
+{#                                                <font><b>/</b> ST</font>#}
+{#                                            </div>#}
+{##}
+{#                                            <!-- begin: Amout Image gets replaced by jquery function -->#}
+{#                                            <script type="text/javascript">#}
+{#                                                $(document).ready( function() {#}
+{#                                                    $('.buttonsContainer img[border~="0"]').replaceListAmountImg('/static/img/gfx.spacer.gif', 'select trim');#}
+{#                                                });#}
+{#                                            </script>#}
+{##}
+{#                                            <!-- end: Amout Image gets replaced by jquery function -->#}
+{##}
+{#                                            <a href="#">#}
+{#                                            <span>#}
+{#                                                <img src="{% static 'img/gfx.spacer.gif' %}" alt="select trim" title="select trim" class="icon icon-lg-shopping-basket--arrow">#}
+{#                                        <b>select trim</b>#}
+{#                                    </span>#}
+{#                                            </a>#}
+{##}
+{##}
+{#                                        </div>#}
+{##}
+{##}
+{#                                    </div>#}
 
                                 </div>
 
@@ -354,48 +353,55 @@
 			</span>
 
 
-                                                <span class="tax_percent">packing unit 1 ST</span>
+
+{#                                                <span class="tax_percent">packing unit 1 ST</span>#}
                                             </dd>
 
                                         </dl>
                                     </a>
 
+                                    <div class="grid-card-form">
 
-                                    <div class="buttonsContainer">
-
-
-                                        <div id="buttons_{{ product.id }}" style="">
-
-
-                                            <!-- Amount to Add - by default off -->
-                                            <div class="amount-to-add" style="display: block">
-                                                <input type="" name="menge_1" placeholder="1">
-                                                <input type="hidden" name="rub1_1" value="Clothing">
-                                                <font><b>/</b> ST</font>
-                                            </div>
-
-                                            <!-- begin: Amout Image gets replaced by jquery function -->
-                                            <script type="text/javascript">
-                                                $(document).ready( function() {
-                                                    $('.buttonsContainer img[border~="0"]').replaceListAmountImg('/static/img/gfx.spacer.gif', 'select trim');
-                                                });
-                                            </script>
-
-                                            <!-- end: Amout Image gets replaced by jquery function -->
-
-                                            <a href="#" class="add-to-cart">
-                                    <span>
-                                        <img src="{% static 'img/gfx.spacer.gif' %}" alt="select trim" title="select trim" class="icon icon-lg-shopping-basket--arrow">
-                                        <b>select trim</b>
-                                    </span>
-                                            </a>
-
-
-                                        </div>
-
-
+                                        {% include "cart_form.html" %}
 
                                     </div>
+
+
+
+{#                                    <div class="buttonsContainer">#}
+{##}
+{##}
+{#                                        <div id="buttons_{{ product.id }}" style="">#}
+{##}
+{##}
+{#                                            <!-- Amount to Add - by default off -->#}
+{#                                            <div class="amount-to-add" style="display: block">#}
+{#                                                <input type="" name="menge_1" placeholder="1">#}
+{#                                                <input type="hidden" name="rub1_1" value="Clothing">#}
+{#                                                <font><b>/</b> ST</font>#}
+{#                                            </div>#}
+{##}
+{#                                            <!-- begin: Amout Image gets replaced by jquery function -->#}
+{#                                            <script type="text/javascript">#}
+{#                                                $(document).ready( function() {#}
+{#                                                    $('.buttonsContainer img[border~="0"]').replaceListAmountImg('/static/img/gfx.spacer.gif', 'select trim');#}
+{#                                                });#}
+{#                                            </script>#}
+{##}
+{#                                            <!-- end: Amout Image gets replaced by jquery function -->#}
+{##}
+{#                                            <a href="#" class="add-to-cart">#}
+{#                                    <span>#}
+{#                                        <img src="{% static 'img/gfx.spacer.gif' %}" alt="select trim" title="select trim" class="icon icon-lg-shopping-basket--arrow">#}
+{#                                        <b>select trim</b>#}
+{#                                    </span>#}
+{#                                            </a>#}
+{##}
+{#                                        </div>#}
+{##}
+{##}
+{#                                    </div>#}
+
                                 </div>
                                 <!-- end: /subtmpl/product-row_list_?.html -->
                             </div>
@@ -416,7 +422,9 @@
         {% endif %}
 
 
-    </form>
+{#    </form>#}
+
+  </div>
 
 
     {% if products.has_other_pages %}

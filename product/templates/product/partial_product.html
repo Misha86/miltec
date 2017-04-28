@@ -18,8 +18,7 @@
         <div class="product-details">
             <dl>
                 <dt title="{{ product.title|upper }}">
-{#                    <a itemprop="url" class="url" href="" style="display: none">{{ product.title|upper }}</a>#}
-{#                <div itemprop="brand" style="display: none" class="brand"></div>#}
+
                 <h1>
 
                     <span itemprop="name">{{ product.title|upper }}</span>
@@ -134,80 +133,46 @@
 
                      {% include "product_prices.html" %}
 
-                    <form class="cart-form" action="{% url "cart:add" product.id %}" method="post">
-                        {% csrf_token %}
+                    {% include "cart_form.html" %}
 
-                        {{ cart_form }}
-
-                        <input type="submit" value="Добавить в корзину">
-
-                    </form>
-
-                    <div class="pp-variants-wrap" id="pp_variants_wrap">
-                        <div class="pp-variants">
-                            <ul class="pp-variants-list" name="variants">
-
-
-                                {#                                <li class="pp-variants-i active">#}
-                                {#                                    <span class="btn-link">#}
-                                {#                                        <span class="btn-link-i">35.5</span>#}
-                                {#                                    </span>#}
-                                {#                                </li>#}
-{#                                {% for size in product.item.sizes.all %}#}
-{##}
-{#                                    <li class="pp-variants-i">#}
-{#                                        <span class="btn-link btn-link-gray">#}
-{#                                            <a class="btn-link-i" name="variant" data-id="{{ size.id }}" data-position="1">#}
-{##}
-{#                                                {{ size.title }}#}
-{##}
-{#                                            </a>#}
-{#                                        </span>#}
-{#                                    </li>#}
-{##}
-{#                                {% endfor %}#}
-
-                            </ul>
-                        </div>
-                    </div>
 
 			</span>
 
-                    <span class="tax_percent">packing unit 1 ST</span>
+{#                    <span class="tax_percent">packing unit 1 ST</span>#}
                 </dd>
 
 
             </dl>
-            </a>
+{#            </a>#}
 
-            <div class="buttonsContainer">
+{#            <div class="buttonsContainer">#}
+{##}
+{#                <div id="buttons_1" style="">#}
+{##}
+{##}
+{#                    <!-- Amount to Add - by default off -->#}
+{#                    <div class="amount-to-add" style="">#}
+{#                        <input class="count" type="text" name="menge_1" value="1">#}
+{#                        <input type="hidden" name="rub1_1" value="{{ product.slug }}">#}
+{#                        <font style="float: none;"><b>/</b> ST</font>#}
+{#                        <input class="submitButton dark_grey" type="button" value="Купить">#}
+{#                    </div>#}
+{##}
+{#                    <!-- begin: Amout Image gets replaced by jquery function -->#}
+{#                    <script type="text/javascript">#}
+{#                        $(document).ready( function() {#}
+{#                            $('.buttonsContainer img[border~="0"]').replaceListAmountImg('/static/img/gfx.spacer.gif', 'select trim');#}
+{#                        });#}
+{#                    </script>#}
+{##}
+{#                    <!-- end: Amout Image gets replaced by jquery function -->#}
+{##}
+{#                </div>#}
+{##}
+{##}
+{#            </div>#}
 
-                <div id="buttons_1" style="">
-
-
-                    <!-- Amount to Add - by default off -->
-                    <div class="amount-to-add" style="">
-                        <input class="count" type="text" name="menge_1" value="1">
-                        <input type="hidden" name="rub1_1" value="{{ product.slug }}">
-                        <font style="float: none;"><b>/</b> ST</font>
-                        <input class="submitButton dark_grey" type="button" value="Купить">
-                    </div>
-
-                    <!-- begin: Amout Image gets replaced by jquery function -->
-                    <script type="text/javascript">
-                        $(document).ready( function() {
-                            $('.buttonsContainer img[border~="0"]').replaceListAmountImg('/static/img/gfx.spacer.gif', 'select trim');
-                        });
-                    </script>
-
-                    <!-- end: Amout Image gets replaced by jquery function -->
-
-                </div>
-
-
-            </div>
-
-            <dd class="fb-like" data-send="false" data-width="480" data-show-faces="false" data-font="lucida grande" data-action="recommend"></dd>
+{#            <dd class="fb-like" data-send="false" data-width="480" data-show-faces="false" data-font="lucida grande" data-action="recommend"></dd>#}
 
 
             </dl>
