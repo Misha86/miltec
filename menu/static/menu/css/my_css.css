@@ -11,7 +11,6 @@
 
 .cart-total {
     margin-top: 1.5em;
-    /*margin-bottom: 2em;*/
     padding: 0 0.5em;
 }
 
@@ -29,7 +28,6 @@
     background: -webkit-linear-gradient(top, #fff, #f1f1f1);
     background: -ms-linear-gradient(top, #fff, #f1f1f1);
     background: -moz-linear-gradient(top, #fff, #f1f1f1);
-    background: linear-gradient('to bottom', #fff, #f1f1f1);
     border: 1px solid #ececec;
     border-bottom: 0;
     box-shadow: 3px 3px 7px 0 rgba(200, 200, 200, .5), inset 0 -3px 0 0 #c1c1c1;
@@ -40,7 +38,6 @@
     background: -webkit-linear-gradient(top, #fff, #faf8e1);
     background: -ms-linear-gradient(top, #fff, #faf8e1);
     background: -moz-linear-gradient(top, #fff, #faf8e1);
-    background: linear-gradient('to bottom', #fff, #faf8e1);
 }
 
 .btn-link-gray:hover .btn-link-i:link, .btn-link-gray:hover .btn-link-i:visited {
@@ -48,8 +45,29 @@
     text-decoration: none;
 }
 
+.btn-link:active {
+    margin-top: 2px;
+    margin-bottom: 0;
+}
+
+.btn-link a:focus {
+    text-decoration: none;
+}
+
 .btn-link-i:hover, .btn-link-i:active {
     text-decoration: none;
+}
+
+.btn-link-gray:active {
+    background: #e6e6e6;
+    background: -webkit-linear-gradient(top, #fbfbfb, #e6e6e6);
+    background: -ms-linear-gradient(top, #fbfbfb, #e6e6e6);
+    background: -moz-linear-gradient(top, #fbfbfb, #e6e6e6);
+    box-shadow: 3px 3px 7px 0 rgba(200, 200, 200, .5), inset 0 -1px 0 0 #c1c1c1;
+}
+
+.btn-link-gray:active .btn-link-i:link, .btn-link-gray:active .btn-link-i:visited {
+    color: #888888;
 }
 
 .btn-link {
@@ -126,11 +144,11 @@ button, input, select, textarea {
 }
 
 .btn-link-green {
+    text-decoration: none;
     background: #941912;
     background: -webkit-linear-gradient(top, #f96057, #941912);
     background: -ms-linear-gradient(top, #f96057, #941912);
     background: -moz-linear-gradient(top, #f96057, #941912);
-    background: linear-gradient('to bottom', #f96057, #941912);
     box-shadow: 3px 3px 7px 0 #c22727, inset 0 -3px 0 0 #5d120e;
 }
 
@@ -139,11 +157,22 @@ button, input, select, textarea {
     background: -webkit-linear-gradient(top, #f58d87, #cc261c);
     background: -ms-linear-gradient(top, #f58d87, #cc261c);
     background: -moz-linear-gradient(top, #f58d87, #cc261c);
-    background: linear-gradient('to bottom', #f58d87, #cc261c);
 }
 
 .btn-link-green button:hover, .btn-link-green a.btn-link-i:hover {
     color: #333;
+}
+
+.btn-link-green:active {
+    background: #941912;
+    background: -webkit-linear-gradient(top, #d35249, #78100b);
+    background: -ms-linear-gradient(top, #d35249, #78100b);
+    background: -moz-linear-gradient(top, #d35249, #78100b);
+    box-shadow: 3px 3px 7px 0 #c22727, inset 0 -3px 0 0 #5d120e;
+}
+
+.btn-link-green button:active, .btn-link-green a.btn-link-i:active {
+    color: #c1c1c1;
 }
 
 .form-title h3 {
