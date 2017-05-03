@@ -85,18 +85,16 @@ def product_list(request, slug=None):
         data['is_data'] = True
 
         return JsonResponse(data)
-
     else:
         return redirect(reverse('menu:shop'))
 
 
 def product_details(request, slug=None):
-
     if request.is_ajax():
         data = dict()
         product = get_object_or_404(Product, slug=slug)
 
-        products = pagination_products(request, product.item.products.all(), 1)
+        products = pagination_products(request, product.get_item_products(), 1)
 
         context = {
             'products': products,

@@ -14,7 +14,6 @@
     <script src="{% static 'js/datepicker-uk.js' %}"></script>
     <script src="{% static 'js/datepicker-ru.js' %}"></script>
 
-
     <link href="{% static 'css/register.css' %}" rel="stylesheet" type="text/css">
 
 {% endblock %}
@@ -71,7 +70,7 @@
                                          <div class="clearfix cart-total">
                                              <span class="cart-return-link">
                                                  <span class="btn-link btn-link-gray">
-                                                     <a href="/" class="btn-link-i" name="close">ВЕРНУТЬСЯ НАЗАД</a>
+                                                     <a href="{% url 'menu:homepage' %}" class="btn-link-i" name="close">ВЕРНУТЬСЯ НАЗАД</a>
                                                  </span>
                                              </span>
                                              <span class="cart-submit">
@@ -80,8 +79,6 @@
                                                  </span>
                                              </span>
                                          </div>
-
-
                                     </form>
 
                                 </div>

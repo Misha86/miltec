@@ -3,13 +3,29 @@
 <form class="cart-form" action="{% url "cart:add" product.id %}" method="post">
     {% csrf_token %}
 
-    {{ cart_form }}
+    {% with form=product.get_cart_form %}
+        {{ form.non_field_errors }}
 
-     <div class="clearfix cart-total">
+        {{ form.quantity.errors }}
+        {{ form.quantity.label_tag }}
+        {{ form.quantity }}
+
+        {% if product.get_sizes %}
+            {{ form.size.errors }}
+            {{ form.size.label_tag }}
+            {{ form.size }}
+        {% endif %}
+
+        {{ form.update.errors }}
+        {{ form.update }}
+
+    {% endwith %}
+
+    <div class="clearfix cart-total">
          <span class="cart-submit">
              <span class="btn-link-green btn-link">
                  <button class="btn-link-i" id="popup-checkout" type="submit">Добавить в корзину</button>
              </span>
          </span>
-     </div>
+    </div>
 </form>

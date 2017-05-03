@@ -10,6 +10,7 @@ from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils.text import slugify
 from menu.models import (Category, Item)
+from cart.forms import CartAddProductForm
 
 
 def upload_location(instance, filename):
@@ -28,13 +29,6 @@ def upload_location2(instance, filename):
     else:
         dir = instance.item.title
     return os.path.join(path, str(dir), str(instance.title), str(filename))
-
-
-# class ProductManager(models.Manager):
-#
-#     def sizes(self):
-#         instance_sizes = Size.objects.fiter(size_count__product=self)
-#         return instance_sizes
 
 
 class Product(models.Model):
@@ -72,8 +66,6 @@ class Product(models.Model):
     item = models.ForeignKey(Item, related_name="products",
                              verbose_name="Підкатегорія товару", blank=True, null=True)
 
-    # objects = ProductManager()
-
     class Meta:
         """
         Change db_table name, verbose_name, verbose_name_plural
@@ -107,6 +99,24 @@ class Product(models.Model):
             return None
         else:
             return instance_sizes
+
+    def get_cart_form(self, request_form=None):
+        if request_form is None:
+            cart_form = CartAddProductForm()
+        else:
+            cart_form = CartAddProductForm(request_form)
+        sizes = self.get_sizes()
+        cart_form.fields['quantity'].choices = [(i, str(i)) for i in range(1, 21)]
+        if sizes:
+            size_choices = [(sizes[i], str(sizes[i])) for i in range(len(sizes))]
+            cart_form.fields['size'].choices = size_choices
+        else:
+            cart_form.fields['size'].choices = []
+        return cart_form
+
+    def get_item_products(self):
+        all_products = self.item.products.all()
+        return all_products
 
 
 class Size(models.Model):

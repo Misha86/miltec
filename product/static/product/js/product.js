@@ -34,6 +34,7 @@ $(function () {
             error: error
         });
 
+        //window.history.pushState({href: locHref}, form.attr("action"), locHref);
         window.history.pushState({href: locHref}, form.attr("action"), locHref);
     });
 

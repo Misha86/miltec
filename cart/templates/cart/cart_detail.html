@@ -42,7 +42,13 @@
                             </td>
                             <td>{{ product.title }}</td>
                             <td>{{ item.quantity }}</td>
-                            <td>{{ item.size }}</td>
+
+                            {% if  item.size %}
+                                <td>{{ item.size }}</td>
+                            {% else %}
+                                <td> - </td>
+                            {% endif %}
+
                             <td><a href="{% url "cart:remove" product.id item.size %}">Удалить</a></td>
                             <td class="num">{{ item.price }} EUR*</td>
                             <td class="num">{{ item.total_price }} EUR*</td>

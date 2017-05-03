@@ -2,7 +2,6 @@
 from __future__ import unicode_literals
 
 from buyer.forms import BuyerLoginForm
-from cart.forms import CartAddProductForm
 from cart.cart import Cart
 import requests
 from bs4 import BeautifulSoup
@@ -14,7 +13,7 @@ def login_form(request):
 
 
 def cart(request):
-    response = {'cart_form': CartAddProductForm}
+    response = {}
     cart_response = Cart(request)
     if cart_response:
         response['total_price'] = cart_response.get_total_price()

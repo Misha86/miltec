@@ -14,19 +14,14 @@
     </div>
 
     <!-- begin: product-row_detail_?.html -->
-{#    <form name="detail_view" method="post" action="">#}
         <div class="product-details">
             <dl>
                 <dt title="{{ product.title|upper }}">
-
                 <h1>
 
                     <span itemprop="name">{{ product.title|upper }}</span>
-
                 </h1>
-
                 </dt>
-
 
                 <!-- begin include: pic_detail_?.html -->
                 <dd class="image" note="has_large">
@@ -46,12 +41,10 @@
                 <script type="text/javascript">
 
                     // Scaling for product-details image
-
                     $('#col3_content div > dl > dd.image > div > a[data-spzoom]').spzoom({
                         width: 450,
                         height: 500,
                         titlePosition: 'top'
-
                     });
 
                     $("#col3_content div > dl > dd.image > a[rel^='prettyPhoto']").prettyPhoto({
@@ -137,48 +130,12 @@
 
 
 			</span>
-
-{#                    <span class="tax_percent">packing unit 1 ST</span>#}
                 </dd>
-
-
             </dl>
-{#            </a>#}
-
-{#            <div class="buttonsContainer">#}
-{##}
-{#                <div id="buttons_1" style="">#}
-{##}
-{##}
-{#                    <!-- Amount to Add - by default off -->#}
-{#                    <div class="amount-to-add" style="">#}
-{#                        <input class="count" type="text" name="menge_1" value="1">#}
-{#                        <input type="hidden" name="rub1_1" value="{{ product.slug }}">#}
-{#                        <font style="float: none;"><b>/</b> ST</font>#}
-{#                        <input class="submitButton dark_grey" type="button" value="Купить">#}
-{#                    </div>#}
-{##}
-{#                    <!-- begin: Amout Image gets replaced by jquery function -->#}
-{#                    <script type="text/javascript">#}
-{#                        $(document).ready( function() {#}
-{#                            $('.buttonsContainer img[border~="0"]').replaceListAmountImg('/static/img/gfx.spacer.gif', 'select trim');#}
-{#                        });#}
-{#                    </script>#}
-{##}
-{#                    <!-- end: Amout Image gets replaced by jquery function -->#}
-{##}
-{#                </div>#}
-{##}
-{##}
-{#            </div>#}
-
-{#            <dd class="fb-like" data-send="false" data-width="480" data-show-faces="false" data-font="lucida grande" data-action="recommend"></dd>#}
-
 
             </dl>
 
         </div>
-{#    </form>#}
     <!-- end: product-row_detail_?.html -->
 
 
@@ -208,8 +165,6 @@
         </div>
     </div>
     <!-- end: jquery tabs -->
-
-
 
     <div class="bottomToolBar clearfix">
 

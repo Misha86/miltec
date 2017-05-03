@@ -138,6 +138,8 @@ $(function () {
     window.addEventListener('popstate', function(event){
         if(event.state){
              ajaxForProducts(event.state.href);
+        } else {
+            location.href = '/'
         }
     });
 
