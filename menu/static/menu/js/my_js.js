@@ -40,7 +40,7 @@ var error = function(xhr, errmsg, err) {
 
 
 $(function () {
-     $('.hlist li').each(function () {
+    $('.hlist li').each(function () {
         var location = window.location.pathname;
         var link = $(this).find('a').attr('href');
         if(location == link) {
@@ -104,15 +104,10 @@ $(function () {
             dataType: 'json',
 
             success: function (data) {
-
                 var content = $("#col3");
-
                 if (data.is_data) {
-
                     content.html(data.html_items);
-
                 } else {
-
                     console.log('false');
                 }
             },
@@ -134,15 +129,13 @@ $(function () {
 
     };
 
-
     window.addEventListener('popstate', function(event){
-        if(event.state){
-             ajaxForProducts(event.state.href);
-        } else {
-            location.href = '/'
+        if(event.state && event.state.href != "/shop/"){
+            ajaxForProducts(event.state.href)
+        } else if (event.state.href == "/shop/"){
+            location.pathname = event.state.href
         }
     });
-
 
     var mainContent = $("#main");
 
@@ -156,7 +149,6 @@ $(function () {
     $(".indentLevel_1").on('click', 'a', items);
 
     // url for details product
-    //$("#col3").on('click', 'div#col3_content div.products div.product-row.hproduct a', items);
     mainContent.on('click', '#col3_content .products .subcl div.product-row.hproduct a', items);
 
     // ajax pagination

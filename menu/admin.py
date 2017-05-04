@@ -44,7 +44,7 @@ class ItemsInLine(GenericTabularInline):
 class CategoryAdmin(admin.ModelAdmin):
     model = Category
     fieldsets = [
-        (None, {'fields': ['title',  'used', 'promotions', 'slug', 'create', 'update']})
+        (None, {'fields': ['title',  'used', 'promotions', 'slug', 'image', 'create', 'update']})
     ]
     list_display = ['title', 'create', 'slug', 'used', 'promotions', 'id']
     readonly_fields = ['slug', 'create', 'update']

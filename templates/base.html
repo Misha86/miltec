@@ -121,7 +121,7 @@
     <!-- prettyPhoto -->
     <link rel="stylesheet" href="{% static 'css/prettyPhoto.css' %}" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
     <script src="{% static 'js/jquery.prettyPhoto.js' %}" type="text/javascript" charset="utf-8"></script>
-    <script src="{% static 'js/addthis.js' %}" type="text/javascript" charset="utf-8"></script>
+    {#    <script src="{% static 'js/addthis.js' %}" type="text/javascript" charset="utf-8"></script>#}
 
     <!-- Accessible Tabs -->
     <script src="{% static 'js/jquery.tabs.js' %}" type="text/javascript" charset="utf-8"></script>
@@ -173,36 +173,17 @@
 			<a class="cart_url" href="{% url 'cart:detail' %}" title="Корзина">
                 Корзина: <b>{% if total_price %}{{ total_price }}{% else %}0.00{% endif %}&nbsp;EUR*</b>
             </a>
-
             <a class="exchange" href="#" title="Курс">
                 Курс EUR: <b>{{ exchange }}</b>
             </a>
-
 		</span>
 
     </div>
-
-
 		<h1>
-            <a href="#" title="Sturm MIL-TEC® Online-Shop : Startseite">
+            <a href="{% url 'menu:homepage' %}" title="Sturm MIL-TEC® Online-Shop : Главная">
                 <img src="{% static 'img/logo.png' %}" alt="Sturm MIL-TEC® Online-Shop">
             </a>
         </h1>
-
-
-		<div class="print align_right">
-            <b>Sturm Handels GmbH</b><br>
-
-            Graf-Bentzel-Str. 85<br>
-            DE-72108 Rottenburg<br>
-        </div>
-
-		<div class="partnerLogos">
-
-        </div>
-
-		<div class="edge edge-tl"></div>
-		<div class="edge edge-tr"></div>
 	</span>
                     </div>
 
@@ -216,14 +197,7 @@
             <!-- begin: #col3 static center column -->
             <div id="col3" role="main">
                 <div id="col3_content" class="clearfix">
-
                     <img class="start_picture" src="{% static 'img/grafik_mitte.jpg' %}" alt="Sturm MIL-TEC® Online-Shop" title="Sturm MIL-TEC® Online-Shop">
-
-                    <div class="homepage_articles">
-                        <!-- begin: products standard view -->
-
-                        <!-- end: listings standard view -->
-                    </div>
 
                     <!-- EIDAMO_CUSTOMERLOGIN_START -->
                     <div class="boxen">
@@ -241,17 +215,38 @@
                         </div>
 
                         <div class="last box">
-                            <div class="textContainer">
-                                <h3>РЕГИСТРАЦИЯ В КАЧЕСТВЕ АВТОРИЗОВАННОГО ДИЛЕРА</h3>
-                                <p>Вы еще не Mil-Tec<sup>®</sup><br>специалист дилера?</p>
-                                <p>Здесь вы можете стать одним ...</p>
-                            </div>
 
-                            <div class="buttonsContainer">
-                                <a href="#" target="_blank" title="Контакт" class="formButton">
-                                    <b>Контакт</b>
-                                </a>
-                            </div>
+                            {% if request.user.is_authenticated %}
+
+                                <div class="textContainer">
+                                    <h3>РЕГИСТРАЦИЯ В КАЧЕСТВЕ АВТОРИЗОВАННОГО ДИЛЕРА</h3>
+                                    <p>Вы еще не Mil-Tec<sup>®</sup><br>специалист дилера?</p>
+                                    <p>Здесь вы можете стать одним ...</p>
+                                </div>
+
+                                <div class="buttonsContainer">
+                                    <a  href="#" title="Изменить профиль" class="formButton">
+                                        <b>Изменить профиль</b>
+
+                                    </a>
+                                </div>
+
+                            {% else %}
+
+                                <div class="textContainer">
+                                    <h3>РЕГИСТРАЦИЯ В КАЧЕСТВЕ АВТОРИЗОВАННОГО ДИЛЕРА</h3>
+                                    <p>Вы еще не Mil-Tec<sup>®</sup><br>специалист дилера?</p>
+                                    <p>Здесь вы можете стать одним ...</p>
+                                </div>
+
+                                <div class="buttonsContainer">
+                                    <a  href="{% url 'buyer:register' %}" title="Регистрация" class="formButton">
+                                        <b>РЕГИСТРАЦИЯ</b>
+                                    </a>
+                                </div>
+
+                            {% endif %}
+
                         </div>
 
                         <div class="shop box">
@@ -260,7 +255,19 @@
 
                             <div class="forms">
 
-                                {% include 'login.html' %}
+                                {% if request.user.is_authenticated %}
+
+                                    <div class="buttonsContainer">
+                                        <a href="{% url 'buyer:logout' %}" title="Выйти" class="formButton">
+                                            <b>Выйти</b>
+                                        </a>
+                                    </div>
+
+                                {% else %}
+
+                                    {% include 'login.html' %}
+
+                                {% endif %}
 
                             </div>
 

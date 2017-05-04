@@ -5,6 +5,7 @@ This module create models for category.
 
 from __future__ import unicode_literals
 
+import os
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils.text import slugify
@@ -106,6 +107,11 @@ class Item(models.Model):
             'slug': self.slug})
 
 
+def upload_location(instance, filename):
+    path = 'upload/category'
+    return os.path.join(path, str(instance.title), str(filename))
+
+
 class Category(models.Model):
     """
     Stores a menu for menu.
@@ -116,6 +122,13 @@ class Category(models.Model):
     slug = models.SlugField(verbose_name="Ім`я категорії транслітом", unique=True)
     create = models.DateTimeField(auto_now_add=True, verbose_name="Дата створення")
     update = models.DateTimeField(auto_now=True, verbose_name="Дата оновлення")
+
+    image = models.ImageField(verbose_name="Картинка", upload_to=upload_location, width_field="width_field",
+                              height_field="height_field", blank=True, null=True,
+                              help_text="Картинка категории")
+
+    width_field = models.IntegerField(default=0, verbose_name="Ширина картинки в пікселях")
+    height_field = models.IntegerField(default=0, verbose_name="Висота картинки в пікселях")
 
     items = GenericRelation(Item)
 

@@ -20,39 +20,6 @@ from .forms import (BuyerLoginForm, BuyerRegisterForm)
 User = get_user_model()
 
 
-# def register(request):
-#     title = 'Форма для реєстрації'
-#     button_create = 'Зареєструватися'
-#     path = request.META.get('HTTP_REFERER', '/')
-#     if path == request.build_absolute_uri():
-#         return_path = '/'
-#     else:
-#         return_path = path
-#     form = ProfileCreationForm()
-#     if request.POST:
-#         form = ProfileCreationForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             new_user = auth.authenticate(username=form.cleaned_data['username'],
-#                                          password=form.cleaned_data['password2'])
-#             new_profile = Profile(user=new_user, avatar=form.cleaned_data['avatar'],
-#                                   sex=form.cleaned_data['sex'], date_of_birth=form.cleaned_data['date_of_birth'])
-#             new_profile.save()
-#             auth.login(request, new_user)
-#             messages.success(request, 'Дякую, що долучилися до нас, ' + new_profile.user.username + '!',
-#                              extra_tags='success')
-#             return redirect(return_path)
-#         else:
-#             form = form
-#     context = {
-#         'title': title,
-#         'button_create': button_create,
-#         'form': form,
-#         'return_path': return_path,
-#         }
-#     return render(request, 'register.html', context)
-
-
 def update(request):
     path = request.META.get('HTTP_REFERER', '/')
     if path == request.build_absolute_uri():
@@ -150,7 +117,7 @@ def logout(request):
     if path:
         return redirect(path)
     else:
-        redirect(reverse('menu:homepage'))
+        return redirect(reverse('menu:homepage'))
 
 
 def register(request):
@@ -177,11 +144,9 @@ def register(request):
             return redirect(reverse('menu:homepage'))
         else:
             form = form
+
     context = {
-        # 'title': title,
-        # 'button_create': button_create,
         'form': form,
-        # 'return_path': return_path,
     }
     return render(request, 'register.html', context)
 
