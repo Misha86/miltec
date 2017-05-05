@@ -19,7 +19,7 @@ def upload_location(instance, filename):
         dir = instance.category.title
     else:
         dir = instance.item.title
-    return os.path.join(path, str(dir), str(instance.title), 'detail', str(filename))
+    return os.path.join(path, str(dir), str(instance.article), 'detail', str(filename))
 
 
 def upload_location2(instance, filename):
@@ -28,7 +28,7 @@ def upload_location2(instance, filename):
         dir = instance.category.title
     else:
         dir = instance.item.title
-    return os.path.join(path, str(dir), str(instance.title), str(filename))
+    return os.path.join(path, str(dir), str(instance.article), str(filename))
 
 
 class Product(models.Model):

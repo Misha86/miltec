@@ -14,68 +14,10 @@ from django.template.loader import render_to_string
 from django.core.urlresolvers import reverse
 from django.conf import settings
 
-from .forms import (BuyerLoginForm, BuyerRegisterForm)
+from .forms import (BuyerLoginForm, BuyerRegisterForm, BuyerUpdateForm)
 
 
 User = get_user_model()
-
-
-def update(request):
-    path = request.META.get('HTTP_REFERER', '/')
-    if path == request.build_absolute_uri():
-        return_path = '/'
-    else:
-        return_path = path
-    instance = get_object_or_404(User, username=request.user)
-    form = ProfileUpdateForm(request.POST or None, request.FILES or None, instance=instance,
-                             initial={'date_of_birth': instance.profile.date_of_birth,
-                                      'sex': instance.profile.sex,
-                                      'avatar': instance.profile.avatar})
-    if form.is_valid():
-        form.save()
-        profile = instance.profile
-        profile.date_of_birth = form.cleaned_data['date_of_birth']
-        profile.sex = form.cleaned_data['sex']
-        profile.avatar = form.cleaned_data['avatar']
-        profile.save()
-        update_session_auth_hash(request, form.instance)
-        messages.success(request, _('Ви змінили свій профіль, ' + instance.username + '!'),
-                         extra_tags='success')
-        return redirect(return_path)
-    else:
-        form = form
-    title = _('Форма для зміни профіля \'' + str(instance.get_full_name() + '\''))
-    button_update = _('Змінити')
-    button_delete = _('Видалити')
-    context = {
-        'title': title,
-        'button_create': button_update,
-        'button_delete': button_delete,
-        'form': form,
-        'return_path': return_path,
-        'profile': instance,
-        }
-    return render(request, 'register.html', context)
-
-
-def delete(request, id=None):
-    instance = get_object_or_404(User, id=id)
-    name = instance.get_full_name()
-    return_path = settings.LOGIN_REDIRECT_URL
-    title = _('Ви впевнені, що хочете видалити профіль \'' + name + '\' ?')
-    button_delete = _('видалити профіль')
-    button_cancel = _('відміна')
-    context = {
-        'title': title,
-        'button_delete': button_delete,
-        'button_cancel': button_cancel,
-        'return_path': return_path,
-        }
-    if request.POST:
-        instance.delete()
-        messages.success(request, _('Користувач \'' + name + '\' видалений!'), extra_tags='success')
-        return redirect(return_path)
-    return render(request, 'profile_delete_form.html', context)
 
 
 def login(request):
@@ -145,10 +87,63 @@ def register(request):
         else:
             form = form
 
+    title = "Форма регистрации"
+    button_create = 'РЕГИСТРИРОВАТЬСЯ'
+
     context = {
+        'title': title,
+        'button_create': button_create,
         'form': form,
-    }
+        }
     return render(request, 'register.html', context)
 
 
+def update(request):
+    instance = get_object_or_404(User, email=request.user)
+    form = BuyerUpdateForm(request.POST or None, instance=instance,
+                           initial={'address': instance.address})
+    if form.is_valid():
+        form.save()
+        update_session_auth_hash(request, form.instance)
+        # messages.success(request, _('Ви змінили свій профіль, ' + instance.username + '!'),
+        #                  extra_tags='success')
+        return redirect(reverse('menu:homepage'))
+    else:
+        form = form
+    title = "Форма для изменения профиля '{}'".format(instance.get_full_name())
+    button_update = 'ИЗМЕНИТЬ'
+    button_delete = 'УДАЛИТЬ'
+    context = {
+        'title': title,
+        'button_create': button_update,
+        'button_delete': button_delete,
+        'form': form,
+        'profile': instance,
+        }
+    return render(request, 'register.html', context)
 
+
+def delete(request, id=None):
+    if request.is_ajax():
+        data = dict()
+        instance = get_object_or_404(User, id=id)
+        title = "Вы уверены, что хотите удалить свой профиль '{}'?".format(instance.get_full_name())
+        button_delete = 'УДАЛИТЬ ПРОФИЛЬ'
+        button_cancel = 'ОТМЕНА'
+        context = {
+            'title': title,
+            'button_delete': button_delete,
+            'button_cancel': button_cancel
+            }
+
+        data['delete_form'] = render_to_string('delete_form.html', context, request=request)
+
+        if request.POST:
+            instance.delete()
+            data['is_data'] = True
+            data['redirect_path'] = reverse('menu:homepage')
+            # messages.success(request, _('Користувач \'' + name + '\' видалений!'), extra_tags='success')
+
+        return JsonResponse(data)
+
+    return redirect(reverse('menu:homepage'))

@@ -1,0 +1,23 @@
+<form method="post" action="{% url 'buyer:delete' request.user.id %}" class="js-profile-delete-form">
+    {% csrf_token %}
+
+    <div class="modal-body">
+        <p class="lead">
+            <strong>{{ title }}</strong>
+        </p>
+    </div>
+
+    <div class="clearfix cart-total">
+         <span class="cart-return-link">
+             <span class="btn-link btn-link-gray">
+                 <a href="#close-modal" rel="modal:close" class="btn-link-i" name="close">{{ button_cancel }}</a>
+             </span>
+         </span>
+
+        <span class="cart-submit">
+             <span class="btn-link-green btn-link">
+                 <button class="btn-link-i" id="popup-checkout" type="submit">{{ button_delete }}</button>
+             </span>
+         </span>
+    </div>
+</form>

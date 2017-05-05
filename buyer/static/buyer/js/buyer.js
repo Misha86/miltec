@@ -48,9 +48,7 @@ $(function () {
 
             success : function(data) {
                 if(data.form_valid) {
-
                     location.href = data.redirect_path;
-
                 } else {
                     $('.forms').html(data.form_html);
                     $('div.form-group.has-error').fadeOut(4000);
@@ -60,15 +58,42 @@ $(function () {
         });
     });
 
-    $.datepicker.setDefaults( $.datepicker.regional[ 'ua' ])
-    $("#col3_content .forms #id_date_of_birth").datepicker(
-        {changeMonth: true,
-            changeYear: true,
-            dateFormat: "yy-mm-dd",
-            //showOn: "both",
-            showWeek: true,
-            yearRange: "1920:"
-
+    var loadForm = function (event) {
+        event.preventDefault();
+        $.ajax({
+            url: this.href,
+            dataType: 'json',
+            success: function (data) {
+                $('.modal').modal();
+                $('.modal-content').html(data.delete_form);
+            },
+            error : error
         });
-})
+    };
+
+    var deleteForm = function (event) {
+        event.preventDefault();
+        var form = $(event.target);
+        $.ajax({
+            url: form.attr("action"),
+            type: form.attr("method"),
+            data: form.serialize(),
+            dataType: 'json',
+
+            success: function (data) {
+                if(data.is_data){
+                    $('.modal').modal('hide');
+                    console.log('success');
+                    location.pathname = data.redirect_path;
+                }
+            },
+            error : error
+        });
+    };
+
+    var selectorBody = $("body");
+
+    selectorBody.on('click', '.delete-ajax', loadForm);
+    selectorBody.on('submit', '.js-profile-delete-form', deleteForm)
+});
 

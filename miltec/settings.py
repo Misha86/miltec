@@ -214,9 +214,10 @@ IGNORABLE_404_URLS = (
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
-# if not DEBUG:
-#     from .amason_media import *
-#     INSTALLED_APPS.append('storages')
+
+if not DEBUG:
+    from .amason_media import *
+    INSTALLED_APPS.append('storages')
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
@@ -233,9 +234,9 @@ STATICFILES_DIRS = (
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# MEDIA_URL = config('MEDIA_URL', default='/media/')
+MEDIA_URL = config('MEDIA_URL', default='/media/')
 # MEDIA_URL = 'http://www.miltec-sturm.de/'
-MEDIA_URL = '/media/'
+
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
 

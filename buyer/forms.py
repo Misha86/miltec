@@ -11,7 +11,7 @@ class CalendarWidget(forms.DateInput):
         css = {
             'all': ('css/jquery-ui.min.css',)
         }
-        js = ('js/jquery-ui.js', 'js/buyer.js', 'js/datepicker-uk.js', 'js/datepicker-ru.js')
+        js = ('js/jquery-ui.js', 'js/datepicker-uk.js', 'js/datepicker-ru.js', 'js/datepicker-widget.js')
 
 
 class RadioSelectWidget(forms.RadioSelect):
@@ -78,7 +78,7 @@ class BuyerRegisterForm(BuyerCreationForm):
                    'phone_number': forms.TextInput(attrs={'class': 'form-control', 'rows': 4,
                                                           'placeholder': "введите номер телефона"}),
                    # 'sex': RadioSelectWidget(attrs={'class': 'option-input radio'})
-        }
+}
 
         labels = {'email': "E-mail",
                   'first_name': "Имя",
@@ -88,3 +88,26 @@ class BuyerRegisterForm(BuyerCreationForm):
                   'phone_number': "Номер телефона"}
 
         help_texts = {'phone_number': 'формат ввода номера телефона +380967578910'}
+
+
+class BuyerUpdateForm(BuyerRegisterForm):
+    password = forms.CharField(label="Старый пароль",
+                               widget=forms.PasswordInput(attrs={'class': 'form-control',
+                                                                 'placeholder': 'введите cтарый пароль',
+                                                                 'autocomplete': 'off'}))
+    email = forms.CharField(label="E-mail", disabled=True, widget=forms.TextInput(
+        attrs={'class': 'form-control',
+               'rows': 4}))
+
+    class Meta(BuyerRegisterForm.Meta):
+        model = BuyerUser
+        fields = BuyerRegisterForm.Meta.fields + ('address', 'password', )
+
+    def clean_password(self):
+        password = self.cleaned_data.get("password")
+        email = self.cleaned_data.get("email")
+        user = BuyerUser.objects.get(email=email)
+        if user is not None and user.check_password(password):
+            return password
+        elif password is not None:
+            raise forms.ValidationError("Старый пароль не верен!")
