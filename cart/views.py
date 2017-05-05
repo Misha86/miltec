@@ -2,9 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.http import require_POST
 from product.models import Product
 from .cart import Cart
-from .forms import CartAddProductForm
 from django.core.urlresolvers import reverse
 from django.http import JsonResponse
+from django.template.loader import render_to_string
 
 
 @require_POST
@@ -31,9 +31,17 @@ def cart_add(request, product_id):
 
 
 def cart_remove(request, product_id, size):
-    cart = Cart(request)
-    product = get_object_or_404(Product, id=product_id)
-    cart.remove(product, size)
+    if request.is_ajax():
+        data = dict()
+        cart = Cart(request)
+        product = get_object_or_404(Product, id=product_id)
+        cart.remove(product, size)
+
+        data['total_price'] = cart.get_total_price()
+        if not cart.get_total_price():
+            data['empty_cart'] = render_to_string('empty_cart.html', request=request)
+        return JsonResponse(data)
+
     return redirect('cart:detail')
 
 

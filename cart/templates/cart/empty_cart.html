@@ -1,0 +1,15 @@
+{% load staticfiles %}
+
+<div class="empty-cart">
+    <div class="form-title">
+        <h3>Ваша корзина товаров пуста!</h3>
+    </div>
+
+    <div class="clearfix cart-total">
+        <span class="cart-return-link">
+             <span class="btn-link btn-link-gray">
+                 <a href="{% url "menu:shop"%}" class="btn-link-i" name="close">ВЕРНУТЬСЯ В МАГАЗИН</a>
+             </span>
+        </span>
+    </div>
+</div>

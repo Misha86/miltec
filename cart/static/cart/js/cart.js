@@ -23,6 +23,27 @@ $(function () {
         });
     };
 
+    var cartRemove = function (event){
+        event.preventDefault();
+        var link = $(this);
+        var dataProduct = link.attr('data-product');
+        $.ajax({
+            url : link.attr('href'),
+            success : function(data) {
+                var cartTable = $('.cart');
+                if(data.total_price) {
+                    cartTable.find("tr[id='" + dataProduct + "']").remove();
+                    cartTable.find("td[id='total_price']").text(data.total_price + ' EUR*');
+                } else {
+                    $('#cart-details').html(data.empty_cart)
+                }
+            },
+            error: error
+        });
+    };
+
     $('#main').on('submit', 'form.cart-form', cartAdd);
+
+    $('#cart-details').on('click', 'a.cart-remove', cartRemove);
 
 });

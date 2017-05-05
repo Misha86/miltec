@@ -7,11 +7,12 @@
 
 {% block script %}
     <link href="{% static 'css/cart.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'js/cart.js' %}"></script>
 {% endblock %}
 
 {% block cart %}
 
-    <div class="my-shop" style="margin-bottom: 15em;">
+    <div id="cart-details" class="my-shop" style="margin-bottom: 15em;">
 
         {% if cart %}
 
@@ -34,7 +35,7 @@
                 <tbody>
                 {% for item in cart %}
                     {% with product=item.product %}
-                        <tr>
+                        <tr id="cart-product-{{ product.id }}-{{ item.size }}">
                             <td>
                                 <a href="{{ product.get_absolute_url }}">
                                     <img src="{{ product.image.url }}" alt="" style="max-height: 5rem"/>
@@ -49,7 +50,9 @@
                                 <td> - </td>
                             {% endif %}
 
-                            <td><a href="{% url "cart:remove" product.id item.size %}">Удалить</a></td>
+                            <td>
+                                <a class="cart-remove" href="{% url "cart:remove" product.id item.size %}" data-product="cart-product-{{ product.id }}-{{ item.size }}">Удалить</a>
+                            </td>
                             <td class="num">{{ item.price }} EUR*</td>
                             <td class="num">{{ item.total_price }} EUR*</td>
                         </tr>
@@ -58,37 +61,27 @@
                 <tr class="total">
                     <td>Всего</td>
                     <td colspan="5"></td>
-                    <td class="num">{{ cart.get_total_price }} EUR*</td>
+                    <td id="total_price" class="num">{{ cart.get_total_price }} EUR*</td>
                 </tr>
                 </tbody>
             </table>
 
             <div class="clearfix cart-total">
-                 <span class="cart-return-link">
-                     <span class="btn-link btn-link-gray">
-                         <a href="{% url "menu:shop"%}" class="btn-link-i" name="close">ПРОДОЛЖИТЬ ШОПИНГ</a>
-                     </span>
-                 </span>
-                 <span class="cart-submit">
-                     <span class="btn-link-green btn-link">
-                          <a href="#" class="btn-link-i" name="close">ОФОРМИТЬ ЗАКАЗ</a>
-                     </span>
-                 </span>
+         <span class="cart-return-link">
+             <span class="btn-link btn-link-gray">
+                 <a href="{% url "menu:shop"%}" class="btn-link-i" name="close">ПРОДОЛЖИТЬ ШОПИНГ</a>
+             </span>
+         </span>
+         <span class="cart-submit">
+             <span class="btn-link-green btn-link">
+                  <a href="#" class="btn-link-i" name="close">ОФОРМИТЬ ЗАКАЗ</a>
+             </span>
+         </span>
             </div>
 
         {% else %}
 
-            <div class="form-title">
-                <h3>Ваша корзина товаров пуста!</h3>
-            </div>
-
-            <div class="clearfix cart-total">
-            <span class="cart-return-link">
-                 <span class="btn-link btn-link-gray">
-                     <a href="{% url "menu:shop"%}" class="btn-link-i" name="close">ВЕРНУТЬСЯ В МАГАЗИН</a>
-                 </span>
-            </span>
-            </div>
+            {% include "empty_cart.html" %}
 
         {% endif %}
 
