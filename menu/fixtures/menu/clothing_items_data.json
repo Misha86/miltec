@@ -1258,35 +1258,5 @@
       "content_type": 10,
       "object_id": 20
     }
-  },
-  {
-    "model": "menu.item",
-    "pk": 171,
-    "fields": {
-      "title": "Harness Sets",
-      "used": false,
-      "promotions": false,
-      "slug": "harness-sets-9",
-      "create": "2017-04-03T11:41:25.536Z",
-      "update": "2017-04-03T11:41:25.536Z",
-      "parent": 21,
-      "content_type": 10,
-      "object_id": 21
-    }
-  },
-  {
-    "model": "menu.item",
-    "pk": 172 ,
-    "fields": {
-      "title": "Harness Accessories",
-      "used": false,
-      "promotions": false,
-      "slug": "harness-accessories-9",
-      "create": "2017-04-03T11:41:44.234Z",
-      "update": "2017-04-03T11:41:44.234Z",
-      "parent": 21,
-      "content_type": 10,
-      "object_id": 21
-    }
   }
 ]

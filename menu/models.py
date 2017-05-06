@@ -28,7 +28,7 @@ class Item(models.Model):
     """
     Stores a menu`s items for menu.
     """
-    title = models.CharField(max_length=50, verbose_name="Назва категорії")
+    title = models.CharField(max_length=50, verbose_name="Назва пункту")
     used = models.BooleanField(verbose_name="Вживані", default=False)
     promotions = models.BooleanField(verbose_name="Знижені ціни", default=False)
     slug = models.SlugField(verbose_name="Ім`я категорії транслітом", unique=True, max_length=100)
