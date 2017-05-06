@@ -35,9 +35,14 @@
                         <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-magnifier">
                         <u>Увеличить фото</u>
                     </a>
-
                 </dd>
 
+                 <!-- SpZoom -->
+                <link type="text/css" href="{% static 'css/jquery.spzoom.css' %}" rel="stylesheet">
+                <script src="{% static 'js/jquery.spzoom.js' %}"></script>
+                <!-- prettyPhoto -->
+                <link rel="stylesheet" href="{% static 'css/prettyPhoto.css' %}" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
+                <script src="{% static 'js/jquery.prettyPhoto.js' %}" type="text/javascript" charset="utf-8"></script>
                 <script type="text/javascript">
 
                     // Scaling for product-details image
@@ -104,9 +109,7 @@
                         });
                     });
 
-
                 </script>
-
 
                 <dd class="articleNr">
                     <label>Article No.:</label>
@@ -118,16 +121,13 @@
                 </dd>
 
                 <!-- EIDAMO_LIST_INQUIRY_START:1 -->
-
                 <dd class="price" id="price_1" style="">
-
 
                 <span class="current_price" itemprop="offers" itemscope="" itemtype="">
 
                      {% include "product_prices.html" %}
 
                     {% include "cart_form.html" %}
-
 
 			</span>
                 </dd>
@@ -137,7 +137,6 @@
 
         </div>
     <!-- end: product-row_detail_?.html -->
-
 
     <!-- begin: jquery tabs -->
     <div class="jquery_tabs">
@@ -184,8 +183,6 @@
 
 </div>
 <!-- end: article detail specific content -->
-
-
 
 <div id="ie_clearing">&nbsp;</div>
 <!-- End: IE Column Clearing -->

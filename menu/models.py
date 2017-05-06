@@ -56,8 +56,8 @@ class Item(models.Model):
 
     def save(self, *args, **kwargs):
         if self.parent:
-            self.object_id = self.parent.id
-            self.content_type = ContentType.objects.get_for_model(self.parent.__class__)
+            self.slug = slugify("{} {} {}".format(self.title, self.parent.title, self.parent.id),
+                                allow_unicode=True)
         self.slug = slugify("{} {} {}".format(self.title, self.content_object.title, self.object_id),
                             allow_unicode=True)
         super(Item, self).save(*args, **kwargs)
@@ -138,8 +138,8 @@ class Category(models.Model):
         """
         ordering = ['id', ]
         db_table = "categories"
-        verbose_name = "Категорія"
-        verbose_name_plural = "Категорії"
+        verbose_name = "Категория"
+        verbose_name_plural = "Категории"
 
     def __str__(self):
         return self.title

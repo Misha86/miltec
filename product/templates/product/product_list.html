@@ -151,15 +151,13 @@
 
         </div>
 
-
         <!-- begin: products standard view -->
-
         {% if request.session.view != 'grid' %}
 
             <div class="products viewStandard"> <!-- will be switched using jQuery -->
 
 
-                <div class="subcolumns"><!-- 2 Column with 50/50 split -->
+                <div class="subcolumns">
 
                     <div class="c50l">
 
@@ -204,18 +202,12 @@
 
                                             </dd>
 
-                                            <!-- Ratings -->
-
-                                            <!-- EIDAMO_LIST_INQUIRY_START:1 -->
-
-
                                             <dd class="price" id="price_1" style="">
                                                 <span class="current_price" itemprop="offers">
 
                                                       {% include "product_prices.html" %}
 
                                                 </span>
-{#                                                <span class="tax_percent">packing unit 1 ST</span>#}
                                             </dd>
                                         </dl>
                                     </a>
@@ -326,11 +318,8 @@
                                         {% include "cart_form.html" %}
 
                                     </div>
-
                                 </div>
-                                <!-- end: /subtmpl/product-row_list_?.html -->
                             </div>
-
                         </div>
 
                     {% empty %}

@@ -35,7 +35,7 @@ class Product(models.Model):
     """
     Stores a product.
     """
-    title = models.CharField(max_length=50, verbose_name="Назва категорії")
+    title = models.CharField(max_length=50, verbose_name="Назва товару")
     description = models.TextField(max_length=5000, verbose_name="Опис товару")
     details = models.TextField(max_length=5000, verbose_name="Деталі товару", default='')
     article = models.PositiveIntegerField(verbose_name="Артикль товару", default=00000000)
@@ -86,6 +86,9 @@ class Product(models.Model):
         else:
             object_id = self.article
         self.slug = "{}-{}".format(slugify(self.title, allow_unicode=True), object_id)
+
+        if not self.category:
+            self.category = self.item.category()
 
         super(Product, self).save(*args, **kwargs)
 

@@ -7,23 +7,29 @@ from product.models import Product
 class ProductInLine(admin.StackedInline):
     model = Product
     fieldsets = [
-        (None, {
-            'fields': ['title', 'description', 'image', 'image_large', 'article', 'sold', 'slug']}),
-        ('Ціна', {
-            'fields': ['price', 'price_for_users']}),
-        ('Категорії', {
-            'fields': ['category', 'item']})
+        # (None, {
+        #     'fields': [('title', 'article', 'slug'), ('description', 'details'), ('image', 'image_large'),
+        #                ('sold', 'price', 'price_for_users'), ('category', 'item')]}),
+        ('Скриті дані', {
+            'classes': ('collapse',),
+            'fields': (('title', 'article', 'slug'), ('description', 'details'), ('image', 'image_large'),
+                       ('sold', 'price', 'price_for_users'), ('category', 'item')),
+        }),
     ]
-    extra = 1
+    extra = 0
     verbose_name = 'Товар категорії'
     verbose_name_plural = "Товари категорії"
-    readonly_fields = ['slug', 'sold']
+    readonly_fields = ['slug', 'sold', 'category', 'item']
 
 
 class ItemInLine(GenericStackedInline):
     model = Item
     fieldsets = [
-        (None, {'fields': ['title', 'used', 'promotions', 'slug']})
+        # (None, {'fields': ['title', 'used', 'promotions', 'slug']}),
+        ('Скриті дані', {
+            'classes': ('collapse',),
+            'fields': ('title', 'used', 'promotions', 'slug'),
+        }),
     ]
     extra = 1
     verbose_name = 'Пункт категорії'

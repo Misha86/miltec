@@ -13,7 +13,6 @@ def cart_add(request, product_id):
         data = dict()
         cart = Cart(request)
         product = get_object_or_404(Product, id=product_id)
-
         form = product.get_cart_form(request_form=request.POST)
 
         if form.is_valid():
