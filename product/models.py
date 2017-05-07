@@ -36,7 +36,7 @@ class Product(models.Model):
     Stores a product.
     """
     title = models.CharField(max_length=50, verbose_name="Назва товару")
-    description = models.TextField(max_length=5000, verbose_name="Опис товару")
+    description = models.TextField(max_length=5000, verbose_name="Опис товару", blank=True, null=True)
     details = models.TextField(max_length=5000, verbose_name="Деталі товару", default='')
     article = models.PositiveIntegerField(verbose_name="Артикль товару", default=00000000)
 

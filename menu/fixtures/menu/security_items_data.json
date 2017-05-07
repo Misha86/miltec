@@ -1,0 +1,182 @@
+[
+{
+  "model": "menu.item",
+  "pk": 260,
+  "fields": {
+    "title": "\u0416\u0430\u043a\u0435\u0442\u044b",
+    "used": false,
+    "promotions": false,
+    "slug": "\u0436\u0430\u043a\u0435\u0442\u044b-\u0437\u0430\u0449\u0438\u0442\u043d\u0430\u044f-\u043e\u0434\u0435\u0436\u0434\u0430-41",
+    "create": "2017-05-07T09:41:47.786Z",
+    "update": "2017-05-07T09:41:47.786Z",
+    "parent": 41,
+    "content_type": 10,
+    "object_id": 41
+  }
+},
+{
+  "model": "menu.item",
+  "pk": 261,
+  "fields": {
+    "title": "\u0411\u0440\u044e\u043a\u0438",
+    "used": false,
+    "promotions": false,
+    "slug": "\u0431\u0440\u044e\u043a\u0438-\u0437\u0430\u0449\u0438\u0442\u043d\u0430\u044f-\u043e\u0434\u0435\u0436\u0434\u0430-41",
+    "create": "2017-05-07T09:41:47.788Z",
+    "update": "2017-05-07T09:41:47.788Z",
+    "parent": 41,
+    "content_type": 10,
+    "object_id": 41
+  }
+},
+{
+  "model": "menu.item",
+  "pk": 262,
+  "fields": {
+    "title": "\u0424\u0443\u0442\u0431\u043e\u043b\u043a\u0438 \u0438 \u043c\u0430\u0439\u043a\u0438",
+    "used": false,
+    "promotions": false,
+    "slug": "\u0444\u0443\u0442\u0431\u043e\u043b\u043a\u0438-\u0438-\u043c\u0430\u0439\u043a\u0438-\u0437\u0430\u0449\u0438\u0442\u043d\u0430\u044f-\u043e\u0434\u0435\u0436\u0434\u0430-41",
+    "create": "2017-05-07T09:41:47.790Z",
+    "update": "2017-05-07T09:41:47.790Z",
+    "parent": 41,
+    "content_type": 10,
+    "object_id": 41
+  }
+},
+{
+  "model": "menu.item",
+  "pk": 263,
+  "fields": {
+    "title": "\u0413\u043e\u043b\u043e\u0432\u043d\u043e\u0439 \u0443\u0431\u043e\u0440",
+    "used": false,
+    "promotions": false,
+    "slug": "\u0433\u043e\u043b\u043e\u0432\u043d\u043e\u0439-\u0443\u0431\u043e\u0440-\u0437\u0430\u0449\u0438\u0442\u043d\u0430\u044f-\u043e\u0434\u0435\u0436\u0434\u0430-41",
+    "create": "2017-05-07T09:41:47.792Z",
+    "update": "2017-05-07T09:41:47.792Z",
+    "parent": 41,
+    "content_type": 10,
+    "object_id": 41
+  }
+},
+{
+  "model": "menu.item",
+  "pk": 264,
+  "fields": {
+    "title": "\u041f\u0435\u0440\u0447\u0430\u0442\u043a\u0438",
+    "used": false,
+    "promotions": false,
+    "slug": "\u043f\u0435\u0440\u0447\u0430\u0442\u043a\u0438-\u0437\u0430\u0449\u0438\u0442\u043d\u0430\u044f-\u043e\u0434\u0435\u0436\u0434\u0430-41",
+    "create": "2017-05-07T09:41:47.794Z",
+    "update": "2017-05-07T09:41:47.794Z",
+    "parent": 41,
+    "content_type": 10,
+    "object_id": 41
+  }
+},
+{
+  "model": "menu.item",
+  "pk": 265,
+  "fields": {
+    "title": "\u041e\u0431\u0443\u0432\u044c",
+    "used": false,
+    "promotions": false,
+    "slug": "\u043e\u0431\u0443\u0432\u044c-\u0437\u0430\u0449\u0438\u0442\u043d\u0430\u044f-\u043e\u0434\u0435\u0436\u0434\u0430-41",
+    "create": "2017-05-07T09:41:47.796Z",
+    "update": "2017-05-07T09:41:47.796Z",
+    "parent": 41,
+    "content_type": 10,
+    "object_id": 41
+  }
+},
+{
+  "model": "menu.item",
+  "pk": 266,
+  "fields": {
+    "title": "\u0410\u043a\u0441\u0435\u0441\u0441\u0443\u0430\u0440\u044b \u0434\u043b\u044f \u0441\u0438\u0441\u0442\u0435\u043c \u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e\u0441\u0442\u0438",
+    "used": false,
+    "promotions": false,
+    "slug": "\u0430\u043a\u0441\u0435\u0441\u0441\u0443\u0430\u0440\u044b-\u0434\u043b\u044f-\u0441\u0438\u0441\u0442\u0435\u043c-\u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e\u0441\u0442\u0438-\u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u0435-42",
+    "create": "2017-05-07T09:44:09.312Z",
+    "update": "2017-05-07T09:44:09.312Z",
+    "parent": 42,
+    "content_type": 10,
+    "object_id": 42
+  }
+},
+{
+  "model": "menu.item",
+  "pk": 267,
+  "fields": {
+    "title": "\u0427\u0435\u0445\u043b\u044b \u0438 \u0440\u0443\u0436\u044c\u044f",
+    "used": false,
+    "promotions": false,
+    "slug": "\u0447\u0435\u0445\u043b\u044b-\u0438-\u0440\u0443\u0436\u044c\u044f-\u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u0435-42",
+    "create": "2017-05-07T09:44:09.315Z",
+    "update": "2017-05-07T09:44:09.315Z",
+    "parent": 42,
+    "content_type": 10,
+    "object_id": 42
+  }
+},
+{
+  "model": "menu.item",
+  "pk": 268,
+  "fields": {
+    "title": "\u041d\u0430\u0440\u0443\u0447\u043d\u0438\u043a\u0438",
+    "used": false,
+    "promotions": false,
+    "slug": "\u043d\u0430\u0440\u0443\u0447\u043d\u0438\u043a\u0438-\u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u0435-42",
+    "create": "2017-05-07T09:44:09.317Z",
+    "update": "2017-05-07T09:44:09.317Z",
+    "parent": 42,
+    "content_type": 10,
+    "object_id": 42
+  }
+},
+{
+  "model": "menu.item",
+  "pk": 269,
+  "fields": {
+    "title": "\u0411\u0440\u043e\u043d\u044f",
+    "used": false,
+    "promotions": false,
+    "slug": "\u0431\u0440\u043e\u043d\u044f-\u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u0435-42",
+    "create": "2017-05-07T09:44:09.319Z",
+    "update": "2017-05-07T09:44:09.319Z",
+    "parent": 42,
+    "content_type": 10,
+    "object_id": 42
+  }
+},
+{
+  "model": "menu.item",
+  "pk": 270,
+  "fields": {
+    "title": "\u0417\u0430\u0449\u0438\u0442\u043d\u043e\u0435 \u0441\u043d\u0430\u0440\u044f\u0436\u0435\u043d\u0438\u0435",
+    "used": false,
+    "promotions": false,
+    "slug": "\u0437\u0430\u0449\u0438\u0442\u043d\u043e\u0435-\u0441\u043d\u0430\u0440\u044f\u0436\u0435\u043d\u0438\u0435-\u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u0435-42",
+    "create": "2017-05-07T09:44:09.322Z",
+    "update": "2017-05-07T09:44:09.322Z",
+    "parent": 42,
+    "content_type": 10,
+    "object_id": 42
+  }
+},
+{
+  "model": "menu.item",
+  "pk": 271,
+  "fields": {
+    "title": "\u0420\u0430\u0437\u043d\u043e\u0435",
+    "used": false,
+    "promotions": false,
+    "slug": "\u0440\u0430\u0437\u043d\u043e\u0435-\u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u0435-42",
+    "create": "2017-05-07T09:44:09.324Z",
+    "update": "2017-05-07T09:44:09.324Z",
+    "parent": 42,
+    "content_type": 10,
+    "object_id": 42
+  }
+}
+]

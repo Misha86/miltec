@@ -39,7 +39,7 @@ class ItemInLine(GenericStackedInline):
 
 class ItemsInLine(GenericTabularInline):
     model = Item
-    extra = 2
+    extra = 6
     verbose_name = 'Підпункт'
     verbose_name_plural = "Підпункти"
     readonly_fields = ['slug']

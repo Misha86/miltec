@@ -216,3 +216,18 @@ button, input, select, textarea {
     margin: 10px 10px;
     padding: 15px 25px;
 }
+
+span.headerInner div#fix-head {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.67);
+    height: 22px; width: 100%;
+    top:0;
+    left: 0;
+    right: 0;
+}
+
+div#fix-head div#topnav {
+    width: 960px;
+    margin: auto;
+    float: none
+}

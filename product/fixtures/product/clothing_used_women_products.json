@@ -1,0 +1,68 @@
+[
+  {
+    "model": "product.product",
+    "fields": {
+      "slug": "nkxtleo",
+      "item": 57,
+      "height_field": 999,
+      "width_field": 799,
+      "image": "upload/products/\u041f\u043e\u0434\u0435\u0440\u0436\u0430\u043d\u043d\u0430\u044f \u043e\u0434\u0435\u0436\u0434\u0430/91160470/detail/91160470.jpg",
+      "title": "BW FELDHOSE DAMEN FLECKTARN GEBR.",
+      "price": "10.50",
+      "update": "2017-04-07T11:53:41.478Z",
+      "price_for_users": "9.50",
+      "details": "<dl class='specifications'>\n<dt>Spezifikationen </dt>\n<dd>\n<label>EAN-Code</label>\n<span>4046872311925</span>\n<div class='clear'></div></dd>\n<dd>\n<label>Warennummer</label>\n<span>63090000</span>\n<div class='clear'></div></dd>\n<!--dd class='[*EIDAMO_DETAIL_ATTRIB_TITLE*]'>\n            <label>[*EIDAMO_DETAIL_ATTRIB_TITLE*]</label>\n            <span>[*EIDAMO_DETAIL_ATTRIB_VALUE*]</span>\n        <div class='clear'></div></dd-->\n</dl>",
+      "category": 4,
+      "article": 91160470,
+      "image_large": "upload/products/\u041f\u043e\u0434\u0435\u0440\u0436\u0430\u043d\u043d\u0430\u044f \u043e\u0434\u0435\u0436\u0434\u0430/91160470/91160470.jpg",
+      "create": "2017-04-04T06:27:20.596Z",
+      "sold": false,
+      "description": "<p>80% Baumwolle, 20% Polyester</p>"
+    },
+    "pk": 4155
+  },
+  {
+    "model": "product.product",
+    "fields": {
+      "slug": "l4cod9y",
+      "item": 57,
+      "height_field": 999,
+      "width_field": 799,
+      "image": "upload/products/\u041f\u043e\u0434\u0435\u0440\u0436\u0430\u043d\u043d\u0430\u044f \u043e\u0434\u0435\u0436\u0434\u0430/91198550/detail/91198550.jpg",
+      "title": "TRAPO REGENMANTEL DA.BLAU-GRAU NEUW.",
+      "price": "10.50",
+      "update": "2017-04-07T11:53:41.478Z",
+      "price_for_users": "9.50",
+      "details": "<dl class='specifications'>\n<dt>Spezifikationen </dt>\n<dd>\n<label>EAN-Code</label>\n<span>4046872378195</span>\n<div class='clear'></div></dd>\n<dd>\n<label>Warennummer</label>\n<span>63090000</span>\n<div class='clear'></div></dd>\n<!--dd class='[*EIDAMO_DETAIL_ATTRIB_TITLE*]'>\n            <label>[*EIDAMO_DETAIL_ATTRIB_TITLE*]</label>\n            <span>[*EIDAMO_DETAIL_ATTRIB_VALUE*]</span>\n        <div class='clear'></div></dd-->\n</dl>",
+      "category": 4,
+      "article": 91198550,
+      "image_large": "upload/products/\u041f\u043e\u0434\u0435\u0440\u0436\u0430\u043d\u043d\u0430\u044f \u043e\u0434\u0435\u0436\u0434\u0430/91198550/91198550.jpg",
+      "create": "2017-04-04T06:27:20.596Z",
+      "sold": false,
+      "description": null
+    },
+    "pk": 4156
+  },
+  {
+    "model": "product.product",
+    "fields": {
+      "slug": "3g6gsgq",
+      "item": 57,
+      "height_field": 999,
+      "width_field": 799,
+      "image": "upload/products/\u041f\u043e\u0434\u0435\u0440\u0436\u0430\u043d\u043d\u0430\u044f \u043e\u0434\u0435\u0436\u0434\u0430/91198700/detail/91198700.jpg",
+      "title": "FDA JACKE KG DA.SO.OLIV NEUW.",
+      "price": "10.50",
+      "update": "2017-04-07T11:53:41.478Z",
+      "price_for_users": "9.50",
+      "details": "<dl class='specifications'>\n<dt>Spezifikationen </dt>\n<dd>\n<label>EAN-Code</label>\n<span>4046872367540</span>\n<div class='clear'></div></dd>\n<dd>\n<label>Warennummer</label>\n<span>63090000</span>\n<div class='clear'></div></dd>\n<!--dd class='[*EIDAMO_DETAIL_ATTRIB_TITLE*]'>\n            <label>[*EIDAMO_DETAIL_ATTRIB_TITLE*]</label>\n            <span>[*EIDAMO_DETAIL_ATTRIB_VALUE*]</span>\n        <div class='clear'></div></dd-->\n</dl>",
+      "category": 4,
+      "article": 91198700,
+      "image_large": "upload/products/\u041f\u043e\u0434\u0435\u0440\u0436\u0430\u043d\u043d\u0430\u044f \u043e\u0434\u0435\u0436\u0434\u0430/91198700/91198700.jpg",
+      "create": "2017-04-04T06:27:20.596Z",
+      "sold": false,
+      "description": null
+    },
+    "pk": 4157
+  }
+          ]
