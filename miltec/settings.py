@@ -263,3 +263,5 @@ PHONE_NUMBERS_FORMATS_BY_REGION = {
 
 # cart
 CART_SESSION_ID = 'cart'
+
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
