@@ -100,6 +100,7 @@ $(function () {
     var ajaxForProducts =  function (urlDjango) {
 
         $.ajax({
+		 cache: false,
             url: urlDjango,
             type: 'get',
             dataType: 'json',
