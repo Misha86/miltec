@@ -194,13 +194,16 @@
                                                 </div>
                                             </dd>
                                             <br/>
-                                            <dd class="description">
 
-                                                <p itemprop="description">
-                                                    {{ product.description|safe|truncatechars:200 }}
-                                                </p>
+                                            {% if product.description %}
+                                                <dd class="description">
 
-                                            </dd>
+                                                    <p itemprop="description">
+                                                        {{ product.description|safe|truncatechars:200 }}
+                                                    </p>
+
+                                                </dd>
+                                            {% endif %}
 
                                             <dd class="price" id="price_1" style="">
                                                 <span class="current_price" itemprop="offers">

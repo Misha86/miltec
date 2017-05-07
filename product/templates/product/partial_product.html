@@ -144,6 +144,7 @@
     <div class="jquery_tabs">
 
         <!-- begin: product-description_?.html -->
+        {% if product.description %}
         <h4>Описание</h4>
 
         <div class="tabs-content">
@@ -154,9 +155,11 @@
             </p>
 
         </div>
+        {% endif %}
         <!-- end: product-description_?.html -->
 
         <!-- begin: product-specifications_?.html -->
+        {% if product.details %}
         <h4>Детали</h4>
 
         <div class="tabs-content">
@@ -164,6 +167,8 @@
             {{ product.details|safe }}
 
         </div>
+        {% endif %}
+
     </div>
     <!-- end: jquery tabs -->
 
