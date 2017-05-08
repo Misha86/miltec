@@ -5,6 +5,7 @@ from .cart import Cart
 from django.core.urlresolvers import reverse
 from django.http import JsonResponse
 from django.template.loader import render_to_string
+from cart.forms import BuyerOrderingForm
 
 
 @require_POST
@@ -47,3 +48,27 @@ def cart_remove(request, product_id, size):
 def cart_detail(request):
     cart = Cart(request)
     return render(request, 'cart_detail.html', {'cart': cart})
+
+
+def ordering(request):
+    cart = Cart(request)
+    if cart:
+        if request.user.is_authenticated():
+            form = BuyerOrderingForm(initial={'email': request.user.email,
+                                              'first_name': request.user.first_name,
+                                              'last_name': request.user.last_name,
+                                              'phone_number': request.user.phone_number,
+                                              'address': request.user.address})
+        else:
+            form = BuyerOrderingForm()
+        if request.POST:
+            form = BuyerOrderingForm(request.POST)
+            if form.is_valid():
+                return redirect('cart:detail')
+
+        context = {'form': form,
+                   'cart': cart}
+
+        return render(request, 'cart_ordering.html', context)
+    else:
+        return redirect('menu:shop')

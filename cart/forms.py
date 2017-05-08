@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django import forms
+from buyer.forms import BuyerRegisterForm
 
 
 class SelectWidget(forms.Select):
@@ -19,3 +20,16 @@ class CartAddProductForm(forms.Form):
                                   widget=SelectWidget)
     update = forms.BooleanField(required=False, initial=False, widget=forms.HiddenInput)
 
+
+class BuyerOrderingForm(BuyerRegisterForm):
+
+    email = forms.EmailField(required=False, widget=forms.EmailInput(attrs={'placeholder': 'E-Mail',
+                                                                            'id': 'userid',
+                                                                            'name': 'userid',
+                                                                            'title': 'E-Mail'}))
+    password1 = None
+    password2 = None
+    sex = None
+
+    class Meta(BuyerRegisterForm.Meta):
+        exclude = ['date_of_birth', 'sex', 'password']

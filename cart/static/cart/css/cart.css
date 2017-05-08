@@ -13,6 +13,7 @@ table.cart th {
 }
 
 table.cart tbody tr.total {
+    font-size: 115%;
     border-top: 2px #800 solid;
     border-bottom: 2px #800 solid;
     font-weight: bold;
@@ -22,6 +23,23 @@ table.cart td a {
     color: white;
     font-style: italic;
     text-decoration: none;
+}
+
+table.cart td p {
+    background-color: rgba(0, 0, 0, 0.43);
+    border-radius: 2px;
+    padding: 2px 2px;
+    box-shadow: 0 0 7px 4px rgba(195, 195, 195, 0.55);
+    margin: 0;
+
+}
+
+table.cart td p a {
+     border-bottom: 1px dotted;
+}
+
+table.cart td p.remove-link {
+    background-color: rgba(136, 0, 0, 0.43);
 }
 
 table.cart td a:hover {
@@ -37,4 +55,41 @@ table.cart td a:hover {
 table.cart img {
     border-radius: 0.3em;
     box-shadow: 0 0 7px 4px rgba(195, 195, 195, 0.55);
+}
+
+#ordering {
+    margin-bottom: 15em;
+    overflow-x: hidden;
+}
+
+#ordering .forms {
+    width: 45%;
+    float: left
+}
+
+#ordering-list {
+    width: 55%;
+    float: left
+}
+
+.cart-ordering table.cart {
+    background-color: rgba(0, 0, 0, 0.43);
+    text-align: left;
+}
+
+.cart-ordering .cart img{
+    max-height: 2.5rem;
+}
+
+.cart-ordering #total_price {
+    text-align: right;
+
+}
+
+.aligned-center {
+    text-align: center;
+}
+
+.aligned-center .check-edit-order-link {
+    border-bottom: 1px dotted;
 }

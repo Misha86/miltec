@@ -1,0 +1,129 @@
+{% extends "base.html" %}{% load staticfiles %}
+
+
+{% block title %}
+    Оформление заказа
+{% endblock %}
+
+{% block script %}
+    <link href="{% static 'css/cart.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'js/cart.js' %}"></script>
+
+    <script src="{% static 'js/jquery.modal.js' %}"></script>
+    <link href="{% static 'css/register.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/jquery.modal.css' %}"/>
+
+    {{ form.media }}
+{% endblock %}
+
+{% block cart %}
+
+    <div class="boxen">
+
+        <div id="ordering" class="my-shop box">
+
+            <div class="forms">
+
+                <div class="form-title">
+                    <h3>Оформление заказа</h3>
+                </div>
+
+                <form class="register yform" method="post" action="">
+
+                    {% csrf_token %}
+
+                    {% for field in form %}
+
+                        {% if field.errors %}
+                            <div class="form-group has-error">
+
+                                {% for error in field.errors %}
+
+                                    <label class="control-label errorlist">
+                                        <em>{{ error }}</em>
+                                    </label>
+
+                                {% endfor %}
+
+                            </div>
+                        {% endif %}
+
+                        <div class="type-text">
+
+                            {{ field.label_tag }}
+
+                            {{ field }}
+
+                            {% if field.help_text %}
+                                <p class="help">{{ field.help_text|safe }}</p>
+                            {% endif %}
+
+                        </div>
+
+                    {% endfor %}
+
+                    <div class="clearfix cart-total">
+                         <span class="cart-return-link">
+                             <span class="btn-link btn-link-gray">
+                                 <a href="{% url 'menu:homepage' %}" class="btn-link-i" name="close">ВЕРНУТЬСЯ НАЗАД</a>
+                             </span>
+                         </span>
+                        <span class="cart-submit">
+                             <span class="btn-link-green btn-link">
+                                 <button class="btn-link-i" id="popup-checkout" type="submit">ОТПРАВИТЬ</button>
+                             </span>
+                         </span>
+                    </div>
+                </form>
+
+            </div>
+
+            <div id="ordering-list">
+                <div class="widget" role="actions">
+
+                    <h2>Список товаров</h2>
+
+                    <div class="cart-ordering">
+
+                        <table class="cart">
+                            <tbody>
+                            {% for item in cart %}
+                                {% with product=item.product %}
+                                    <tr id="cart-product-{{ product.id }}-{{ item.size }}">
+                                        <td>
+                                            <a href="{{ product.get_absolute_url }}">
+                                                <img src="{{ product.image.url }}" alt="{{ product.title }}"/>
+                                            </a>
+                                        </td>
+                                        <td>{{ product.title }}</td>
+                                        <td>{{ item.quantity }}шт.</td>
+                                        <td class="num">{{ item.total_price }} EUR*</td>
+                                    </tr>
+                                {% endwith %}
+                            {% endfor %}
+                            <tr class="total">
+                                <td colspan="2">Всего</td>
+                                <td colspan="2" id="total_price" class="num">{{ cart.get_total_price }} EUR*</td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+                                    <div class="aligned-center">
+                                        <a class="check-edit-order-link"  href="{% url 'cart:detail' %}" name="edit" >
+                                            Редактировать заказ
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div class="widgetBottom"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
