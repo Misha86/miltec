@@ -57,8 +57,7 @@ def ordering(request):
             form = BuyerOrderingForm(initial={'email': request.user.email,
                                               'first_name': request.user.first_name,
                                               'last_name': request.user.last_name,
-                                              'phone_number': request.user.phone_number,
-                                              'address': request.user.address})
+                                              'phone_number': request.user.phone_number})
         else:
             form = BuyerOrderingForm()
         if request.POST:

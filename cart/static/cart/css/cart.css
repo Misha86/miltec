@@ -58,8 +58,14 @@ table.cart img {
 }
 
 #ordering {
-    margin-bottom: 15em;
+    /*margin-bottom: 2em;*/
     overflow-x: hidden;
+}
+
+#map.my-shop {
+    background: none;
+    margin-top: -14em;
+    margin-bottom: 10em;
 }
 
 #ordering .forms {

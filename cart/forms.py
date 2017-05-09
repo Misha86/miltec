@@ -23,6 +23,10 @@ class CartAddProductForm(forms.Form):
 
 class BuyerOrderingForm(BuyerRegisterForm):
 
+    address = forms.CharField(label='Адрес новой почти',
+                              widget=forms.TextInput(attrs={'placeholder': 'введите адрес отделения новой почты'}),
+                              help_text='Відділення №7 вулиця Корольова, 15А, Рівне, Рівненська область')
+
     email = forms.EmailField(required=False, widget=forms.EmailInput(attrs={'placeholder': 'E-Mail',
                                                                             'id': 'userid',
                                                                             'name': 'userid',
