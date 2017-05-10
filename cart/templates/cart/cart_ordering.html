@@ -84,8 +84,14 @@
         }
 
         function initialise (location){
-            {#            console.log(location);#}
-            var myLatLng = {lat: location.coords.latitude, lng: location.coords.longitude};
+{#                        console.log(location);#}
+            var myLatLng;
+            if(location.code == 1){
+                myLatLng = {lat: 50.626867, lng: 26.2052116};
+            } else {
+                myLatLng = {lat: location.coords.latitude, lng: location.coords.longitude};
+            }
+
             var mapOptions = {
                 center: myLatLng,
                 zoom: 12
@@ -131,7 +137,7 @@
                 var map = $('#map');
                 map.show();
 
-                navigator.geolocation.getCurrentPosition(initialise);
+                navigator.geolocation.getCurrentPosition(initialise, initialise);
 
                 $('html, body').animate({
                     scrollTop: map.offset().top - 20
