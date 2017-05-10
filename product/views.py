@@ -25,7 +25,6 @@ def pagination_products(request, products_all, count_products=2):
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         products = paginator.page(paginator.num_pages)
-
     return products
 
 
@@ -59,14 +58,8 @@ def product_list(request, slug=None):
         item = get_object_or_404(Item, slug=slug)
 
         # ordering products
-        ordering = request.GET.get('ordering', '')
-        if ordering != '' and ordering != request.session.get('ordering'):
-            request.session['ordering'] = ordering
-            list_product = item.get_all_products(order_by=ordering)
-        elif request.session.get('ordering'):
-            list_product = item.get_all_products(order_by=request.session.get('ordering'))
-        else:
-            list_product = item.get_all_products(order_by='price')
+        products = item.get_all_products()
+        list_product = ordering_too(request, products)
 
         # view products
         view_page(request)
@@ -96,11 +89,9 @@ def product_details(request, slug=None):
 
         products = pagination_products(request, product.get_item_products(), 1)
 
-        context = {
-            'products': products,
-            'product': product,
-            'item': product.item
-        }
+        context = {'products': products,
+                   'product': product,
+                   'item': product.item}
 
         if products.has_next():
             context['next_slug'] = products.paginator.page(products.next_page_number()).object_list[0].slug
@@ -125,54 +116,38 @@ def search(request):
         query = request.GET.get('q')
         data = dict()
         context = {
-            'search': True
-        }
+            'search': True}
 
         if query and query.isspace() is False:
-
             products_search = Product.objects.filter(
                 Q(title__icontains=query) |
                 Q(description__icontains=query)).distinct()
 
-            data['json_query'] = list(products_search.values_list('title', flat=True))
-
             view_page(request)
 
             if products_search:
-
                 products_ordering = ordering_too(request, products_search)
-
                 products = pagination_products(request, products_ordering, 10)
 
                 context.update({
                     'products': products,
                     'item': {
-                        'title': 'Searchresult',
-                        'returned_title': 'Ваш запрос о поиске » {} « вернул следующее.'.format(query)
-                    }
-                })
-
-            else:
-                context.update({
-                    'item': {
                         'title': 'Результат поиска',
-                        'returned_title': 'Нет результатов поиска ...'
-                    }
-                })
+                        'returned_title': 'Ваш запрос о поиске » {} « вернул следующее.'.format(query)}})
+            else:
+                context['item'] = {'title': 'Результат поиска',
+                                   'returned_title': 'Нет результатов поиска ...'}
 
             data['is_data'] = True
-
             data['html_items'] = render_to_string('product_list.html',
                                                   context,
                                                   request=request)
         else:
-
             data['is_data'] = False
 
         return JsonResponse(data)
 
     else:
-
         return redirect(reverse('menu:shop'))
 
 

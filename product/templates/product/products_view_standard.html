@@ -1,0 +1,84 @@
+{% load staticfiles %}
+
+
+<div class="products viewStandard"> <!-- will be switched using jQuery -->
+    <div class="subcolumns">
+
+        <div class="c50l">
+
+            <div class="subcl">
+
+                <!-- begin: /subtmpl/product-row_list_?.html -->
+
+                {% for product in products %}
+
+                    <div class="product-row hproduct " title="{{ product.title }}" price="{{ product.price }}" itemscope="" itemtype="">
+
+
+                        <a href="{{ product.get_absolute_url }}" title="{{ product.title|upper }}" price="{{ product.price }}" rel="nofollow">
+                            <dl>
+                                <dt title="{{ product.title|upper }}">
+
+                                                <span class="title name fn" itemprop="name">
+                                                    {{ product.title|upper }}
+                                                </span>
+
+                                </dt>
+
+                                <dd id="thumb_1" class="image">
+
+                                    <img itemprop="image" class="photo" src="{{ product.image.url }}" alt="{{ product.title }}">
+
+                                </dd>
+
+                                <dd class="subtitle"></dd>
+
+                                <dd class="articleNr"><label>Article No.:</label>
+                                    <div itemprop="productID">
+                                        {{ product.article }}
+                                    </div>
+                                </dd>
+                                <br/>
+
+                                {% if product.description %}
+                                    <dd class="description">
+
+                                        <p itemprop="description">
+                                            {{ product.description|safe|truncatechars:200 }}
+                                        </p>
+
+                                    </dd>
+                                {% endif %}
+
+                                <dd class="price" id="price_1" style="">
+                                                <span class="current_price" itemprop="offers">
+
+                                                      {% include "product_prices.html" %}
+
+                                                </span>
+                                </dd>
+                            </dl>
+                        </a>
+
+                        <div>
+
+                            {% include "cart_form.html" %}
+
+                        </div>
+
+                    </div>
+
+                {% empty %}
+
+                    <br/><br/>
+
+                    <h1>Список товаров пуст!</h1>
+
+                {% endfor %}
+
+                <!-- end: /subtmpl/product-row_list_?.html -->
+
+            </div>
+        </div>
+    </div>
+</div>

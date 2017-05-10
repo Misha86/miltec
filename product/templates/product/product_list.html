@@ -6,144 +6,61 @@
     <!-- Start des Formulars (anscheinend nur in shop_list nötig)-->
  <div>
         <div class="breadcrumbBar clearfix">
-
             {% include 'breadcrum.html' %}
 
-
             {% include 'tools_pagination.html' %}
-
         </div>
 
-
         {% if not search %}
-
             <div class="categories">
-
                 <!-- Category: Title Only -->
-
                 <div class="category-current">
                     <div class="rubImg-container noRubImg"></div>
-
-                    <h2>
-
-                        {{ item.title }}
-
-                    </h2>
-
+                    <h2>{{ item.title }}</h2>
                 </div>
-
             </div>
-
         {% endif %}
-
-
 
         <div class="toolBar clearfix">
             <div class="tools sortOptions-viewStandard">
-                <span><b>Sort:</b> </span>
+                <span><b>Сортировать:</b></span>
 
                 {% if request.session.ordering != '-title' %}
-
-                    <a href="{% if search %}
-
-                    {% url 'product:search' %}?page={{ products.number }}&ordering=-title{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
-
-                    {% else %}
-
-                    {% url 'product:product_list' item.slug %}?page={{ products.number }}&ordering=-title
-
-                        {% endif %}"
-
+                    <a href="{% if search %}{% url 'product:search' %}?page={{ products.number }}&ordering=-title{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% else %}{% url 'product:product_list' item.slug %}?page={{ products.number }}&ordering=-title{% endif %}"
                        class="sortTitleDesc {% if request.session.ordering == 'title' %}active{% endif %}">
                         <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-sort-alphabet">
-                        <u>Title</u>
+                        <u>Название</u>
                     </a>
-
                 {% elif request.session.ordering != 'title' %}
-
-                    <a href="{% if search %}
-
-                    {% url 'product:search' %}?page={{ products.number }}&ordering=title{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
-
-                    {% else %}
-
-                    {% url 'product:product_list' item.slug %}?page={{ products.number }}&ordering=title
-
-                    {% endif %}"
-
+                    <a href="{% if search %}{% url 'product:search' %}?page={{ products.number }}&ordering=title{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% else %}{% url 'product:product_list' item.slug %}?page={{ products.number }}&ordering=title{% endif %}"
                        class="sortTitleAsc {% if request.session.ordering == '-title' %}active{% endif %}">
                         <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-sort-alphabet-descending">
-                        <u>Title</u>
+                        <u>Название</u>
                     </a>
-
                 {% endif %}
-
 
                 {% if request.session.ordering != '-price' %}
-
-                    <a href="{% if search %}
-
-                    {% url 'product:search' %}?page={{ products.number }}&ordering=-price{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
-
-                    {% else %}
-
-                    {% url 'product:product_list' item.slug %}?page={{ products.number }}&ordering=-price
-
-                    {% endif %}"
-
+                    <a href="{% if search %}{% url 'product:search' %}?page={{ products.number }}&ordering=-price{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% else %}{% url 'product:product_list' item.slug %}?page={{ products.number }}&ordering=-price{% endif %}"
                        class="sortPriceAsc {% if request.session.ordering == 'price' %}active{% endif %}">
                         <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-sort-number">
-                        <u>Price</u>
+                        <u>Цена</u>
                     </a>
-
                 {% elif request.session.ordering != 'price' %}
-
-                    <a href="{% if search %}
-
-                   {% url 'product:search' %}?page={{ products.number }}&ordering=price{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
-
-                    {% else %}
-
-                    {% url 'product:product_list' item.slug %}?page={{ products.number }}&ordering=price
-
-                    {% endif %}"
-
+                    <a href="{% if search %}{% url 'product:search' %}?page={{ products.number }}&ordering=price{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% else %}{% url 'product:product_list' item.slug %}?page={{ products.number }}&ordering=price{% endif %}"
                        class="sortPriceDesc {% if request.session.ordering == '-price' %}active{% endif %}">
                         <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-sort-number-descending">
-                        <u>Price</u>
+                        <u>Цена</u>
                     </a>
-
                 {% endif %}
-
 
             </div>
 
-
             <div class="tools float_right">
-
-                <a href="{% if search %}
-
-                {% url 'product:search' %}?page={{ products.number }}&view=standard{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
-
-                {% else %}
-
-                {% url 'product:product_list' item.slug %}?page={{ products.number }}&view=standard
-
-                {% endif %}"
-
+                <a href="{% if search %}{% url 'product:search' %}?page={{ products.number }}&view=standard{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% else %}{% url 'product:product_list' item.slug %}?page={{ products.number }}&view=standard{% endif %}"
                    title="List View" class="display-viewStandard {% if request.session.view != 'grid' %}display-viewStandard-active{% endif %}">
                     <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-edit-list">
                 </a>
-
-                <a href="{% if search %}
-
-                {% url 'product:search' %}?page={{ products.number }}&view=grid{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
-
-                {% else %}
-
-                {% url 'product:product_list' item.slug %}?page={{ products.number }}&view=grid
-
-                {% endif %}"
+                <a href="{% if search %}{% url 'product:search' %}?page={{ products.number }}&view=grid{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% else %}{% url 'product:product_list' item.slug %}?page={{ products.number }}&view=grid{% endif %}"
                    title="Grid View" class="display-viewGrid {% if request.session.view == 'grid' %}display-viewGrid-active{% endif %}">
                     <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-grid">
                 </a>
@@ -151,190 +68,13 @@
 
         </div>
 
-        <!-- begin: products standard view -->
         {% if request.session.view != 'grid' %}
 
-            <div class="products viewStandard"> <!-- will be switched using jQuery -->
-
-
-                <div class="subcolumns">
-
-                    <div class="c50l">
-
-                        <div class="subcl">
-
-                            <!-- begin: /subtmpl/product-row_list_?.html -->
-
-                            {% for product in products %}
-
-                                <div class="product-row hproduct " title="{{ product.title }}" price="{{ product.price }}" itemscope="" itemtype="">
-
-
-                                    <a href="{{ product.get_absolute_url }}" title="{{ product.title|upper }}" price="{{ product.price }}" rel="nofollow">
-                                        <dl>
-                                            <dt title="{{ product.title|upper }}">
-
-                                                <span class="title name fn" itemprop="name">
-                                                    {{ product.title|upper }}
-                                                </span>
-
-                                            </dt>
-
-                                            <dd id="thumb_1" class="image">
-
-                                                <img itemprop="image" class="photo" src="{{ product.image.url }}" alt="{{ product.title }}">
-
-                                            </dd>
-
-                                            <dd class="subtitle"></dd>
-
-                                            <dd class="articleNr"><label>Article No.:</label>
-                                                <div itemprop="productID">
-                                                    {{ product.article }}
-                                                </div>
-                                            </dd>
-                                            <br/>
-
-                                            {% if product.description %}
-                                                <dd class="description">
-
-                                                    <p itemprop="description">
-                                                        {{ product.description|safe|truncatechars:200 }}
-                                                    </p>
-
-                                                </dd>
-                                            {% endif %}
-
-                                            <dd class="price" id="price_1" style="">
-                                                <span class="current_price" itemprop="offers">
-
-                                                      {% include "product_prices.html" %}
-
-                                                </span>
-                                            </dd>
-                                        </dl>
-                                    </a>
-
-                                    <div>
-
-                                        {% include "cart_form.html" %}
-
-                                    </div>
-
-                                </div>
-
-                            {% empty %}
-
-                                <br/><br/>
-
-                                <h1>Список товаров пуст!</h1>
-
-                            {% endfor %}
-
-                            <!-- end: /subtmpl/product-row_list_?.html -->
-
-                        </div>
-                    </div>
-
-
-                </div>
-
-
-            </div>
-
-            <!-- end: listings standard view -->
+            {% include 'products_view_standard.html' %}
 
         {% else %}
 
-            <div class="products viewGrid"> <!-- will be switched using jQuery -->
-
-
-                <div class="subcolumns"><!-- 2 Column with 50/50 split -->
-
-                    {% for product in products %}
-
-                        <div class="{% cycle 'c50l' 'c50r' %}">
-
-                            <div class="subcl">
-
-
-                                <!-- begin: /subtmpl/product-row_list_?.html -->
-
-
-                                <div class="product-row hproduct " title="{{ product.title }}" price="{{ product.price }}">
-
-
-                                    <a href="{{ product.get_absolute_url }}" title="{{ product.title }}" price="{{ product.price }}" rel="nofollow">
-                                        <dl>
-                                            <dt title="{{ product.title|upper }}">
-
-        <span class="title name fn" itemprop="name">
-            {{ product.title|upper }}
-        </span>
-
-                                            </dt>
-
-                                            <dd id="thumb_168" class="image">
-
-                                                <img itemprop="image" class="photo" src="{{ product.image.url }}" alt="{{ product.title|upper }}">
-
-                                            </dd>
-
-
-                                            <dd class="subtitle"></dd>
-
-                                            <dd class="articleNr"><label>Article No.:
-                                            </label>
-                                                <div itemprop="productID">
-                                                    {{ product.article }}
-                                                </div>
-                                            </dd>
-
-                                            <dd class="description">
-
-                                                <p itemprop="description">
-
-                                                    {{ product.discription|truncatechars:200 }}
-
-                                                </p>
-
-                                            </dd>
-
-                                            <!-- EIDAMO_LIST_INQUIRY_START:1 -->
-
-                                            <dd class="price" id="price_168" style="">
-
-
-			<span class="current_price" itemprop="offers" itemscope="" itemtype="">
-
-                 {% include "product_prices.html" %}
-
-			</span>
-
-                                            </dd>
-
-                                        </dl>
-                                    </a>
-
-                                    <div class="grid-card-form">
-
-                                        {% include "cart_form.html" %}
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    {% empty %}
-
-                        <br/><br/>
-                        <h1>Список пуст!</h1>
-
-                    {% endfor %}
-
-                </div><!-- end: 2 Column with 50/50 split -->
-
-            </div>
+            {% include 'products_view_grid.html' %}
 
         {% endif %}
 
@@ -346,44 +86,22 @@
         <div class="bottomToolBar clearfix" style="border-bottom: 1px solid #d6d6d6;">
 
         <!-- begin: breadcrumbs: nav_list_top_?.html -->
-
         {% include 'tools_pagination.html' %}
-
         <!-- begin: nav_list_bottom_?.html -->
-
 
         <div class="bottomToolBar clearfix pagination">
             <span class="product-list-status">page:
 
                 {% for page in products.paginator.page_range %}
                     {% if page == products.number %}
-                        <a class="os_pages active" href="{% if search %}
-
-                        {% url 'product:search' %}?page={{ page }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
-
-                        {% else %}
-
-                        {% url 'product:product_list' item.slug %}?page={{ page }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
-
-                        {% endif %}">
-
+                        <a class="os_pages active" href="{% if search %}{% url 'product:search' %}?page={{ page }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% else %}{% url 'product:product_list' item.slug %}?page={{ page }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% endif %}">
                             {{ page }}
                         </a> |
                     {% else %}
-                        <a class="os_pages" href="{% if search %}
-
-                        {% url 'product:search' %}?page={{ page }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
-
-                        {% else %}
-
-                        {% url 'product:product_list' item.slug %}?page={{ page }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
-
-                        {% endif %}">
-
+                        <a class="os_pages" href="{% if search %}{% url 'product:search' %}?page={{ page }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% else %}{% url 'product:product_list' item.slug %}?page={{ page }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% endif %}">
                             {{ page }}
                         </a> |
                     {% endif%}
-
                 {% endfor %}
 
                 </span>

@@ -15,13 +15,7 @@
 
                     <td>
                         <a href="{{ cat.get_absolute_url }}">
-                            <img src="
-                            {% if cat.image %}
-                            {{ cat.image.url }}
-                            {% else %}
-                            {{ cat.get_all_products.0.image.url }}
-                            {% endif %}
-                            ">
+                            <img src="{% if cat.image %}{{ cat.image.url }}{% else %}{{ cat.get_all_products.0.image.url }}{% endif %}">
                             <h2 class="uppercase">
                                 {{ cat.title }}
                             </h2>

@@ -7,8 +7,6 @@
     <div class="breadcrumbBar clearfix">
 
         {% include 'breadcrum.html' %}
-
-
         {% include 'product_pagination.html' %}
 
     </div>
@@ -17,10 +15,7 @@
         <div class="product-details">
             <dl>
                 <dt title="{{ product.title|upper }}">
-                <h1>
-
-                    <span itemprop="name">{{ product.title|upper }}</span>
-                </h1>
+                <h1><span itemprop="name">{{ product.title|upper }}</span></h1>
                 </dt>
 
                 <!-- begin include: pic_detail_?.html -->
@@ -45,6 +40,7 @@
                 <script src="{% static 'js/jquery.prettyPhoto.js' %}" type="text/javascript" charset="utf-8"></script>
                 <!-- Accessible Tabs -->
                 <script src="{% static 'js/jquery.tabs.js' %}" type="text/javascript" charset="utf-8"></script>
+
                 <script type="text/javascript">
 
                     // Scaling for product-details image
@@ -116,25 +112,20 @@
                 <dd class="articleNr">
                     <label>Article No.:</label>
                     <div itemprop="{{ product.id }}">
-
                         {{ product.article }}
-
                     </div>
                 </dd>
 
                 <!-- EIDAMO_LIST_INQUIRY_START:1 -->
                 <dd class="price" id="price_1" style="">
+                    <span class="current_price" itemprop="offers" itemscope="" itemtype="">
 
-                <span class="current_price" itemprop="offers" itemscope="" itemtype="">
+                         {% include "product_prices.html" %}
+                        {% include "cart_form.html" %}
 
-                     {% include "product_prices.html" %}
-
-                    {% include "cart_form.html" %}
-
-			</span>
+                    </span>
                 </dd>
             </dl>
-
             </dl>
 
         </div>
@@ -142,38 +133,27 @@
 
     <!-- begin: jquery tabs -->
     <div class="jquery_tabs">
-
         <!-- begin: product-description_?.html -->
         {% if product.description %}
-        <h4>Описание</h4>
-
-        <div class="tabs-content">
-
-            <!-- Artikelbeschreibung -->
-            <p>
-                {{ product.description|safe }}
-            </p>
-
-        </div>
+            <h4>Описание</h4>
+            <div class="tabs-content">
+                <!-- Artikelbeschreibung -->
+                <p>{{ product.description|safe }}</p>
+            </div>
         {% endif %}
         <!-- end: product-description_?.html -->
 
         <!-- begin: product-specifications_?.html -->
         {% if product.details %}
-        <h4>Детали</h4>
-
-        <div class="tabs-content">
-
-            {{ product.details|safe }}
-
-        </div>
+            <h4>Детали</h4>
+            <div class="tabs-content">
+                {{ product.details|safe }}
+            </div>
         {% endif %}
-
     </div>
     <!-- end: jquery tabs -->
 
     <div class="bottomToolBar clearfix">
-
         <div class="buttonsContainer" style="float:left;">
             <a href="#" onclick="history.go(-1)" class="formButton">
                 <span><b>back</b></span>
@@ -181,13 +161,10 @@
         </div>
 
         <!-- begin: nav_detail_bottom_?.html -->
-
         {% include 'product_pagination.html' %}
-
         <!-- end: nav_detail_bottom_?.html -->
 
     </div>
-
 </div>
 <!-- end: article detail specific content -->
 

@@ -34,8 +34,6 @@
                   </a>
               </li>
 
-              <!-- NEWS / AKTUELLES -->
-
               <!-- CONTACT / KONTAKT -->
               <li id="id_nav_top_contact">
                   <a href="#" title="КОНТАКТЫ" target="_blank">
@@ -45,18 +43,11 @@
                   </a>
               </li>
 
-              <!-- Seller / Verkäufer -->
-
-
-              <!-- Katalog -->
-
           </ul>
       </div>
 
          {% if request.path != "/" %}
 
-             <!-- begin: main search form: form_search_?.html -->
-             <!-- begin: eidamo search -->
              <form method="get" class="searchForm" id="searchForm" action="{% url 'product:search' %}" >
 
                  <div class="searchInput">

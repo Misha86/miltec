@@ -6,7 +6,6 @@ from django.template.loader import render_to_string
 from django.http import JsonResponse
 
 
-
 def bootstrap_query(array, num):
     new_list = []
     length = int(len(array)//num)

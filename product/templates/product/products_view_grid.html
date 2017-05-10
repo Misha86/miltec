@@ -1,0 +1,88 @@
+{% load staticfiles %}
+
+
+<div class="products viewGrid">
+    <div class="subcolumns">
+
+        {% for product in products %}
+
+            <div class="{% cycle 'c50l' 'c50r' %}">
+
+                <div class="subcl">
+
+                    <!-- begin: /subtmpl/product-row_list_?.html -->
+
+                    <div class="product-row hproduct " title="{{ product.title }}" price="{{ product.price }}">
+
+
+                        <a href="{{ product.get_absolute_url }}" title="{{ product.title }}" price="{{ product.price }}" rel="nofollow">
+                            <dl>
+                                <dt title="{{ product.title|upper }}">
+
+                                                <span class="title name fn" itemprop="name">
+                                                    {{ product.title|upper }}
+                                                </span>
+
+                                </dt>
+
+                                <dd id="thumb_168" class="image">
+
+                                    <img itemprop="image" class="photo" src="{{ product.image.url }}" alt="{{ product.title|upper }}">
+
+                                </dd>
+
+
+                                <dd class="subtitle"></dd>
+
+                                <dd class="articleNr"><label>Article No.:
+                                </label>
+                                    <div itemprop="productID">
+                                        {{ product.article }}
+                                    </div>
+                                </dd>
+
+                                <dd class="description">
+
+                                    <p itemprop="description">
+
+                                        {{ product.discription|truncatechars:200 }}
+
+                                    </p>
+
+                                </dd>
+
+                                <!-- EIDAMO_LIST_INQUIRY_START:1 -->
+
+                                <dd class="price" id="price_168" style="">
+
+
+			<span class="current_price" itemprop="offers" itemscope="" itemtype="">
+
+                 {% include "product_prices.html" %}
+
+			</span>
+
+                                </dd>
+
+                            </dl>
+                        </a>
+
+                        <div class="grid-card-form">
+
+                            {% include "cart_form.html" %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        {% empty %}
+
+            <br/><br/>
+            <h1>Список пуст!</h1>
+
+        {% endfor %}
+
+    </div>
+
+</div>

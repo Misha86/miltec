@@ -7,15 +7,7 @@
 
     {% if products.has_previous %}
 
-        <a href="{% if search %}
-
-                        {% url 'product:search' %}?page={{ products.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
-
-                        {% else %}
-
-                           {% url 'product:product_list' item.slug %}?page={{ products.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
-
-                        {% endif %}"
+        <a href="{% if search %}{% url 'product:search' %}?page={{ products.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% else %}{% url 'product:product_list' item.slug %}?page={{ products.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% endif %}"
 
            title="Return" class="prevPage">
             <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-arrow-180">
@@ -25,15 +17,8 @@
 
     {% if products.has_next %}
 
-        <a href="{% if search %}
+        <a href="{% if search %}{% url 'product:search' %}?page={{ products.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% else %}{% url 'product:product_list' item.slug %}?page={{ products.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% endif %}"
 
-                        {% url 'product:search' %}?page={{ products.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
-
-                        {% else %}
-
-                        {% url 'product:product_list' item.slug %}?page={{ products.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}
-
-                        {% endif %}"
            title="Continue" class="nextPage">
             <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-arrow">
         </a>

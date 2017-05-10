@@ -11,6 +11,7 @@ from django.db import models
 from django.utils.text import slugify
 from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
 from django.contrib.contenttypes.models import ContentType
+from django.db.models import Q
 
 
 class ItemManager(models.Manager):
@@ -64,7 +65,11 @@ class Item(models.Model):
 
     def children(self):
         instance = self
-        return Item.objects.filter(parent=instance)
+        item_children = Item.objects.filter(parent=instance)
+        if item_children.exists():
+            return item_children
+        else:
+            return []
 
     def category(self):
         if self.content_type.model_class() == Category:
@@ -78,28 +83,9 @@ class Item(models.Model):
         instance = self
         return hasattr(instance.parent, 'children')
 
-    def get_all_products(self, order_by=None):
-        products = []
-
-        if order_by is not None:
-            products_self = self.products.all().order_by(order_by)
-        else:
-            products_self = self.products.all()
-        children = self.children()
-
-        if products_self.exists():
-
-            products += products_self
-
-        if children:
-            for child in children:
-                if order_by is not None:
-                    products_list = child.products.all().order_by(order_by)
-                else:
-                    products_list = child.products.all()
-
-                if products_list.exists():
-                    products += products_list
+    def get_all_products(self):
+        from product.models import Product
+        products = Product.objects.filter(Q(item__in=self.children()) | Q(item=self)).distinct()
         return products
 
     def get_absolute_url(self):
