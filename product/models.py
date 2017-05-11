@@ -51,8 +51,8 @@ class Product(models.Model):
     image = models.ImageField(verbose_name="Картинка", upload_to=upload_location, width_field="width_field",
                               height_field="height_field", blank=True, null=True,
                               help_text="Зображення товару")
-    image_large = models.ImageField(verbose_name="Велика картинка", upload_to=upload_location2, width_field="width_field",
-                                    height_field="height_field", blank=True, null=True,
+    image_large = models.ImageField(verbose_name="Велика картинка", upload_to=upload_location2,
+                                    width_field="width_field", height_field="height_field", blank=True, null=True,
                                     help_text="Зображення товару для детального перегляду")
     width_field = models.IntegerField(default=0, verbose_name="Ширина картинки в пікселях")
     height_field = models.IntegerField(default=0, verbose_name="Висота картинки в пікселях")
@@ -137,12 +137,12 @@ class Size(models.Model):
         verbose_name_plural = "Размеры"
 
     def __str__(self):
-        return self.title
+        return str(self.title)
 
 
 class SizeCount(models.Model):
-    size = models.ForeignKey(Size, related_name='size_count')
-    product = models.ForeignKey(Product, related_name='size_count')
+    size = models.ForeignKey(Size, related_name='size_count', on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, related_name='size_count', on_delete=models.CASCADE)
     count = models.IntegerField(verbose_name="Количество", default=0)
 
     class Meta:

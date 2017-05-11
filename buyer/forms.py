@@ -29,7 +29,7 @@ class BuyerLoginForm(forms.Form):
                                                                       'name': 'userid',
                                                                       'title': 'E-Mail'}))
 
-    password = forms.CharField(label="", widget=forms.PasswordInput(attrs={'placeholder': 'Password',
+    password = forms.CharField(label="", widget=forms.PasswordInput(attrs={'placeholder': '•••••••••••',
                                                                            'id': 'pw',
                                                                            'name': 'pw',
                                                                            'title': 'password',

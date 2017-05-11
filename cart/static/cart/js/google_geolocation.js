@@ -57,7 +57,7 @@ function initialise (location){
     //console.log(location);
     var myLatLng;
     if(location.code == 1){
-        myLatLng = {lat: 50.626867, lng: 26.2052116};
+        myLatLng = {lat: 50.61968772, lng: 26.25092292};
     } else {
         myLatLng = {lat: location.coords.latitude, lng: location.coords.longitude};
     }

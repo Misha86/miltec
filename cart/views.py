@@ -1,3 +1,6 @@
+# -*- coding: UTF-8 -*-
+from __future__ import unicode_literals
+
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.http import require_POST
 from product.models import Product
@@ -5,7 +8,10 @@ from .cart import Cart
 from django.core.urlresolvers import reverse
 from django.http import JsonResponse
 from django.template.loader import render_to_string
-from cart.forms import BuyerOrderingForm
+from cart.forms import SendMassageForm
+from django.conf import settings
+from django.core.mail import send_mail
+from django.core.mail import EmailMultiAlternatives
 
 
 @require_POST
@@ -54,20 +60,43 @@ def ordering(request):
     cart = Cart(request)
     if cart:
         if request.user.is_authenticated():
-            form = BuyerOrderingForm(initial={'email': request.user.email,
-                                              'first_name': request.user.first_name,
-                                              'last_name': request.user.last_name,
-                                              'phone_number': request.user.phone_number})
+            massage_form = SendMassageForm(initial={'cart_email': request.user.email,
+                                                    'first_name': request.user.first_name,
+                                                    'last_name': request.user.last_name,
+                                                    'phone_number': request.user.phone_number})
         else:
-            form = BuyerOrderingForm()
+            massage_form = SendMassageForm()
+
         if request.POST:
-            form = BuyerOrderingForm(request.POST)
-            if form.is_valid():
+            massage_form = SendMassageForm(request.POST)
+            if massage_form.is_valid():
+                cart_email = massage_form.cleaned_data['cart_email']
+                first_name = massage_form.cleaned_data['first_name']
+                last_name = massage_form.cleaned_data['last_name']
+                phone_number = massage_form.cleaned_data['phone_number']
+                address = massage_form.cleaned_data['address']
+
+                html_content = '<p>This is an <strong>important</strong> message.</p>'
+
+                subject = "{} {}".format(first_name.title(), last_name.title())
+                massage = "E-mail: {};\nPhone number: {}\nPost address: {}".format(cart_email, phone_number, address)
+                from_email = settings.EMAIL_HOST_USER
+                to_email = [settings.EMAIL_HOST_USER, 'mishaelitzem2@rambler.ru']
+                send_mail(subject, massage, from_email, to_email, html_message=html_content, fail_silently=False)
+
+                msg = EmailMultiAlternatives(subject, massage, from_email, to_email)
+                msg.attach_alternative(html_content, "text/html")
+                # msg.send()
+                # messages.success(request, _('Повідомлення відправлено успішно!'), extra_tags='success')
                 return redirect('cart:detail')
 
-        context = {'form': form,
+        context = {'form': massage_form,
                    'cart': cart}
 
         return render(request, 'cart_ordering.html', context)
     else:
         return redirect('menu:shop')
+
+
+
+

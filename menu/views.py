@@ -27,12 +27,11 @@ def shop(request):
     categories_all = Category.objects.all()
     categories = categories_all.filter(promotions=False)
     categories_list = bootstrap_query(categories, 2)
-    context = {
-        'category_title': 'ТОВАРЫ',
-        'menu_list': categories_list,
-        'categories': categories,
-        'promotions': categories_all.filter(promotions=True)
-    }
+    context = {'category_title': 'ТОВАРЫ',
+               'menu_list': categories_list,
+               'categories': categories,
+               'promotions': categories_all.filter(promotions=True)}
+
     return render(request, "shop.html", context)
 
 
@@ -43,10 +42,10 @@ def items_list(request, slug=None):
         category = get_object_or_404(Category, slug=slug)
         items = category.items.all()
         if items.exists():
-            items_list = bootstrap_query(items, 2)
+            items_bootstrap = bootstrap_query(items, 2)
             context = {
                 'category_title': category.title,
-                'menu_list': items_list,
+                'menu_list': items_bootstrap,
                 }
             data['html_items'] = render_to_string('partial_shop_main.html',
                                                   context,

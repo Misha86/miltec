@@ -67,10 +67,8 @@ def product_list(request, slug=None):
         # pagination products
         products = pagination_products(request, list_product, 10)
 
-        context = {
-            'products': products,
-            'item': item
-        }
+        context = {'products': products,
+                   'item': item}
 
         data['html_items'] = render_to_string('product_list.html',
                                               context,

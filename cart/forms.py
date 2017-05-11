@@ -21,19 +21,20 @@ class CartAddProductForm(forms.Form):
     update = forms.BooleanField(required=False, initial=False, widget=forms.HiddenInput)
 
 
-class BuyerOrderingForm(BuyerRegisterForm):
+class SendMassageForm(BuyerRegisterForm):
 
     address = forms.CharField(label='Адрес новой почти',
-                              widget=forms.TextInput(attrs={'placeholder': 'введите адрес отделения новой почты'}),
+                              widget=forms.TextInput(attrs={'placeholder': 'выбирите адрес отделения новой почты'}),
                               help_text='Відділення №7 вулиця Корольова, 15А, Рівне, Рівненська область')
 
-    email = forms.EmailField(required=False, widget=forms.EmailInput(attrs={'placeholder': 'E-Mail',
-                                                                            'id': 'userid',
-                                                                            'name': 'userid',
-                                                                            'title': 'E-Mail'}))
+    cart_email = forms.EmailField(label='E-mail',
+                                  required=False, widget=forms.EmailInput(attrs={'placeholder': 'E-Mail',
+                                                                                 'id': 'userid',
+                                                                                 'name': 'userid',
+                                                                                 'title': 'E-Mail'}))
     password1 = None
     password2 = None
     sex = None
 
     class Meta(BuyerRegisterForm.Meta):
-        exclude = ['date_of_birth', 'sex', 'password']
+        exclude = ['date_of_birth', 'sex', 'password', 'email']

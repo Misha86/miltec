@@ -1,0 +1,74 @@
+[
+{
+  "model": "product.size",
+  "pk": 3,
+  "fields": {
+    "title": "42",
+    "items": [
+      87
+    ]
+  }
+},
+{
+  "model": "product.size",
+  "pk": 4,
+  "fields": {
+    "title": "43",
+    "items": [
+      87
+    ]
+  }
+},
+{
+  "model": "product.size",
+  "pk": 5,
+  "fields": {
+    "title": "40",
+    "items": [
+      19,
+      163,
+      265,
+      312
+    ]
+  }
+},
+{
+  "model": "product.size",
+  "pk": 6,
+  "fields": {
+    "title": "39",
+    "items": [
+      19,
+      163,
+      265,
+      312
+    ]
+  }
+},
+{
+  "model": "product.size",
+  "pk": 7,
+  "fields": {
+    "title": "44",
+    "items": [
+      19,
+      163,
+      265,
+      312
+    ]
+  }
+},
+{
+  "model": "product.size",
+  "pk": 8,
+  "fields": {
+    "title": "45",
+    "items": [
+      19,
+      163,
+      265,
+      312
+    ]
+  }
+}
+]
