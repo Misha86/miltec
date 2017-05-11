@@ -101,9 +101,9 @@ def ordering(request):
                     msg.attach(image)
 
                 msg.send()
+                del request.session['cart']
 
                 messages.success(request, 'Заказ офомлен успешно. Ждите нашего дзвонка!', extra_tags='success')
-                # return redirect('/cart/ordering/')
                 return redirect('menu:homepage')
 
         context = {'form': massage_form,
