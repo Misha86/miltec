@@ -79,7 +79,7 @@ def ordering(request):
 
                 subject = "{} {}".format(first_name.title(), last_name.title())
                 from_email = settings.EMAIL_HOST_USER
-                to_email = [settings.EMAIL_HOST_USER, 'mishaelitzem2@rambler.ru']
+                to_email = [settings.EMAIL_HOST_USER, 'mishaelitzem2@rambler.ru', 'brute_force@ukr.net']
 
                 context = {'buyer': subject,
                            'phone_number': phone_number,
