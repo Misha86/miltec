@@ -12214,15 +12214,6 @@
 },
 {
   "model": "product.sizecount",
-  "pk": 1366,
-  "fields": {
-    "size": 8,
-    "product": 4082,
-    "count": 20
-  }
-},
-{
-  "model": "product.sizecount",
   "pk": 1367,
   "fields": {
     "size": 8,
