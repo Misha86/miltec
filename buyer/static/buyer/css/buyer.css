@@ -4,13 +4,25 @@
     color:#941912;
 }
 
+
+.has-success .control-label {
+    color: #01e401;
+    font-weight: bold;
+    font-size: 1.1em;
+    text-align: center;
+    text-shadow: 0 0 2px #282a22,
+    -1px -1px 0 hsl(0, 0%, 49%),
+    -2px -2px 1px hsl(300, 0%, 71%),
+    -2px -2px 2px hsl(0, 0%, 100%);
+}
+
 .has-error .control-label {
     color: red;
     font-weight: bold;
     font-size: 1.1em;
     text-align: center;
-    text-shadow: 0 0 2px #fff,
-    -1px -1px 0 hsl(330, 1%, 72%),
+    text-shadow: 0 0 2px #ffffff,
+    -1px -1px 0 hsl(300, 0%, 71%),
     -2px -2px 1px hsl(330, 0%, 49%),
     -2px -2px 2px hsl(80, 10%, 15%);
 }

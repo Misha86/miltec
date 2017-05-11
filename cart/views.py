@@ -12,6 +12,7 @@ from cart.forms import SendMassageForm
 from django.conf import settings
 from django.core.mail import send_mail
 from django.core.mail import EmailMultiAlternatives
+from django.contrib import messages
 
 
 @require_POST
@@ -82,13 +83,14 @@ def ordering(request):
                 massage = "E-mail: {};\nPhone number: {}\nPost address: {}".format(cart_email, phone_number, address)
                 from_email = settings.EMAIL_HOST_USER
                 to_email = [settings.EMAIL_HOST_USER, 'mishaelitzem2@rambler.ru']
-                send_mail(subject, massage, from_email, to_email, html_message=html_content, fail_silently=False)
+                # send_mail(subject, massage, from_email, to_email, html_message=html_content, fail_silently=False)
 
                 msg = EmailMultiAlternatives(subject, massage, from_email, to_email)
                 msg.attach_alternative(html_content, "text/html")
                 # msg.send()
-                # messages.success(request, _('Повідомлення відправлено успішно!'), extra_tags='success')
-                return redirect('cart:detail')
+
+                messages.success(request, 'Заказ офомлен успешно. Ждите нашего дзвонка!', extra_tags='success')
+                return redirect('menu:homepage')
 
         context = {'form': massage_form,
                    'cart': cart}

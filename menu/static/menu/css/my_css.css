@@ -231,3 +231,9 @@ div#fix-head div#topnav {
     margin: auto;
     float: none
 }
+
+.messages p {
+    line-height: 20px;
+    font-weight: bold;
+}
+
