@@ -1,0 +1,136 @@
+{% extends "base.html" %}{% load staticfiles %}
+
+{% block script %}
+    <link href="{% static 'css/cart.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'js/cart.js' %}"></script>
+{% endblock %}
+
+{% block cart %}
+
+    <div id="cart-details" class="my-shop" style="">
+
+        <style>
+            table.cart {
+                color: #000000;
+                width: 98%;
+                text-align: center;
+                text-shadow: 0 0 1px #acacac,
+                -1px -1px 0 hsl(0, 0%, 33%),
+                -2px -2px 1px hsl(0, 0%, 0%),
+                -2px -2px 2px hsl(0, 100%, 26%);
+            }
+
+            table.cart th {
+                color: #000000;
+                border: 2px #800 solid;
+            }
+
+            .cart tbody td {
+                border: 2px #000000 solid;
+            }
+
+            table.cart tbody tr.total {
+                font-size: 115%;
+                border-top: 2px #800 solid;
+                border-bottom: 2px #800 solid;
+                font-weight: bold;
+            }
+
+            table.cart td a {
+                color: #880000;
+                font-style: italic;
+                text-decoration: none;
+            }
+
+            table.cart td p {
+                background-color: rgba(0, 0, 0, 0.43);
+                border-radius: 2px;
+                padding: 2px 2px;
+                box-shadow: 0 0 7px 4px rgba(195, 195, 195, 0.55);
+                margin: 0;
+
+            }
+
+            table.cart td p a {
+                border-bottom: 1px dotted;
+            }
+
+            table.cart img {
+                border-radius: 0.3em;
+                box-shadow: 0 0 7px 4px rgba(195, 195, 195, 0.55);
+            }
+
+        </style>
+
+        <p><strong>Покупатель: </strong>{{ buyer }}</p>
+        <p><strong>Номер телефона: </strong>{{ phone_number }}</p>
+        <p><strong>Адрес Новой почти: </strong>{{ address }}</p>
+
+        {% if cart_email %}
+            <p><strong>E-mail: </strong>{{ cart_email }}</p>
+        {% endif %}
+
+        <div class="form-title" style="text-align: center">
+            <h3>Заказ от {{ buyer }}</h3>
+        </div>
+
+        <table class="cart">
+            <thead>
+            <tr>
+                <th>Изображение</th>
+                <th>Продукт</th>
+                <th>Количество</th>
+                <th>Размер</th>
+                <th>Полная цена</th>
+                <th>Цена</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in cart %}
+                {% with product=item.product %}
+                    <tr id="cart-product-{{ product.id }}-{{ item.size }}">
+                        <td>
+                            <a>
+                                <img src="cid:{{ product.article }}" alt="" style="max-height: 5rem"/>
+                            </a>
+                        </td>
+                        <td style="text-align: left">
+                            <p>{{ product.title }}</p>
+                        </td>
+                        <td>
+                            <p>{{ item.quantity }}</p>
+                        </td>
+
+                        {% if  item.size %}
+                            <td>
+                                <p>{{ item.size }}</p>
+                            </td>
+                        {% else %}
+                            <td>
+                                <p>-</p>
+                            </td>
+                        {% endif %}
+
+                        <td class="num">
+                            <p>{{ item.price }} EUR*</p>
+                        </td>
+                        <td class="num">
+                            <p>{{ item.total_price }} EUR*</p>
+                        </td>
+                    </tr>
+                {% endwith %}
+            {% endfor %}
+            <tr class="total">
+                <td colspan="2"></td>
+                 <td colspan="2">
+                    <p>Стоимость всего:</p>
+                </td>
+                <td colspan="2" id="total_price" class="num">
+                    <p>{{ cart.get_total_price }} EUR*</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

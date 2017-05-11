@@ -10,9 +10,9 @@ from django.http import JsonResponse
 from django.template.loader import render_to_string
 from cart.forms import SendMassageForm
 from django.conf import settings
-from django.core.mail import send_mail
 from django.core.mail import EmailMultiAlternatives
 from django.contrib import messages
+from email.mime.image import MIMEImage
 
 
 @require_POST
@@ -77,20 +77,34 @@ def ordering(request):
                 phone_number = massage_form.cleaned_data['phone_number']
                 address = massage_form.cleaned_data['address']
 
-                html_content = '<p>This is an <strong>important</strong> message.</p>'
-
                 subject = "{} {}".format(first_name.title(), last_name.title())
-                massage = "E-mail: {};\nPhone number: {}\nPost address: {}".format(cart_email, phone_number, address)
                 from_email = settings.EMAIL_HOST_USER
                 to_email = [settings.EMAIL_HOST_USER, 'mishaelitzem2@rambler.ru']
-                # send_mail(subject, massage, from_email, to_email, html_message=html_content, fail_silently=False)
 
-                msg = EmailMultiAlternatives(subject, massage, from_email, to_email)
-                msg.attach_alternative(html_content, "text/html")
-                # msg.send()
+                context = {'buyer': subject,
+                           'phone_number': phone_number,
+                           'address': address,
+                           'cart': cart}
+                if cart_email:
+                    context['cart_email'] = cart_email
+
+                html_message = render_to_string('send_ordering.html', context, request=request).strip()
+
+                msg = EmailMultiAlternatives(subject, html_message,  from_email, to_email)
+                msg.content_subtype = 'html'
+                msg.mixed_subtype = 'related'
+
+                for item in cart:
+                    # Create an inline attachment
+                    image = MIMEImage(item['product'].image.read())
+                    image.add_header('Content-ID', '<{}>'.format(item['product'].article))
+                    msg.attach(image)
+
+                msg.send()
 
                 messages.success(request, 'Заказ офомлен успешно. Ждите нашего дзвонка!', extra_tags='success')
-                return redirect('menu:homepage')
+                return redirect('/cart/ordering/')
+                # return redirect('menu:homepage')
 
         context = {'form': massage_form,
                    'cart': cart}

@@ -220,7 +220,6 @@
                                 <div class="buttonsContainer">
                                     <a  href="{% url 'buyer:update' %}" title="Изменить профиль" class="formButton">
                                         <b>Изменить профиль</b>
-
                                     </a>
                                 </div>
 
@@ -243,32 +242,31 @@
                         </div>
 
                         <div class="shop box">
+                            {% if request.user.is_authenticated %}
 
-                            <h3>ИНТЕРНЕТ МАГАЗИН</h3>
+                                <div class="textContainer">
+                                    <h3>ИНТЕРНЕТ МАГАЗИН</h3>
+                                    <p>Пожалуйста, обратите внимание, что мы являемся оптовым дистрибьютором и поставки только для уполномоченных дилеров</p>
+                                </div>
 
-                            <div class="forms">
+                                <div class="buttonsContainer">
+                                    <a href="{% url 'buyer:logout' %}" title="Выйти" class="formButton">
+                                        <b>Выйти</b>
+                                    </a>
+                                </div>
 
-                                {% if request.user.is_authenticated %}
+                            {% else %}
 
-                                    <div class="buttonsContainer">
-                                        <a href="{% url 'buyer:logout' %}" title="Выйти" class="formButton">
-                                            <b>Выйти</b>
-                                        </a>
-                                    </div>
-
-                                {% else %}
+                                <h3>ИНТЕРНЕТ МАГАЗИН</h3>
+                                <div class="forms">
 
                                     {% include 'login.html' %}
 
-                                {% endif %}
+                                </div>
 
-                            </div>
-
+                            {% endif %}
                         </div>
-
                     </div>
-
-
                 </div>
                 <div id="ie_clearing">&nbsp;</div>
 
