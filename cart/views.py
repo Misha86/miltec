@@ -103,8 +103,8 @@ def ordering(request):
                 msg.send()
 
                 messages.success(request, 'Заказ офомлен успешно. Ждите нашего дзвонка!', extra_tags='success')
-                return redirect('/cart/ordering/')
-                # return redirect('menu:homepage')
+                # return redirect('/cart/ordering/')
+                return redirect('menu:homepage')
 
         context = {'form': massage_form,
                    'cart': cart}
