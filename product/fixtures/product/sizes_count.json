@@ -11035,15 +11035,6 @@
 },
 {
   "model": "product.sizecount",
-  "pk": 1234,
-  "fields": {
-    "size": 5,
-    "product": 4082,
-    "count": 20
-  }
-},
-{
-  "model": "product.sizecount",
   "pk": 1235,
   "fields": {
     "size": 5,
@@ -11332,15 +11323,6 @@
 },
 {
   "model": "product.sizecount",
-  "pk": 1267,
-  "fields": {
-    "size": 3,
-    "product": 4082,
-    "count": 20
-  }
-},
-{
-  "model": "product.sizecount",
   "pk": 1268,
   "fields": {
     "size": 3,
@@ -11624,15 +11606,6 @@
   "fields": {
     "size": 4,
     "product": 4081,
-    "count": 20
-  }
-},
-{
-  "model": "product.sizecount",
-  "pk": 1300,
-  "fields": {
-    "size": 4,
-    "product": 4082,
     "count": 20
   }
 },
