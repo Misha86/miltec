@@ -93,11 +93,10 @@ class Product(models.Model):
         super(Product, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('product:product', kwargs={
-            'slug': self.slug})
+        return reverse('product:product', kwargs={'slug': self.slug})
 
     def get_sizes(self):
-        instance_sizes = Size.objects.filter(size_count__product=self)
+        instance_sizes = self.item.sizes.filter(size_count__product=self)
         if not instance_sizes.exists():
             return None
         else:
@@ -123,7 +122,7 @@ class Product(models.Model):
 
 
 class Size(models.Model):
-    title = models.CharField(verbose_name="Размер", max_length=10)
+    title = models.CharField(verbose_name="Размер", max_length=10, unique=True)
     items = models.ManyToManyField(Item, related_name="sizes",
                                    verbose_name="Категория размера")
 
@@ -153,4 +152,4 @@ class SizeCount(models.Model):
         verbose_name_plural = "Количества размеров"
 
     def __str__(self):
-        return "Количество размера - {}: {}".format(self.size.title, self.count)
+        return "Количество товаров размера - {}: {}".format(self.size.title, self.count)

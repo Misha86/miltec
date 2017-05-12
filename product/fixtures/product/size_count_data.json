@@ -1,72 +1,105 @@
 [
 {
   "model": "product.size",
-  "pk": 3,
-  "fields": {
-    "title": "42",
-    "items": [
-      87
-    ]
-  }
-},
-{
-  "model": "product.size",
-  "pk": 4,
-  "fields": {
-    "title": "43",
-    "items": [
-      87
-    ]
-  }
-},
-{
-  "model": "product.size",
-  "pk": 5,
-  "fields": {
-    "title": "40",
-    "items": [
-      19,
-      163,
-      265,
-      312
-    ]
-  }
-},
-{
-  "model": "product.size",
-  "pk": 6,
+  "pk": 10,
   "fields": {
     "title": "39",
     "items": [
-      19,
+      162,
       163,
+      164,
       265,
+      311,
       312
     ]
   }
 },
 {
   "model": "product.size",
-  "pk": 7,
+  "pk": 11,
+  "fields": {
+    "title": "40",
+    "items": [
+      162,
+      163,
+      164,
+      265,
+      311,
+      312
+    ]
+  }
+},
+{
+  "model": "product.size",
+  "pk": 12,
+  "fields": {
+    "title": "41",
+    "items": [
+      162,
+      163,
+      164,
+      265,
+      311,
+      312
+    ]
+  }
+},
+{
+  "model": "product.size",
+  "pk": 13,
+  "fields": {
+    "title": "42",
+    "items": [
+      162,
+      163,
+      164,
+      265,
+      311,
+      312
+    ]
+  }
+},
+{
+  "model": "product.size",
+  "pk": 14,
+  "fields": {
+    "title": "43",
+    "items": [
+      162,
+      163,
+      164,
+      265,
+      311,
+      312
+    ]
+  }
+},
+{
+  "model": "product.size",
+  "pk": 15,
   "fields": {
     "title": "44",
     "items": [
-      19,
+      162,
       163,
+      164,
       265,
+      311,
       312
     ]
   }
 },
 {
   "model": "product.size",
-  "pk": 8,
+  "pk": 16,
   "fields": {
     "title": "45",
     "items": [
-      19,
+      162,
       163,
+      164,
       265,
+      311,
       312
     ]
   }

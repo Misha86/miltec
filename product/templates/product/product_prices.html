@@ -21,21 +21,23 @@
 {% else %}
 
     <span class="price" itemprop="price">
-
-                    {{ product.price}}
-
-                    </span>
+        {{ product.price}}
+    </span>
 
     <span class="currency">EUR</span>
 
     <div>
-                    <span class="new-price">
+        <span class="new-price">
+            <em><b>{{ product.price|price_exchange:exchange }} UAH </b></em>
+        </span>
+    </div>
 
-                    <em><b>{{ product.price|price_exchange:exchange }} UAH </b></em>
-
-                    </span>
+    <div>
+        <span style="color: #c22727">
+            <b>(оптовая цена после регистрации)</b>
+        </span>
     </div>
 
 {% endif %}
 
-    <br/>
+<br/>

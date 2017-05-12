@@ -1,7 +1,12 @@
 from django.contrib import admin
 from django.contrib.contenttypes.admin import (GenericStackedInline, GenericTabularInline)
 from .models import (Category, Item)
-from product.models import Product
+from product.models import (Product, Size)
+
+
+class SizeInLine(admin.TabularInline):
+    model = Size.items.through
+    extra = 2
 
 
 class ProductInLine(admin.StackedInline):
@@ -39,7 +44,7 @@ class ItemInLine(GenericStackedInline):
 
 class ItemsInLine(GenericTabularInline):
     model = Item
-    extra = 6
+    extra = 2
     verbose_name = 'Підпункт'
     verbose_name_plural = "Підпункти"
     readonly_fields = ['slug']
@@ -69,7 +74,7 @@ class ItemAdmin(admin.ModelAdmin):
     search_fields = ['title', ]
     list_per_page = 10
 
-    inlines = [ItemsInLine, ProductInLine]
+    inlines = [ItemsInLine, SizeInLine, ProductInLine]
 
 
 admin.site.register(Category, CategoryAdmin)
