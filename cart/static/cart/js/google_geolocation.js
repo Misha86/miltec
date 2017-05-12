@@ -1,3 +1,8 @@
+function hideMap(){
+    $('#map').hide();
+    $('body').scrollTop(0)
+};
+
 var map;
 var service;
 var infowindow;
@@ -30,7 +35,8 @@ function addMarker(place) {
             map.setCenter(marker.getPosition());
 
             infowindow.setContent('<div><strong>' + result.name + '</strong><br>' +
-            '<br>' + result.formatted_address + '</div>');
+            '<br>' + result.formatted_address + '<br><br>' + '<a style="color: blue; cursor: pointer;">' +
+            '<em onclick="hideMap()">Адрес добавлен скрыть карту?</em>' + '</a></div>');
             infowindow.open(map, marker);
         });
     });
@@ -79,10 +85,7 @@ function initialise (location){
     var closeButton = document.createElement('div');
     closeButton.text = 'Close';
     $(closeButton).addClass('close-map');
-    $(closeButton).click(function(){
-        $('#map').hide();
-        $('body').scrollTop(0)
-    });
+    $(closeButton).click(hideMap)
 
     map.controls[google.maps.ControlPosition.RIGHT_TOP].push(closeButton);
 
