@@ -18,6 +18,9 @@ $(function () {
                 } else {
                     console.log(data.form_valid)
                 }
+                if(data.html_messages){
+                    addDjangoMessage(data.html_messages, '#messages', 7000);
+                }
             },
             error: error
         });

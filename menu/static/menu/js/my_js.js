@@ -40,6 +40,10 @@ var error = function(xhr, errmsg, err) {
 };
 
 
+var addDjangoMessage = function(data, selector, fadeTime){
+   $(selector).empty().html(data).children().fadeOut(fadeTime);
+};
+
 $(function () {
     $('.hlist li').each(function () {
         var location = window.location.pathname;

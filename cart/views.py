@@ -15,6 +15,14 @@ from django.contrib import messages
 from email.mime.image import MIMEImage
 
 
+def django_message(request, template, data, name_value):
+    message = messages.get_messages(request)
+    if message:
+        data[name_value] = render_to_string(template,
+                                            {'messages': message},
+                                            request=request)
+
+
 @require_POST
 def cart_add(request, product_id):
     if request.is_ajax():
@@ -30,8 +38,12 @@ def cart_add(request, product_id):
 
             data['form_valid'] = True
             data['total_price'] = cart.get_total_price()
+            messages.success(request, "Вы добавили в корзину '{}'.".format(product.title), extra_tags='success')
         else:
             data['form_valid'] = False
+
+        django_message(request, 'messages.html', data, 'html_messages')
+
         return JsonResponse(data)
     else:
         return redirect(reverse('menu:shop'))
@@ -47,6 +59,7 @@ def cart_remove(request, product_id, size):
         data['total_price'] = cart.get_total_price()
         if not cart.get_total_price():
             data['empty_cart'] = render_to_string('empty_cart.html', request=request)
+
         return JsonResponse(data)
 
     return redirect('cart:detail')
