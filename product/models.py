@@ -11,6 +11,7 @@ from django.db import models
 from django.utils.text import slugify
 from menu.models import (Category, Item)
 from cart.forms import CartAddProductForm
+from django.core.exceptions import ValidationError
 
 
 def upload_location(instance, filename):
@@ -138,10 +139,15 @@ class Size(models.Model):
     def __str__(self):
         return str(self.title)
 
+    def get_items(self):
+        return " | \n".join([i.title for i in self.items.all()])
+
+    get_items.short_description = 'Список категорий'
+
 
 class SizeCount(models.Model):
-    size = models.ForeignKey(Size, related_name='size_count', on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, related_name='size_count', on_delete=models.CASCADE)
+    size = models.ForeignKey(Size, verbose_name="Размер", related_name='size_count', on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, verbose_name="Товар", related_name='size_count', on_delete=models.CASCADE)
     count = models.IntegerField(verbose_name="Количество", default=0)
 
     class Meta:
@@ -153,3 +159,23 @@ class SizeCount(models.Model):
 
     def __str__(self):
         return "Количество товаров размера - {}: {}".format(self.size.title, self.count)
+
+    def clean(self):
+        # Don't allow draft entries to have a pub_date.
+        if self.product.item not in self.size.items.all():
+            raise ValidationError(
+                'Нет в категории товара размера: %(value)s',
+                params={'value': self.size.title},)
+        if not self in self.product.size_count.all():
+            raise ValidationError(
+                'В товара уже есть размер: %(value)s',
+                params={'value': self.size.title},)
+
+    def save(self, *args, **kwargs):
+        if self.product.item in self.size.items.all():
+            if self.product.size_count.filter(size=self.size).exists():
+                raise ValueError('В товара уже есть размер:: %s' % self.size.title)
+        else:
+            raise ValueError('Нет в категории товара размера: %s' % self.size.title)
+
+        super(SizeCount, self).save(*args, **kwargs)

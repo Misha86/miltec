@@ -24,6 +24,20 @@ class ProductAdmin(admin.ModelAdmin):
     inlines = [SizeCountInLine]
 
 
+class SizeAdmin(admin.ModelAdmin):
+    model = Size
+    list_display = ['title', 'get_items', 'id']
+    search_fields = ['title', 'items', ]
+    list_filter = ['items', ]
+
+
+class SizeCountAdmin(admin.ModelAdmin):
+    model = SizeCount
+    list_display = ['size', 'product', 'count', 'id']
+    search_fields = ['product', 'size', ]
+    list_filter = ['size', ]
+
+
 admin.site.register(Product, ProductAdmin)
-admin.site.register(Size)
-admin.site.register(SizeCount)
+admin.site.register(Size, SizeAdmin)
+admin.site.register(SizeCount, SizeCountAdmin)

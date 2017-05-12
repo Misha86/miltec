@@ -112,7 +112,3 @@ def ordering(request):
         return render(request, 'cart_ordering.html', context)
     else:
         return redirect('menu:shop')
-
-
-
-
