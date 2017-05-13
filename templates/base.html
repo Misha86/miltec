@@ -120,10 +120,22 @@
 
     <script src="{% static 'js/shop_0.js' %}" type="text/javascript"></script>
 
+    <script type="text/javascript">
+        $(window).load(function() {
+            $(".loader").fadeOut("slow");
+        });
+
+        $(document).on({
+            ajaxStart: function() { $(".loader").fadeIn('fast'); },
+            ajaxStop: function() { $(".loader").fadeOut('fast'); }
+        });
+    </script>
+
 </head>
 
 <body id="shop_main">
 
+<div class="loader"></div>
 
 {% block register %}
 
