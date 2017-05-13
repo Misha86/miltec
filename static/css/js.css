@@ -1,14 +1,1 @@
-@charset "ISO-8859-1";
-/* CSS Document */
-
-/************************************************************************************
-/ Datei:     js.css
-/ Aufgabe:   Style-Sheets den JavaScript-Hinweis vom Eidamo Webshop
-/ Copyright: (c) 2005 by SEG Network GmbH, Bonn
-/ Autor:     JG
-/ Datum:     17.09.2005
-/***********************************************************************************/
-
-#js_check {
-	display: none;
-}
+@charset "ISO-8859-1";#js_check{display:none;}
