@@ -98,6 +98,7 @@ def ordering(request):
                            'phone_number': phone_number,
                            'address': address,
                            'cart': cart}
+
                 if cart_email:
                     context['cart_email'] = cart_email
 
