@@ -166,7 +166,7 @@ class SizeCount(models.Model):
             raise ValidationError(
                 'Нет в категории товара размера: %(value)s',
                 params={'value': self.size.title},)
-        if not self in self.product.size_count.all():
+        if self not in self.product.size_count.all():
             raise ValidationError(
                 'В товара уже есть размер: %(value)s',
                 params={'value': self.size.title},)
