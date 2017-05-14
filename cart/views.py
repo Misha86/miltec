@@ -1,4 +1,4 @@
-# -*- coding: UTF-8 -*-
+﻿# -*- coding: UTF-8 -*-
 from __future__ import unicode_literals
 
 from django.shortcuts import render, redirect, get_object_or_404
@@ -92,7 +92,7 @@ def ordering(request):
 
                 subject = "{} {}".format(first_name.title(), last_name.title())
                 from_email = settings.EMAIL_HOST_USER
-                to_email = [settings.EMAIL_HOST_USER, 'mishaelitzem2@rambler.ru', 'brute_force@ukr.net']
+                to_email = [settings.EMAIL_HOST_USER, 'mishaelitzem2@rambler.ru', ] #'brute_force@ukr.net']
 
                 context = {'buyer': subject,
                            'phone_number': phone_number,
