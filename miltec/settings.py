@@ -15,7 +15,7 @@ from django.contrib.messages import constants as message_constants
 from decouple import config, Csv
 import dj_database_url
 from .send_mail_settings import *
-from .memcached_cache import *
+# from .memcached_cache import *
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
