@@ -15,7 +15,7 @@
 
                     <td>
 
-                    {% cache 1000 image cat.title %}
+                    {% cache 86400 image cat.title %}
                         <a href="{{ cat.get_absolute_url }}">
                             <img src="{% if cat.image %}{{ cat.image.url }}{% else %}{{ cat.get_all_products.0.image.url }}{% endif %}">
                             <h2 class="uppercase">

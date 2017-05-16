@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load staticfiles %}{% load cache %}
 
 
 <div class="products viewGrid">
@@ -25,11 +25,11 @@
 
                                 </dt>
 
+                                {% cache 86400 image product.title product.id %}
                                 <dd id="thumb_168" class="image">
-
                                     <img itemprop="image" class="photo" src="{{ product.image.url }}" alt="{{ product.title|upper }}">
-
                                 </dd>
+                                {% endcache %}
 
 
                                 <dd class="subtitle"></dd>
@@ -42,26 +42,21 @@
                                 </dd>
 
                                 <dd class="description">
-
                                     <p itemprop="description">
 
                                         {{ product.discription|truncatechars:200 }}
 
                                     </p>
-
                                 </dd>
 
                                 <!-- EIDAMO_LIST_INQUIRY_START:1 -->
 
                                 <dd class="price" id="price_168" style="">
+                                    <span class="current_price" itemprop="offers" itemscope="" itemtype="">
 
+                                         {% include "product_prices.html" %}
 
-			<span class="current_price" itemprop="offers" itemscope="" itemtype="">
-
-                 {% include "product_prices.html" %}
-
-			</span>
-
+                                    </span>
                                 </dd>
 
                             </dl>

@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load staticfiles %}{% load cache %}
 
 
 <div class="products viewStandard"> <!-- will be switched using jQuery -->
@@ -18,18 +18,16 @@
                         <a href="{{ product.get_absolute_url }}" title="{{ product.title|upper }}" price="{{ product.price }}" rel="nofollow">
                             <dl>
                                 <dt title="{{ product.title|upper }}">
-
                                                 <span class="title name fn" itemprop="name">
                                                     {{ product.title|upper }}
                                                 </span>
-
                                 </dt>
 
+                                {% cache 86400 image product.title product.id %}
                                 <dd id="thumb_1" class="image">
-
                                     <img itemprop="image" class="photo" src="{{ product.image.url }}" alt="{{ product.title }}">
-
                                 </dd>
+                                {% endcache %}
 
                                 <dd class="subtitle"></dd>
 
@@ -42,11 +40,9 @@
 
                                 {% if product.description %}
                                     <dd class="description">
-
                                         <p itemprop="description">
                                             {{ product.description|safe|truncatechars:200 }}
                                         </p>
-
                                     </dd>
                                 {% endif %}
 
