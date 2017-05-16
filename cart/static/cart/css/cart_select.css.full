@@ -1,0 +1,30 @@
+.cart-form {
+    float: right;
+}
+
+.cart-form label {
+    font-weight: bold;
+}
+
+.cart-form select {
+    font-size: 1em;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.0976562) 0px 2px 5px inset;
+    -webkit-box-sizing: border-box;
+    border: 1px solid #D4D4D4;
+    border-bottom-left-radius: 3px 3px;
+    border-bottom-left-radius: 3px 3px;
+    border-bottom-right-radius: 3px 3px;
+    border-bottom-right-radius: 3px 3px;
+    border-top-left-radius: 3px 3px;
+    border-top-left-radius: 3px 3px;
+    border-top-right-radius: 3px 3px;
+    border-top-right-radius: 3px 3px;
+    color: #7A7A7A;
+    margin: 0 0.5em;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 5px inset;
+}
+
+.cart-form option:checked, option:hover {
+    background: #cf2214 linear-gradient(#e82a1e, #ff2515);
+    color: white;
+}
