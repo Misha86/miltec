@@ -28,6 +28,7 @@ pylint-django==0.7.2
 pylint-plugin-utils==0.2.6
 pyparsing==2.2.0
 python-decouple==3.0
+pylibmc==1.4.0
 python-memcached==1.58
 pytz==2017.2
 requests==2.13.0
