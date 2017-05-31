@@ -1,0 +1,16 @@
+{% extends 'base.html' %}{% load i18n %}{% load staticfiles %}
+
+
+{% block title %}{% trans '404 Страница не найдена' %}{% endblock %}
+
+
+{% block register %}
+    <div class="row">
+        <div class="container">
+
+            <h1>{% trans '404 Страница не найдена' %}</h1>
+            <h3><em>{% trans 'Простите, запрошена Вами страница незнадена!' %}</em></h3>
+
+        </div>
+    </div>
+{% endblock %}
