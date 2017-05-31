@@ -247,3 +247,6 @@ CART_SESSION_ID = 'cart'
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
+
+GEOIP_PATH = os.path.join(BASE_DIR, 'miltec', 'geo')
+

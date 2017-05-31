@@ -1,3 +1,6 @@
+# -*- coding: UTF-8 -*-
+from __future__ import unicode_literals
+
 from django.shortcuts import (render, redirect)
 from .models import Category
 from django.shortcuts import get_object_or_404
@@ -5,21 +8,11 @@ from django.core.urlresolvers import reverse
 from django.template.loader import render_to_string
 from django.http import JsonResponse
 
-
-def bootstrap_query(array, num):
-    new_list = []
-    length = int(len(array)//num)
-    rest = len(array) % num
-    b = 0
-    for i in range(length):
-        new_list.append(array[b:b+num])
-        b += num
-    if rest:
-        new_list.append(array[len(array)-rest:])
-    return new_list
+from .utils import (bootstrap_query, send_details_user)
 
 
 def homepage(request):
+    send_details_user(request)
     return render(request, "base.html")
 
 
