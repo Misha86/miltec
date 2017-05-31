@@ -39,7 +39,7 @@ def send_details_user(request):
             subject = "Пользователь: {}".format(request.user)
 
         message = "{0};\n IP: {1};\n Регіон: {2};\n " \
-                  "Страна: {3};\n Код страны: {4};\n " \
+                  "Город: {8};\n Страна: {3};\n Код страны: {4};\n " \
                   "Долгота: {5};\n Шырота: {6};\n " \
                   "Почтовый код: {7}.".format(subject,
                                               ip,
@@ -48,7 +48,8 @@ def send_details_user(request):
                                               location.get('country_code', None),
                                               location.get('longitude', None),
                                               location.get('latitude', None),
-                                              location.get('postal_code', None))
+                                              location.get('postal_code', None),
+                                              location.get('city', None),)
         mail_admins(subject, message)
         request.session.set_expiry(0)
         request.session['user_ip'] = ip
