@@ -6,7 +6,7 @@ from cart.cart import Cart
 import requests
 from bs4 import BeautifulSoup
 from decimal import Decimal
-from datetime import datetime
+from datetime import (datetime, timedelta)
 from django.utils.timezone import make_aware, get_current_timezone
 
 
@@ -34,8 +34,9 @@ def exchange_rates(request):
         except Exception as ex:
             exchange = False
 
-        date_now = datetime.today()
-        expire_datetime = make_aware(datetime(date_now.year, date_now.month, date_now.day+1), get_current_timezone())
+        date_tomorrow = datetime.today() + timedelta(days=1)
+        expire_datetime = make_aware(datetime(date_tomorrow.year, date_tomorrow.month, date_tomorrow.day),
+                                     get_current_timezone())
         request.session.set_expiry(expire_datetime)
         request.session['exchange'] = exchange
 
