@@ -49,7 +49,7 @@ def send_details_user(request):
                                               location.get('longitude', None),
                                               location.get('latitude', None),
                                               location.get('postal_code', None),
-                                              location.get('city', None),)
+                                              location.get('city', None))
         mail_admins(subject, message)
         request.session.set_expiry(0)
         request.session['user_ip'] = ip
