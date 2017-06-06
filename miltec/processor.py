@@ -32,7 +32,7 @@ def exchange_rates(request):
             exchange_soup = soup_data.find_all('div', attrs={'class': 'with-arrows'}, limit=6)[-1]
             exchange = Decimal(exchange_soup.next_element).quantize(Decimal("0.00"))
         except Exception as ex:
-            exchange = ex
+            exchange = soup_data.find_all('div', attrs={'class': 'with-arrows'}, limit=6)
 
         date_tomorrow = datetime.today() + timedelta(days=1)
         expire_datetime = make_aware(datetime(date_tomorrow.year, date_tomorrow.month, date_tomorrow.day),
