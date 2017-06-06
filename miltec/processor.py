@@ -34,7 +34,7 @@ def exchange_rates(request):
         except Exception as ex:
             url_requests = requests.get(url).content
             soup_data = BeautifulSoup(url_requests, "html.parser")
-            exchange = soup_data.find_all('div', attrs={'class': 'with-arrows'}, limit=6)
+            exchange = soup_data.find_all('div', attrs={'class': 'with-arrows'})
 
         date_tomorrow = datetime.today() + timedelta(days=1)
         expire_datetime = make_aware(datetime(date_tomorrow.year, date_tomorrow.month, date_tomorrow.day),
