@@ -32,6 +32,8 @@ def exchange_rates(request):
             exchange_soup = soup_data.find_all('div', attrs={'class': 'with-arrows'}, limit=6)[-1]
             exchange = Decimal(exchange_soup.next_element).quantize(Decimal("0.00"))
         except Exception as ex:
+            url_requests = requests.get(url).content
+            soup_data = BeautifulSoup(url_requests, "html.parser")
             exchange = soup_data.find_all('div', attrs={'class': 'with-arrows'}, limit=6)
 
         date_tomorrow = datetime.today() + timedelta(days=1)
