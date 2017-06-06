@@ -6,7 +6,7 @@ from .models import Category
 from django.shortcuts import get_object_or_404
 from django.core.urlresolvers import reverse
 from django.template.loader import render_to_string
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 
 from .utils import (bootstrap_query, send_details_user)
 
@@ -14,6 +14,7 @@ from .utils import (bootstrap_query, send_details_user)
 def homepage(request):
     send_details_user(request)
     return render(request, "base.html")
+    # return HttpResponse(send_details_user(request))
 
 
 def shop(request):

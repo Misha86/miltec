@@ -1,0 +1,121 @@
+{% load staticfiles %}
+
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+{#<script src="{% static 'js/jquery.min.js' %}"></script>#}
+
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+{#<script src="{% static 'js/jquery-ui.js' %}"></script>#}
+
+<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCCGuxN6OjpeVdH6rFh2AABSTV_-ahgr9U&libraries=places'></script>
+<script type="text/javascript">
+    function initialise (location){
+        //console.log(location);
+{#        var myLatLng = {lat: Number($("#latitude").text()), lng: Number($("#longitude").text())};#}
+        var myLatLng = {
+            lat: {% if location.latitude %}{{ location.latitude }}{% else %}50.61968772{% endif %},
+            lng: {% if location.longitude %}{{ location.longitude }}{% else %}26.25092292{% endif %}
+        };
+
+        var mapOptions = {
+            center: myLatLng,
+            zoom: 12
+        };
+
+        map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+        var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: 'Місце розташування відвідувача'
+        });
+
+        // marker my location
+        marker.addListener('click', function() {
+            map.setZoom(15);
+            //console.log(this.title);
+            map.setCenter(this.getPosition());
+        })
+    }
+    $(function(){
+
+        navigator.geolocation.getCurrentPosition(initialise, initialise)
+    })
+</script>
+
+<style>
+    table#user-ip {
+        width: 100%;
+    }
+    #user-ip td {
+        border-bottom: 1px solid #4f4db9;
+        border-top: 1px solid #4f4db9;
+    }
+</style>
+
+<div>
+    <table id="user-ip">
+        <tbody>
+        <tr>
+            <td>
+                <h3>Пользователь:</h3>
+            </td>
+            <td>
+                <p>{{ user }}</p>
+            </td>
+            <td>
+                <h3>IP:</h3>
+            </td>
+            <td>
+                <p>{{ ip }}</p>
+            </td>
+            <td>
+                <h3>Регіон:</h3>
+            </td>
+            <td>
+                <p>{% if location.region %}{{ location.region }}{% else %}Нет даных!{% endif %}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>Город:</h3>
+            </td>
+            <td>
+                <p>{% if location.city %}{{ location.city }}{% else %}Нет даных!{% endif %}</p>
+            </td>
+            <td>
+                <h3>Страна:</h3>
+            </td>
+            <td>
+                <p>{% if location.country_name %}{{ location.country_name }}{% else %}Нет даных!{% endif %}</p>
+            </td>
+            <td>
+                <h3>Код страны:</h3>
+            </td>
+            <td>
+                <p>{% if location.country_code %}{{ location.country_code }}{% else %}Нет даных!{% endif %}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>Долгота:</h3>
+            </td>
+            <td>
+                <p id="longitude">{% if location.longitude %}{{ location.longitude }}{% else %}26.25092292{% endif %}</p>
+            </td>
+            <td>
+                <h3>Шырота:</h3>
+            </td>
+            <td>
+                <p id="latitude">{% if location.latitude %}{{ location.latitude }}{% else %}50.61968772{% endif %}</p>
+            </td>
+            <td>
+                <h3>Почтовый код:</h3>
+            </td>
+            <td>
+                <p>{% if location.postal_code %}{{ location.postal_code }}{% else %}Нет даных!{% endif %}</p>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div id="map" style="height: 35em;"></div>
+</div>
