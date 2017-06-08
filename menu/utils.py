@@ -70,6 +70,9 @@ def send_details_user(request):
                                               location.get('city', None))
         mail_admins(subject, message, html_message=html_message)
 
+        # request.session.set_expiry(0)
+        # request.session['user_ip'] = ip
+
         # if not settings.ADMINS:
         #         return
         # msg = EmailMultiAlternatives('%s%s' % (settings.EMAIL_SUBJECT_PREFIX, subject),
@@ -81,8 +84,6 @@ def send_details_user(request):
 
         # msg.send()
 
-        # request.session.set_expiry(0)
-        # request.session['user_ip'] = ip
         # return html_message
 
 

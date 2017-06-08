@@ -75,6 +75,7 @@ TEMPLATES = [
                  os.path.join(BASE_DIR, 'menu', 'templates', 'menu'),
                  os.path.join(BASE_DIR, 'product', 'templates', 'product'),
                  os.path.join(BASE_DIR, 'buyer', 'templates', 'buyer'),
+                 os.path.join(BASE_DIR, 'buyer', 'templates', 'registration'),
                  os.path.join(BASE_DIR, 'cart', 'templates', 'cart')],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -250,3 +251,4 @@ SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
 GEOIP_PATH = os.path.join(BASE_DIR, 'miltec', 'geo')
 
+LOGIN_URL = 'buyer:login'
