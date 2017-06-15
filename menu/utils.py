@@ -74,7 +74,7 @@ def send_details_user(request, response):
         # request.session.set_expiry(0)
         # request.session['user_ip'] = ip
 
-        response.set_cookie(key='user_ip', value=ip, max_age=60)
+        response.set_cookie(key='user_ip', value=ip, max_age=1800)
 
         # if not settings.ADMINS:
         #         return
