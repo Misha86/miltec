@@ -24,7 +24,7 @@ def cart(request):
 
 def exchange_rates(request):
     if not request.session.get('exchange', False):
-
+        print('None')
         url = 'https://old.kurs.com.ua/informer/inf2'
         try:
             url_requests = requests.get(url).content

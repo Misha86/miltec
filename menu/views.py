@@ -14,7 +14,6 @@ from .utils import (bootstrap_query, send_details_user)
 def homepage(request):
     send_details_user(request)
     return render(request, "base.html")
-    # return HttpResponse(send_details_user(request))
 
 
 def shop(request):

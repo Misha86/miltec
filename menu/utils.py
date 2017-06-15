@@ -70,7 +70,7 @@ def send_details_user(request):
                                               location.get('city', None))
         mail_admins(subject, message, html_message=html_message)
 
-        request.session.set_expiry(0)
+        # request.session.set_expiry(0)
         request.session['user_ip'] = ip
 
         # if not settings.ADMINS:
