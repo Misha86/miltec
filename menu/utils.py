@@ -33,12 +33,12 @@ def send_details_user(request, response):
     if request.user.is_authenticated():
         user = request.user.get_full_name()
     else:
-        user = str(request.user)
+        user = request.user
 
     user_ip = request.COOKIES.get('user_ip', False)
     user_name = request.COOKIES.get('username', False)
 
-    if not user_ip or user_ip != ip or user_name != user:
+    if not user_ip or user_ip != ip or user_name != str(user):
         if ip is not None:
             g = GeoIP2()
             try:
