@@ -30,20 +30,21 @@ def bootstrap_query(array, num):
 def send_details_user(request, response):
     ip = get_ip(request)
 
-    user_ip = request.COOKIES.get('user_ip', False)
+    if request.user.is_authenticated():
+        user = request.user.get_full_name()
+    else:
+        user = 'AnonymousUser'
 
-    if not user_ip or user_ip != ip:
+    user_ip = request.COOKIES.get('user_ip', False)
+    user_name = request.COOKIES.get('user_name', False)
+
+    if not user_ip or user_ip != ip or user_name != user:
         if ip is not None:
             g = GeoIP2()
             try:
                 location = g.city(ip)
             except:
                 location = {'Локация': 'нет данных'}
-
-        if request.user.is_authenticated():
-            user = request.user.get_full_name()
-        else:
-            user = request.user
 
         subject = "Пользователь: {}".format(user)
 
@@ -73,6 +74,7 @@ def send_details_user(request, response):
         # request.session['user_ip'] = ip
 
         response.set_cookie(key='user_ip', value=ip, max_age=1800)
+        response.set_cookie(key='user_name', value=user)
 
         # if not settings.ADMINS:
         #         return
