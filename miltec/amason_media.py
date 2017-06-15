@@ -15,7 +15,4 @@ MEDIAFILES_LOCATION = 'media'
 
 DEFAULT_FILE_STORAGE = 'miltec.custom_storages.MediaStorage'
 
-COMPRESS_STORAGE = DEFAULT_FILE_STORAGE
-COMPRESS_URL = 'http://{}.{}'.format(AWS_STORAGE_BUCKET_NAME, AWS_S3_HOST)
-
 
