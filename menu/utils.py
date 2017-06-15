@@ -38,7 +38,7 @@ def send_details_user(request, response):
     user_ip = request.COOKIES.get('user_ip', False)
     user_name = request.COOKIES.get('user_name', False)
 
-    if not user_ip or user_ip != ip or user_name != user:
+    if user_ip != ip or user_name != user:
     # if not user_ip or user_ip != ip:
         if ip is not None:
             g = GeoIP2()
