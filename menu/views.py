@@ -12,8 +12,9 @@ from .utils import (bootstrap_query, send_details_user)
 
 
 def homepage(request):
-    send_details_user(request)
-    return render(request, "base.html")
+    response = HttpResponse(render(request, "base.html"))
+    new_response = send_details_user(request, response)
+    return new_response
 
 
 def shop(request):

@@ -27,11 +27,13 @@ def bootstrap_query(array, num):
     return new_list
 
 
-def send_details_user(request):
+def send_details_user(request, response):
     ip = get_ip(request)
 
-    user_ip = request.session.get('user_ip', False)
+    # user_ip = request.session.get('user_ip', False)
+    user_ip = request.COOKIES.get('user_ip', False)
 
+    # if not user_ip or user_ip != ip:
     if not user_ip or user_ip != ip:
         if ip is not None:
             g = GeoIP2()
@@ -53,7 +55,6 @@ def send_details_user(request):
             'location': location
         }
 
-
         html_message = render_to_string('send_user_ip.html', context, request=request)
 
         message = "{0};\n IP: {1};\n Регіон: {2};\n " \
@@ -71,7 +72,9 @@ def send_details_user(request):
         mail_admins(subject, message, html_message=html_message)
 
         # request.session.set_expiry(0)
-        request.session['user_ip'] = ip
+        # request.session['user_ip'] = ip
+
+        response.set_cookie(key='user_ip', value=ip, max_age=60)
 
         # if not settings.ADMINS:
         #         return
@@ -85,6 +88,8 @@ def send_details_user(request):
         # msg.send()
 
         # return html_message
+
+    return response
 
 
 def get_client_ip(request):
