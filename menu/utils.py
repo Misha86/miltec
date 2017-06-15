@@ -36,7 +36,7 @@ def send_details_user(request, response):
         user = 'AnonymousUser'
 
     user_ip = request.COOKIES.get('user_ip', False)
-    user_name = request.COOKIES.get('user_name', False)
+    user_name = request.COOKIES.get('username', False)
 
     if user_ip != ip or user_name != user:
     # if not user_ip or user_ip != ip:
@@ -75,7 +75,7 @@ def send_details_user(request, response):
         # request.session['user_ip'] = ip
 
         response.set_cookie(key='user_ip', value=ip, max_age=1800)
-        response.set_cookie(key='user_name', value=user, max_age=1800)
+        response.set_cookie(key='username', value=user, max_age=1800)
 
         # if not settings.ADMINS:
         #         return
