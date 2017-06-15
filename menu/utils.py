@@ -31,14 +31,14 @@ def send_details_user(request, response):
     ip = get_ip(request)
 
     if request.user.is_authenticated():
-        user = request.user.get_full_name()
+        user_site = request.user.get_full_name()
     else:
-        user = 'AnonymousUser'
+        user_site = 'AnonymousUser'
 
     user_ip = request.COOKIES.get('user_ip', False)
-    user_name = request.COOKIES.get('username', False)
+    user_name = request.COOKIES.get('user_name', False)
 
-    if user_name != user:
+    if not user_ip or user_ip != ip or user_name != user_site:
     # if not user_ip or user_ip != ip:
         if ip is not None:
             g = GeoIP2()
@@ -47,10 +47,10 @@ def send_details_user(request, response):
             except:
                 location = {'Локация': 'нет данных'}
 
-        subject = "Пользователь: {}".format(user)
+        subject = "Пользователь: {}".format(user_site)
 
         context = {
-            'user': user,
+            'user': user_site,
             'ip': ip,
             'location': location
         }
@@ -75,7 +75,7 @@ def send_details_user(request, response):
         # request.session['user_ip'] = ip
 
         response.set_cookie(key='user_ip', value=ip, max_age=1800)
-        response.set_cookie(key='username', value=user, max_age=1800)
+        response.set_cookie(key='user_name', value=user_site, max_age=1800)
 
         # if not settings.ADMINS:
         #         return
