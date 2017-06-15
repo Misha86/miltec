@@ -27,14 +27,14 @@
 
             {% for category in categories %}
 
-                {% cache 3600 category.title category.id %}
-                    <h5 id="mainCatID_{{ category.id }}" class="category">
-                        <a href="{{ category.get_absolute_url }}" title="{{ category.title }}">
+                <h5 id="mainCatID_{{ category.id }}" class="category">
+                    <a href="{{ category.get_absolute_url }}" title="{{ category.title }}">
+                        {% cache 3600 category.title category.id %}
                             <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-toggle">
-                            {{ category.title }}
-                        </a>
-                    </h5>
-                {% endcache %}
+                        {% endcache %}
+                        {{ category.title }}
+                    </a>
+                </h5>
 
                 <div>
                     <ul>
