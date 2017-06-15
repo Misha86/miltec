@@ -29,7 +29,7 @@
 
                 <h5 id="mainCatID_{{ category.id }}" class="category">
                     <a href="{{ category.get_absolute_url }}" title="{{ category.title }}">
-                        {% cache 3600 category.title category.id %}
+                        {% cache 86400 category.title category.id %}
                             <img src="{% static 'img/gfx.spacer.gif' %}" class="icon icon-lg-toggle">
                         {% endcache %}
                         {{ category.title }}
