@@ -1,4 +1,4 @@
-{% load staticfiles %}{% load product_tags %}
+﻿{% load staticfiles %}{% load product_tags %}
 
 
 
@@ -137,8 +137,11 @@
         {% if product.description %}
             <h4>Описание</h4>
             <div class="tabs-content">
-                <!-- Artikelbeschreibung -->
-                <p>{{ product.description|safe }}</p>
+		<dl class="specifications">
+		  <dd>
+                    <p>{{ product.description|safe }}</p>
+		  </dd>
+		</<dl>
             </div>
         {% endif %}
         <!-- end: product-description_?.html -->
